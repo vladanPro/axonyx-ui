@@ -1,22 +1,22 @@
 :root[data-theme='bronze'] {
-    --ax-bg: #060b14;
-    --ax-surface: #0c1630;
-    --ax-surface-2: #0f1b38;
+    --ax-bg: #120d09;
+    --ax-surface: #1b140f;
+    --ax-surface-2: #261b14;
 
-    --ax-border: rgba(95, 142, 214, 0.22);
-    --ax-border-strong: rgba(95, 142, 214, 0.34);
+    --ax-border: rgba(191, 128, 74, 0.24);
+    --ax-border-strong: rgba(191, 128, 74, 0.38);
 
-    --ax-text: #f4f7fb;
-    --ax-text-soft: #cfdaea;
-    --ax-text-muted: #8ea0ba;
+    --ax-text: #f8f4ee;
+    --ax-text-soft: #dfd3c5;
+    --ax-text-muted: #b39d89;
 
     --ax-primary: #ffc53d;
-    --ax-link: #d596ff;
-    --ax-cyan: #68d7ff;
+    --ax-link: #ffcf76;
+    --ax-cyan: #f3b56b;
 
     --ax-card-surface:
-        radial-gradient(circle at top left, rgba(35, 91, 180, 0.14), transparent 42%),
-        linear-gradient(180deg, rgba(15, 28, 59, 0.98), rgba(6, 11, 20, 0.98));
+        radial-gradient(circle at top left, rgba(255, 197, 61, 0.1), transparent 40%),
+        linear-gradient(180deg, rgba(44, 28, 18, 0.98), rgba(18, 13, 9, 0.98));
 }
 
 :root[data-theme='silver'] {
