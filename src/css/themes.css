@@ -1,0 +1,62 @@
+:root[data-theme='bronze'] {
+    --ax-bg: #060b14;
+    --ax-surface: #0c1630;
+    --ax-surface-2: #0f1b38;
+
+    --ax-border: rgba(95, 142, 214, 0.22);
+    --ax-border-strong: rgba(95, 142, 214, 0.34);
+
+    --ax-text: #f4f7fb;
+    --ax-text-soft: #cfdaea;
+    --ax-text-muted: #8ea0ba;
+
+    --ax-primary: #ffc53d;
+    --ax-link: #d596ff;
+    --ax-cyan: #68d7ff;
+
+    --ax-card-surface:
+        radial-gradient(circle at top left, rgba(35, 91, 180, 0.14), transparent 42%),
+        linear-gradient(180deg, rgba(15, 28, 59, 0.98), rgba(6, 11, 20, 0.98));
+}
+
+:root[data-theme='silver'] {
+    --ax-bg: #071019;
+    --ax-surface: #0e1826;
+    --ax-surface-2: #132133;
+
+    --ax-border: rgba(163, 182, 207, 0.18);
+    --ax-border-strong: rgba(163, 182, 207, 0.28);
+
+    --ax-text: #f3f6fb;
+    --ax-text-soft: #d7dfeb;
+    --ax-text-muted: #99aabc;
+
+    --ax-primary: #b8c2cf;
+    --ax-link: #c8a8ff;
+    --ax-cyan: #88d5ff;
+
+    --ax-card-surface:
+        radial-gradient(circle at top left, rgba(120, 155, 220, 0.1), transparent 42%),
+        linear-gradient(180deg, rgba(16, 27, 42, 0.98), rgba(7, 16, 25, 0.98));
+}
+
+:root[data-theme='gold'] {
+    --ax-bg: #0d0b09;
+    --ax-surface: #17120d;
+    --ax-surface-2: #221a12;
+
+    --ax-border: rgba(224, 185, 75, 0.2);
+    --ax-border-strong: rgba(224, 185, 75, 0.32);
+
+    --ax-text: #fbf7ef;
+    --ax-text-soft: #e5dccd;
+    --ax-text-muted: #b7ab96;
+
+    --ax-primary: #e0b94b;
+    --ax-link: #f0c86d;
+    --ax-cyan: #ffd98a;
+
+    --ax-card-surface:
+        radial-gradient(circle at top left, rgba(224, 185, 75, 0.1), transparent 42%),
+        linear-gradient(180deg, rgba(30, 22, 14, 0.98), rgba(13, 11, 9, 0.98));
+}

@@ -1,0 +1,21 @@
+a,
+.ax-link {
+    color: var(--ax-link);
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+    transition:
+        color 160ms ease,
+        opacity 160ms ease;
+}
+
+a:hover,
+.ax-link:hover {
+    color: color-mix(in srgb, var(--ax-link) 78%, white);
+}
+
+a:focus-visible,
+.ax-link:focus-visible {
+    outline: 2px solid var(--ax-cyan);
+    outline-offset: 2px;
+    border-radius: 0.2rem;
+}

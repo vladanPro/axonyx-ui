@@ -1,0 +1,22 @@
+.ax-card {
+    background: var(--ax-card-surface);
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    box-shadow: var(--ax-card-shadow);
+    padding: 1.25rem;
+    color: var(--ax-text);
+}
+
+.ax-card__title {
+    margin: 0 0 0.85rem;
+    font-family: var(--ax-font-sans);
+    font-size: clamp(1.5rem, 2vw, 2.15rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    color: var(--ax-text);
+}
+
+.ax-card > *:last-child {
+    margin-bottom: 0;
+}

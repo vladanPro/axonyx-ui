@@ -1,0 +1,23 @@
+.ax-copy {
+    margin: 0 0 0.85rem;
+    font-family: var(--ax-font-sans);
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ax-text-soft);
+}
+
+.ax-copy[data-tone='lead'] {
+    font-size: 1.06rem;
+    line-height: 1.6;
+    color: var(--ax-text);
+}
+
+.ax-copy[data-tone='muted'] {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: var(--ax-text-muted);
+}
+
+.ax-copy:last-child {
+    margin-bottom: 0;
+}
