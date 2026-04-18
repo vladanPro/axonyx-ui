@@ -1,0 +1,3 @@
+:root[data-theme='bronze'] {
+    --primary: var(--bronze-500);
+}

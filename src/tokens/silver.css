@@ -1,0 +1,3 @@
+:root[data-theme='silver'] {
+    --primary: var(--silver-500);
+}

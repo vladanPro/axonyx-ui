@@ -1,0 +1,21 @@
+:root {
+    /* surfaces */
+    --bg: var(--steel-900);
+    --surface: var(--steel-800);
+    --surface-2: var(--steel-700);
+
+    /* borders */
+    --border: var(--steel-600);
+
+    /* text */
+    --text: var(--text-strong);
+    --text-muted: var(--text-muted);
+
+    /* primary signal */
+    --primary: var(--bronze-500);
+
+    /* states */
+    --success: var(--green);
+    --danger: var(--red);
+    --warning: var(--orange);
+}
