@@ -7,6 +7,11 @@
     color: var(--ax-text);
 }
 
+.ax-card[data-recipe='hero-card'] {
+    padding: 2rem;
+    border-color: var(--ax-border-strong);
+}
+
 .ax-card__title {
     margin: 0 0 0.85rem;
     font-family: var(--ax-font-sans);
@@ -19,4 +24,18 @@
 
 .ax-card > *:last-child {
     margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .ax-card {
+        transition:
+            transform 180ms ease,
+            border-color 180ms ease,
+            box-shadow 180ms ease;
+    }
+
+    .ax-card:hover {
+        transform: translateY(-2px);
+        border-color: var(--ax-border-strong);
+    }
 }

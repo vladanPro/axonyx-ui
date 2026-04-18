@@ -1,22 +1,22 @@
 :root[data-theme='bronze'] {
-    --ax-bg: #120d09;
-    --ax-surface: #1b140f;
-    --ax-surface-2: #261b14;
+    --ax-bg: #110c09;
+    --ax-surface: #1c140f;
+    --ax-surface-2: #291c15;
 
-    --ax-border: rgba(191, 128, 74, 0.24);
-    --ax-border-strong: rgba(191, 128, 74, 0.38);
+    --ax-border: rgba(189, 122, 73, 0.25);
+    --ax-border-strong: rgba(214, 149, 98, 0.42);
 
-    --ax-text: #f8f4ee;
-    --ax-text-soft: #dfd3c5;
-    --ax-text-muted: #b39d89;
+    --ax-text: #f8f2ea;
+    --ax-text-soft: #e3d3c2;
+    --ax-text-muted: #b99d82;
 
-    --ax-primary: #ffc53d;
-    --ax-link: #ffcf76;
-    --ax-cyan: #f3b56b;
+    --ax-primary: #cf9160;
+    --ax-link: #ffca7e;
+    --ax-cyan: #f0b26d;
 
     --ax-card-surface:
-        radial-gradient(circle at top left, rgba(255, 197, 61, 0.1), transparent 40%),
-        linear-gradient(180deg, rgba(44, 28, 18, 0.98), rgba(18, 13, 9, 0.98));
+        radial-gradient(circle at top left, rgba(210, 130, 73, 0.16), transparent 40%),
+        linear-gradient(180deg, rgba(49, 31, 20, 0.98), rgba(17, 12, 9, 0.98));
 }
 
 :root[data-theme='silver'] {
@@ -41,12 +41,12 @@
 }
 
 :root[data-theme='gold'] {
-    --ax-bg: #0d0b09;
-    --ax-surface: #17120d;
-    --ax-surface-2: #221a12;
+    --ax-bg: #0f0b08;
+    --ax-surface: #18120d;
+    --ax-surface-2: #241b12;
 
-    --ax-border: rgba(224, 185, 75, 0.2);
-    --ax-border-strong: rgba(224, 185, 75, 0.32);
+    --ax-border: rgba(224, 185, 75, 0.22);
+    --ax-border-strong: rgba(238, 203, 111, 0.36);
 
     --ax-text: #fbf7ef;
     --ax-text-soft: #e5dccd;

@@ -49,6 +49,28 @@ They only change token values such as:
 - link
 - panel treatment
 
+Theme is applied at the document root:
+
+```html
+<html data-theme="silver">
+```
+
+Projects should load one global stylesheet in the shell or layout, not inside each page body:
+
+```html
+<link rel="stylesheet" href="/css/axonyx-ui/index.css" />
+```
+
+## Rendering Contract
+
+The first stable Foundry contract for `.ax` primitives is:
+
+- `Container max: "xl"` -> `<div class="ax-container" data-max="xl">`
+- `Grid cols: 2, gap: "lg"` -> `<div class="ax-grid" data-cols="2" data-gap="lg">`
+- `Card title: "..."` -> `<article class="ax-card"><h2 class="ax-card__title">...</h2>...`
+- `Copy tone: "lead"` -> `<p class="ax-copy" data-tone="lead">...</p>`
+- `Copy -> "..."` -> `<p class="ax-copy">...</p>`
+
 ## CSS Files
 
 ```text

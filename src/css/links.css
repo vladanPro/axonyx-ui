@@ -13,6 +13,19 @@ a:hover,
     color: color-mix(in srgb, var(--ax-link) 78%, white);
 }
 
+a {
+    font-weight: 600;
+}
+
+.docs-nav a {
+    color: var(--ax-text-soft);
+    text-decoration: none;
+}
+
+.docs-nav a:hover {
+    color: var(--ax-link);
+}
+
 a:focus-visible,
 .ax-link:focus-visible {
     outline: 2px solid var(--ax-cyan);

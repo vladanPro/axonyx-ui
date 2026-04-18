@@ -1,17 +1,21 @@
 :root {
+    color-scheme: dark;
+
     /* fonts */
-    --ax-font-sans: Inter, 'Segoe UI', Roboto, Arial, sans-serif;
-    --ax-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --ax-font-sans: 'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+    --ax-font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
 
     /* spacing */
     --ax-space-sm: 0.75rem; /* 12 */
     --ax-space-md: 1rem; /* 16 */
     --ax-space-lg: 1.5rem; /* 24 */
     --ax-space-xl: 2rem; /* 32 */
+    --ax-space-2xl: 3rem; /* 48 */
 
     /* radius */
     --ax-radius-md: 1.125rem;
     --ax-radius-lg: 1.5rem;
+    --ax-radius-pill: 999px;
 
     /* container widths */
     --ax-container-sm: 42rem;
@@ -20,20 +24,20 @@
     --ax-container-xl: 88rem;
 
     /* semantic colors - fallback defaults */
-    --ax-bg: #060b14;
-    --ax-surface: #0c1630;
-    --ax-surface-2: #0f1b38;
+    --ax-bg: #071019;
+    --ax-surface: #0e1826;
+    --ax-surface-2: #132133;
 
-    --ax-border: rgba(95, 142, 214, 0.22);
-    --ax-border-strong: rgba(95, 142, 214, 0.34);
+    --ax-border: rgba(163, 182, 207, 0.18);
+    --ax-border-strong: rgba(163, 182, 207, 0.28);
 
-    --ax-text: #f4f7fb;
-    --ax-text-soft: #cfdaea;
-    --ax-text-muted: #8ea0ba;
+    --ax-text: #f3f6fb;
+    --ax-text-soft: #d7dfeb;
+    --ax-text-muted: #99aabc;
 
-    --ax-primary: #ffc53d;
-    --ax-link: #d596ff;
-    --ax-cyan: #68d7ff;
+    --ax-primary: #b8c2cf;
+    --ax-link: #c8a8ff;
+    --ax-cyan: #88d5ff;
 
     --ax-success: #39c27a;
     --ax-warning: #ffb84d;
@@ -41,9 +45,11 @@
 
     /* surface treatment */
     --ax-card-shadow:
-        0 0 0 1px rgba(90, 131, 198, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 14px 30px rgba(0, 0, 0, 0.28);
+        0 0 0 1px rgba(163, 182, 207, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03),
+        0 14px 30px rgba(0, 0, 0, 0.28);
 
     --ax-card-surface:
-        radial-gradient(circle at top left, rgba(35, 91, 180, 0.14), transparent 42%),
-        linear-gradient(180deg, rgba(15, 28, 59, 0.98), rgba(6, 11, 20, 0.98));
+        radial-gradient(circle at top left, rgba(120, 155, 220, 0.1), transparent 42%),
+        linear-gradient(180deg, rgba(16, 27, 42, 0.98), rgba(7, 16, 25, 0.98));
 }

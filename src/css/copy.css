@@ -12,6 +12,14 @@
     color: var(--ax-text);
 }
 
+.ax-copy[data-tone='eyebrow'] {
+    color: var(--ax-cyan);
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+}
+
 .ax-copy[data-tone='muted'] {
     font-size: 0.95rem;
     line-height: 1.55;
