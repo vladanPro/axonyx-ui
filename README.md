@@ -82,3 +82,22 @@ src/css/
   copy.css
   links.css
   index.css
+```
+
+## Foundry .ax Components
+
+The repo can also expose package-importable `.ax` components for Axonyx apps:
+
+```text
+src/ax/foundry/
+  SiteShell.ax
+  HeroCard.ax
+  ContentGrid.ax
+  SectionCard.ax
+```
+
+Example import:
+
+```ax
+import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
+```

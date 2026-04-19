@@ -1,0 +1,5 @@
+page ContentGrid
+
+<Grid cols={cols} gap={gap}>
+  <Slot />
+</Grid>

@@ -1,0 +1,5 @@
+page SiteShell
+
+<Container max={max} recipe="app-shell">
+  <Slot />
+</Container>
