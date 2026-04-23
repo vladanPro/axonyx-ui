@@ -99,6 +99,8 @@ src/ax/foundry/
   DocsSection.ax
   DocsCallout.ax
   DocsNav.ax
+  DocsCodeBlock.ax
+  CommandList.ax
 ```
 
 Example import:

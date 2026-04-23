@@ -1,0 +1,14 @@
+page DocsCodeBlock
+
+<Card title={title} recipe="docs-code-block">
+  <div class="ax-docs-code-block__eyebrow">
+    <Slot name="eyebrow" />
+  </div>
+  <div class="ax-docs-code-block__body">
+    <pre class="ax-docs-code-block__pre">
+      <code class="ax-docs-code-block__code">
+        <Slot />
+      </code>
+    </pre>
+  </div>
+</Card>
