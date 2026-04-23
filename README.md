@@ -97,6 +97,8 @@ src/ax/foundry/
   FeatureSection.ax
   PageHeader.ax
   DocsSection.ax
+  DocsCallout.ax
+  DocsNav.ax
 ```
 
 Example import:

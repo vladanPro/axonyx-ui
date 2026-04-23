@@ -1,0 +1,10 @@
+page DocsCallout
+
+<Card title={title} recipe="docs-callout">
+  <div class="ax-docs-callout__eyebrow">
+    <Slot name="eyebrow" />
+  </div>
+  <div class="ax-docs-callout__body">
+    <Slot />
+  </div>
+</Card>
