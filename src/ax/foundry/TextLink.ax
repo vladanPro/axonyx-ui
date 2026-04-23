@@ -1,4 +1,4 @@
-page Link
+page TextLink
 
 <a class="ax-link" href={href}>
   <Slot />

@@ -96,7 +96,7 @@ src/ax/foundry/
   Stack.ax
   SectionCard.ax
   Button.ax
-  Link.ax
+  TextLink.ax
   FeatureSection.ax
   PageHeader.ax
   DocsSection.ax
