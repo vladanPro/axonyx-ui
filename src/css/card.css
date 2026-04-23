@@ -12,6 +12,11 @@
     border-color: var(--ax-border-strong);
 }
 
+.ax-card[data-recipe='feature-section'] {
+    display: grid;
+    gap: 1rem;
+}
+
 .ax-card__title {
     margin: 0 0 0.85rem;
     font-family: var(--ax-font-sans);
@@ -24,6 +29,39 @@
 
 .ax-card > *:last-child {
     margin-bottom: 0;
+}
+
+.ax-feature-section__eyebrow {
+    color: var(--ax-accent);
+    font-family: var(--ax-font-mono);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.ax-feature-section__body {
+    display: grid;
+    gap: 0.85rem;
+}
+
+.ax-feature-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    align-items: center;
+}
+
+.ax-feature-section__actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.65rem 0.95rem;
+    border: 1px solid var(--ax-border-strong);
+    border-radius: var(--ax-radius-md);
+    background: color-mix(in srgb, var(--ax-panel) 72%, transparent);
+    text-decoration: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {

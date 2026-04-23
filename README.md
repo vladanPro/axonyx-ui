@@ -94,10 +94,23 @@ src/ax/foundry/
   HeroCard.ax
   ContentGrid.ax
   SectionCard.ax
+  FeatureSection.ax
 ```
 
 Example import:
 
 ```ax
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
+```
+
+Named slot example:
+
+```ax
+import { FeatureSection } from "@axonyx/ui/foundry/FeatureSection.ax"
+
+<FeatureSection title="Build with slots">
+  <Copy slot="eyebrow">Foundry</Copy>
+  <Copy>Default body content still flows through the main slot.</Copy>
+  <a slot="actions" href="/docs">Open docs</a>
+</FeatureSection>
 ```
