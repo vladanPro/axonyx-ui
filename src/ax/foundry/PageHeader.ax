@@ -1,0 +1,13 @@
+page PageHeader
+
+<Card title={title} recipe="page-header">
+  <div class="ax-page-header__eyebrow">
+    <Slot name="eyebrow" />
+  </div>
+  <div class="ax-page-header__body">
+    <Slot />
+  </div>
+  <div class="ax-page-header__actions">
+    <Slot name="actions" />
+  </div>
+</Card>

@@ -95,6 +95,7 @@ src/ax/foundry/
   ContentGrid.ax
   SectionCard.ax
   FeatureSection.ax
+  PageHeader.ax
 ```
 
 Example import:
