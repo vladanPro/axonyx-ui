@@ -96,6 +96,7 @@ src/ax/foundry/
   SectionCard.ax
   FeatureSection.ax
   PageHeader.ax
+  DocsSection.ax
 ```
 
 Example import:

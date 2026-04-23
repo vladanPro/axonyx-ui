@@ -1,0 +1,18 @@
+page DocsSection
+
+<Card title={title} recipe="docs-section">
+  <div class="ax-docs-section__eyebrow">
+    <Slot name="eyebrow" />
+  </div>
+  <div class="ax-docs-section__layout">
+    <div class="ax-docs-section__body">
+      <Slot />
+    </div>
+    <aside class="ax-docs-section__aside">
+      <Slot name="aside" />
+    </aside>
+  </div>
+  <div class="ax-docs-section__actions">
+    <Slot name="actions" />
+  </div>
+</Card>
