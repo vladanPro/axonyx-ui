@@ -86,6 +86,38 @@ body {
     gap: var(--ax-space-xl);
 }
 
+.ax-stack {
+    display: grid;
+}
+
+.ax-stack[data-gap='sm'] {
+    gap: var(--ax-space-sm);
+}
+
+.ax-stack[data-gap='md'] {
+    gap: var(--ax-space-md);
+}
+
+.ax-stack[data-gap='lg'] {
+    gap: var(--ax-space-lg);
+}
+
+.ax-stack[data-gap='xl'] {
+    gap: var(--ax-space-xl);
+}
+
+.ax-stack[data-align='start'] {
+    justify-items: start;
+}
+
+.ax-stack[data-align='center'] {
+    justify-items: center;
+}
+
+.ax-stack[data-align='end'] {
+    justify-items: end;
+}
+
 .docs-nav {
     display: flex;
     flex-wrap: wrap;

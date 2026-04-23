@@ -93,7 +93,10 @@ src/ax/foundry/
   SiteShell.ax
   HeroCard.ax
   ContentGrid.ax
+  Stack.ax
   SectionCard.ax
+  Button.ax
+  Link.ax
   FeatureSection.ax
   PageHeader.ax
   DocsSection.ax

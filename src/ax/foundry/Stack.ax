@@ -1,0 +1,5 @@
+page Stack
+
+<div class="ax-stack" data-gap={gap} data-align={align}>
+  <Slot />
+</div>

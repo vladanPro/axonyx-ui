@@ -1,0 +1,5 @@
+page Link
+
+<a class="ax-link" data-tone={tone} href={href}>
+  <Slot />
+</a>

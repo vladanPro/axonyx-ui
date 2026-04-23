@@ -17,6 +17,48 @@ a {
     font-weight: 600;
 }
 
+.ax-link[data-tone='muted'] {
+    color: var(--ax-text-muted);
+}
+
+.ax-link[data-tone='strong'] {
+    color: var(--ax-text);
+}
+
+.ax-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--ax-border-strong);
+    border-radius: var(--ax-radius-md);
+    background: color-mix(in srgb, var(--ax-panel) 68%, transparent);
+    color: var(--ax-text);
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease;
+}
+
+.ax-button[data-variant='primary'] {
+    background: color-mix(in srgb, var(--ax-cyan) 18%, var(--ax-panel));
+    border-color: color-mix(in srgb, var(--ax-cyan) 36%, var(--ax-border-strong));
+}
+
+.ax-button[data-variant='ghost'] {
+    background: transparent;
+}
+
+.ax-button:hover {
+    transform: translateY(-1px);
+    border-color: var(--ax-border-strong);
+    color: var(--ax-text);
+}
+
 .docs-nav a {
     color: var(--ax-text-soft);
     text-decoration: none;
@@ -27,7 +69,8 @@ a {
 }
 
 a:focus-visible,
-.ax-link:focus-visible {
+.ax-link:focus-visible,
+.ax-button:focus-visible {
     outline: 2px solid var(--ax-cyan);
     outline-offset: 2px;
     border-radius: 0.2rem;
