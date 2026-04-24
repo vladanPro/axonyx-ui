@@ -1,0 +1,21 @@
+.ax-badge {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--ax-radius-sm);
+    background: var(--ax-surface-2);
+    color: var(--ax-text-muted);
+    border: 1px solid var(--ax-border);
+}
+
+.ax-badge[data-variant='accent'] {
+    background: var(--ax-accent);
+    color: #071019;
+    border-color: transparent;
+}
+
+.ax-badge[data-variant='outline'] {
+    background: transparent;
+}
