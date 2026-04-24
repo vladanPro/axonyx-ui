@@ -6,23 +6,23 @@
     color: var(--ax-text);
 }
 
+.ax-workspace[data-rail-width='sm'] {
+    --ax-rail-width: 14rem;
+}
+
+.ax-workspace[data-rail-width='md'] {
+    --ax-rail-width: 17rem;
+}
+
+.ax-workspace[data-rail-width='lg'] {
+    --ax-rail-width: 20rem;
+}
+
 .ax-rail {
     min-height: 100vh;
     background: var(--ax-surface);
     border-right: 1px solid var(--ax-border);
     padding: var(--ax-space-lg);
-}
-
-.ax-rail[data-width='sm'] {
-    --ax-rail-width: 14rem;
-}
-
-.ax-rail[data-width='md'] {
-    --ax-rail-width: 17rem;
-}
-
-.ax-rail[data-width='lg'] {
-    --ax-rail-width: 20rem;
 }
 
 .ax-frame {
