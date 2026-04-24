@@ -16,11 +16,11 @@
 
 .ax-button:hover {
     border-color: var(--ax-border-strong);
-    background: var(--ax-surface-3);
+    background: var(--ax-surface-3, var(--ax-surface-2));
 }
 
 .ax-button[data-variant='primary'] {
-    background: var(--ax-accent);
+    background: var(--ax-primary);
     color: #071019;
     border-color: transparent;
 }
@@ -36,6 +36,11 @@
 
 .ax-button[data-variant='ghost']:hover {
     background: var(--ax-surface-2);
+}
+
+.ax-button:focus-visible {
+    outline: 2px solid var(--ax-cyan);
+    outline-offset: 2px;
 }
 
 .ax-button:disabled {
