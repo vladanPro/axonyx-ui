@@ -1,0 +1,72 @@
+.ax-command {
+    display: grid;
+    gap: var(--ax-space-md);
+    border: 1px solid var(--ax-border-strong);
+    border-radius: var(--ax-radius-lg);
+    background:
+        radial-gradient(circle at 16% 0%, color-mix(in srgb, var(--ax-primary) 14%, transparent), transparent 36%),
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-surface-2) 82%, white), color-mix(in srgb, var(--ax-surface) 90%, black));
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--ax-border-strong) 52%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        0 24px 70px rgba(0, 0, 0, 0.42);
+    padding: var(--ax-space-md);
+}
+
+.ax-command__input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-md);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-surface) 82%, black), color-mix(in srgb, var(--ax-surface-2) 54%, black));
+    color: var(--ax-text);
+    font-family: var(--ax-font-sans);
+    font-size: 1rem;
+    padding: 0.8rem 0.95rem;
+    box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-command__input:focus {
+    outline: none;
+    border-color: var(--ax-cyan);
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-cyan) 38%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-command__list {
+    display: grid;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.ax-command__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--ax-space-md);
+    border: 1px solid transparent;
+    border-radius: var(--ax-radius-md);
+    padding: 0.65rem 0.75rem;
+    color: var(--ax-text-soft);
+}
+
+.ax-command__item:hover,
+.ax-command__item[data-active='true'] {
+    color: var(--ax-text);
+    border-color: var(--ax-border-strong);
+    background: color-mix(in srgb, var(--ax-surface-2) 80%, transparent);
+}
+
+.ax-command__shortcut {
+    font-family: var(--ax-font-mono);
+    font-size: 0.75rem;
+    color: var(--ax-text-muted);
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-sm);
+    padding: 0.18rem 0.38rem;
+    background: color-mix(in srgb, var(--ax-surface) 72%, black);
+}
