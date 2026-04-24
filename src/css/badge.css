@@ -11,7 +11,7 @@
 }
 
 .ax-badge[data-variant='accent'] {
-    background: var(--ax-accent);
+    background: var(--ax-primary);
     color: #071019;
     border-color: transparent;
 }
