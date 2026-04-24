@@ -1,0 +1,80 @@
+.ax-select {
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-md);
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ax-surface) 82%, black),
+            color-mix(in srgb, var(--ax-surface-2) 54%, black)
+        );
+    color: var(--ax-text);
+    font-family: var(--ax-font-sans);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    padding: 0.7rem 2.35rem 0.7rem 0.85rem;
+    box-shadow:
+        inset 0 1px 7px rgba(0, 0, 0, 0.26),
+        0 0 0 1px rgba(255, 255, 255, 0.015);
+    cursor: pointer;
+    background-image:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ax-surface) 82%, black),
+            color-mix(in srgb, var(--ax-surface-2) 54%, black)
+        ),
+        linear-gradient(45deg, transparent 50%, var(--ax-primary) 50%),
+        linear-gradient(135deg, var(--ax-primary) 50%, transparent 50%);
+    background-position:
+        0 0,
+        calc(100% - 1rem) 50%,
+        calc(100% - 0.72rem) 50%;
+    background-size:
+        auto,
+        0.34rem 0.34rem,
+        0.34rem 0.34rem;
+    background-repeat: no-repeat;
+}
+
+.ax-select:hover {
+    border-color: var(--ax-border-strong);
+}
+
+.ax-select:focus {
+    outline: none;
+    border-color: var(--ax-cyan);
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-cyan) 42%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-select[data-surface='forged'] {
+    border-color: var(--ax-border-strong);
+    background-image:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ax-surface-2) 82%, white),
+            color-mix(in srgb, var(--ax-surface) 88%, black)
+        ),
+        linear-gradient(45deg, transparent 50%, var(--ax-primary) 50%),
+        linear-gradient(135deg, var(--ax-primary) 50%, transparent 50%);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.055),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.32),
+        0 0 0 1px color-mix(in srgb, var(--ax-border-strong) 45%, transparent);
+}
+
+.ax-field[data-state='error'] .ax-select,
+.ax-select[aria-invalid='true'] {
+    border-color: var(--ax-danger);
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-danger) 26%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-select:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
