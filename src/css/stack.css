@@ -1,0 +1,36 @@
+.ax-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.ax-stack[data-gap='sm'] {
+    gap: var(--ax-space-sm);
+}
+
+.ax-stack[data-gap='md'] {
+    gap: var(--ax-space-md);
+}
+
+.ax-stack[data-gap='lg'] {
+    gap: var(--ax-space-lg);
+}
+
+.ax-stack[data-gap='xl'] {
+    gap: var(--ax-space-xl);
+}
+
+.ax-stack[data-gap='2xl'] {
+    gap: var(--ax-space-2xl);
+}
+
+.ax-stack[data-align='start'] {
+    align-items: flex-start;
+}
+
+.ax-stack[data-align='center'] {
+    align-items: center;
+}
+
+.ax-stack[data-align='stretch'] {
+    align-items: stretch;
+}
