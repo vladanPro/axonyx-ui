@@ -65,135 +65,53 @@
             <header class="ax-showroom-header">
                 <h1 class="ax-showroom-title">Axonyx UI Showroom</h1>
                 <p class="ax-showroom-subtitle">
-                    Foundry design language preview using Container, Grid, Card,
-                    Copy, and theme tokens.
+                    Foundry design language preview.
                 </p>
             </header>
 
             <div class="ax-theme-switch">
-                <button
-                    class="ax-theme-button"
-                    type="button"
-                    onclick="setTheme('bronze')"
-                >
-                    Bronze
-                </button>
-                <button
-                    class="ax-theme-button"
-                    type="button"
-                    onclick="setTheme('silver')"
-                >
-                    Silver
-                </button>
-                <button
-                    class="ax-theme-button"
-                    type="button"
-                    onclick="setTheme('gold')"
-                >
-                    Gold
-                </button>
+                <button class="ax-theme-button" onclick="setTheme('bronze')">Bronze</button>
+                <button class="ax-theme-button" onclick="setTheme('silver')">Silver</button>
+                <button class="ax-theme-button" onclick="setTheme('gold')">Gold</button>
             </div>
 
-            <div class="ax-grid" data-cols="2" data-gap="lg">
-                <article class="ax-card">
-                    <h2 class="ax-card__title">
-                        Write pages that stay readable
-                    </h2>
-                    <p class="ax-copy" data-tone="lead">
-                        Axonyx is aiming for the feeling React promised early
-                        on, but with a stronger full-stack shape, clearer file
-                        roles, and much less JavaScript by default.
-                    </p>
-                    <p class="ax-copy">
-                        The framework direction is simple: author in .ax, keep
-                        routes obvious, lower into Rust, and let CSS handle as
-                        much presentation as possible.
-                    </p>
-                </article>
+            <h2>Workspace Layout Demo</h2>
 
-                <article class="ax-card">
-                    <h2 class="ax-card__title">
-                        Build the kinds of sites we actually want
-                    </h2>
-                    <p class="ax-copy">
-                        The first targets are framework sites, docs, marketing
-                        pages, and later CMS-driven products that should not
-                        need a thousand client-side scripts just to render
-                        content.
-                    </p>
-                    <p class="ax-copy">
-                        This repository is the proving ground for that
-                        direction.
-                    </p>
-                </article>
-            </div>
+            <div class="ax-workspace">
+                <aside class="ax-rail" data-width="md">
+                    <strong>Axonyx</strong>
 
-            <div class="ax-grid" data-cols="4" data-gap="lg">
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Why Axonyx</h2>
-                    <p class="ax-copy">
-                        Axonyx is being shaped as a Rust-first framework with
-                        authoring layers that stay readable, explicit, and
-                        easier to reason about than typical React-heavy stacks.
-                    </p>
-                </article>
+                    <div class="ax-nav-list">
+                        <a class="ax-nav-item" data-active="true">Dashboard</a>
+                        <a class="ax-nav-item">Projects</a>
+                        <a class="ax-nav-item">Settings</a>
+                    </div>
 
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Minimal JS</h2>
-                    <p class="ax-copy">
-                        The direction is CSS-first presentation, semantic HTML,
-                        and only as much JavaScript as the interaction actually
-                        needs.
-                    </p>
-                </article>
+                    <div style="margin-top: auto">
+                        <span class="ax-badge" data-variant="accent">Theme</span>
+                    </div>
+                </aside>
 
-                <article class="ax-card">
-                    <h2 class="ax-card__title">AI-Friendly</h2>
-                    <p class="ax-copy">
-                        Stable file roles, small numbers of correct patterns,
-                        and clear lowering stages should make Axonyx easier for
-                        both humans and AI agents.
-                    </p>
-                </article>
+                <main class="ax-frame">
+                    <div class="ax-toolbar">
+                        <h3>Workspace</h3>
+                        <button class="ax-button" data-variant="primary">New</button>
+                    </div>
 
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Future UI Layer</h2>
-                    <p class="ax-copy">
-                        The visual system should move into axonyx-ui, while
-                        axonyx-site stays the public showcase and real-world
-                        consumer of that layer.
-                    </p>
-                </article>
-            </div>
+                    <section class="ax-section">
+                        <div class="ax-grid" data-cols="2" data-gap="lg">
+                            <div class="ax-card">
+                                <h3>Build status</h3>
+                                <p class="ax-copy">All systems operational.</p>
+                            </div>
 
-            <div class="ax-grid" data-cols="3" data-gap="lg">
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Getting Started</h2>
-                    <p class="ax-copy">
-                        Start with the docs-first scaffold, run the preview, and
-                        edit app/page.ax plus nested route pages.
-                    </p>
-                    <a href="#">Open section</a>
-                </article>
-
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Reference</h2>
-                    <p class="ax-copy">
-                        See the current mental model for .ax files, metadata
-                        directives, public assets, runtime wiring, and local
-                        development.
-                    </p>
-                    <a href="#">Open section</a>
-                </article>
-
-                <article class="ax-card">
-                    <h2 class="ax-card__title">Examples</h2>
-                    <p class="ax-copy">
-                        Explore the kinds of projects Axonyx is aiming at first:
-                        docs sites, product pages, and future CMS-style flows.
-                    </p>
-                    <a href="#">Open section</a>
-                </article>
+                            <div class="ax-card">
+                                <h3>Recent changes</h3>
+                                <p class="ax-copy">3 commits pushed today.</p>
+                            </div>
+                        </div>
+                    </section>
+                </main>
             </div>
         </div>
 
