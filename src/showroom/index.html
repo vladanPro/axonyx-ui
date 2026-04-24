@@ -75,10 +75,44 @@
                 <button class="ax-theme-button" onclick="setTheme('gold')">Gold</button>
             </div>
 
+            <h2>Surface Variants</h2>
+
+            <div class="ax-grid" data-cols="4" data-gap="lg">
+                <div class="ax-card">
+                    <h3>Default</h3>
+                    <p class="ax-copy">Clean Foundry panel surface.</p>
+                </div>
+
+                <div class="ax-card" data-surface="brushed">
+                    <h3>Brushed</h3>
+                    <p class="ax-copy">Subtle machined metal grain.</p>
+                </div>
+
+                <div class="ax-card" data-surface="forged">
+                    <h3>Forged</h3>
+                    <p class="ax-copy">Heavier work surface with warm signal.</p>
+                </div>
+
+                <div class="ax-card" data-surface="inset">
+                    <h3>Inset</h3>
+                    <p class="ax-copy">Recessed panel for code, fields, or tools.</p>
+                </div>
+            </div>
+
+            <h2>Cluster Demo</h2>
+
+            <div class="ax-cluster" data-gap="md">
+                <button class="ax-button" data-variant="primary">Primary</button>
+                <button class="ax-button">Default</button>
+                <button class="ax-button" data-variant="ghost">Ghost</button>
+                <span class="ax-badge">Default</span>
+                <span class="ax-badge" data-variant="accent">Accent</span>
+            </div>
+
             <h2>Workspace Layout Demo</h2>
 
-            <div class="ax-workspace">
-                <aside class="ax-rail" data-width="md">
+            <div class="ax-workspace" data-rail-width="md">
+                <aside class="ax-rail">
                     <strong>Axonyx</strong>
 
                     <div class="ax-nav-list">
@@ -95,17 +129,20 @@
                 <main class="ax-frame">
                     <div class="ax-toolbar">
                         <h3>Workspace</h3>
-                        <button class="ax-button" data-variant="primary">New</button>
+                        <div class="ax-cluster" data-gap="sm">
+                            <button class="ax-button">Cancel</button>
+                            <button class="ax-button" data-variant="primary">Save</button>
+                        </div>
                     </div>
 
                     <section class="ax-section">
                         <div class="ax-grid" data-cols="2" data-gap="lg">
-                            <div class="ax-card">
+                            <div class="ax-card" data-surface="brushed">
                                 <h3>Build status</h3>
                                 <p class="ax-copy">All systems operational.</p>
                             </div>
 
-                            <div class="ax-card">
+                            <div class="ax-card" data-surface="forged">
                                 <h3>Recent changes</h3>
                                 <p class="ax-copy">3 commits pushed today.</p>
                             </div>
