@@ -1,0 +1,44 @@
+.ax-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: var(--ax-radius-md);
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--ax-border);
+    background: var(--ax-surface-2);
+    color: var(--ax-text);
+    cursor: pointer;
+    transition: all 120ms ease;
+}
+
+.ax-button:hover {
+    border-color: var(--ax-border-strong);
+    background: var(--ax-surface-3);
+}
+
+.ax-button[data-variant='primary'] {
+    background: var(--ax-accent);
+    color: #071019;
+    border-color: transparent;
+}
+
+.ax-button[data-variant='primary']:hover {
+    filter: brightness(1.05);
+}
+
+.ax-button[data-variant='ghost'] {
+    background: transparent;
+    border-color: transparent;
+}
+
+.ax-button[data-variant='ghost']:hover {
+    background: var(--ax-surface-2);
+}
+
+.ax-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
