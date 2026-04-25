@@ -1,0 +1,165 @@
+page Showroom
+
+<Head>
+  <Title>Axonyx UI – Full Showroom</Title>
+  <Theme>silver</Theme>
+  <Link rel="stylesheet" href="/css/index.css" />
+</Head>
+
+<Container max="xl">
+  <Section>
+    <Copy tone="eyebrow">Foundry Design Language</Copy>
+    <Heading level={1}>Axonyx UI – Full Showroom</Heading>
+    <Copy tone="lead">A practical design system for engineered work surfaces, panels, tools, signal states, and Rust-first product UI.</Copy>
+  </Section>
+
+  <Section>
+    <Copy tone="eyebrow">Theme</Copy>
+    <Cluster gap="sm">
+      <Button surface="forged" onClick={setTheme('bronze')}>Bronze</Button>
+      <Button surface="forged" onClick={setTheme('silver')}>Silver</Button>
+      <Button surface="forged" onClick={setTheme('gold')}>Gold</Button>
+    </Cluster>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Surfaces</Heading>
+    <Grid cols={4} gap="lg">
+      <Card title="Default">
+        <Copy>Clean Foundry panel.</Copy>
+      </Card>
+
+      <Card title="Brushed H" surface="brushed" brush="horizontal">
+        <Copy>Horizontal grain.</Copy>
+      </Card>
+
+      <Card title="Brushed V" surface="brushed" brush="vertical">
+        <Copy>Vertical grain.</Copy>
+      </Card>
+
+      <Card title="Diagonal" surface="brushed" brush="diagonal">
+        <Copy>Directional cut.</Copy>
+      </Card>
+
+      <Card title="Reverse" surface="brushed" brush="reverse-diagonal">
+        <Copy>Reverse diagonal.</Copy>
+      </Card>
+
+      <Card title="Forged" surface="forged">
+        <Copy>Warm heavy panel.</Copy>
+      </Card>
+
+      <Card title="Inset" surface="inset">
+        <Copy>Recessed work slot.</Copy>
+      </Card>
+
+      <Card title="Forged Border" surface="forged" border="forged">
+        <Copy>Riveted frame.</Copy>
+      </Card>
+    </Grid>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Buttons + Badges</Heading>
+    <Stack gap="md">
+      <Cluster gap="md">
+        <Button>Default</Button>
+        <Button variant="primary">Primary</Button>
+        <Button variant="ghost">Ghost</Button>
+        <Button disabled>Disabled</Button>
+      </Cluster>
+
+      <Cluster gap="md">
+        <Button surface="forged">Forged</Button>
+        <Button surface="forged" variant="primary">Forged Primary</Button>
+        <Button border="forged">Rivet Button</Button>
+        <Button surface="forged" border="forged" variant="primary">Deploy</Button>
+      </Cluster>
+
+      <Cluster gap="sm">
+        <Badge>Default</Badge>
+        <Badge variant="accent">Accent</Badge>
+        <Badge variant="outline">Outline</Badge>
+      </Cluster>
+    </Stack>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Forms</Heading>
+    <Grid cols={2} gap="lg">
+      <Field label="Project name" hint="Used for build output and metadata.">
+        <Input placeholder="axonyx-ui" />
+      </Field>
+
+      <Field label="API key" state="error" error="Invalid key format.">
+        <Input invalid placeholder="••••••" />
+      </Field>
+
+      <Field label="Environment" hint="Choose deployment target.">
+        <Select>
+          <Option>Development</Option>
+          <Option>Staging</Option>
+          <Option>Production</Option>
+        </Select>
+      </Field>
+
+      <Field label="Forged select">
+        <Select surface="forged">
+          <Option>Bronze</Option>
+          <Option>Silver</Option>
+          <Option>Gold</Option>
+        </Select>
+      </Field>
+
+      <Field label="Description">
+        <Textarea placeholder="Describe your module..." />
+      </Field>
+    </Grid>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Command Palette</Heading>
+    <Command placeholder="Type a command...">
+      <CommandItem active shortcut="⌘P">Open project</CommandItem>
+      <CommandItem shortcut="⌘D">Deploy current app</CommandItem>
+      <CommandItem shortcut="⌘R">Run diagnostics</CommandItem>
+      <CommandItem shortcut="⌘,">Open settings</CommandItem>
+    </Command>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Workspace Layout</Heading>
+    <Workspace railWidth="md">
+      <Rail>
+        <Strong>Axonyx</Strong>
+        <NavList>
+          <NavItem active>Dashboard</NavItem>
+          <NavItem>Projects</NavItem>
+          <NavItem>Settings</NavItem>
+        </NavList>
+      </Rail>
+
+      <Frame>
+        <Toolbar>
+          <Heading level={3}>Workspace</Heading>
+          <Cluster gap="sm">
+            <Button>Cancel</Button>
+            <Button surface="forged" variant="primary">Deploy</Button>
+          </Cluster>
+        </Toolbar>
+
+        <Section>
+          <Grid cols={2} gap="lg">
+            <Card title="Status" surface="forged" border="forged">
+              <Copy>System ready.</Copy>
+            </Card>
+
+            <Card title="Logs" surface="brushed" brush="vertical">
+              <Copy>Recent activity visible.</Copy>
+            </Card>
+          </Grid>
+        </Section>
+      </Frame>
+    </Workspace>
+  </Section>
+</Container>
