@@ -1,0 +1,16 @@
+component AxHead(brand = "Axonyx")
+
+<header class="ax-masthead">
+  <a class="ax-masthead__brand" href="/">
+    {brand}
+  </a>
+
+  <nav class="ax-masthead__nav" aria-label="Primary navigation">
+    <div class="ax-cluster" data-gap="sm" data-align="center">
+      <a class="ax-button" data-variant="ghost" href="/docs">Docs</a>
+      <a class="ax-button" data-variant="ghost" href="/components">Components</a>
+      <a class="ax-button" data-variant="ghost" href="/examples">Examples</a>
+      <a class="ax-button" data-variant="primary" data-surface="forged" href="/getting-started">Start</a>
+    </div>
+  </nav>
+</header>
