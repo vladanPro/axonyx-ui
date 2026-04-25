@@ -5,12 +5,24 @@ component AxSidebar(title = "Docs", active = "docs")
 
   <nav class="ax-sidebar__nav" aria-label="Section navigation">
     <div class="ax-nav-list">
+      <span class="ax-nav-group">Start</span>
       <a class="ax-nav-item" data-active={active == "docs"} href="/docs">Overview</a>
       <a class="ax-nav-item" data-active={active == "getting-started"} href="/docs/getting-started">Getting Started</a>
       <a class="ax-nav-item" data-active={active == "reference"} href="/docs/reference">Reference</a>
       <a class="ax-nav-item" data-active={active == "examples"} href="/docs/examples">Examples</a>
-      <a class="ax-nav-item" data-active={active == "components"} href="/components">Components</a>
-      <a class="ax-nav-item" data-active={active == "surfaces"} href="/foundry/surfaces">Foundry Surfaces</a>
+
+      <span class="ax-nav-group">Components</span>
+      <a class="ax-nav-item" data-active={active == "components"} href="/components">All components</a>
+      <a class="ax-nav-item" data-active={active == "button"} href="/components/button">Button</a>
+      <a class="ax-nav-item" data-active={active == "card"} href="/components/card">Card</a>
+      <a class="ax-nav-item" data-active={active == "forms"} href="/components/forms">Forms</a>
+      <a class="ax-nav-item" data-active={active == "command"} href="/components/command">Command</a>
+      <a class="ax-nav-item" data-active={active == "layout"} href="/components/layout">Layout</a>
+
+      <span class="ax-nav-group">Foundry</span>
+      <a class="ax-nav-item" data-active={active == "surfaces"} href="/foundry/surfaces">Surfaces</a>
+      <a class="ax-nav-item" data-active={active == "themes"} href="/foundry/themes">Themes</a>
+      <a class="ax-nav-item" data-active={active == "tokens"} href="/foundry/tokens">Tokens</a>
     </div>
   </nav>
 </aside>
