@@ -1,4 +1,4 @@
-component AxMasthead(brand = "Axonyx")
+component AxMasthead(brand = "Axonyx", active = "")
 
 <header class="ax-masthead">
   <a class="ax-masthead__brand" href="/">
@@ -7,10 +7,10 @@ component AxMasthead(brand = "Axonyx")
 
   <nav class="ax-masthead__nav" aria-label="Primary navigation">
     <div class="ax-cluster" data-gap="sm" data-align="center">
-      <a class="ax-button" data-variant="ghost" href="/docs">Docs</a>
-      <a class="ax-button" data-variant="ghost" href="/components">Components</a>
-      <a class="ax-button" data-variant="ghost" href="/examples">Examples</a>
-      <a class="ax-button" data-variant="primary" data-surface="forged" href="/getting-started">Start</a>
+      <a class="ax-button" data-variant="ghost" data-active={active == "docs"} href="/docs">Docs</a>
+      <a class="ax-button" data-variant="ghost" data-active={active == "components"} href="/components">Components</a>
+      <a class="ax-button" data-variant="ghost" data-active={active == "examples"} href="/examples">Examples</a>
+      <a class="ax-button" data-variant="primary" data-surface="forged" data-active={active == "getting-started"} href="/getting-started">Start</a>
     </div>
   </nav>
 </header>
