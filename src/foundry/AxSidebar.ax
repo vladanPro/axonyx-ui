@@ -1,0 +1,16 @@
+component AxSidebar(title = "Docs")
+
+<aside class="ax-sidebar">
+  <strong class="ax-sidebar__title">{title}</strong>
+
+  <nav class="ax-sidebar__nav" aria-label="Section navigation">
+    <div class="ax-nav-list">
+      <a class="ax-nav-item" href="/docs">Overview</a>
+      <a class="ax-nav-item" href="/docs/getting-started">Getting Started</a>
+      <a class="ax-nav-item" href="/docs/reference">Reference</a>
+      <a class="ax-nav-item" href="/docs/examples">Examples</a>
+      <a class="ax-nav-item" href="/components">Components</a>
+      <a class="ax-nav-item" href="/foundry/surfaces">Foundry Surfaces</a>
+    </div>
+  </nav>
+</aside>
