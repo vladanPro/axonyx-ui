@@ -1,0 +1,8 @@
+component PropRow(name = "", type = "", default = "", description = "")
+
+<tr class="ax-prop-row">
+  <td class="ax-prop-row__name">{name}</td>
+  <td class="ax-prop-row__type">{type}</td>
+  <td class="ax-prop-row__default">{default}</td>
+  <td class="ax-prop-row__desc">{description}</td>
+</tr>
