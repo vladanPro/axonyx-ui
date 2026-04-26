@@ -1,0 +1,15 @@
+component PropsTable()
+
+<table class="ax-props-table">
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <Slot />
+  </tbody>
+</table>
