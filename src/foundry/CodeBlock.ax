@@ -1,0 +1,10 @@
+component CodeBlock(language = "ax", title = "")
+
+<figure class="ax-code-block" data-language={language}>
+  <figcaption class="ax-code-block__header">
+    <span class="ax-code-block__title">{title}</span>
+    <span class="ax-code-block__language">{language}</span>
+  </figcaption>
+
+  <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
+</figure>
