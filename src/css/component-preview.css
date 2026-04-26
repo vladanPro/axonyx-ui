@@ -1,0 +1,17 @@
+.ax-component-preview {
+    border-radius: 12px;
+    border: 1px solid var(--ax-border-subtle);
+    background: var(--ax-surface);
+    overflow: hidden;
+}
+
+.ax-component-preview__header {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+    color: var(--ax-text-muted);
+    border-bottom: 1px solid var(--ax-border-subtle);
+}
+
+.ax-component-preview__stage {
+    padding: 1rem;
+}
