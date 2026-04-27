@@ -1,0 +1,70 @@
+.ax-dialog {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 1000;
+}
+
+.ax-dialog[hidden] {
+  display: none;
+}
+
+.ax-dialog__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(2px);
+}
+
+.ax-dialog__panel {
+  position: relative;
+  z-index: 1;
+  width: min(32rem, calc(100vw - 2rem));
+  border: 1px solid var(--ax-border-strong);
+  border-radius: var(--ax-radius-lg);
+  background: var(--ax-card-surface);
+  box-shadow: var(--ax-card-shadow);
+  overflow: hidden;
+}
+
+.ax-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ax-space-md);
+  padding: var(--ax-space-md);
+  border-bottom: 1px solid var(--ax-border);
+}
+
+.ax-dialog__title {
+  color: var(--ax-text);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.ax-dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--ax-border);
+  border-radius: var(--ax-radius-pill);
+  background: var(--ax-surface-2);
+  color: var(--ax-text-muted);
+  cursor: pointer;
+}
+
+.ax-dialog__close:hover {
+  border-color: var(--ax-border-strong);
+  color: var(--ax-text);
+}
+
+.ax-dialog__content {
+  padding: var(--ax-space-md);
+}
+
+:root[data-dialog-open="true"] {
+  overflow: hidden;
+}
