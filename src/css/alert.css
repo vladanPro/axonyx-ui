@@ -1,0 +1,43 @@
+.ax-alert {
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.75rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--ax-border-subtle);
+    background: var(--ax-surface);
+}
+
+.ax-alert__marker {
+    width: 3px;
+    border-radius: 2px;
+    background: var(--ax-text-muted);
+}
+
+.ax-alert__title {
+    display: block;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
+}
+
+.ax-alert__content {
+    font-size: 0.85rem;
+    color: var(--ax-text-muted);
+}
+
+/* tones */
+
+.ax-alert[data-tone='info'] .ax-alert__marker {
+    background: var(--ax-cyan);
+}
+
+.ax-alert[data-tone='warning'] .ax-alert__marker {
+    background: var(--ax-warning);
+}
+
+.ax-alert[data-tone='danger'] .ax-alert__marker {
+    background: var(--ax-danger);
+}
+
+.ax-alert[data-tone='success'] .ax-alert__marker {
+    background: var(--ax-success);
+}
