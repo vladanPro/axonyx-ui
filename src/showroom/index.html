@@ -10,6 +10,10 @@
 .ax-showroom-block { margin-top: var(--ax-space-2xl); }
 .ax-showroom-label { margin: 0 0 0.75rem; color: var(--ax-text-muted); font-family: var(--ax-font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.14em; }
 </style>
+<script src="../js/tabs.js" defer></script>
+<script src="../js/code-copy.js" defer></script>
+<script src="../js/dialog.js" defer></script>
+<script src="../js/command.js" defer></script>
 </head>
 <body>
 <div class="ax-container" data-max="xl">
@@ -17,7 +21,7 @@
 <header class="ax-showroom-block">
 <p class="ax-copy" data-tone="eyebrow">Foundry Design Language</p>
 <h1>Axonyx UI – Full Showroom</h1>
-<p class="ax-copy" data-tone="lead">A practical design system for engineered work surfaces, panels, tools, signal states, and Rust-first product UI.</p>
+<p class="ax-copy" data-tone="lead">A practical design system for engineered work surfaces, panels, tools, signal states, docs, overlays, and Rust-first product UI.</p>
 </header>
 
 <div class="ax-showroom-controls">
@@ -26,6 +30,8 @@
 <button class="ax-button" data-surface="forged" onclick="setTheme('bronze')">Bronze</button>
 <button class="ax-button" data-surface="forged" onclick="setTheme('silver')">Silver</button>
 <button class="ax-button" data-surface="forged" onclick="setTheme('gold')">Gold</button>
+<button class="ax-button" data-variant="primary" data-surface="forged" data-ax-dialog-open="showroom-dialog">Open Dialog</button>
+<button class="ax-button" data-variant="ghost" onclick="AxonyxCommand && AxonyxCommand.open('command-showroom')">Command</button>
 </div>
 </div>
 
@@ -67,6 +73,40 @@
 </section>
 
 <section class="ax-showroom-block">
+<h2>Docs Components</h2>
+<div class="ax-stack" data-gap="lg">
+<section class="ax-component-preview" data-surface="inset">
+<header class="ax-component-preview__header"><strong class="ax-component-preview__title">ComponentPreview + Tabs</strong></header>
+<div class="ax-component-preview__stage">
+<div class="ax-tabs" data-default-value="preview">
+<div class="ax-tab" data-value="preview"><div class="ax-tab__label">Preview</div><div class="ax-tab__panel"><div class="ax-stack" data-gap="md"><button class="ax-button" data-variant="primary" data-surface="forged">Deploy</button><span class="ax-badge" data-variant="accent">Ready</span></div></div></div>
+<div class="ax-tab" data-value="code"><div class="ax-tab__label">Code</div><div class="ax-tab__panel"><figure class="ax-code-block" data-language="ax"><figcaption class="ax-code-block__header"><span class="ax-code-block__title">Button.ax</span><div class="ax-code-block__tools"><span class="ax-code-block__language">ax</span><button class="ax-code-block__copy" type="button" data-ax-copy-code>Copy</button></div></figcaption><pre class="ax-code-block__pre"><code class="ax-code-block__code">&lt;Button variant=&quot;primary&quot; surface=&quot;forged&quot;&gt;Deploy&lt;/Button&gt;</code></pre></figure></div></div>
+</div>
+</div>
+</section>
+
+<table class="ax-props-table">
+<thead><tr><th>Prop</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+<tbody>
+<tr class="ax-prop-row"><td class="ax-prop-row__name">variant</td><td class="ax-prop-row__type">default | primary | ghost | accent | outline</td><td class="ax-prop-row__default">default</td><td class="ax-prop-row__desc">Controls visual emphasis.</td></tr>
+<tr class="ax-prop-row"><td class="ax-prop-row__name">surface</td><td class="ax-prop-row__type">brushed | forged | inset</td><td class="ax-prop-row__default">default</td><td class="ax-prop-row__desc">Applies Foundry surface treatment.</td></tr>
+<tr class="ax-prop-row"><td class="ax-prop-row__name">border</td><td class="ax-prop-row__type">forged</td><td class="ax-prop-row__default">none</td><td class="ax-prop-row__desc">Applies riveted reinforced border.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="ax-showroom-block">
+<h2>Feedback</h2>
+<div class="ax-stack" data-gap="md">
+<div class="ax-alert" data-tone="info" role="status"><div class="ax-alert__marker" aria-hidden="true"></div><div class="ax-alert__body"><strong class="ax-alert__title">Info</strong><div class="ax-alert__content">This is a regular information callout.</div></div></div>
+<div class="ax-alert" data-tone="warning" role="status"><div class="ax-alert__marker" aria-hidden="true"></div><div class="ax-alert__body"><strong class="ax-alert__title">Warning</strong><div class="ax-alert__content">This API is experimental and may change.</div></div></div>
+<div class="ax-alert" data-tone="danger" role="status"><div class="ax-alert__marker" aria-hidden="true"></div><div class="ax-alert__body"><strong class="ax-alert__title">Danger</strong><div class="ax-alert__content">Something failed and needs attention.</div></div></div>
+<div class="ax-alert" data-tone="success" role="status"><div class="ax-alert__marker" aria-hidden="true"></div><div class="ax-alert__body"><strong class="ax-alert__title">Success</strong><div class="ax-alert__content">Deployment completed successfully.</div></div></div>
+</div>
+</section>
+
+<section class="ax-showroom-block">
 <h2>Forms</h2>
 <div class="ax-grid" data-cols="2" data-gap="lg">
 <div class="ax-field"><label class="ax-field__label">Project name</label><input class="ax-input" placeholder="axonyx-ui" /><p class="ax-field__hint">Used for build output and metadata.</p></div>
@@ -79,40 +119,39 @@
 
 <section class="ax-showroom-block">
 <h2>Command Palette</h2>
-<div class="ax-command">
-<input class="ax-command__input" placeholder="Type a command..." />
-<ul class="ax-command__list">
-<li class="ax-command__item" data-active="true"><span>Open project</span><span class="ax-command__shortcut">⌘P</span></li>
-<li class="ax-command__item"><span>Deploy current app</span><span class="ax-command__shortcut">⌘D</span></li>
-<li class="ax-command__item"><span>Run diagnostics</span><span class="ax-command__shortcut">⌘R</span></li>
-<li class="ax-command__item"><span>Open settings</span><span class="ax-command__shortcut">⌘,</span></li>
-</ul>
+<p class="ax-copy" data-tone="muted">Use Ctrl+K / Cmd+K or the Command button in the sticky controls.</p>
+<div class="ax-command" id="command-showroom">
+<div class="ax-command__backdrop" data-ax-command-close></div>
+<div class="ax-command__panel">
+<input class="ax-command__input" placeholder="Search..." data-ax-command-input />
+<div class="ax-command__list">
+<a href="#" data-ax-command-item>Docs</a>
+<a href="#" data-ax-command-item>Components</a>
+<a href="#" data-ax-command-item>Button</a>
+<a href="#" data-ax-command-item>Forms</a>
+<a href="#" data-ax-command-item>Foundry Surfaces</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="ax-showroom-block">
+<h2>Dialog</h2>
+<button class="ax-button" data-surface="forged" data-variant="primary" data-ax-dialog-open="showroom-dialog">Open Dialog</button>
+<div class="ax-dialog" id="showroom-dialog" data-open="false" role="dialog" aria-modal="true">
+<div class="ax-dialog__backdrop" data-ax-dialog-close></div>
+<section class="ax-dialog__panel">
+<header class="ax-dialog__header"><strong class="ax-dialog__title">Confirm deploy</strong><button class="ax-dialog__close" type="button" aria-label="Close dialog" data-ax-dialog-close>×</button></header>
+<div class="ax-dialog__content"><div class="ax-stack" data-gap="md"><p class="ax-copy">This dialog uses a tiny Axonyx JS island instead of React hydration.</p><div class="ax-cluster" data-gap="sm"><button class="ax-button" data-variant="ghost" data-ax-dialog-close>Cancel</button><button class="ax-button" data-surface="forged" data-variant="primary">Deploy</button></div></div></div>
+</section>
 </div>
 </section>
 
 <section class="ax-showroom-block">
 <h2>Workspace Layout</h2>
 <div class="ax-workspace" data-rail-width="md">
-<aside class="ax-rail">
-<strong>Axonyx</strong>
-<div class="ax-nav-list">
-<a class="ax-nav-item" data-active="true">Dashboard</a>
-<a class="ax-nav-item">Projects</a>
-<a class="ax-nav-item">Settings</a>
-</div>
-</aside>
-<main class="ax-frame">
-<div class="ax-toolbar">
-<h3>Workspace</h3>
-<div class="ax-cluster" data-gap="sm"><button class="ax-button">Cancel</button><button class="ax-button" data-surface="forged" data-variant="primary">Deploy</button></div>
-</div>
-<section class="ax-section">
-<div class="ax-grid" data-cols="2" data-gap="lg">
-<div class="ax-card" data-surface="forged" data-border="forged"><h3>Status</h3><p class="ax-copy">System ready.</p></div>
-<div class="ax-card" data-surface="brushed" data-brush="vertical"><h3>Logs</h3><p class="ax-copy">Recent activity visible.</p></div>
-</div>
-</section>
-</main>
+<aside class="ax-rail"><strong>Axonyx</strong><div class="ax-nav-list"><a class="ax-nav-item" data-active="true">Dashboard</a><a class="ax-nav-item">Projects</a><a class="ax-nav-item">Settings</a></div></aside>
+<main class="ax-frame"><div class="ax-toolbar"><h3>Workspace</h3><div class="ax-cluster" data-gap="sm"><button class="ax-button">Cancel</button><button class="ax-button" data-surface="forged" data-variant="primary">Deploy</button></div></div><section class="ax-section"><div class="ax-grid" data-cols="2" data-gap="lg"><div class="ax-card" data-surface="forged" data-border="forged"><h3>Status</h3><p class="ax-copy">System ready.</p></div><div class="ax-card" data-surface="brushed" data-brush="vertical"><h3>Logs</h3><p class="ax-copy">Recent activity visible.</p></div></div></section></main>
 </div>
 </section>
 
