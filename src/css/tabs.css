@@ -1,0 +1,22 @@
+.ax-tabs__list {
+    display: flex;
+    gap: 0.4rem;
+    border-bottom: 1px solid var(--ax-border-subtle);
+    padding-bottom: 0.4rem;
+}
+
+.ax-tabs__trigger {
+    background: transparent;
+    border: 1px solid transparent;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: var(--ax-text-muted);
+    cursor: pointer;
+}
+
+.ax-tabs__trigger[data-active='true'] {
+    border-color: var(--ax-border);
+    background: var(--ax-surface-muted);
+    color: var(--ax-text);
+}
