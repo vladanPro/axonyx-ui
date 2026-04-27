@@ -4,13 +4,17 @@ page Showroom
   <Title>Axonyx UI – Full Showroom</Title>
   <Theme>silver</Theme>
   <Link rel="stylesheet" href="/css/index.css" />
+  <Script src="/js/tabs.js" />
+  <Script src="/js/code-copy.js" />
+  <Script src="/js/dialog.js" />
+  <Script src="/js/command.js" />
 </Head>
 
 <Container max="xl">
   <Section>
     <Copy tone="eyebrow">Foundry Design Language</Copy>
     <Heading level={1}>Axonyx UI – Full Showroom</Heading>
-    <Copy tone="lead">A practical design system for engineered work surfaces, panels, tools, signal states, and Rust-first product UI.</Copy>
+    <Copy tone="lead">A practical design system for engineered work surfaces, panels, tools, signal states, docs, overlays, and Rust-first product UI.</Copy>
   </Section>
 
   <Section>
@@ -25,37 +29,14 @@ page Showroom
   <Section>
     <Heading level={2}>Surfaces</Heading>
     <Grid cols={4} gap="lg">
-      <Card title="Default">
-        <Copy>Clean Foundry panel.</Copy>
-      </Card>
-
-      <Card title="Brushed H" surface="brushed" brush="horizontal">
-        <Copy>Horizontal grain.</Copy>
-      </Card>
-
-      <Card title="Brushed V" surface="brushed" brush="vertical">
-        <Copy>Vertical grain.</Copy>
-      </Card>
-
-      <Card title="Diagonal" surface="brushed" brush="diagonal">
-        <Copy>Directional cut.</Copy>
-      </Card>
-
-      <Card title="Reverse" surface="brushed" brush="reverse-diagonal">
-        <Copy>Reverse diagonal.</Copy>
-      </Card>
-
-      <Card title="Forged" surface="forged">
-        <Copy>Warm heavy panel.</Copy>
-      </Card>
-
-      <Card title="Inset" surface="inset">
-        <Copy>Recessed work slot.</Copy>
-      </Card>
-
-      <Card title="Forged Border" surface="forged" border="forged">
-        <Copy>Riveted frame.</Copy>
-      </Card>
+      <Card title="Default"><Copy>Clean Foundry panel.</Copy></Card>
+      <Card title="Brushed H" surface="brushed" brush="horizontal"><Copy>Horizontal grain.</Copy></Card>
+      <Card title="Brushed V" surface="brushed" brush="vertical"><Copy>Vertical grain.</Copy></Card>
+      <Card title="Diagonal" surface="brushed" brush="diagonal"><Copy>Directional cut.</Copy></Card>
+      <Card title="Reverse" surface="brushed" brush="reverse-diagonal"><Copy>Reverse diagonal.</Copy></Card>
+      <Card title="Forged" surface="forged"><Copy>Warm heavy panel.</Copy></Card>
+      <Card title="Inset" surface="inset"><Copy>Recessed work slot.</Copy></Card>
+      <Card title="Forged Border" surface="forged" border="forged"><Copy>Riveted frame.</Copy></Card>
     </Grid>
   </Section>
 
@@ -66,16 +47,14 @@ page Showroom
         <Button>Default</Button>
         <Button variant="primary">Primary</Button>
         <Button variant="ghost">Ghost</Button>
-        <Button disabled>Disabled</Button>
+        <Button disabled={true}>Disabled</Button>
       </Cluster>
-
       <Cluster gap="md">
         <Button surface="forged">Forged</Button>
         <Button surface="forged" variant="primary">Forged Primary</Button>
         <Button border="forged">Rivet Button</Button>
         <Button surface="forged" border="forged" variant="primary">Deploy</Button>
       </Cluster>
-
       <Cluster gap="sm">
         <Badge>Default</Badge>
         <Badge variant="accent">Accent</Badge>
@@ -85,46 +64,83 @@ page Showroom
   </Section>
 
   <Section>
+    <Heading level={2}>Docs Components</Heading>
+    <Stack gap="lg">
+      <ComponentPreview title="ComponentPreview + Tabs">
+        <Tabs defaultValue="preview">
+          <Tab title="Preview" value="preview">
+            <Stack gap="md" align="start">
+              <Button variant="primary" surface="forged">Deploy</Button>
+              <Badge variant="accent">Ready</Badge>
+            </Stack>
+          </Tab>
+          <Tab title="Code" value="code">
+            <CodeBlock language="ax" title="Button.ax">
+              &lt;Button variant="primary" surface="forged"&gt;Deploy&lt;/Button&gt;
+            </CodeBlock>
+          </Tab>
+        </Tabs>
+      </ComponentPreview>
+
+      <PropsTable>
+        <PropRow name="variant" type="default | primary | ghost | accent | outline" default="default" description="Controls visual emphasis." />
+        <PropRow name="surface" type="brushed | forged | inset" default="default" description="Applies Foundry surface treatment." />
+        <PropRow name="border" type="forged" default="none" description="Applies riveted reinforced border." />
+      </PropsTable>
+    </Stack>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Feedback</Heading>
+    <Stack gap="md">
+      <Alert tone="info" title="Info">This is a regular information callout.</Alert>
+      <Alert tone="warning" title="Warning">This API is experimental and may change.</Alert>
+      <Alert tone="danger" title="Danger">Something failed and needs attention.</Alert>
+      <Alert tone="success" title="Success">Deployment completed successfully.</Alert>
+    </Stack>
+  </Section>
+
+  <Section>
     <Heading level={2}>Forms</Heading>
     <Grid cols={2} gap="lg">
-      <Field label="Project name" hint="Used for build output and metadata.">
-        <Input placeholder="axonyx-ui" />
-      </Field>
-
-      <Field label="API key" state="error" error="Invalid key format.">
-        <Input invalid placeholder="••••••" />
-      </Field>
-
-      <Field label="Environment" hint="Choose deployment target.">
-        <Select>
-          <Option>Development</Option>
-          <Option>Staging</Option>
-          <Option>Production</Option>
-        </Select>
-      </Field>
-
-      <Field label="Forged select">
-        <Select surface="forged">
-          <Option>Bronze</Option>
-          <Option>Silver</Option>
-          <Option>Gold</Option>
-        </Select>
-      </Field>
-
-      <Field label="Description">
-        <Textarea placeholder="Describe your module..." />
-      </Field>
+      <Field label="Project name" hint="Used for build output and metadata."><Input placeholder="axonyx-ui" /></Field>
+      <Field label="API key" state="error" error="Invalid key format."><Input invalid={true} placeholder="••••••" /></Field>
+      <Field label="Environment" hint="Choose deployment target."><Select><Option>Development</Option><Option>Staging</Option><Option>Production</Option></Select></Field>
+      <Field label="Forged select"><Select surface="forged"><Option>Bronze</Option><Option>Silver</Option><Option>Gold</Option></Select></Field>
+      <Field label="Description"><Textarea placeholder="Describe your module..." /></Field>
     </Grid>
   </Section>
 
   <Section>
     <Heading level={2}>Command Palette</Heading>
-    <Command placeholder="Type a command...">
-      <CommandItem active shortcut="⌘P">Open project</CommandItem>
-      <CommandItem shortcut="⌘D">Deploy current app</CommandItem>
-      <CommandItem shortcut="⌘R">Run diagnostics</CommandItem>
-      <CommandItem shortcut="⌘,">Open settings</CommandItem>
-    </Command>
+    <Button surface="forged" variant="primary" data-ax-dialog-open="command-showroom">Open Command</Button>
+    <div class="ax-command" id="command-showroom">
+      <div class="ax-command__backdrop" data-ax-command-close></div>
+      <div class="ax-command__panel">
+        <input class="ax-command__input" placeholder="Search..." data-ax-command-input />
+        <div class="ax-command__list">
+          <a href="/docs" data-ax-command-item>Docs</a>
+          <a href="/components" data-ax-command-item>Components</a>
+          <a href="/components/button" data-ax-command-item>Button</a>
+          <a href="/components/forms" data-ax-command-item>Forms</a>
+          <a href="/foundry/surfaces" data-ax-command-item>Foundry Surfaces</a>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <Heading level={2}>Dialog</Heading>
+    <Button surface="forged" variant="primary" data-ax-dialog-open="showroom-dialog">Open Dialog</Button>
+    <Dialog id="showroom-dialog" title="Confirm deploy">
+      <Stack gap="md">
+        <Copy>This dialog uses a tiny Axonyx JS island instead of React hydration.</Copy>
+        <Cluster gap="sm">
+          <Button variant="ghost" data-ax-dialog-close>Cancel</Button>
+          <Button surface="forged" variant="primary">Deploy</Button>
+        </Cluster>
+      </Stack>
+    </Dialog>
   </Section>
 
   <Section>
@@ -133,30 +149,20 @@ page Showroom
       <Rail>
         <Strong>Axonyx</Strong>
         <NavList>
-          <NavItem active>Dashboard</NavItem>
+          <NavItem active={true}>Dashboard</NavItem>
           <NavItem>Projects</NavItem>
           <NavItem>Settings</NavItem>
         </NavList>
       </Rail>
-
       <Frame>
         <Toolbar>
           <Heading level={3}>Workspace</Heading>
-          <Cluster gap="sm">
-            <Button>Cancel</Button>
-            <Button surface="forged" variant="primary">Deploy</Button>
-          </Cluster>
+          <Cluster gap="sm"><Button>Cancel</Button><Button surface="forged" variant="primary">Deploy</Button></Cluster>
         </Toolbar>
-
         <Section>
           <Grid cols={2} gap="lg">
-            <Card title="Status" surface="forged" border="forged">
-              <Copy>System ready.</Copy>
-            </Card>
-
-            <Card title="Logs" surface="brushed" brush="vertical">
-              <Copy>Recent activity visible.</Copy>
-            </Card>
+            <Card title="Status" surface="forged" border="forged"><Copy>System ready.</Copy></Card>
+            <Card title="Logs" surface="brushed" brush="vertical"><Copy>Recent activity visible.</Copy></Card>
           </Grid>
         </Section>
       </Frame>
