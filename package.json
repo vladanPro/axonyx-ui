@@ -1,6 +1,6 @@
 {
   "name": "@axonyx/ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Framework-agnostic CSS and JS package for Axonyx UI Foundry.",
   "license": "MIT",
   "type": "module",
