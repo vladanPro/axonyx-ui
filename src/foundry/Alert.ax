@@ -1,0 +1,11 @@
+component Alert(tone = "info", title = "")
+
+<div class="ax-alert" data-tone={tone} role="status">
+  <div class="ax-alert__marker" aria-hidden="true"></div>
+  <div class="ax-alert__body">
+    <strong class="ax-alert__title">{title}</strong>
+    <div class="ax-alert__content">
+      <Slot />
+    </div>
+  </div>
+</div>

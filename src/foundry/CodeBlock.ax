@@ -1,9 +1,12 @@
-component CodeBlock(language = "ax", title = "")
+component CodeBlock(language = "ax", title = "", copy = true)
 
-<figure class="ax-code-block" data-language={language}>
+<figure class="ax-code-block" data-language={language} data-copy={copy}>
   <figcaption class="ax-code-block__header">
     <span class="ax-code-block__title">{title}</span>
-    <span class="ax-code-block__language">{language}</span>
+    <div class="ax-code-block__tools">
+      <span class="ax-code-block__language">{language}</span>
+      <button class="ax-code-block__copy" type="button" data-ax-copy-code>Copy</button>
+    </div>
   </figcaption>
 
   <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
