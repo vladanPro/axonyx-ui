@@ -22,12 +22,27 @@ Core ideas:
 
 ## Initial Scope
 
-The first stable primitives are:
+The stable primitive set is growing around:
 
 - `Container`
 - `Grid`
 - `Card`
 - `Copy`
+- `Button`
+- `Badge`
+- `Alert`
+- `Field`, `Input`, `Textarea`, `Select`
+- `Checkbox`, `Radio`, `Switch`
+- `Breadcrumbs`
+- `ButtonGroup`
+- `Tabs`
+- `Accordion`
+- `Dropdown`
+- `Dialog`
+- `Tooltip`
+- `CodeBlock`
+- `PropsTable`
+- `Icon`
 
 The first themes are:
 
@@ -81,6 +96,11 @@ src/css/
   card.css
   copy.css
   links.css
+  button.css
+  button-group.css
+  breadcrumbs.css
+  radio.css
+  icons.css
   index.css
 ```
 

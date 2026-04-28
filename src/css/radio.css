@@ -1,0 +1,28 @@
+.ax-radio-group {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.ax-radio-group[data-direction='row'] {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.ax-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--ax-text);
+    font-weight: 700;
+}
+
+.ax-radio input {
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--ax-primary);
+}
+
+.ax-radio span {
+    color: var(--ax-text-soft);
+}

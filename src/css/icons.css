@@ -1,0 +1,22 @@
+.ax-icon {
+    width: 1.15em;
+    height: 1.15em;
+    display: inline-flex;
+    flex: none;
+    vertical-align: -0.18em;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+}
+
+.ax-icon[data-size='sm'] {
+    width: 1em;
+    height: 1em;
+}
+
+.ax-icon[data-size='lg'] {
+    width: 1.35em;
+    height: 1.35em;
+}

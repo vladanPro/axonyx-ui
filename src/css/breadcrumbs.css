@@ -1,0 +1,32 @@
+.ax-breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    color: var(--ax-text-muted);
+    font-size: 0.85rem;
+}
+
+.ax-breadcrumbs a,
+.ax-breadcrumbs__current {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.8rem;
+}
+
+.ax-breadcrumbs a {
+    color: var(--ax-text-soft);
+    text-decoration: none;
+}
+
+.ax-breadcrumbs a:hover {
+    color: var(--ax-text);
+}
+
+.ax-breadcrumbs__separator {
+    color: var(--ax-border-strong);
+}
+
+.ax-breadcrumbs__current {
+    color: var(--ax-text);
+}
