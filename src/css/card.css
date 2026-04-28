@@ -407,13 +407,11 @@
 @media (prefers-reduced-motion: no-preference) {
     .ax-card {
         transition:
-            transform 180ms ease,
             border-color 180ms ease,
             box-shadow 180ms ease;
     }
 
     .ax-card:hover {
-        transform: translateY(-2px);
         border-color: var(--ax-border-strong);
     }
 }
