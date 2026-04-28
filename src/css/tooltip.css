@@ -1,0 +1,32 @@
+.ax-tooltip {
+    position: relative;
+    display: inline-flex;
+}
+
+.ax-tooltip__content {
+    position: absolute;
+    bottom: calc(100% + 0.5rem);
+    left: 50%;
+    z-index: 30;
+    width: max-content;
+    max-width: 18rem;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--ax-border);
+    border-radius: 0.6rem;
+    background: color-mix(in srgb, var(--ax-surface) 95%, black);
+    color: var(--ax-text-soft);
+    font-size: 0.8rem;
+    line-height: 1.45;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 0.25rem);
+    transition:
+        opacity 120ms ease,
+        transform 120ms ease;
+}
+
+.ax-tooltip:focus-within .ax-tooltip__content,
+.ax-tooltip:hover .ax-tooltip__content {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}

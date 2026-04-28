@@ -1,0 +1,42 @@
+.ax-accordion {
+    display: grid;
+    gap: 0.65rem;
+}
+
+.ax-accordion__item {
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-md);
+    background: color-mix(in srgb, var(--ax-surface) 78%, transparent);
+    overflow: hidden;
+}
+
+.ax-accordion__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    border: 0;
+    background: transparent;
+    color: var(--ax-text);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 800;
+    text-align: left;
+}
+
+.ax-accordion__trigger::after {
+    content: '+';
+    color: var(--ax-primary);
+}
+
+.ax-accordion__item[data-open='true'] .ax-accordion__trigger::after {
+    content: '-';
+}
+
+.ax-accordion__content {
+    padding: 0 1rem 1rem;
+    color: var(--ax-text-soft);
+    line-height: 1.65;
+}
