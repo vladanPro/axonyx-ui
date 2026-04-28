@@ -1,3 +1,32 @@
+.ax-code-block {
+    margin: 0;
+    padding: 1rem;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-surface-2) 92%, transparent), var(--ax-surface)),
+        var(--ax-surface);
+    color: var(--ax-text-soft);
+    overflow-x: auto;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.65;
+}
+
+.ax-code-block[data-language]::before {
+    content: attr(data-language);
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--ax-text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.ax-code-block code {
+    font: inherit;
+}
+
 .ax-code-block__tools {
     display: flex;
     align-items: center;
