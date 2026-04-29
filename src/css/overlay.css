@@ -1,0 +1,182 @@
+.ax-toast-viewport {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 80;
+    display: grid;
+    gap: 0.65rem;
+    width: min(100% - 2rem, 24rem);
+    pointer-events: none;
+}
+
+.ax-toast {
+    pointer-events: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--ax-space-sm);
+    padding: 0.85rem;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background:
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-surface-2) 92%, transparent), var(--ax-surface)),
+        var(--ax-surface);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+}
+
+.ax-toast[data-tone='success'] {
+    border-color: color-mix(in srgb, var(--ax-primary) 58%, var(--ax-border));
+}
+
+.ax-toast[data-tone='warning'] {
+    border-color: color-mix(in srgb, #f5b94c 62%, var(--ax-border));
+}
+
+.ax-toast[data-tone='danger'] {
+    border-color: color-mix(in srgb, #ff6b6b 62%, var(--ax-border));
+}
+
+.ax-toast__title {
+    display: block;
+    color: var(--ax-text);
+    font-weight: 850;
+    letter-spacing: -0.02em;
+}
+
+.ax-toast__description {
+    margin: 0.2rem 0 0;
+    color: var(--ax-text-soft);
+    line-height: 1.55;
+}
+
+.ax-toast__close {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--ax-border);
+    border-radius: 999px;
+    background: var(--ax-surface-2);
+    color: var(--ax-text-muted);
+    cursor: pointer;
+}
+
+.ax-toast__close:hover {
+    color: var(--ax-text);
+    border-color: var(--ax-border-strong);
+}
+
+.ax-popover {
+    position: relative;
+    display: inline-flex;
+}
+
+.ax-popover__content {
+    position: absolute;
+    z-index: 70;
+    min-width: 18rem;
+    max-width: min(24rem, calc(100vw - 2rem));
+    padding: 0.9rem;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background: color-mix(in srgb, var(--ax-surface) 96%, black);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+}
+
+.ax-popover__content[data-side='bottom'] {
+    top: calc(100% + 0.55rem);
+    left: 0;
+}
+
+.ax-popover__content[data-side='top'] {
+    bottom: calc(100% + 0.55rem);
+    left: 0;
+}
+
+.ax-popover__content[data-side='right'] {
+    left: calc(100% + 0.55rem);
+    top: 0;
+}
+
+.ax-popover__content[data-side='left'] {
+    right: calc(100% + 0.55rem);
+    top: 0;
+}
+
+.ax-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 75;
+}
+
+.ax-drawer__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.52);
+    backdrop-filter: blur(10px);
+}
+
+.ax-drawer__panel {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: var(--ax-space-md);
+    width: min(28rem, 100%);
+    max-width: calc(100vw - 1rem);
+    height: 100%;
+    padding: var(--ax-space-lg);
+    border: 1px solid var(--ax-border);
+    background: var(--ax-surface);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.42);
+}
+
+.ax-drawer[data-side='right'] .ax-drawer__panel {
+    top: 0;
+    right: 0;
+    border-radius: var(--ax-radius-xl) 0 0 var(--ax-radius-xl);
+}
+
+.ax-drawer[data-side='left'] .ax-drawer__panel {
+    top: 0;
+    left: 0;
+    border-radius: 0 var(--ax-radius-xl) var(--ax-radius-xl) 0;
+}
+
+.ax-drawer[data-side='bottom'] .ax-drawer__panel {
+    inset: auto 0 0;
+    width: 100%;
+    height: auto;
+    min-height: 18rem;
+    max-width: none;
+    border-radius: var(--ax-radius-xl) var(--ax-radius-xl) 0 0;
+}
+
+.ax-drawer__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--ax-space-md);
+}
+
+.ax-drawer__title {
+    color: var(--ax-text);
+    font-weight: 850;
+    font-size: 1.1rem;
+    letter-spacing: -0.03em;
+}
+
+.ax-drawer__description {
+    margin: 0.25rem 0 0;
+    color: var(--ax-text-soft);
+    line-height: 1.6;
+}
+
+.ax-drawer__content {
+    min-height: 0;
+    overflow: auto;
+}
+
+@media (max-width: 640px) {
+    .ax-toast-viewport {
+        right: 0.75rem;
+        bottom: 0.75rem;
+        width: calc(100% - 1.5rem);
+    }
+}
