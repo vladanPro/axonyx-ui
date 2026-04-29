@@ -2,6 +2,8 @@
 
 Axonyx UI is the design-system layer for the Axonyx ecosystem.
 
+Website: https://axonyx.dev
+
 It is built on the **Foundry** design language: a system-oriented visual language for builders, with engineered surfaces, signal-driven states, and metal-inspired themes.
 
 ## Purpose
