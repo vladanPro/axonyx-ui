@@ -44,66 +44,9 @@ Potential extension:
 <CodeBlock border="forged" />
 ```
 
-Suggested CSS direction:
-
-```css
-.ax-button[data-border='forged'] {
-  position: relative;
-  padding-inline: 1.15rem;
-  border-color: var(--ax-border-strong);
-}
-
-.ax-button[data-border='forged']::before,
-.ax-button[data-border='forged']::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  width: 0.32rem;
-  height: 0.32rem;
-  border-radius: 999px;
-  background: currentColor;
-  opacity: 0.42;
-  transform: translateY(-50%);
-}
-
-.ax-button[data-border='forged']::before {
-  left: 0.45rem;
-}
-
-.ax-button[data-border='forged']::after {
-  right: 0.45rem;
-}
-```
-
 ## 2. Industrial separators / cut lines
 
 Create a reusable cut line utility for section breaks.
-
-```css
-.ax-cutline {
-  position: relative;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--ax-border-strong),
-    transparent
-  );
-}
-
-.ax-cutline::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: var(--ax-primary);
-  transform: translate(-50%, -50%);
-  opacity: 0.65;
-}
-```
 
 Use for docs sections, landing sections, and component examples.
 
@@ -111,28 +54,12 @@ Use for docs sections, landing sections, and component examples.
 
 Cards can optionally have a metal plate header.
 
-Concept:
-
-```text
-┌────────────────────┐
-│  STATUS / BUILD    │
-├────────────────────┤
-│ content            │
-└────────────────────┘
-```
-
 Possible API:
 
 ```tsx
 <Card surface="forged">
   <CardHeader eyebrow="Build status" title="Ready to deploy" />
 </Card>
-```
-
-Alternative lighter API:
-
-```tsx
-<Card surface="forged" title="Ready to deploy" eyebrow="Build status" />
 ```
 
 Visual rules:
@@ -164,30 +91,9 @@ Possible API:
 </Badge>
 ```
 
-Use in:
-
-- Alert
-- Badge
-- package status
-- docs beta notices
-- deployment / build cards
-
 ## 5. Machined corners
 
 Use clipped corners sparingly on forged surfaces.
-
-```css
-.ax-machined-corners {
-  clip-path: polygon(
-    0 8px,
-    8px 0,
-    100% 0,
-    100% calc(100% - 8px),
-    calc(100% - 8px) 100%,
-    0 100%
-  );
-}
-```
 
 Best for:
 
@@ -214,13 +120,6 @@ Visual direction:
 - letter spacing
 - low-contrast metal plate background
 - border or inset shadow
-
-Use for:
-
-- beta labels
-- package labels
-- surface names
-- docs section labels
 
 ## 7. Blueprint grid / foundry ambiance
 
@@ -288,17 +187,114 @@ Possible effects:
 
 Avoid animating everything.
 
+## 11. MachineSwitch / industrial toggle
+
+A signature Axonyx control inspired by physical machine controls in foundries and workshops.
+
+This should not feel like a normal checkbox. It should feel like a small control panel with red/green machine buttons.
+
+Possible names:
+
+```txt
+MachineSwitch
+ToggleLever
+PowerSwitch
+IndustrialSwitch
+```
+
+Recommended public name:
+
+```txt
+MachineSwitch
+```
+
+### Behavior
+
+OFF state:
+
+- red side active
+- red control visually raised / lit
+- green side inactive
+- switch feels safe/stopped/disabled
+
+ON state:
+
+- green side active
+- green control visually pressed or locked in
+- red side inactive/dimmed
+- switch feels running/enabled/armed
+
+### Possible API
+
+Client controlled:
+
+```tsx
+<MachineSwitch checked={enabled} onCheckedChange={setEnabled} />
+```
+
+Uncontrolled:
+
+```tsx
+<MachineSwitch defaultChecked label="Foundry mode" />
+```
+
+With domain copy:
+
+```tsx
+<MachineSwitch
+  label="Deploy pipeline"
+  onLabel="Armed"
+  offLabel="Stopped"
+/>
+```
+
+### HTML contract idea
+
+```html
+<button class="ax-machine-switch" data-state="on">
+  <span class="ax-machine-switch__lamp" data-tone="danger"></span>
+  <span class="ax-machine-switch__track">
+    <span class="ax-machine-switch__knob"></span>
+  </span>
+  <span class="ax-machine-switch__lamp" data-tone="success"></span>
+</button>
+```
+
+### Visual direction
+
+- small forged control housing
+- red and green indicator lamps
+- knob/button moves mechanically
+- active lamp glows subtly
+- ON state can press downward by 1px and glow green
+- OFF state can raise the red control and dim the green side
+- animation should be short and mechanical, not playful
+
+### Use cases
+
+- feature toggles
+- deploy enabled/disabled
+- maintenance mode
+- public beta switch
+- server/client mode demo
+- theme or runtime controls
+
+### Implementation note
+
+Best fit is `@axonyx/react/client`, because it needs state and interaction. A static CSS/HTML contract can still exist in `@axonyx/ui`.
+
 ## Priority batch
 
 Recommended implementation order:
 
 1. Restore forged/rivet button
 2. Add `StatusLamp`
-3. Add `CardHeader` / plate header pattern
-4. Upgrade `CodeBlock` with industrial top bar
-5. Add clipped forged surface utility
-6. Add `InspectionPanel`
-7. Add icon color/size polish
+3. Add `MachineSwitch`
+4. Add `CardHeader` / plate header pattern
+5. Upgrade `CodeBlock` with industrial top bar
+6. Add clipped forged surface utility
+7. Add `InspectionPanel`
+8. Add icon color/size polish
 
 ## Design principle
 
@@ -309,5 +305,6 @@ Industrial details should be concentrated on components where they communicate s
 - panels
 - code/examples
 - docs navigation
+- stateful controls
 
 Keep base typography and layout clean so the system remains usable for real product interfaces.
