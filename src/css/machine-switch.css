@@ -1,0 +1,101 @@
+.ax-machine-switch {
+    --ax-machine-danger: #ff4d4d;
+    --ax-machine-success: #38d67a;
+
+    display: inline-grid;
+    grid-template-columns: auto minmax(3.75rem, auto) auto;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 2.45rem;
+    padding: 0.42rem 0.55rem;
+    border: 1px solid var(--ax-border-strong);
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,.06), transparent),
+        var(--ax-surface-2);
+    color: var(--ax-text);
+    box-shadow:
+        inset 0 1px rgba(255,255,255,.06),
+        inset 0 -1px rgba(0,0,0,.35);
+    cursor: pointer;
+    user-select: none;
+}
+
+.ax-machine-switch:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+.ax-machine-switch__lamp {
+    width: 0.76rem;
+    height: 0.76rem;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.28;
+    box-shadow: inset 0 1px rgba(255,255,255,.28), inset 0 -2px rgba(0,0,0,.35);
+    transition: opacity .16s ease, box-shadow .16s ease, transform .16s ease;
+}
+
+.ax-machine-switch__lamp[data-tone='danger'] { color: var(--ax-machine-danger); }
+.ax-machine-switch__lamp[data-tone='success'] { color: var(--ax-machine-success); }
+
+.ax-machine-switch[data-state='off'] .ax-machine-switch__lamp[data-tone='danger'],
+.ax-machine-switch[data-state='on'] .ax-machine-switch__lamp[data-tone='success'] {
+    opacity: 1;
+    transform: translateY(-1px);
+    box-shadow:
+        0 0 16px currentColor,
+        inset 0 1px rgba(255,255,255,.34),
+        inset 0 -2px rgba(0,0,0,.4);
+}
+
+.ax-machine-switch__track {
+    position: relative;
+    width: 3.9rem;
+    height: 1.55rem;
+    border: 1px solid var(--ax-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--ax-bg) 72%, transparent);
+    box-shadow:
+        inset 0 2px 8px rgba(0,0,0,.52),
+        inset 0 0 0 1px rgba(255,255,255,.03);
+}
+
+.ax-machine-switch__knob {
+    position: absolute;
+    top: 0.18rem;
+    left: 0.2rem;
+    width: 1.16rem;
+    height: 1.16rem;
+    border-radius: 999px;
+    background: var(--ax-machine-danger);
+    box-shadow:
+        0 3px 0 rgba(0,0,0,.42),
+        0 0 10px rgba(255,77,77,.25),
+        inset 0 1px rgba(255,255,255,.32),
+        inset 0 -2px rgba(0,0,0,.32);
+    transition: transform .18s cubic-bezier(.2,.8,.2,1), background .18s ease, box-shadow .18s ease;
+}
+
+.ax-machine-switch[data-state='on'] .ax-machine-switch__knob {
+    transform: translateX(2.32rem) translateY(1px);
+    background: var(--ax-machine-success);
+    box-shadow:
+        0 1px 0 rgba(0,0,0,.48),
+        0 0 15px rgba(56,214,122,.45),
+        inset 0 1px rgba(255,255,255,.24),
+        inset 0 -2px rgba(0,0,0,.36);
+}
+
+.ax-machine-switch__label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ax-text-muted);
+}
+
+.ax-machine-switch[data-state='on'] .ax-machine-switch__label[data-state='on'],
+.ax-machine-switch[data-state='off'] .ax-machine-switch__label[data-state='off'] {
+    color: var(--ax-text);
+}
