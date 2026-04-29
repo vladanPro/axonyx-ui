@@ -1,8 +1,14 @@
 .ax-component-preview {
+    position: relative;
     border-radius: 12px;
     border: 1px solid var(--ax-border-subtle);
     background: var(--ax-surface);
-    overflow: hidden;
+    overflow: visible;
+}
+
+.ax-component-preview:has(.ax-dropdown__menu),
+.ax-component-preview:has(.ax-popover__content) {
+    z-index: 40;
 }
 
 .ax-component-preview__header {
@@ -13,5 +19,8 @@
 }
 
 .ax-component-preview__stage {
+    position: relative;
+    z-index: 1;
     padding: 1rem;
+    overflow: visible;
 }
