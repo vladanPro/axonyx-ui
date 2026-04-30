@@ -1,24 +1,47 @@
 .ax-machine-switch {
     --ax-machine-danger: #ff4d4d;
     --ax-machine-success: #38d67a;
+    --ax-machine-plate: color-mix(in srgb, var(--ax-surface-2) 86%, #2b211a);
 
+    position: relative;
     display: inline-grid;
-    grid-template-columns: auto minmax(3.75rem, auto) auto;
+    grid-template-areas:
+        'danger track success'
+        'label label state';
+    grid-template-columns: auto 5.6rem auto;
     align-items: center;
-    gap: 0.55rem;
-    min-height: 2.45rem;
-    padding: 0.42rem 0.55rem;
+    justify-content: center;
+    gap: 0.42rem 0.62rem;
+    min-width: 10.8rem;
+    min-height: 5.05rem;
+    padding: 0.82rem 0.95rem 0.7rem;
     border: 1px solid var(--ax-border-strong);
-    border-radius: 999px;
+    border-radius: 1.05rem;
     background:
-        linear-gradient(180deg, rgba(255,255,255,.06), transparent),
-        var(--ax-surface-2);
+        radial-gradient(circle at 12% 14%, rgba(255, 255, 255, 0.13) 0 0.12rem, transparent 0.14rem),
+        radial-gradient(circle at 88% 14%, rgba(255, 255, 255, 0.13) 0 0.12rem, transparent 0.14rem),
+        radial-gradient(circle at 12% 86%, rgba(0, 0, 0, 0.42) 0 0.13rem, transparent 0.15rem),
+        radial-gradient(circle at 88% 86%, rgba(0, 0, 0, 0.42) 0 0.13rem, transparent 0.15rem),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.11), transparent 34%),
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-machine-plate) 88%, white), color-mix(in srgb, var(--ax-machine-plate) 82%, black));
     color: var(--ax-text);
     box-shadow:
-        inset 0 1px rgba(255,255,255,.06),
-        inset 0 -1px rgba(0,0,0,.35);
+        0 0 0 1px color-mix(in srgb, var(--ax-border-strong) 44%, transparent),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.38),
+        0 18px 42px rgba(0, 0, 0, 0.32);
     cursor: pointer;
     user-select: none;
+}
+
+.ax-machine-switch::before {
+    content: '';
+    position: absolute;
+    inset: 0.45rem;
+    border: 1px solid color-mix(in srgb, var(--ax-border-strong) 58%, transparent);
+    border-radius: 0.72rem;
+    pointer-events: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
 }
 
 .ax-machine-switch:disabled {
@@ -27,75 +50,146 @@
 }
 
 .ax-machine-switch__lamp {
-    width: 0.76rem;
-    height: 0.76rem;
+    position: relative;
+    z-index: 1;
+    width: 1.02rem;
+    height: 1.02rem;
+    border: 1px solid color-mix(in srgb, currentColor 46%, black);
     border-radius: 999px;
-    background: currentColor;
-    opacity: 0.28;
-    box-shadow: inset 0 1px rgba(255,255,255,.28), inset 0 -2px rgba(0,0,0,.35);
-    transition: opacity .16s ease, box-shadow .16s ease, transform .16s ease;
+    background:
+        radial-gradient(circle at 34% 25%, rgba(255, 255, 255, 0.95), transparent 16%),
+        radial-gradient(circle at center, currentColor, color-mix(in srgb, currentColor 42%, black));
+    opacity: 0.24;
+    box-shadow:
+        inset 0 1px rgba(255, 255, 255, 0.34),
+        inset 0 -2px rgba(0, 0, 0, 0.42);
+    transition:
+        opacity 0.16s ease,
+        box-shadow 0.16s ease,
+        transform 0.16s ease;
 }
 
-.ax-machine-switch__lamp[data-tone='danger'] { color: var(--ax-machine-danger); }
-.ax-machine-switch__lamp[data-tone='success'] { color: var(--ax-machine-success); }
+.ax-machine-switch__lamp[data-tone='danger'] {
+    grid-area: danger;
+    color: var(--ax-machine-danger);
+}
+
+.ax-machine-switch__lamp[data-tone='success'] {
+    grid-area: success;
+    color: var(--ax-machine-success);
+}
 
 .ax-machine-switch[data-state='off'] .ax-machine-switch__lamp[data-tone='danger'],
 .ax-machine-switch[data-state='on'] .ax-machine-switch__lamp[data-tone='success'] {
     opacity: 1;
     transform: translateY(-1px);
     box-shadow:
-        0 0 16px currentColor,
-        inset 0 1px rgba(255,255,255,.34),
-        inset 0 -2px rgba(0,0,0,.4);
+        0 0 18px currentColor,
+        0 0 34px color-mix(in srgb, currentColor 42%, transparent),
+        inset 0 1px rgba(255, 255, 255, 0.42),
+        inset 0 -2px rgba(0, 0, 0, 0.44);
 }
 
 .ax-machine-switch__track {
+    grid-area: track;
     position: relative;
-    width: 3.9rem;
-    height: 1.55rem;
-    border: 1px solid var(--ax-border);
+    z-index: 1;
+    width: 5.6rem;
+    height: 2.2rem;
+    border: 1px solid color-mix(in srgb, var(--ax-border) 72%, black);
     border-radius: 999px;
-    background: color-mix(in srgb, var(--ax-bg) 72%, transparent);
+    background:
+        linear-gradient(90deg, rgba(255, 77, 77, 0.18), transparent 32%, transparent 68%, rgba(56, 214, 122, 0.16)),
+        color-mix(in srgb, var(--ax-bg) 76%, black);
     box-shadow:
-        inset 0 2px 8px rgba(0,0,0,.52),
-        inset 0 0 0 1px rgba(255,255,255,.03);
+        inset 0 3px 10px rgba(0, 0, 0, 0.72),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.035),
+        0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.ax-machine-switch__track::before {
+    content: '';
+    position: absolute;
+    inset: 0.42rem 0.78rem;
+    border-radius: 999px;
+    background:
+        linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent),
+        rgba(0, 0, 0, 0.38);
 }
 
 .ax-machine-switch__knob {
     position: absolute;
-    top: 0.18rem;
-    left: 0.2rem;
-    width: 1.16rem;
-    height: 1.16rem;
-    border-radius: 999px;
-    background: var(--ax-machine-danger);
+    top: 50%;
+    left: 0.55rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    border: 1px solid color-mix(in srgb, var(--ax-machine-danger) 58%, black);
+    border-radius: 0.36rem;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.34), transparent 38%),
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-machine-danger) 86%, white), color-mix(in srgb, var(--ax-machine-danger) 72%, black));
     box-shadow:
-        0 3px 0 rgba(0,0,0,.42),
-        0 0 10px rgba(255,77,77,.25),
-        inset 0 1px rgba(255,255,255,.32),
-        inset 0 -2px rgba(0,0,0,.32);
-    transition: transform .18s cubic-bezier(.2,.8,.2,1), background .18s ease, box-shadow .18s ease;
+        0 0 14px rgba(255, 77, 77, 0.26),
+        0 4px 0 rgba(0, 0, 0, 0.48),
+        inset 0 1px rgba(255, 255, 255, 0.32),
+        inset 0 -2px rgba(0, 0, 0, 0.36);
+    transform: translateY(-50%) rotate(-14deg);
+    transition:
+        transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+        left 0.2s cubic-bezier(0.2, 0.8, 0.2, 1),
+        background 0.18s ease,
+        border-color 0.18s ease,
+        box-shadow 0.18s ease;
+}
+
+.ax-machine-switch__knob::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% - 0.12rem);
+    width: 0.42rem;
+    height: 1.25rem;
+    border: 1px solid color-mix(in srgb, var(--ax-border-strong) 70%, black);
+    border-radius: 999px 999px 0.18rem 0.18rem;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.28), transparent 42%),
+        color-mix(in srgb, var(--ax-surface-2) 72%, black);
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.34);
+    transform: translateX(-50%);
 }
 
 .ax-machine-switch[data-state='on'] .ax-machine-switch__knob {
-    transform: translateX(2.32rem) translateY(1px);
-    background: var(--ax-machine-success);
+    left: calc(100% - 1.95rem);
+    border-color: color-mix(in srgb, var(--ax-machine-success) 58%, black);
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.28), transparent 38%),
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-machine-success) 84%, white), color-mix(in srgb, var(--ax-machine-success) 70%, black));
     box-shadow:
-        0 1px 0 rgba(0,0,0,.48),
-        0 0 15px rgba(56,214,122,.45),
-        inset 0 1px rgba(255,255,255,.24),
-        inset 0 -2px rgba(0,0,0,.36);
+        0 0 16px rgba(56, 214, 122, 0.42),
+        0 2px 0 rgba(0, 0, 0, 0.52),
+        inset 0 1px rgba(255, 255, 255, 0.26),
+        inset 0 -2px rgba(0, 0, 0, 0.38);
+    transform: translateY(-50%) rotate(14deg);
 }
 
 .ax-machine-switch__label {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: .08em;
-    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
     color: var(--ax-text-muted);
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    line-height: 1.1;
+    text-transform: uppercase;
 }
 
-.ax-machine-switch[data-state='on'] .ax-machine-switch__label[data-state='on'],
-.ax-machine-switch[data-state='off'] .ax-machine-switch__label[data-state='off'] {
+.ax-machine-switch__label:not([data-state]) {
+    grid-area: label;
+    justify-self: start;
+}
+
+.ax-machine-switch__label[data-state] {
+    grid-area: state;
+    justify-self: end;
     color: var(--ax-text);
 }
