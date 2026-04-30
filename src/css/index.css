@@ -10,6 +10,9 @@
 @import './button.css';
 @import './button-group.css';
 @import './badge.css';
+@import './chip.css';
+@import './avatar.css';
+@import './divider.css';
 @import './workspace.css';
 @import './cluster.css';
 @import './field.css';
@@ -32,3 +35,6 @@
 @import './icons.css';
 @import './machine-switch.css';
 @import './status-lamp.css';
+@import './stat.css';
+@import './list.css';
+@import './pagination.css';

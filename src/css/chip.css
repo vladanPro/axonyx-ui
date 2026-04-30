@@ -1,0 +1,42 @@
+.ax-chip {
+    --ax-chip-color: var(--ax-text-muted);
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    min-height: 1.75rem;
+    padding: 0.28rem 0.58rem;
+    border: 1px solid color-mix(in srgb, var(--ax-chip-color) 30%, var(--ax-border));
+    border-radius: 999px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+        color-mix(in srgb, var(--ax-surface) 78%, transparent);
+    color: var(--ax-text-soft);
+    font-size: 0.76rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.ax-chip[data-size='sm'] {
+    min-height: 1.45rem;
+    padding: 0.2rem 0.48rem;
+    font-size: 0.68rem;
+}
+
+.ax-chip[data-tone='accent'] {
+    --ax-chip-color: var(--ax-primary);
+    color: var(--ax-text);
+}
+
+.ax-chip[data-tone='success'] {
+    --ax-chip-color: var(--ax-success);
+}
+
+.ax-chip[data-tone='warning'] {
+    --ax-chip-color: var(--ax-warning);
+}
+
+.ax-chip[data-tone='danger'] {
+    --ax-chip-color: var(--ax-danger);
+}

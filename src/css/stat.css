@@ -1,0 +1,48 @@
+.ax-stat {
+    --ax-stat-color: var(--ax-primary);
+
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem;
+    border: 1px solid color-mix(in srgb, var(--ax-stat-color) 28%, var(--ax-border));
+    border-radius: var(--ax-radius-lg);
+    background:
+        radial-gradient(circle at 14% 0%, color-mix(in srgb, var(--ax-stat-color) 16%, transparent), transparent 42%),
+        var(--ax-surface);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        0 0 0 1px color-mix(in srgb, var(--ax-stat-color) 8%, transparent);
+}
+
+.ax-stat[data-tone='positive'] {
+    --ax-stat-color: var(--ax-success);
+}
+
+.ax-stat[data-tone='warning'] {
+    --ax-stat-color: var(--ax-warning);
+}
+
+.ax-stat[data-tone='danger'] {
+    --ax-stat-color: var(--ax-danger);
+}
+
+.ax-stat__label {
+    color: var(--ax-text-muted);
+    font-size: 0.74rem;
+    font-weight: 850;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.ax-stat__value {
+    color: var(--ax-text);
+    font-size: clamp(1.6rem, 4vw, 2.45rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+}
+
+.ax-stat__delta {
+    color: var(--ax-stat-color);
+    font-size: 0.78rem;
+    font-weight: 850;
+}

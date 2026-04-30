@@ -1,0 +1,41 @@
+.ax-pagination {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.ax-pagination a,
+.ax-pagination span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.2rem;
+    min-height: 2.2rem;
+    padding: 0.45rem 0.68rem;
+    border: 1px solid var(--ax-border);
+    border-radius: 0.75rem;
+    background: color-mix(in srgb, var(--ax-surface) 78%, transparent);
+    color: var(--ax-text-soft);
+    font-size: 0.82rem;
+    font-weight: 850;
+    text-decoration: none;
+}
+
+.ax-pagination a:hover {
+    border-color: var(--ax-border-strong);
+    background: color-mix(in srgb, var(--ax-primary) 12%, var(--ax-surface));
+    color: var(--ax-text);
+}
+
+.ax-pagination [data-current='true'] {
+    border-color: color-mix(in srgb, var(--ax-primary) 62%, var(--ax-border));
+    background: color-mix(in srgb, var(--ax-primary) 20%, var(--ax-surface));
+    color: var(--ax-text);
+    box-shadow: 0 0 20px color-mix(in srgb, var(--ax-primary) 18%, transparent);
+}
+
+.ax-pagination [data-disabled='true'] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
