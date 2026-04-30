@@ -23,6 +23,22 @@
     background: color-mix(in srgb, var(--ax-primary) 7%, transparent);
 }
 
+.ax-list-item[data-interactive='true'] {
+    cursor: pointer;
+}
+
+.ax-list-item[data-interactive='true']:hover {
+    background: color-mix(in srgb, var(--ax-primary) 10%, transparent);
+}
+
+.ax-list-item[data-tone='accent'] {
+    border-left: 2px solid color-mix(in srgb, var(--ax-primary) 74%, transparent);
+}
+
+.ax-list-item[data-tone='danger'] {
+    border-left: 2px solid color-mix(in srgb, var(--ax-danger) 78%, transparent);
+}
+
 .ax-list-item__leading,
 .ax-list-item__trailing {
     display: inline-flex;

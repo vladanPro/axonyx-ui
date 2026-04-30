@@ -21,6 +21,17 @@
     vertical-align: middle;
 }
 
+.ax-table-wrap[data-density='sm'] .ax-table th,
+.ax-table-wrap[data-density='sm'] .ax-table td {
+    padding: 0.58rem 0.72rem;
+    font-size: 0.82rem;
+}
+
+.ax-table-wrap[data-density='lg'] .ax-table th,
+.ax-table-wrap[data-density='lg'] .ax-table td {
+    padding: 1rem 1.05rem;
+}
+
 .ax-table th {
     color: var(--ax-text-muted);
     font-size: 0.74rem;
@@ -32,6 +43,10 @@
 
 .ax-table tr:last-child td {
     border-bottom: 0;
+}
+
+.ax-table-wrap[data-zebra='true'] .ax-table tbody tr:nth-child(even) {
+    background: color-mix(in srgb, var(--ax-surface-2) 54%, transparent);
 }
 
 .ax-table tbody tr:hover {
