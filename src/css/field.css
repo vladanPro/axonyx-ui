@@ -25,6 +25,32 @@
     color: var(--ax-danger);
 }
 
+.ax-control {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.ax-control__icon {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ax-text-muted);
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.ax-control__icon[data-slot='start'] {
+    left: 0.85rem;
+}
+
+.ax-control__icon[data-slot='end'] {
+    right: 0.85rem;
+}
+
 .ax-input,
 .ax-textarea {
     width: 100%;
@@ -45,6 +71,49 @@
     box-shadow:
         inset 0 1px 7px rgba(0, 0, 0, 0.26),
         0 0 0 1px rgba(255, 255, 255, 0.015);
+}
+
+.ax-input[data-size='sm'],
+.ax-textarea[data-size='sm'] {
+    min-height: 2rem;
+    padding: 0.5rem 0.72rem;
+    font-size: 0.82rem;
+}
+
+.ax-input[data-size='lg'],
+.ax-textarea[data-size='lg'] {
+    min-height: 3rem;
+    padding: 0.82rem 1rem;
+    font-size: 1rem;
+}
+
+.ax-control .ax-input {
+    padding-left: 2.5rem;
+}
+
+.ax-control .ax-input + .ax-control__icon[data-slot='end'],
+.ax-control .ax-input ~ .ax-control__icon[data-slot='end'] {
+    right: 0.85rem;
+}
+
+.ax-control .ax-input[data-size='sm'] {
+    padding-left: 2.2rem;
+}
+
+.ax-control .ax-input[data-size='lg'] {
+    padding-left: 2.8rem;
+}
+
+.ax-control .ax-input[data-size='sm'] ~ .ax-control__icon[data-slot='start'] {
+    left: 0.72rem;
+}
+
+.ax-control .ax-input[data-size='lg'] ~ .ax-control__icon[data-slot='start'] {
+    left: 1rem;
+}
+
+.ax-control .ax-input:has(+ .ax-control__icon[data-slot='end']) {
+    padding-right: 2.5rem;
 }
 
 .ax-textarea {
@@ -86,4 +155,28 @@
 .ax-textarea:disabled {
     opacity: 0.55;
     cursor: not-allowed;
+}
+
+.ax-field[data-state='success'] .ax-input,
+.ax-field[data-state='success'] .ax-textarea {
+    border-color: color-mix(in srgb, var(--ax-primary) 60%, var(--ax-border));
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-primary) 18%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-field[data-state='warning'] .ax-input,
+.ax-field[data-state='warning'] .ax-textarea {
+    border-color: color-mix(in srgb, #d7a54b 64%, var(--ax-border));
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, #d7a54b 18%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-field[data-state='success'] .ax-field__hint {
+    color: color-mix(in srgb, var(--ax-primary) 72%, var(--ax-text));
+}
+
+.ax-field[data-state='warning'] .ax-field__hint {
+    color: color-mix(in srgb, #d7a54b 78%, var(--ax-text));
 }

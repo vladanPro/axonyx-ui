@@ -38,6 +38,38 @@
     background-repeat: no-repeat;
 }
 
+.ax-select[data-size='sm'] {
+    min-height: 2rem;
+    padding: 0.5rem 2rem 0.5rem 0.72rem;
+    font-size: 0.82rem;
+}
+
+.ax-select[data-size='lg'] {
+    min-height: 3rem;
+    padding: 0.82rem 2.7rem 0.82rem 1rem;
+    font-size: 1rem;
+}
+
+.ax-control[data-kind='select'] .ax-select {
+    padding-left: 2.5rem;
+}
+
+.ax-control[data-kind='select'][data-size='sm'] .ax-select {
+    padding-left: 2.2rem;
+}
+
+.ax-control[data-kind='select'][data-size='lg'] .ax-select {
+    padding-left: 2.8rem;
+}
+
+.ax-control[data-kind='select'][data-size='sm'] .ax-control__icon[data-slot='start'] {
+    left: 0.72rem;
+}
+
+.ax-control[data-kind='select'][data-size='lg'] .ax-control__icon[data-slot='start'] {
+    left: 1rem;
+}
+
 .ax-select:hover {
     border-color: var(--ax-border-strong);
 }
@@ -71,6 +103,20 @@
     border-color: var(--ax-danger);
     box-shadow:
         0 0 0 2px color-mix(in srgb, var(--ax-danger) 26%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-field[data-state='success'] .ax-select {
+    border-color: color-mix(in srgb, var(--ax-primary) 60%, var(--ax-border));
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-primary) 18%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-field[data-state='warning'] .ax-select {
+    border-color: color-mix(in srgb, #d7a54b 64%, var(--ax-border));
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, #d7a54b 18%, transparent),
         inset 0 1px 7px rgba(0, 0, 0, 0.28);
 }
 
