@@ -1,0 +1,21 @@
+page Stat
+
+<section class="ax-stat" data-tone={tone}>
+  <header class="ax-stat__header">
+    <span class="ax-stat__label">
+      <Slot name="label" />
+    </span>
+    <span class="ax-stat__icon">
+      <Slot name="icon" />
+    </span>
+  </header>
+  <div class="ax-stat__value">
+    <Slot name="value" />
+  </div>
+  <div class="ax-stat__delta">
+    <Slot name="delta" />
+  </div>
+  <p class="ax-stat__description">
+    <Slot />
+  </p>
+</section>

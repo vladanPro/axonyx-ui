@@ -1,0 +1,7 @@
+page Table
+
+<div class="ax-table-wrap" data-density={density} data-zebra={zebra}>
+  <table class="ax-table">
+    <Slot />
+  </table>
+</div>

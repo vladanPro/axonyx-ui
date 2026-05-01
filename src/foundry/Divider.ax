@@ -1,0 +1,3 @@
+page Divider
+
+<hr class="ax-divider" data-tone={tone} data-orientation={orientation} />

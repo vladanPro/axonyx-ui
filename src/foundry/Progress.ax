@@ -1,0 +1,13 @@
+page Progress
+
+<div class="ax-progress">
+  <div class="ax-progress__meta">
+    <span>
+      <Slot name="label" />
+    </span>
+    <span>{value}%</span>
+  </div>
+  <div class="ax-progress__track" style={"--ax-progress-height:" + height + ";"}>
+    <div class="ax-progress__bar" style={"--ax-progress-value:" + value + "%;"}></div>
+  </div>
+</div>

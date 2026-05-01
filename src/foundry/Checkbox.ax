@@ -1,0 +1,8 @@
+page Checkbox
+
+<label class="ax-checkbox">
+  <input type="checkbox" name={name} checked={checked} disabled={disabled} />
+  <span>
+    <Slot />
+  </span>
+</label>

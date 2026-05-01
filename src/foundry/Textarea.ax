@@ -1,0 +1,13 @@
+page Textarea
+
+<textarea
+  class="ax-textarea"
+  data-size={size}
+  id={id}
+  name={name}
+  placeholder={placeholder}
+  disabled={disabled}
+  aria-invalid={invalid}
+>
+  {value}
+</textarea>

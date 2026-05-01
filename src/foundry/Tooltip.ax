@@ -1,0 +1,8 @@
+page Tooltip
+
+<span class="ax-tooltip">
+  <Slot />
+  <span class="ax-tooltip__content">
+    <Slot name="content" />
+  </span>
+</span>

@@ -1,0 +1,14 @@
+page IconButton
+
+<button
+  class="ax-button"
+  data-variant={variant}
+  data-size={size}
+  data-surface={surface}
+  data-border={border}
+  data-icon-only="true"
+  type={type}
+  disabled={disabled}
+>
+  <Slot />
+</button>

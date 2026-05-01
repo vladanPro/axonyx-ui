@@ -1,0 +1,5 @@
+page Chip
+
+<span class="ax-chip" data-size={size} data-tone={tone}>
+  <Slot />
+</span>

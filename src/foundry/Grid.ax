@@ -1,0 +1,5 @@
+page Grid
+
+<div class="ax-grid" data-cols={cols} data-gap={gap} data-align={align}>
+  <Slot />
+</div>

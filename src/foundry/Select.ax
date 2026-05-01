@@ -1,0 +1,13 @@
+page Select
+
+<select
+  class="ax-select"
+  data-size={size}
+  data-surface={surface}
+  id={id}
+  name={name}
+  disabled={disabled}
+  aria-invalid={invalid}
+>
+  <Slot />
+</select>

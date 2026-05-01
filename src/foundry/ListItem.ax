@@ -1,0 +1,13 @@
+page ListItem
+
+<div class="ax-list-item" data-tone={tone} data-interactive={interactive}>
+  <span class="ax-list-item__leading">
+    <Slot name="leading" />
+  </span>
+  <div class="ax-list-item__body">
+    <Slot />
+  </div>
+  <span class="ax-list-item__trailing">
+    <Slot name="trailing" />
+  </span>
+</div>

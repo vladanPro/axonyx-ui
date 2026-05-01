@@ -111,7 +111,38 @@ src/css/
 The repo can also expose package-importable `.ax` components for Axonyx apps:
 
 ```text
-src/ax/foundry/
+src/foundry/
+  Container.ax
+  Grid.ax
+  Badge.ax
+  Chip.ax
+  Avatar.ax
+  Divider.ax
+  Field.ax
+  Input.ax
+  Textarea.ax
+  Select.ax
+  Option.ax
+  Checkbox.ax
+  Radio.ax
+  Switch.ax
+  Breadcrumbs.ax
+  ButtonGroup.ax
+  LinkButton.ax
+  IconButton.ax
+  Section.ax
+  Cluster.ax
+  AppShell.ax
+  Table.ax
+  List.ax
+  ListItem.ax
+  EmptyState.ax
+  Skeleton.ax
+  Progress.ax
+  StatusLamp.ax
+  Stat.ax
+  Pagination.ax
+  Tooltip.ax
   SiteShell.ax
   HeroCard.ax
   ContentGrid.ax
@@ -132,6 +163,12 @@ Example import:
 
 ```ax
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
+```
+
+React to Axonyx adapter coverage lives in:
+
+```text
+docs/react-ax-adapter-map.md
 ```
 
 Named slot example:

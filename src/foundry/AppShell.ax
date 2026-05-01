@@ -1,0 +1,6 @@
+page AppShell
+
+<div class="ax-app-shell" data-rail={rail} data-rail-width={railWidth}>
+  <Slot name="sidebar" />
+  <Slot />
+</div>

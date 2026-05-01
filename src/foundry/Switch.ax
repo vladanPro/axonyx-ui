@@ -1,0 +1,11 @@
+page Switch
+
+<label class="ax-switch">
+  <input type="checkbox" name={name} checked={checked} disabled={disabled} />
+  <span class="ax-switch__track">
+    <span class="ax-switch__thumb"></span>
+  </span>
+  <span>
+    <Slot />
+  </span>
+</label>

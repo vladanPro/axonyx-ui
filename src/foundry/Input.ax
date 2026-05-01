@@ -1,0 +1,13 @@
+page Input
+
+<input
+  class="ax-input"
+  data-size={size}
+  id={id}
+  name={name}
+  type={type}
+  value={value}
+  placeholder={placeholder}
+  disabled={disabled}
+  aria-invalid={invalid}
+/>

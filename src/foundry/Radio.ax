@@ -1,0 +1,8 @@
+page Radio
+
+<label class="ax-radio">
+  <input type="radio" name={name} value={value} checked={checked} disabled={disabled} />
+  <span>
+    <Slot />
+  </span>
+</label>

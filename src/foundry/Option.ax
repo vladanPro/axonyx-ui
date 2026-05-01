@@ -1,0 +1,5 @@
+page Option
+
+<option value={value} selected={selected} disabled={disabled}>
+  <Slot />
+</option>

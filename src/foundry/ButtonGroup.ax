@@ -1,0 +1,5 @@
+page ButtonGroup
+
+<div class="ax-button-group">
+  <Slot />
+</div>

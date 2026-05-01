@@ -1,0 +1,16 @@
+page EmptyState
+
+<section class="ax-empty-state">
+  <div class="ax-empty-state__icon">
+    <Slot name="icon" />
+  </div>
+  <div class="ax-empty-state__title">
+    <Slot name="title" />
+  </div>
+  <p class="ax-empty-state__description">
+    <Slot />
+  </p>
+  <div class="ax-empty-state__actions">
+    <Slot name="actions" />
+  </div>
+</section>

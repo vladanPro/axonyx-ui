@@ -1,0 +1,5 @@
+page Pagination
+
+<nav class="ax-pagination" aria-label="Pagination">
+  <Slot />
+</nav>

@@ -1,0 +1,5 @@
+page Avatar
+
+<span class="ax-avatar" data-size={size}>
+  <Slot />
+</span>
