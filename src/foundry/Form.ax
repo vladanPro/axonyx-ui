@@ -1,0 +1,12 @@
+page Form
+
+<form
+  class="ax-form"
+  data-layout={layout}
+  data-density={density}
+  data-surface={surface}
+  method={method}
+  action={action}
+>
+  <Slot />
+</form>
