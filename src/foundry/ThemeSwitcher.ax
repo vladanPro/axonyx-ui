@@ -1,0 +1,17 @@
+page ThemeSwitcher
+
+<label class="ax-theme-switcher">
+  <span class="ax-theme-switcher__label">{label}</span>
+  <select
+    class="ax-select ax-theme-switcher__select"
+    data-size={size}
+    data-surface={surface}
+    data-ax-behavior="theme"
+    data-ax-theme-storage-key={storageKey}
+    aria-label={ariaLabel}
+  >
+    <option value="silver">Silver</option>
+    <option value="bronze">Bronze</option>
+    <option value="gold">Gold</option>
+  </select>
+</label>

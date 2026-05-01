@@ -1,0 +1,17 @@
+.ax-theme-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ax-text-soft);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.ax-theme-switcher__label {
+    color: var(--ax-text-muted);
+}
+
+.ax-theme-switcher__select {
+    width: auto;
+    min-width: 7.25rem;
+}
