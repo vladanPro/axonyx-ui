@@ -391,6 +391,134 @@ Axonyx does not rerender components by default.
 Axonyx patches exact targets produced by the compiler.
 ```
 
+## 13. Binding model: storage vs binding
+
+Axonyx should separate where state lives from how it is bound to UI.
+
+Core rule:
+
+```txt
+global/state = storage model
+hard/soft = binding model
+```
+
+Do not define `global` as automatically hard or `state` as automatically soft.
+
+### Storage model
+
+`global` means app-level state. It can be read by multiple routes or components.
+
+```ax
+global count: u32 = 0
+```
+
+`state` means scoped state. It belongs to a component, route, or local island.
+
+```ax
+state modal_open: bool = false
+```
+
+Both should internally behave like reactive cells with stable signal identity when they are used reactively.
+
+### Binding model
+
+Hard binding means a live UI binding. The compiler connects a signal directly to exact DOM patch targets.
+
+```ax
+<Text>{count}</Text>
+<Button disabled={count == 0}>Reset</Button>
+```
+
+This should compile into something like:
+
+```txt
+count -> TextNode
+count -> Button.disabled
+```
+
+Soft binding means logic/event/app flow. It can change state, but it does not directly imply a UI patch until that state is used in a hard binding somewhere.
+
+```ax
+<Button onClick={modal_open.toggle}>Open</Button>
+```
+
+The UI updates only where the state is actually bound:
+
+```ax
+<Modal open={modal_open}>...</Modal>
+```
+
+### Snapshot vs live handle
+
+Axonyx can support both patterns:
+
+```txt
+soft/value binding = snapshot value
+hard/signal binding = live handle
+```
+
+If a component receives a plain value, it receives a snapshot.
+
+```ax
+<Counter value={count.value} />
+```
+
+If a component receives a signal, it receives a live handle / SignalId.
+
+```ax
+<Counter value={count} />
+```
+
+Public terminology can be:
+
+```txt
+Value binding = soft/static data flow
+Signal binding = hard/live reactive data flow
+```
+
+Internal terminology can be:
+
+```txt
+Soft = snapshot
+Hard = live handle
+```
+
+### Example model
+
+```ax
+global count: u32 = 0
+state modal_open: bool = false
+
+component App {
+  <Text>{count}</Text>
+  <Button onClick={modal_open.toggle}>Open</Button>
+  <Modal open={modal_open}>...</Modal>
+}
+```
+
+Expected interpretation:
+
+```txt
+count is global storage
+modal_open is scoped storage
+<Text>{count}</Text> is a hard/live binding
+onClick={modal_open.toggle} is soft/event logic
+<Modal open={modal_open}> is a hard/live binding to modal state
+```
+
+### Runtime principle
+
+Avoid saying "zero runtime". More accurate:
+
+```txt
+minimal runtime
+compiler-generated runtime
+no virtual DOM
+no component rerender by default
+```
+
+The runtime still needs to receive events, update cells, read the dependency map, and patch DOM targets.
+
 ## Priority batch
 
 Recommended implementation order:
