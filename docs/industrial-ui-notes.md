@@ -283,6 +283,114 @@ With domain copy:
 
 Best fit is `@axonyx/react/client`, because it needs state and interaction. A static CSS/HTML contract can still exist in `@axonyx/ui`.
 
+## 12. Reactive runtime / observer map
+
+Axonyx reactive updates should work like an observer graph, not like full-page rerendering.
+
+Core idea:
+
+```txt
+signal count
+  -> dependency map
+  -> count maps to exact patch targets
+  -> update only those targets when count changes
+```
+
+When a signal changes, the runtime should ask:
+
+```txt
+Who listens to this signal?
+What exact DOM target needs to change?
+```
+
+Then patch only those targets.
+
+### Example
+
+```ax
+<Copy>Count: {count}</Copy>
+<Button disabled={count == 0}>Reset</Button>
+```
+
+The compiler/runtime can produce a dependency map like:
+
+```txt
+count -> [
+  { node: copy_text_1, target: Text },
+  { node: reset_button, target: Attribute("disabled") }
+]
+```
+
+When `count` changes from `0` to `1`, Axonyx should not rerender the whole page. It should do targeted patches:
+
+```txt
+copy_text_1.textContent = "Count: 1"
+reset_button.removeAttribute("disabled")
+```
+
+### Runtime model
+
+Every reactive value gets a signal id:
+
+```rust
+SignalId(42)
+```
+
+Every rendered node or patchable region gets a node id:
+
+```html
+<span data-ax-id="node_12">0</span>
+```
+
+Subscriptions should not only point to a node. They should point to a patch target:
+
+```rust
+struct Subscription {
+    node_id: NodeId,
+    target: PatchTarget,
+    render_fn: RenderFnId,
+}
+
+enum PatchTarget {
+    Text,
+    Attribute(String),
+    Class,
+    Style(String),
+    Fragment,
+}
+```
+
+### MVP levels
+
+Recommended implementation order:
+
+1. Signal -> text node updates
+2. Signal -> attributes/classes/styles
+3. Signal -> conditional fragments
+4. Signal -> keyed lists
+
+### Design principle
+
+Axonyx should not become a React clone.
+
+The preferred model is:
+
+```txt
+compile .ax
+  -> static HTML with stable node ids
+  -> dependency graph
+  -> small runtime patcher
+```
+
+Do not send updates to whole components when a text node or attribute patch is enough.
+
+The strongest phrasing:
+
+```txt
+Axonyx does not rerender components by default.
+Axonyx patches exact targets produced by the compiler.
+```
+
 ## Priority batch
 
 Recommended implementation order:
