@@ -1,0 +1,22 @@
+[package]
+name = "axonyx-ui"
+version = "0.0.32"
+edition = "2021"
+description = "Foundry CSS, JavaScript helpers, and Axonyx-native .ax components for Axonyx UI."
+license = "MIT"
+homepage = "https://axonyx.dev"
+repository = "https://github.com/vladanPro/axonyx-ui"
+keywords = ["axonyx", "ui", "css", "design-system", "foundry"]
+categories = ["web-programming", "template-engine"]
+include = [
+  "build.rs",
+  "src/lib.rs",
+  "src/css/**",
+  "src/js/**",
+  "src/foundry/**",
+  "README.md",
+  "package.json",
+]
+
+[lib]
+path = "src/lib.rs"

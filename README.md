@@ -108,7 +108,7 @@ src/css/
 
 ## Foundry .ax Components
 
-The repo can also expose package-importable `.ax` components for Axonyx apps:
+The package also exposes importable `.ax` components for Axonyx apps. Source files live in `src/foundry/` and are copied to `dist/foundry/` during `npm run build`, so published packages can be imported through the same public namespace:
 
 ```text
 src/foundry/
@@ -164,6 +164,16 @@ Example import:
 ```ax
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
 ```
+
+## Cargo Package
+
+`axonyx-ui` is also shaped as a Cargo asset crate for Axonyx-native tooling. The crate embeds the same Foundry assets that the npm package ships:
+
+- `css/*` for the global Foundry stylesheet contract
+- `js/*` for optional progressive-enhancement helpers
+- `foundry/*.ax` for Axonyx-native UI components
+
+Build tools can read these through `css_assets()`, `js_assets()`, `foundry_assets()`, or `asset("foundry/Button.ax")` without requiring npm.
 
 React to Axonyx adapter coverage lives in:
 

@@ -11,6 +11,7 @@
   ],
   "exports": {
     "./css/index.css": "./dist/css/index.css",
+    "./foundry/*": "./dist/foundry/*",
     "./js/tabs": "./dist/js/tabs.js",
     "./js/dialog": "./dist/js/dialog.js",
     "./js/code-copy": "./dist/js/code-copy.js",
