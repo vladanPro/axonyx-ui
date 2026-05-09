@@ -1,0 +1,12 @@
+[package]
+name = "axonyx-ui"
+namespace = "@axonyx/ui"
+
+[exports]
+ax_root = "src"
+css_root = "src/css"
+css_entry = "src/css/index.css"
+
+[themes]
+default = "silver"
+available = ["bronze", "silver", "gold"]

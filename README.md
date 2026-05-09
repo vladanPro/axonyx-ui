@@ -165,6 +165,10 @@ Example import:
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
 ```
 
+Cargo consumers also get this namespace contract through `Axonyx.package.toml`.
+Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/`
+export root.
+
 ## Cargo Package
 
 `axonyx-ui` is also shaped as a Cargo asset crate for Axonyx-native tooling. The crate embeds the same Foundry assets that the npm package ships:

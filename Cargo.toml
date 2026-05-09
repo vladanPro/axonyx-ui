@@ -9,6 +9,7 @@ repository = "https://github.com/vladanPro/axonyx-ui"
 keywords = ["axonyx", "ui", "css", "design-system", "foundry"]
 categories = ["web-programming", "template-engine"]
 include = [
+  "Axonyx.package.toml",
   "build.rs",
   "src/lib.rs",
   "src/css/**",
