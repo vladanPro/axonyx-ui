@@ -8,7 +8,44 @@ It is built on the **Foundry** design language: a system-oriented visual languag
 
 ## Purpose
 
-Axonyx UI defines the visual contract for Axonyx primitives so projects like `axonyx-site` can import a stable, reusable UI layer instead of carrying page-specific styling.
+Axonyx UI defines the visual contract for Axonyx primitives so projects like `axonyx-site`, static HTML pages, and React adapters can import a stable, reusable UI layer instead of carrying page-specific styling.
+
+```txt
+axonyx-ui       = CSS tokens, themes, component styles, JS islands, .ax Foundry components
+@axonyx/react   = React wrappers around the same shared CSS/data-attribute contract
+axonyx-site     = Axonyx-native app routes that consume the Foundry components
+```
+
+## Install
+
+### npm
+
+```bash
+npm install @axonyx/ui
+```
+
+Load the stylesheet once in your shell/layout:
+
+```html
+<link rel="stylesheet" href="/css/axonyx-ui/index.css" />
+```
+
+React apps usually import it once from the app root:
+
+```tsx
+import "@axonyx/ui/css/index.css";
+```
+
+### Cargo
+
+`axonyx-ui` is also published as a Cargo asset crate for Axonyx-native tooling:
+
+```toml
+[dependencies]
+axonyx-ui = "0.1.0"
+```
+
+The Cargo crate embeds the same Foundry assets that the npm package ships.
 
 ## Foundry
 
@@ -21,30 +58,19 @@ Core ideas:
 - structured dark foundations for serious interfaces
 - semantic primitives that map cleanly from `.ax`
 - theme finishes inspired by metal: Bronze, Silver, and Gold
+- industrial controls such as status lamps and machine-style switches, used sparingly where state matters
 
 ## Initial Scope
 
 The stable primitive set is growing around:
 
-- `Container`
-- `Grid`
-- `Card`
-- `Copy`
-- `Button`
-- `Badge`
-- `Alert`
-- `Field`, `Input`, `Textarea`, `Select`
-- `Checkbox`, `Radio`, `Switch`
-- `Breadcrumbs`
-- `ButtonGroup`
-- `Tabs`
-- `Accordion`
-- `Dropdown`
-- `Dialog`
-- `Tooltip`
-- `CodeBlock`
-- `PropsTable`
-- `Icon`
+- `Container`, `Grid`, `Section`, `Stack`, `Cluster`
+- `Card`, `Copy`, `Button`, `ButtonGroup`, `Badge`, `Chip`, `Avatar`, `Divider`
+- `Alert`, `StatusLamp`, `Stat`, `Progress`, `Skeleton`, `EmptyState`
+- `Field`, `Input`, `Textarea`, `Select`, `Checkbox`, `Radio`, `Switch`
+- `Breadcrumbs`, `Tabs`, `Accordion`, `Dropdown`, `Dialog`, `Tooltip`
+- `CodeBlock`, `CommandList`, `PropsTable`, `Table`, `List`, `Pagination`
+- `Icon`, `ThemeSwitcher`, `MachineSwitch`
 
 The first themes are:
 
@@ -72,11 +98,7 @@ Theme is applied at the document root:
 <html data-theme="silver">
 ```
 
-Projects should load one global stylesheet in the shell or layout, not inside each page body:
-
-```html
-<link rel="stylesheet" href="/css/axonyx-ui/index.css" />
-```
+Projects should load one global stylesheet in the shell or layout, not inside each page body.
 
 ## Rendering Contract
 
@@ -90,21 +112,72 @@ The first stable Foundry contract for `.ax` primitives is:
 
 ## CSS Files
 
+`src/css/index.css` currently imports:
+
 ```text
 src/css/
   tokens.css
   themes.css
   layout.css
+  section.css
   card.css
   copy.css
   links.css
+  stack.css
+  nav.css
   button.css
   button-group.css
-  breadcrumbs.css
+  badge.css
+  chip.css
+  avatar.css
+  divider.css
+  workspace.css
+  cluster.css
+  form.css
+  field.css
+  select.css
+  theme-switcher.css
+  choice.css
   radio.css
+  breadcrumbs.css
+  command.css
+  code-block.css
+  tabs.css
+  accordion.css
+  dropdown.css
+  tooltip.css
+  overlay.css
+  component-preview.css
+  props-table.css
+  data.css
+  alert.css
+  dialog.css
   icons.css
+  machine-switch.css
+  status-lamp.css
+  stat.css
+  list.css
+  pagination.css
   index.css
 ```
+
+## MachineSwitch CSS contract
+
+`MachineSwitch` is an industrial red/green control for feature flags, deploy state, maintenance mode, and runtime demos.
+
+The CSS contract can be used directly by Axonyx-native or static HTML output:
+
+```html
+<button class="ax-machine-switch" data-state="on">
+  <span class="ax-machine-switch__lamp" data-tone="danger"></span>
+  <span class="ax-machine-switch__track">
+    <span class="ax-machine-switch__knob"></span>
+  </span>
+  <span class="ax-machine-switch__lamp" data-tone="success"></span>
+</button>
+```
+
+React users should use `MachineSwitch` from `@axonyx/react/client`.
 
 ## Foundry .ax Components
 
@@ -166,8 +239,7 @@ import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
 ```
 
 Cargo consumers also get this namespace contract through `Axonyx.package.toml`.
-Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/`
-export root.
+Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/` export root.
 
 ## Cargo Package
 
@@ -196,3 +268,9 @@ import { FeatureSection } from "@axonyx/ui/foundry/FeatureSection.ax"
   <a slot="actions" href="/docs">Open docs</a>
 </FeatureSection>
 ```
+
+## Links
+
+- npm: https://www.npmjs.com/package/@axonyx/ui
+- crates.io: https://crates.io/crates/axonyx-ui
+- GitHub: https://github.com/vladanPro/axonyx-ui
