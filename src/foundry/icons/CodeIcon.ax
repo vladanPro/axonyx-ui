@@ -1,0 +1,7 @@
+page CodeIcon
+
+<svg class="ax-icon" data-size={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+  <path d="m9 8-4 4 4 4" />
+  <path d="m15 8 4 4-4 4" />
+  <path d="m13 5-2 14" />
+</svg>
