@@ -39,6 +39,27 @@
         0 0 0 1px color-mix(in srgb, var(--ax-border-strong) 35%, transparent);
 }
 
+.ax-action-status {
+    display: none;
+    margin: 0;
+    color: var(--ax-muted);
+    font-size: 0.9rem;
+}
+
+.ax-form[data-ax-action-state='pending'] .ax-action-status[data-state='pending'],
+.ax-form[data-ax-action-state='complete'] .ax-action-status[data-state='complete'],
+.ax-form[data-ax-action-state='error'] .ax-action-status[data-state='error'] {
+    display: block;
+}
+
+.ax-form[data-ax-action-state='complete'] .ax-action-status[data-state='complete'] {
+    color: var(--ax-success);
+}
+
+.ax-form[data-ax-action-state='error'] .ax-action-status[data-state='error'] {
+    color: var(--ax-danger);
+}
+
 @media (max-width: 720px) {
     .ax-form[data-layout='grid'] {
         grid-template-columns: 1fr;
