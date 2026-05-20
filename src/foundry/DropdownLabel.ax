@@ -1,0 +1,5 @@
+page DropdownLabel
+
+<div class="ax-dropdown__label">
+  <Slot />
+</div>

@@ -11,7 +11,7 @@ It is built on the **Foundry** design language: a system-oriented visual languag
 Axonyx UI defines the visual contract for Axonyx primitives so projects like `axonyx-site`, static HTML pages, and React adapters can import a stable, reusable UI layer instead of carrying page-specific styling.
 
 ```txt
-axonyx-ui       = CSS tokens, themes, component styles, JS islands, .ax Foundry components
+axonyx-ui       = CSS tokens, themes, component styles, JS islands, native .ax Foundry components
 @axonyx/react   = React wrappers around the same shared CSS/data-attribute contract
 axonyx-site     = Axonyx-native app routes that consume the Foundry components
 ```
@@ -42,7 +42,7 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.1.0"
+axonyx-ui = "0.0.34"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
@@ -68,7 +68,7 @@ The stable primitive set is growing around:
 - `Card`, `Copy`, `Button`, `ButtonGroup`, `Badge`, `Chip`, `Avatar`, `Divider`
 - `Alert`, `StatusLamp`, `Stat`, `Progress`, `Skeleton`, `EmptyState`
 - `Field`, `Input`, `Textarea`, `Select`, `Checkbox`, `Radio`, `Switch`
-- `Breadcrumbs`, `Tabs`, `Accordion`, `Dropdown`, `Dialog`, `Tooltip`
+- `Breadcrumbs`, `Tabs`, `Accordion`, `DropdownMenu`, `Dialog`, `Popover`, `Drawer`, `Tooltip`, `Toast`
 - `CodeBlock`, `CommandList`, `PropsTable`, `Table`, `List`, `Pagination`
 - `Icon`, `ThemeSwitcher`, `MachineSwitch`
 
@@ -168,12 +168,13 @@ src/css/
 The CSS contract can be used directly by Axonyx-native or static HTML output:
 
 ```html
-<button class="ax-machine-switch" data-state="on">
-  <span class="ax-machine-switch__lamp" data-tone="danger"></span>
-  <span class="ax-machine-switch__track">
-    <span class="ax-machine-switch__knob"></span>
+<button class="ax-machine-switch" data-state="on" type="button" aria-pressed="true">
+  <span class="ax-machine-switch__controls">
+    <span class="ax-machine-switch__pad" data-tone="danger" data-active="false">OFF</span>
+    <span class="ax-machine-switch__pad" data-tone="success" data-active="true">ON</span>
   </span>
-  <span class="ax-machine-switch__lamp" data-tone="success"></span>
+  <span class="ax-machine-switch__label">Deploy gate</span>
+  <span class="ax-machine-switch__label" data-state="true">Online</span>
 </button>
 ```
 
@@ -187,6 +188,8 @@ The package also exposes importable `.ax` components for Axonyx apps. Source fil
 src/foundry/
   Container.ax
   Grid.ax
+  Card.ax
+  Copy.ax
   Badge.ax
   Chip.ax
   Avatar.ax
@@ -203,6 +206,19 @@ src/foundry/
   ButtonGroup.ax
   LinkButton.ax
   IconButton.ax
+  Alert.ax
+  Accordion.ax
+  AccordionItem.ax
+  DropdownMenu.ax
+  DropdownItem.ax
+  DropdownLabel.ax
+  DropdownSeparator.ax
+  Dialog.ax
+  Popover.ax
+  Drawer.ax
+  Toast.ax
+  ToastViewport.ax
+  MachineSwitch.ax
   Section.ax
   Cluster.ax
   AppShell.ax
@@ -229,6 +245,7 @@ src/foundry/
   DocsCallout.ax
   DocsNav.ax
   DocsCodeBlock.ax
+  Command.ax
   CommandList.ax
 ```
 
@@ -236,6 +253,25 @@ Example import:
 
 ```ax
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
+```
+
+All Foundry `.ax` files use the same importable page-component shape expected by current Axonyx tooling:
+
+```ax
+import { Alert } from "@axonyx/ui/foundry/Alert.ax"
+import { MachineSwitch } from "@axonyx/ui/foundry/MachineSwitch.ax"
+
+<Alert tone="warning" title="Beta API">
+  This contract can still change before 1.0.
+</Alert>
+
+<MachineSwitch
+  label="Deploy gate"
+  stateLabel="Online"
+  pressed="true"
+  offActive="false"
+  onActive="true"
+/>
 ```
 
 Cargo consumers also get this namespace contract through `Axonyx.package.toml`.

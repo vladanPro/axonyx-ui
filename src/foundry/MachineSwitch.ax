@@ -1,0 +1,10 @@
+page MachineSwitch
+
+<button class="ax-machine-switch" data-state={state} type="button" aria-pressed={pressed}>
+  <span class="ax-machine-switch__controls">
+    <span class="ax-machine-switch__pad" data-tone="danger" data-active={offActive}>OFF</span>
+    <span class="ax-machine-switch__pad" data-tone="success" data-active={onActive}>ON</span>
+  </span>
+  <span class="ax-machine-switch__label">{label}</span>
+  <span class="ax-machine-switch__label" data-state="true">{stateLabel}</span>
+</button>

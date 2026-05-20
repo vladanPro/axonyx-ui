@@ -1,0 +1,5 @@
+page Accordion
+
+<div class="ax-accordion" data-single={single}>
+  <Slot />
+</div>

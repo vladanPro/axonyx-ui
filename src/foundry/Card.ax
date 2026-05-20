@@ -1,0 +1,8 @@
+page Card
+
+<article class="ax-card">
+  <If when={title}>
+    <h2 class="ax-card__title">{title}</h2>
+  </If>
+  <Slot />
+</article>

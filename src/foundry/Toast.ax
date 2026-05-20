@@ -1,0 +1,11 @@
+page Toast
+
+<div class="ax-toast" data-tone={tone} role="status">
+  <div>
+    <strong class="ax-toast__title">{title}</strong>
+    <p class="ax-toast__description">
+      <Slot />
+    </p>
+  </div>
+  <button class="ax-toast__close" type="button" aria-label="Dismiss toast">x</button>
+</div>

@@ -1,0 +1,10 @@
+page Popover
+
+<div class="ax-popover">
+  <button class="ax-button" data-variant={variant} type="button">
+    <Slot name="trigger" />
+  </button>
+  <div class="ax-popover__content" data-side={side}>
+    <Slot />
+  </div>
+</div>

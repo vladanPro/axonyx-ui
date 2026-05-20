@@ -1,4 +1,4 @@
-component ComponentPreview(title = "Preview", surface = "inset")
+page ComponentPreview
 
 <section class="ax-component-preview" data-surface={surface}>
   <header class="ax-component-preview__header">

@@ -1,12 +1,12 @@
-component Dialog(id = "dialog", title = "Dialog", open = false)
+page Dialog
 
 <div class="ax-dialog" id={id} data-open={open} role="dialog" aria-modal="true">
-  <div class="ax-dialog__backdrop" data-ax-dialog-close></div>
+  <div class="ax-dialog__backdrop" data-ax-dialog-close="true"></div>
 
   <section class="ax-dialog__panel">
     <header class="ax-dialog__header">
       <strong class="ax-dialog__title">{title}</strong>
-      <button class="ax-dialog__close" type="button" aria-label="Close dialog" data-ax-dialog-close>×</button>
+      <button class="ax-dialog__close" type="button" aria-label="Close dialog" data-ax-dialog-close="true">x</button>
     </header>
 
     <div class="ax-dialog__content">

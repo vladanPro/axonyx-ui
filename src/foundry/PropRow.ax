@@ -1,4 +1,4 @@
-component PropRow(name = "", type = "", default = "", description = "")
+page PropRow
 
 <tr class="ax-prop-row">
   <td class="ax-prop-row__name">{name}</td>

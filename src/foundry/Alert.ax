@@ -1,4 +1,4 @@
-component Alert(tone = "info", title = "")
+page Alert
 
 <div class="ax-alert" data-tone={tone} role="status">
   <div class="ax-alert__marker" aria-hidden="true"></div>

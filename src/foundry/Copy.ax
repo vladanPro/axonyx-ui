@@ -1,0 +1,5 @@
+page Copy
+
+<p class="ax-copy">
+  <Slot />
+</p>

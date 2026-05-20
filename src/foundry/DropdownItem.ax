@@ -1,0 +1,13 @@
+page DropdownItem
+
+<a class="ax-dropdown__item" data-tone={tone} href={href}>
+  <span class="ax-dropdown__item-main">
+    <span class="ax-dropdown__item-icon">
+      <Slot name="icon" />
+    </span>
+    <Slot />
+  </span>
+  <span class="ax-dropdown__item-meta">
+    <Slot name="meta" />
+  </span>
+</a>

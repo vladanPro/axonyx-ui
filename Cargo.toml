@@ -1,6 +1,6 @@
 [package]
 name = "axonyx-ui"
-version = "0.0.33"
+version = "0.0.34"
 edition = "2021"
 description = "Foundry CSS, JavaScript helpers, and Axonyx-native .ax components for Axonyx UI."
 license = "MIT"

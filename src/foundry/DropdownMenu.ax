@@ -1,0 +1,10 @@
+page DropdownMenu
+
+<div class="ax-dropdown">
+  <button class="ax-button ax-dropdown__trigger" data-variant={variant} type="button">
+    <Slot name="trigger" />
+  </button>
+  <div class="ax-dropdown__menu" data-align={align}>
+    <Slot />
+  </div>
+</div>

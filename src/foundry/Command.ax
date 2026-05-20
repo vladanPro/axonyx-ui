@@ -1,0 +1,5 @@
+page Command
+
+<div class="ax-command" data-size={size}>
+  <Slot />
+</div>

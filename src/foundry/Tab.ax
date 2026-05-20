@@ -1,4 +1,4 @@
-component Tab(title = "", value = "")
+page Tab
 
 <div class="ax-tab" data-value={value}>
   <div class="ax-tab__label">{title}</div>

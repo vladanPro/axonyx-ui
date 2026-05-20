@@ -1,0 +1,3 @@
+page DropdownSeparator
+
+<div class="ax-dropdown__separator" role="separator"></div>

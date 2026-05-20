@@ -1,4 +1,4 @@
-component Tabs(defaultValue = "preview")
+page Tabs
 
 <div class="ax-tabs" data-default-value={defaultValue}>
   <Slot />

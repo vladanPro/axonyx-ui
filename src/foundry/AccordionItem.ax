@@ -1,0 +1,8 @@
+page AccordionItem
+
+<details class="ax-accordion__item" open={open}>
+  <summary class="ax-accordion__trigger">{title}</summary>
+  <div class="ax-accordion__content">
+    <Slot />
+  </div>
+</details>
