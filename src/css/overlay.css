@@ -106,6 +106,14 @@
     z-index: 75;
 }
 
+.ax-drawer[data-open='false'] {
+    display: none;
+}
+
+.ax-drawer[data-open='true'] {
+    display: block;
+}
+
 .ax-drawer__backdrop {
     position: absolute;
     inset: 0;

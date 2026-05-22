@@ -1,14 +1,14 @@
 page Drawer
 
 <div class="ax-drawer" data-side={side} data-open={open}>
-  <div class="ax-drawer__backdrop"></div>
+  <div class="ax-drawer__backdrop" data-ax-drawer-close="true"></div>
   <section class="ax-drawer__panel" aria-label={title}>
     <header class="ax-drawer__header">
       <div>
         <strong class="ax-drawer__title">{title}</strong>
         <p class="ax-drawer__description">{description}</p>
       </div>
-      <button class="ax-button" data-variant="ghost" type="button">Close</button>
+      <button class="ax-button" data-variant="ghost" type="button" data-ax-drawer-close="true">Close</button>
     </header>
     <div class="ax-drawer__content">
       <Slot />

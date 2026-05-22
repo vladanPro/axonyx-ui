@@ -14,6 +14,7 @@
     "./foundry/*": "./dist/foundry/*",
     "./js/tabs": "./dist/js/tabs.js",
     "./js/dialog": "./dist/js/dialog.js",
+    "./js/drawer": "./dist/js/drawer.js",
     "./js/code-copy": "./dist/js/code-copy.js",
     "./js/command": "./dist/js/command.js"
   },
