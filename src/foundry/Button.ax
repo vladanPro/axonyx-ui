@@ -1,5 +1,12 @@
 page Button
 
-<a class="ax-button" data-variant={variant} href={href}>
+<a
+  class="ax-button"
+  data-variant={variant}
+  data-size={size}
+  data-surface={surface}
+  data-border={border}
+  href={href}
+>
   <Slot />
 </a>

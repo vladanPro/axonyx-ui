@@ -1,6 +1,6 @@
 page Card
 
-<article class="ax-card">
+<article class="ax-card" data-surface={surface} data-border={border} data-recipe={recipe}>
   <If when={title}>
     <h2 class="ax-card__title">{title}</h2>
   </If>
