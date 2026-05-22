@@ -1,4 +1,4 @@
-page Option
+page Option(value = "", selected = "", disabled = "")
 
 <option value={value} selected={selected} disabled={disabled}>
   <Slot />

@@ -1,4 +1,4 @@
-page Toolbar
+page Toolbar(density = "", variant = "")
 
 <div class="ax-toolbar" data-density={density} data-variant={variant}>
   <Slot />

@@ -1,4 +1,4 @@
-page Container
+page Container(max = "xl", recipe = "")
 
 <div class="ax-container" data-max={max}>
   <Slot />

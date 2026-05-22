@@ -1,4 +1,4 @@
-page IconButton
+page IconButton(variant = "", size = "", surface = "", border = "", type = "button", disabled = "")
 
 <button
   class="ax-button"

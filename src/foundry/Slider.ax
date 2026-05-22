@@ -1,4 +1,4 @@
-page Slider
+page Slider(label = "", name = "", min = "0", max = "100", value = "0", size = "")
 
 <label class="ax-slider" data-size={size}>
   <span class="ax-slider__meta">

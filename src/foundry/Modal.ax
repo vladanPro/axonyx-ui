@@ -1,4 +1,4 @@
-page Modal
+page Modal(open = "true", size = "md", title = "", description = "")
 
 <div class="ax-modal" data-open={open} data-size={size}>
   <div class="ax-modal__backdrop"></div>

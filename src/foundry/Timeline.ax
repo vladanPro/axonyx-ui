@@ -1,4 +1,4 @@
-page Timeline
+page Timeline(density = "")
 
 <ol class="ax-timeline" data-density={density}>
   <Slot />

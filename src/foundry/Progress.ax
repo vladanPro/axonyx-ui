@@ -1,4 +1,4 @@
-page Progress
+page Progress(value = "0", height = "0.65rem")
 
 <div class="ax-progress">
   <div class="ax-progress__meta">

@@ -1,4 +1,4 @@
-page Switch
+page Switch(name = "", checked = "", disabled = "")
 
 <label class="ax-switch">
   <input type="checkbox" name={name} checked={checked} disabled={disabled} />

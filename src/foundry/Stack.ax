@@ -1,4 +1,4 @@
-page Stack
+page Stack(gap = "md", align = "")
 
 <div class="ax-stack" data-gap={gap} data-align={align}>
   <Slot />

@@ -1,4 +1,4 @@
-page Grid
+page Grid(cols = "1", gap = "md", align = "")
 
 <div class="ax-grid" data-cols={cols} data-gap={gap} data-align={align}>
   <Slot />

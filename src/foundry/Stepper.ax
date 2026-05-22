@@ -1,4 +1,4 @@
-page Stepper
+page Stepper(orientation = "vertical")
 
 <ol class="ax-stepper" data-orientation={orientation}>
   <Slot />

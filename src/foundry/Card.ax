@@ -1,4 +1,4 @@
-page Card
+page Card(title = "", surface = "", border = "", recipe = "")
 
 <article class="ax-card" data-surface={surface} data-border={border} data-recipe={recipe}>
   <If when={title}>

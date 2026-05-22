@@ -1,4 +1,4 @@
-page Step
+page Step(index = "", title = "", description = "", state = "")
 
 <li class="ax-step" data-state={state}>
   <span class="ax-step__marker">{index}</span>

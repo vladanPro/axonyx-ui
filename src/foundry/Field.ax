@@ -1,4 +1,4 @@
-page Field
+page Field(state = "", htmlFor = "")
 
 <label class="ax-field" data-state={state} for={htmlFor}>
   <span class="ax-field__label">

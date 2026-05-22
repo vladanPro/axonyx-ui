@@ -1,4 +1,4 @@
-page Textarea
+page Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "")
 
 <textarea
   class="ax-textarea"

@@ -1,4 +1,4 @@
-page Checkbox
+page Checkbox(name = "", checked = "", disabled = "")
 
 <label class="ax-checkbox">
   <input type="checkbox" name={name} checked={checked} disabled={disabled} />

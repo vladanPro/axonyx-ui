@@ -1,4 +1,4 @@
-page TimelineItem
+page TimelineItem(time = "", title = "", tone = "")
 
 <li class="ax-timeline__item" data-tone={tone}>
   <span class="ax-timeline__dot"></span>

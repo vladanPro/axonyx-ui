@@ -1,4 +1,4 @@
-page LinkButton
+page LinkButton(variant = "", size = "", surface = "", border = "", href = "#")
 
 <a
   class="ax-button"

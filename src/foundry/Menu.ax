@@ -1,4 +1,4 @@
-page Menu
+page Menu(density = "", ariaLabel = "Menu")
 
 <nav class="ax-menu" data-density={density} aria-label={ariaLabel}>
   <Slot />

@@ -1,4 +1,4 @@
-page Radio
+page Radio(name = "", value = "", checked = "", disabled = "")
 
 <label class="ax-radio">
   <input type="radio" name={name} value={value} checked={checked} disabled={disabled} />

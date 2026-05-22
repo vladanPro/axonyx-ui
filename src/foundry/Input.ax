@@ -1,4 +1,4 @@
-page Input
+page Input(size = "", id = "", name = "", type = "text", value = "", placeholder = "", disabled = "", invalid = "")
 
 <input
   class="ax-input"
