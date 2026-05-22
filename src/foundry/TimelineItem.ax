@@ -1,0 +1,12 @@
+page TimelineItem
+
+<li class="ax-timeline__item" data-tone={tone}>
+  <span class="ax-timeline__dot"></span>
+  <div class="ax-timeline__content">
+    <If when={time}>
+      <span class="ax-timeline__time">{time}</span>
+    </If>
+    <strong>{title}</strong>
+    <Slot />
+  </div>
+</li>

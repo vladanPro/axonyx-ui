@@ -1,0 +1,5 @@
+page Stepper
+
+<ol class="ax-stepper" data-orientation={orientation}>
+  <Slot />
+</ol>

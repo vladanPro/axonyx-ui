@@ -1,0 +1,18 @@
+page Modal
+
+<div class="ax-modal" data-open={open} data-size={size}>
+  <div class="ax-modal__backdrop"></div>
+  <section class="ax-modal__panel" role="dialog" aria-modal="true" aria-label={title}>
+    <If when={title}>
+      <header class="ax-modal__header">
+        <h2>{title}</h2>
+        <If when={description}>
+          <p>{description}</p>
+        </If>
+      </header>
+    </If>
+    <div class="ax-modal__body">
+      <Slot />
+    </div>
+  </section>
+</div>

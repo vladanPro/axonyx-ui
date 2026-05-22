@@ -1,0 +1,11 @@
+page Surface
+
+<section class="ax-surface" data-variant={variant} data-padding={padding}>
+  <If when={eyebrow}>
+    <p class="ax-surface__eyebrow">{eyebrow}</p>
+  </If>
+  <If when={title}>
+    <h2 class="ax-surface__title">{title}</h2>
+  </If>
+  <Slot />
+</section>

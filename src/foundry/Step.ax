@@ -1,0 +1,11 @@
+page Step
+
+<li class="ax-step" data-state={state}>
+  <span class="ax-step__marker">{index}</span>
+  <span class="ax-step__body">
+    <span class="ax-step__title">{title}</span>
+    <If when={description}>
+      <span class="ax-step__description">{description}</span>
+    </If>
+  </span>
+</li>

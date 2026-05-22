@@ -1,0 +1,5 @@
+page Timeline
+
+<ol class="ax-timeline" data-density={density}>
+  <Slot />
+</ol>

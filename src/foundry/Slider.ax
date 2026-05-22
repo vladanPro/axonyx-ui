@@ -1,0 +1,17 @@
+page Slider
+
+<label class="ax-slider" data-size={size}>
+  <span class="ax-slider__meta">
+    <span>{label}</span>
+    <span>{value}</span>
+  </span>
+  <input
+    class="ax-slider__input"
+    type="range"
+    min={min}
+    max={max}
+    value={value}
+    name={name}
+    aria-label={label}
+  />
+</label>

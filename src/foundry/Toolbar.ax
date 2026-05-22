@@ -1,0 +1,5 @@
+page Toolbar
+
+<div class="ax-toolbar" data-density={density} data-variant={variant}>
+  <Slot />
+</div>

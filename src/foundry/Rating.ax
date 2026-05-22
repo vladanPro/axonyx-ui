@@ -1,0 +1,8 @@
+page Rating
+
+<div class="ax-rating" data-size={size} aria-label={label}>
+  <span class="ax-rating__stars" style={"--ax-rating-value:" + value + ";"}>★★★★★</span>
+  <If when={label}>
+    <span class="ax-rating__label">{label}</span>
+  </If>
+</div>

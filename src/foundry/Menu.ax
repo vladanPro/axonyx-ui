@@ -1,0 +1,5 @@
+page Menu
+
+<nav class="ax-menu" data-density={density} aria-label={ariaLabel}>
+  <Slot />
+</nav>
