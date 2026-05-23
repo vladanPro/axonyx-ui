@@ -1,6 +1,6 @@
-page Drawer
+page Drawer(id = "", side = "right", open = "false", title = "Drawer", description = "")
 
-<div class="ax-drawer" data-side={side} data-open={open}>
+<div class="ax-drawer" id={id} data-side={side} data-open={open}>
   <div class="ax-drawer__backdrop" data-ax-drawer-close="true"></div>
   <section class="ax-drawer__panel" aria-label={title}>
     <header class="ax-drawer__header">
