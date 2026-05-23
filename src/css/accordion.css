@@ -31,12 +31,19 @@
     color: var(--ax-primary);
 }
 
-.ax-accordion__item[data-open='true'] .ax-accordion__trigger::after {
+.ax-accordion__item[data-open='true'] .ax-accordion__trigger::after,
+.ax-accordion__item[data-open='open'] .ax-accordion__trigger::after {
     content: '-';
 }
 
 .ax-accordion__content {
+    display: none;
     padding: 0 1rem 1rem;
     color: var(--ax-text-soft);
     line-height: 1.65;
+}
+
+.ax-accordion__item[data-open='true'] .ax-accordion__content,
+.ax-accordion__item[data-open='open'] .ax-accordion__content {
+    display: block;
 }

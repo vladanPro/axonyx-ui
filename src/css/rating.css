@@ -6,17 +6,12 @@
 }
 
 .ax-rating__stars {
-    --ax-rating-percent: calc((var(--ax-rating-value, 0) / 5) * 100%);
-
     display: inline-block;
     font-size: 1.1rem;
     line-height: 1;
     letter-spacing: 0.08em;
-    background:
-        linear-gradient(90deg, var(--ax-primary) var(--ax-rating-percent), color-mix(in srgb, var(--ax-text-muted) 28%, transparent) var(--ax-rating-percent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--ax-primary);
+    text-shadow: 0 0 18px color-mix(in srgb, var(--ax-primary) 22%, transparent);
 }
 
 .ax-rating[data-size='lg'] .ax-rating__stars {

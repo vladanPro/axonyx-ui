@@ -6,7 +6,8 @@ page Textarea(size = "", id = "", name = "", value = "", placeholder = "", disab
   id={id}
   name={name}
   placeholder={placeholder}
-  disabled={disabled}
+  data-disabled={disabled}
+  data-invalid={invalid}
   aria-invalid={invalid}
 >
   {value}

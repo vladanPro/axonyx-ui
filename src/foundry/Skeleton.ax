@@ -3,5 +3,6 @@ page Skeleton
 <span
   class="ax-skeleton"
   data-shape={shape}
-  style={"--ax-skeleton-width:" + width + ";--ax-skeleton-height:" + height + ";"}
+  data-width={width}
+  data-height={height}
 ></span>

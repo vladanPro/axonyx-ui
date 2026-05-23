@@ -44,12 +44,14 @@
         background 140ms ease;
 }
 
-.ax-switch input:checked + .ax-switch__track {
+.ax-switch input:checked + .ax-switch__track,
+.ax-switch[data-checked='true'] .ax-switch__track {
     border-color: color-mix(in srgb, var(--ax-primary) 70%, var(--ax-border-strong));
     background: color-mix(in srgb, var(--ax-primary) 28%, var(--ax-surface-2));
 }
 
-.ax-switch input:checked + .ax-switch__track .ax-switch__thumb {
+.ax-switch input:checked + .ax-switch__track .ax-switch__thumb,
+.ax-switch[data-checked='true'] .ax-switch__thumb {
     transform: translateX(1.3rem);
     background: var(--ax-primary);
 }

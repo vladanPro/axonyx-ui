@@ -7,7 +7,5 @@ page Progress(value = "0", height = "0.65rem")
     </span>
     <span>{value}%</span>
   </div>
-  <div class="ax-progress__track" style={"--ax-progress-height:" + height + ";"}>
-    <div class="ax-progress__bar" style={"--ax-progress-value:" + value + "%;"}></div>
-  </div>
+  <progress class="ax-progress__native" value={value} max="100">{value}%</progress>
 </div>

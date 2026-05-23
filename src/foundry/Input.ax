@@ -8,6 +8,7 @@ page Input(size = "", id = "", name = "", type = "text", value = "", placeholder
   type={type}
   value={value}
   placeholder={placeholder}
-  disabled={disabled}
+  data-disabled={disabled}
+  data-invalid={invalid}
   aria-invalid={invalid}
 />

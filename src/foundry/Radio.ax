@@ -1,7 +1,7 @@
 page Radio(name = "", value = "", checked = "", disabled = "")
 
-<label class="ax-radio">
-  <input type="radio" name={name} value={value} checked={checked} disabled={disabled} />
+<label class="ax-radio" data-checked={checked} data-disabled={disabled}>
+  <input type="radio" name={name} value={value} />
   <span>
     <Slot />
   </span>

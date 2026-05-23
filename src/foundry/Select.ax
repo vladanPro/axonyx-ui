@@ -6,7 +6,8 @@ page Select(size = "", surface = "", id = "", name = "", disabled = "", invalid 
   data-surface={surface}
   id={id}
   name={name}
-  disabled={disabled}
+  data-disabled={disabled}
+  data-invalid={invalid}
   aria-invalid={invalid}
 >
   <Slot />

@@ -1,5 +1,5 @@
 page Option(value = "", selected = "", disabled = "")
 
-<option value={value} selected={selected} disabled={disabled}>
+<option value={value} data-selected={selected} data-disabled={disabled}>
   <Slot />
 </option>
