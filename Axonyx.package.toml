@@ -6,6 +6,8 @@ namespace = "@axonyx/ui"
 ax_root = "src"
 css_root = "src/css"
 css_entry = "src/css/index.css"
+js_root = "src/js"
+js_entry = "src/js/index.js"
 
 [themes]
 default = "silver"

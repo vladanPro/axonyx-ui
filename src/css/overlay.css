@@ -80,6 +80,14 @@
     box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
 }
 
+.ax-popover[data-open='false'] .ax-popover__content {
+    display: none;
+}
+
+.ax-popover[data-open='true'] .ax-popover__content {
+    display: block;
+}
+
 .ax-popover__content[data-side='bottom'] {
     top: calc(100% + 0.55rem);
     left: 0;

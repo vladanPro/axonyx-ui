@@ -24,6 +24,14 @@
     box-shadow: 0 22px 64px rgba(0, 0, 0, 0.34);
 }
 
+.ax-dropdown[data-open='false'] .ax-dropdown__menu {
+    display: none;
+}
+
+.ax-dropdown[data-open='true'] .ax-dropdown__menu {
+    display: grid;
+}
+
 .ax-dropdown__menu[data-align='start'] {
     left: 0;
     right: auto;
