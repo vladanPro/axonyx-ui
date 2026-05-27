@@ -27,7 +27,8 @@ npm install @axonyx/ui
 Load the stylesheet once in your shell/layout:
 
 ```html
-<link rel="stylesheet" href="/css/axonyx-ui/index.css" />
+<link rel="stylesheet" href="/_ax/pkg/axonyx-ui/index.css" />
+<script src="/_ax/pkg/axonyx-ui/js/index.js" defer></script>
 ```
 
 React apps usually import it once from the app root:
@@ -42,10 +43,12 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.0.34"
+axonyx-ui = "0.0.39"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
+Axonyx-native apps should use `cargo ax add ui` so the stylesheet and Foundry
+behavior runtime are wired into `app/layout.ax`.
 
 ## Foundry
 
@@ -282,7 +285,7 @@ Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/` ex
 `axonyx-ui` is also shaped as a Cargo asset crate for Axonyx-native tooling. The crate embeds the same Foundry assets that the npm package ships:
 
 - `css/*` for the global Foundry stylesheet contract
-- `js/*` for optional progressive-enhancement helpers
+- `js/*` for the Foundry behavior runtime and progressive-enhancement helpers
 - `foundry/*.ax` for Axonyx-native UI components
 
 Build tools can read these through `css_assets()`, `js_assets()`, `foundry_assets()`, or `asset("foundry/Button.ax")` without requiring npm.
