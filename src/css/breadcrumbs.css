@@ -8,18 +8,21 @@
 }
 
 .ax-breadcrumbs a,
+.ax-breadcrumbs__item,
 .ax-breadcrumbs__current {
     display: inline-flex;
     align-items: center;
     min-height: 1.8rem;
 }
 
-.ax-breadcrumbs a {
+.ax-breadcrumbs a,
+.ax-breadcrumbs__item {
     color: var(--ax-text-soft);
     text-decoration: none;
 }
 
-.ax-breadcrumbs a:hover {
+.ax-breadcrumbs a:hover,
+.ax-breadcrumbs__item:hover {
     color: var(--ax-text);
 }
 

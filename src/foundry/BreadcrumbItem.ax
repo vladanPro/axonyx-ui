@@ -1,0 +1,5 @@
+page BreadcrumbItem(href = "#")
+
+<a class="ax-breadcrumbs__item" href={href}>
+  <Slot />
+</a>

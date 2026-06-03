@@ -1,0 +1,5 @@
+page BreadcrumbCurrent
+
+<span class="ax-breadcrumbs__current" aria-current="page">
+  <Slot />
+</span>
