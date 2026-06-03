@@ -2,7 +2,12 @@ page Pagination(current = "", total = "", previous = "", next = "")
 
 <nav class="ax-pagination" aria-label="Pagination">
   <a href={previous}>Previous</a>
-  <span data-current="true">Page {current} of {total}</span>
+  <span data-current="true">
+    <span>Page</span>
+    <span>{current}</span>
+    <span>of</span>
+    <span>{total}</span>
+  </span>
   <a href={next}>Next</a>
   <Slot />
 </nav>
