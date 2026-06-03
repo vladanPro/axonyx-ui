@@ -21,6 +21,14 @@
     vertical-align: middle;
 }
 
+.ax-table [data-align='center'] {
+    text-align: center;
+}
+
+.ax-table [data-align='right'] {
+    text-align: right;
+}
+
 .ax-table-wrap[data-density='sm'] .ax-table th,
 .ax-table-wrap[data-density='sm'] .ax-table td {
     padding: 0.58rem 0.72rem;
@@ -39,6 +47,15 @@
     letter-spacing: 0.12em;
     text-transform: uppercase;
     background: color-mix(in srgb, var(--ax-surface-2) 78%, transparent);
+}
+
+.ax-table__caption {
+    padding: 0.82rem 0.9rem;
+    border-bottom: 1px solid var(--ax-border-subtle);
+    color: var(--ax-text-muted);
+    font-size: 0.82rem;
+    font-weight: 750;
+    text-align: left;
 }
 
 .ax-table tr:last-child td {

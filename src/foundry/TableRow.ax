@@ -1,0 +1,5 @@
+page TableRow
+
+<tr class="ax-table__row">
+  <Slot />
+</tr>

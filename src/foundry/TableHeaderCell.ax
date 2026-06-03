@@ -1,0 +1,5 @@
+page TableHeaderCell(align = "", scope = "col")
+
+<th class="ax-table__header-cell" data-align={align} scope={scope}>
+  <Slot />
+</th>
