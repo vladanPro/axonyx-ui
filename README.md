@@ -43,7 +43,7 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.0.42"
+axonyx-ui = "0.0.43"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.

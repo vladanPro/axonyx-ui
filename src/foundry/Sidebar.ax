@@ -1,0 +1,5 @@
+page Sidebar
+
+<aside class="ax-layout-sidebar">
+  <Slot />
+</aside>

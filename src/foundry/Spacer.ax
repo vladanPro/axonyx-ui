@@ -1,0 +1,3 @@
+page Spacer(size = "md")
+
+<span class="ax-spacer" data-size={size}></span>

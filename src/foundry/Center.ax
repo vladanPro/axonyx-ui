@@ -1,0 +1,5 @@
+page Center(min = "")
+
+<div class="ax-center" data-min={min}>
+  <Slot />
+</div>
