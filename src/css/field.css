@@ -3,11 +3,18 @@
     gap: 0.45rem;
 }
 
-.ax-field__label {
+.ax-field__label,
+.ax-field-label {
     color: var(--ax-text);
     font-family: var(--ax-font-sans);
     font-size: 0.88rem;
     font-weight: 700;
+}
+
+.ax-field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
 }
 
 .ax-field__hint,

@@ -1,4 +1,4 @@
-page Form
+page Form(layout = "", density = "", surface = "", method = "post", action = "")
 
 <form
   class="ax-form"

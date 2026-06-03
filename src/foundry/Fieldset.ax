@@ -1,0 +1,5 @@
+page Fieldset(surface = "")
+
+<fieldset class="ax-fieldset" data-surface={surface}>
+  <Slot />
+</fieldset>

@@ -1,0 +1,5 @@
+page FieldLabel(htmlFor = "")
+
+<label class="ax-field-label" for={htmlFor}>
+  <Slot />
+</label>

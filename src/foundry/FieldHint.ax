@@ -1,0 +1,5 @@
+page FieldHint
+
+<p class="ax-field__hint">
+  <Slot />
+</p>
