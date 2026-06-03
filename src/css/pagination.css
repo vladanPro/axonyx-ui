@@ -5,8 +5,10 @@
     gap: 0.35rem;
 }
 
-.ax-pagination a,
-.ax-pagination span {
+.ax-pagination > a,
+.ax-pagination > span,
+.ax-pagination__item,
+.ax-pagination__ellipsis {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -22,20 +24,32 @@
     text-decoration: none;
 }
 
-.ax-pagination a:hover {
+.ax-pagination > a:hover,
+.ax-pagination__item:hover {
     border-color: var(--ax-border-strong);
     background: color-mix(in srgb, var(--ax-primary) 12%, var(--ax-surface));
     color: var(--ax-text);
 }
 
-.ax-pagination [data-current='true'] {
+.ax-pagination > [data-current='true'],
+.ax-pagination__item[data-current='true'] {
     border-color: color-mix(in srgb, var(--ax-primary) 62%, var(--ax-border));
     background: color-mix(in srgb, var(--ax-primary) 20%, var(--ax-surface));
     color: var(--ax-text);
     box-shadow: 0 0 20px color-mix(in srgb, var(--ax-primary) 18%, transparent);
 }
 
-.ax-pagination [data-disabled='true'] {
+.ax-pagination > [data-disabled='true'],
+.ax-pagination__item[data-disabled='true'] {
     opacity: 0.45;
     cursor: not-allowed;
+    pointer-events: none;
+}
+
+.ax-pagination__ellipsis {
+    min-width: 1.65rem;
+    border-color: transparent;
+    background: transparent;
+    color: var(--ax-text-muted);
+    box-shadow: none;
 }
