@@ -26,6 +26,18 @@
     grid-template-columns: minmax(0, 1fr);
 }
 
+.ax-app-shell[data-gap='sm'] {
+    gap: var(--ax-space-sm);
+}
+
+.ax-app-shell[data-gap='md'] {
+    gap: var(--ax-space-md);
+}
+
+.ax-app-shell[data-gap='lg'] {
+    gap: var(--ax-space-lg);
+}
+
 .ax-sidebar,
 .ax-rail {
     min-height: 100vh;

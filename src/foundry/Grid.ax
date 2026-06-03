@@ -1,5 +1,5 @@
-page Grid(cols = "1", gap = "md", align = "")
+page Grid(cols = "1", gap = "md", align = "", min = "")
 
-<div class="ax-grid" data-cols={cols} data-gap={gap} data-align={align}>
+<div class="ax-grid" data-cols={cols} data-gap={gap} data-align={align} data-min={min}>
   <Slot />
 </div>

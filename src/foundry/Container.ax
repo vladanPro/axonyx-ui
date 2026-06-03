@@ -1,5 +1,5 @@
-page Container(max = "xl", recipe = "")
+page Container(max = "xl", padding = "", fluid = "", recipe = "")
 
-<div class="ax-container" data-max={max}>
+<div class="ax-container" data-max={max} data-padding={padding} data-fluid={fluid}>
   <Slot />
 </div>

@@ -1,6 +1,6 @@
-page AppShell
+page AppShell(rail = "left", railWidth = "md", gap = "")
 
-<div class="ax-app-shell" data-rail={rail} data-rail-width={railWidth}>
+<div class="ax-app-shell" data-rail={rail} data-rail-width={railWidth} data-gap={gap}>
   <Slot name="sidebar" />
   <Slot />
 </div>
