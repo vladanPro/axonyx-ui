@@ -3,7 +3,7 @@ page Slider(label = "", name = "", min = "0", max = "100", value = "0", size = "
 <label class="ax-slider" data-size={size}>
   <span class="ax-slider__meta">
     <span>{label}</span>
-    <span>{value}</span>
+    <span data-ax-slider-value="true">{value}</span>
   </span>
   <input
     class="ax-slider__input"
@@ -13,5 +13,6 @@ page Slider(label = "", name = "", min = "0", max = "100", value = "0", size = "
     value={value}
     name={name}
     aria-label={label}
+    data-ax-behavior="slider"
   />
 </label>

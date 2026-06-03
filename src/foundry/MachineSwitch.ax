@@ -1,6 +1,14 @@
-page MachineSwitch
+page MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabel = "Offline", state = "off", pressed = "", offActive = "", onActive = "")
 
-<button class="ax-machine-switch" data-state={state} type="button" aria-pressed={pressed}>
+<button
+  class="ax-machine-switch"
+  data-state={state}
+  data-on-label={onLabel}
+  data-off-label={offLabel}
+  data-ax-behavior="machine-switch"
+  type="button"
+  aria-pressed={pressed}
+>
   <span class="ax-machine-switch__controls">
     <span class="ax-machine-switch__pad" data-tone="danger" data-active={offActive}>OFF</span>
     <span class="ax-machine-switch__pad" data-tone="success" data-active={onActive}>ON</span>

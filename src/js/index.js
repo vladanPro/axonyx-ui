@@ -173,12 +173,78 @@
     });
   }
 
+  function setMachineSwitchState(control, nextState) {
+    const isOn = nextState === 'on';
+    const offPad = control.querySelector('.ax-machine-switch__pad[data-tone="danger"]');
+    const onPad = control.querySelector('.ax-machine-switch__pad[data-tone="success"]');
+    const stateLabel = control.querySelector('.ax-machine-switch__label[data-state]');
+    const onLabel = control.dataset.onLabel || 'Online';
+    const offLabel = control.dataset.offLabel || 'Offline';
+
+    control.dataset.state = isOn ? 'on' : 'off';
+    control.setAttribute('aria-pressed', String(isOn));
+    if (offPad) offPad.dataset.active = String(!isOn);
+    if (onPad) onPad.dataset.active = String(isOn);
+    if (stateLabel) stateLabel.textContent = isOn ? onLabel : offLabel;
+  }
+
+  function bootMachineSwitches() {
+    document.querySelectorAll('[data-ax-behavior="machine-switch"]').forEach((control) => {
+      if (control.dataset.axMachineSwitchReady === 'true') return;
+      control.dataset.axMachineSwitchReady = 'true';
+
+      const initial = control.dataset.state === 'on' || control.getAttribute('aria-pressed') === 'true' ? 'on' : 'off';
+      setMachineSwitchState(control, initial);
+
+      control.addEventListener('click', () => {
+        if (control.disabled || control.getAttribute('aria-disabled') === 'true') return;
+        setMachineSwitchState(control, control.dataset.state === 'on' ? 'off' : 'on');
+      });
+    });
+  }
+
+  function bootSliders() {
+    document.querySelectorAll('[data-ax-behavior="slider"]').forEach((input) => {
+      if (input.dataset.axSliderReady === 'true') return;
+      input.dataset.axSliderReady = 'true';
+
+      const root = input.closest('.ax-slider');
+      const valueTarget = root ? root.querySelector('[data-ax-slider-value="true"]') : null;
+      const sync = () => {
+        if (valueTarget) valueTarget.textContent = input.value;
+        input.setAttribute('aria-valuenow', input.value);
+      };
+
+      input.addEventListener('input', sync);
+      input.addEventListener('change', sync);
+      sync();
+    });
+  }
+
+  function bootToasts() {
+    document.querySelectorAll('.ax-toast').forEach((toast) => {
+      if (toast.dataset.axToastReady === 'true') return;
+      toast.dataset.axToastReady = 'true';
+
+      toast.querySelectorAll('[data-ax-toast-close], .ax-toast__close').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          toast.dataset.open = 'false';
+          toast.setAttribute('hidden', '');
+          toast.remove();
+        });
+      });
+    });
+  }
+
   function boot() {
     bootThemes();
     bootAccordions();
     bootTabs();
     bootFloatingSurfaces();
     bootDrawers();
+    bootMachineSwitches();
+    bootSliders();
+    bootToasts();
   }
 
   document.addEventListener('keydown', (event) => {

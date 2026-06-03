@@ -1,8 +1,9 @@
-page Tooltip
+page Tooltip(label = "")
 
 <span class="ax-tooltip">
   <Slot />
   <span class="ax-tooltip__content">
+    {label}
     <Slot name="content" />
   </span>
 </span>
