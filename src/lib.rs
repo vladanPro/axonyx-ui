@@ -56,6 +56,6 @@ mod tests {
     #[test]
     fn exposes_foundry_component_asset() {
         let button = asset("foundry/Button.ax").expect("button component should be embedded");
-        assert!(button.contents.contains("page Button"));
+        assert!(button.contents.contains("component Button"));
     }
 }
