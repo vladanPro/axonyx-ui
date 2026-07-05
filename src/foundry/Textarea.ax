@@ -1,15 +1,6 @@
 component Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "") {
 
-<textarea
-  class="ax-textarea"
-  data-size={size}
-  id={id}
-  name={name}
-  placeholder={placeholder}
-  data-disabled={disabled}
-  data-invalid={invalid}
-  aria-invalid={invalid}
->
+<textarea class="ax-textarea" data-size={size} id={id} name={name} placeholder={placeholder} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid}>
   {value}
 </textarea>
 }

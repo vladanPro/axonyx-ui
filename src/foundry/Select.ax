@@ -1,15 +1,6 @@
 component Select(size = "", surface = "", id = "", name = "", disabled = "", invalid = "") {
 
-<select
-  class="ax-select"
-  data-size={size}
-  data-surface={surface}
-  id={id}
-  name={name}
-  data-disabled={disabled}
-  data-invalid={invalid}
-  aria-invalid={invalid}
->
+<select class="ax-select" data-size={size} data-surface={surface} id={id} name={name} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid}>
   <Slot />
 </select>
 }
