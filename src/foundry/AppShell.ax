@@ -1,4 +1,4 @@
-page AppShell(rail = "left", railWidth = "md", gap = "")
+component AppShell(rail = "left", railWidth = "md", gap = "")
 
 <div class="ax-app-shell" data-rail={rail} data-rail-width={railWidth} data-gap={gap}>
   <Slot name="sidebar" />

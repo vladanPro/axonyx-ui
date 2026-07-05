@@ -1,4 +1,4 @@
-page Container(max = "xl", padding = "", fluid = "", recipe = "")
+component Container(max = "xl", padding = "", fluid = "", recipe = "")
 
 <div class="ax-container" data-max={max} data-padding={padding} data-fluid={fluid}>
   <Slot />

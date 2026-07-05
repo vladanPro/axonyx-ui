@@ -1,4 +1,4 @@
-page Sidebar
+component Sidebar
 
 <aside class="ax-layout-sidebar">
   <Slot />

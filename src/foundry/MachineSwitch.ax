@@ -1,4 +1,4 @@
-page MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabel = "Offline", state = "off", pressed = "", offActive = "", onActive = "")
+component MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabel = "Offline", state = "off", pressed = "", offActive = "", onActive = "")
 
 <button
   class="ax-machine-switch"

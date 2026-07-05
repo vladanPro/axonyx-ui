@@ -1,4 +1,4 @@
-page BreadcrumbItem(href = "#")
+component BreadcrumbItem(href = "#")
 
 <a class="ax-breadcrumbs__item" href={href}>
   <Slot />

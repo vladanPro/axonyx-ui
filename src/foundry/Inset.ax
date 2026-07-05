@@ -1,4 +1,4 @@
-page Inset(size = "md")
+component Inset(size = "md")
 
 <div class="ax-inset" data-size={size}>
   <Slot />

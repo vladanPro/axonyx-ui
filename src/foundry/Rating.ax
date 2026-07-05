@@ -1,4 +1,4 @@
-page Rating(value = "0", label = "", size = "")
+component Rating(value = "0", label = "", size = "")
 
 <div class="ax-rating" data-size={size} aria-label={label}>
   <span class="ax-rating__stars" data-value={value}>★★★★★</span>

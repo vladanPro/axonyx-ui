@@ -1,4 +1,4 @@
-page ThemeSwitcher
+component ThemeSwitcher
 
 <label class="ax-theme-switcher">
   <span class="ax-theme-switcher__label">{label}</span>

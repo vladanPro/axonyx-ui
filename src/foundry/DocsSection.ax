@@ -1,4 +1,4 @@
-page DocsSection
+component DocsSection
 
 <Card title={title} recipe="docs-section">
   <div class="ax-docs-section__eyebrow">

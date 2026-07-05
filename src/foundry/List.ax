@@ -1,4 +1,4 @@
-page List
+component List
 
 <div class="ax-list" data-divided={divided}>
   <Slot />

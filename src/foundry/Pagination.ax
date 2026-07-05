@@ -1,4 +1,4 @@
-page Pagination(current = "", total = "", previous = "", next = "")
+component Pagination(current = "", total = "", previous = "", next = "")
 
 <nav class="ax-pagination" aria-label="Pagination">
   <a class="ax-pagination__item" href={previous}>Previous</a>

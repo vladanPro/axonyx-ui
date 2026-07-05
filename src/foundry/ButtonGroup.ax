@@ -1,4 +1,4 @@
-page ButtonGroup
+component ButtonGroup
 
 <div class="ax-button-group">
   <Slot />

@@ -1,4 +1,4 @@
-page Bleed(padding = "")
+component Bleed(padding = "")
 
 <div class="ax-bleed" data-padding={padding}>
   <Slot />

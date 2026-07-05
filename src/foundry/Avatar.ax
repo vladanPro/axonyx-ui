@@ -1,4 +1,4 @@
-page Avatar
+component Avatar
 
 <span class="ax-avatar" data-size={size}>
   <Slot />

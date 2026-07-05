@@ -1,4 +1,4 @@
-page Navbar
+component Navbar
 
 <header class="ax-navbar">
   <a class="ax-navbar__brand" href={brandHref}>

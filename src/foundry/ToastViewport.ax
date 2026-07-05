@@ -1,4 +1,4 @@
-page ToastViewport
+component ToastViewport
 
 <div class="ax-toast-viewport">
   <Slot />

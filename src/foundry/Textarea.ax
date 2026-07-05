@@ -1,4 +1,4 @@
-page Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "")
+component Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "")
 
 <textarea
   class="ax-textarea"

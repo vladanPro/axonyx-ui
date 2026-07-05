@@ -1,4 +1,4 @@
-page Toast(tone = "", title = "")
+component Toast(tone = "", title = "")
 
 <div class="ax-toast" data-tone={tone} role="status">
   <div>

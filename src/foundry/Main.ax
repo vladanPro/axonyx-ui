@@ -1,4 +1,4 @@
-page Main
+component Main
 
 <main class="ax-layout-main">
   <Slot />

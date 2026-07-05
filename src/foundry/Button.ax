@@ -1,4 +1,4 @@
-page Button(variant = "", size = "", surface = "", border = "", href = "#")
+component Button(variant = "", size = "", surface = "", border = "", href = "#")
 
 <a
   class="ax-button"

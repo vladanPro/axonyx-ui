@@ -1,4 +1,4 @@
-page Tooltip(label = "")
+component Tooltip(label = "")
 
 <span class="ax-tooltip">
   <Slot />

@@ -1,4 +1,4 @@
-page Legend
+component Legend
 
 <legend class="ax-fieldset__legend">
   <Slot />

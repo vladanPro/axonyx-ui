@@ -1,4 +1,4 @@
-page Copy
+component Copy
 
 <p class="ax-copy">
   <Slot />

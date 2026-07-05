@@ -1,4 +1,4 @@
-page TableBody
+component TableBody
 
 <tbody class="ax-table__body">
   <Slot />

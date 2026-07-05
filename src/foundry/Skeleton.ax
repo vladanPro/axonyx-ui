@@ -1,4 +1,4 @@
-page Skeleton
+component Skeleton
 
 <span
   class="ax-skeleton"
