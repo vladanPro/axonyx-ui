@@ -1,4 +1,4 @@
-component List {
+component List(divided = "") {
 
 <div class="ax-list" data-divided={divided}>
   <Slot />

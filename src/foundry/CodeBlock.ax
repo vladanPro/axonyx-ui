@@ -1,4 +1,4 @@
-component CodeBlock {
+component CodeBlock(copy = "", language = "", title = "") {
 
 <figure class="ax-code-block" data-language={language} data-copy={copy}>
   <figcaption class="ax-code-block__header">

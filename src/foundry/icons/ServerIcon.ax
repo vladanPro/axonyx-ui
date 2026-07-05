@@ -1,4 +1,4 @@
-component ServerIcon {
+component ServerIcon(size = "") {
 
 <svg class="ax-icon" data-size={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
   <rect x="4" y="4" width="16" height="6" rx="1.5" />

@@ -1,4 +1,4 @@
-component PageHeader {
+component PageHeader(title = "") {
 
 <Card title={title} recipe="page-header">
   <div class="ax-page-header__eyebrow">

@@ -1,4 +1,4 @@
-component Popover {
+component Popover(side = "", variant = "") {
 
 <div class="ax-popover">
   <button class="ax-button" data-variant={variant} type="button">

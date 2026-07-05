@@ -1,4 +1,4 @@
-component CommandList {
+component CommandList(title = "") {
 
 <Card title={title} recipe="command-list">
   <div class="ax-command-list__eyebrow">

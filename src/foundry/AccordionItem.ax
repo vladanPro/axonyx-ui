@@ -1,4 +1,4 @@
-component AccordionItem {
+component AccordionItem(open = "", title = "") {
 
 <div class="ax-accordion__item" data-open={open}>
   <div class="ax-accordion__trigger">{title}</div>

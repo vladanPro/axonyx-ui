@@ -1,4 +1,4 @@
-component Stat {
+component Stat(tone = "") {
 
 <section class="ax-stat" data-tone={tone}>
   <header class="ax-stat__header">

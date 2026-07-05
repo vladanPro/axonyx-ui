@@ -1,4 +1,4 @@
-component FeatureSection {
+component FeatureSection(title = "") {
 
 <Card title={title} recipe="feature-section">
   <div class="ax-feature-section__eyebrow">

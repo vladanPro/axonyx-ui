@@ -1,4 +1,4 @@
-component ComponentPreview {
+component ComponentPreview(surface = "", title = "") {
 
 <section class="ax-component-preview" data-surface={surface}>
   <header class="ax-component-preview__header">

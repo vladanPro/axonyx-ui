@@ -1,4 +1,4 @@
-component DocsCodeBlock {
+component DocsCodeBlock(title = "") {
 
 <Card title={title} recipe="docs-code-block">
   <div class="ax-docs-code-block__eyebrow">

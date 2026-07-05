@@ -1,4 +1,4 @@
-component DropdownItem {
+component DropdownItem(href = "", tone = "") {
 
 <a class="ax-dropdown__item" data-tone={tone} href={href}>
   <span class="ax-dropdown__item-main">

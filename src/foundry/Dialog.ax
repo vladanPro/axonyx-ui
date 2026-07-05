@@ -1,4 +1,4 @@
-component Dialog {
+component Dialog(id = "", open = "", title = "") {
 
 <div class="ax-dialog" id={id} data-open={open} role="dialog" aria-modal="true">
   <div class="ax-dialog__backdrop" data-ax-dialog-close="true"></div>

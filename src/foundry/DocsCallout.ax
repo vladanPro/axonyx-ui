@@ -1,4 +1,4 @@
-component DocsCallout {
+component DocsCallout(title = "") {
 
 <Card title={title} recipe="docs-callout">
   <div class="ax-docs-callout__eyebrow">

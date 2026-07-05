@@ -1,4 +1,4 @@
-component Command {
+component Command(size = "") {
 
 <div class="ax-command" data-size={size}>
   <Slot />

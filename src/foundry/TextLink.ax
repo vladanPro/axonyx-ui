@@ -1,4 +1,4 @@
-component TextLink {
+component TextLink(href = "") {
 
 <a class="ax-link" href={href}>
   <Slot />
