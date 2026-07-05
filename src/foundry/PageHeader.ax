@@ -1,4 +1,4 @@
-component PageHeader
+component PageHeader {
 
 <Card title={title} recipe="page-header">
   <div class="ax-page-header__eyebrow">
@@ -11,3 +11,4 @@ component PageHeader
     <Slot name="actions" />
   </div>
 </Card>
+}

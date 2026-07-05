@@ -1,4 +1,4 @@
-component CommandList
+component CommandList {
 
 <Card title={title} recipe="command-list">
   <div class="ax-command-list__eyebrow">
@@ -11,3 +11,4 @@ component CommandList
     <Slot name="actions" />
   </div>
 </Card>
+}

@@ -1,4 +1,4 @@
-component Form(layout = "", density = "", surface = "", method = "post", action = "")
+component Form(layout = "", density = "", surface = "", method = "post", action = "") {
 
 <form
   class="ax-form"
@@ -10,3 +10,4 @@ component Form(layout = "", density = "", surface = "", method = "post", action 
 >
   <Slot />
 </form>
+}

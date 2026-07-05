@@ -1,4 +1,4 @@
-component DocsNav
+component DocsNav {
 
 <Card title={title} recipe="docs-nav">
   <div class="ax-docs-nav__body">
@@ -8,3 +8,4 @@ component DocsNav
     <Slot name="actions" />
   </div>
 </Card>
+}

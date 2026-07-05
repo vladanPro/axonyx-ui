@@ -1,5 +1,6 @@
-component Cluster
+component Cluster {
 
 <div class="ax-cluster" data-gap={gap} data-align={align} data-justify={justify}>
   <Slot />
 </div>
+}

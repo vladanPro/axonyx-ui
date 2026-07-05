@@ -1,4 +1,4 @@
-component Skeleton
+component Skeleton {
 
 <span
   class="ax-skeleton"
@@ -6,3 +6,4 @@ component Skeleton
   data-width={width}
   data-height={height}
 ></span>
+}

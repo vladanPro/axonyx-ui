@@ -1,4 +1,4 @@
-component ComponentPreview
+component ComponentPreview {
 
 <section class="ax-component-preview" data-surface={surface}>
   <header class="ax-component-preview__header">
@@ -9,3 +9,4 @@ component ComponentPreview
     <Slot />
   </div>
 </section>
+}

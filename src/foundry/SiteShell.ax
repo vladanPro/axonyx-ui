@@ -1,5 +1,6 @@
-component SiteShell
+component SiteShell {
 
 <Container max={max} recipe="app-shell">
   <Slot />
 </Container>
+}

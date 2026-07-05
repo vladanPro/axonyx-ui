@@ -1,5 +1,6 @@
-component Legend
+component Legend {
 
 <legend class="ax-fieldset__legend">
   <Slot />
 </legend>
+}

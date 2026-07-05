@@ -1,4 +1,4 @@
-component StatusLamp(tone = "neutral", pulse = "false", label = "", description = "")
+component StatusLamp(tone = "neutral", pulse = "false", label = "", description = "") {
 
 <div class="ax-status-lamp" data-tone={tone} data-pulse={pulse}>
   <span class="ax-status-lamp__light"></span>
@@ -13,3 +13,4 @@ component StatusLamp(tone = "neutral", pulse = "false", label = "", description 
     </span>
   </span>
 </div>
+}

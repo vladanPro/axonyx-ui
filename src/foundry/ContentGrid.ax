@@ -1,5 +1,6 @@
-component ContentGrid
+component ContentGrid {
 
 <Grid cols={cols} gap={gap}>
   <Slot />
 </Grid>
+}

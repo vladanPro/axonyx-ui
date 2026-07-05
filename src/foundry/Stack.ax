@@ -1,5 +1,6 @@
-component Stack(gap = "md", align = "")
+component Stack(gap = "md", align = "") {
 
 <div class="ax-stack" data-gap={gap} data-align={align}>
   <Slot />
 </div>
+}

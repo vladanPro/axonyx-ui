@@ -1,4 +1,4 @@
-component LinkButton(variant = "", size = "", surface = "", border = "", href = "#")
+component LinkButton(variant = "", size = "", surface = "", border = "", href = "#") {
 
 <a
   class="ax-button"
@@ -10,3 +10,4 @@ component LinkButton(variant = "", size = "", surface = "", border = "", href = 
 >
   <Slot />
 </a>
+}

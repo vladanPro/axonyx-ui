@@ -1,4 +1,4 @@
-component PropsTable
+component PropsTable {
 
 <table class="ax-props-table">
   <thead>
@@ -13,3 +13,4 @@ component PropsTable
     <Slot />
   </tbody>
 </table>
+}

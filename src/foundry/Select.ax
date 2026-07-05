@@ -1,4 +1,4 @@
-component Select(size = "", surface = "", id = "", name = "", disabled = "", invalid = "")
+component Select(size = "", surface = "", id = "", name = "", disabled = "", invalid = "") {
 
 <select
   class="ax-select"
@@ -12,3 +12,4 @@ component Select(size = "", surface = "", id = "", name = "", disabled = "", inv
 >
   <Slot />
 </select>
+}

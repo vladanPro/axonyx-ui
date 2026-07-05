@@ -1,4 +1,4 @@
-component MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabel = "Offline", state = "off", pressed = "", offActive = "", onActive = "")
+component MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabel = "Offline", state = "off", pressed = "", offActive = "", onActive = "") {
 
 <button
   class="ax-machine-switch"
@@ -16,3 +16,4 @@ component MachineSwitch(label = "", stateLabel = "", onLabel = "Online", offLabe
   <span class="ax-machine-switch__label">{label}</span>
   <span class="ax-machine-switch__label" data-state="true">{stateLabel}</span>
 </button>
+}

@@ -1,3 +1,4 @@
-component PaginationEllipsis
+component PaginationEllipsis {
 
 <span class="ax-pagination__ellipsis" aria-hidden="true">...</span>
+}

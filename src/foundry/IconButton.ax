@@ -1,4 +1,4 @@
-component IconButton(variant = "", size = "", surface = "", border = "", type = "button", disabled = "")
+component IconButton(variant = "", size = "", surface = "", border = "", type = "button", disabled = "") {
 
 <button
   class="ax-button"
@@ -12,3 +12,4 @@ component IconButton(variant = "", size = "", surface = "", border = "", type = 
 >
   <Slot />
 </button>
+}

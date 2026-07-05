@@ -1,5 +1,6 @@
-component FieldHint
+component FieldHint {
 
 <p class="ax-field__hint">
   <Slot />
 </p>
+}

@@ -1,5 +1,6 @@
-component DropdownLabel
+component DropdownLabel {
 
 <div class="ax-dropdown__label">
   <Slot />
 </div>
+}

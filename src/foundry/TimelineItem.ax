@@ -1,4 +1,4 @@
-component TimelineItem(time = "", title = "", tone = "")
+component TimelineItem(time = "", title = "", tone = "") {
 
 <li class="ax-timeline__item" data-tone={tone}>
   <span class="ax-timeline__dot"></span>
@@ -10,3 +10,4 @@ component TimelineItem(time = "", title = "", tone = "")
     <Slot />
   </div>
 </li>
+}

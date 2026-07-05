@@ -1,5 +1,6 @@
-component Flex(direction = "row", gap = "md", align = "", justify = "", wrap = "", collapse = "")
+component Flex(direction = "row", gap = "md", align = "", justify = "", wrap = "", collapse = "") {
 
 <div class="ax-flex" data-direction={direction} data-gap={gap} data-align={align} data-justify={justify} data-wrap={wrap} data-collapse={collapse}>
   <Slot />
 </div>
+}

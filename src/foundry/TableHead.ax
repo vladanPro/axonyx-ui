@@ -1,5 +1,6 @@
-component TableHead
+component TableHead {
 
 <thead class="ax-table__head">
   <Slot />
 </thead>
+}

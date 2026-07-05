@@ -1,5 +1,6 @@
-component MenuItem(href = "#", active = "", disabled = "")
+component MenuItem(href = "#", active = "", disabled = "") {
 
 <a class="ax-menu__item" href={href} data-active={active} data-disabled={disabled}>
   <Slot />
 </a>
+}

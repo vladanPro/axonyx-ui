@@ -1,4 +1,4 @@
-component PropRow
+component PropRow {
 
 <tr class="ax-prop-row">
   <td class="ax-prop-row__name">{name}</td>
@@ -6,3 +6,4 @@ component PropRow
   <td class="ax-prop-row__default">{default}</td>
   <td class="ax-prop-row__desc">{description}</td>
 </tr>
+}

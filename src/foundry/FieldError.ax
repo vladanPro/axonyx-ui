@@ -1,5 +1,6 @@
-component FieldError
+component FieldError {
 
 <p class="ax-field__error">
   <Slot />
 </p>
+}

@@ -1,5 +1,6 @@
-component Breadcrumbs
+component Breadcrumbs {
 
 <nav class="ax-breadcrumbs" aria-label="Breadcrumb">
   <Slot />
 </nav>
+}

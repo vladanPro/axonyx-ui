@@ -1,4 +1,4 @@
-component CodeBlock
+component CodeBlock {
 
 <figure class="ax-code-block" data-language={language} data-copy={copy}>
   <figcaption class="ax-code-block__header">
@@ -11,3 +11,4 @@ component CodeBlock
 
   <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
 </figure>
+}

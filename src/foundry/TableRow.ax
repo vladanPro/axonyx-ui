@@ -1,5 +1,6 @@
-component TableRow
+component TableRow {
 
 <tr class="ax-table__row">
   <Slot />
 </tr>
+}

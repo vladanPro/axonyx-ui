@@ -1,4 +1,4 @@
-component FeatureSection
+component FeatureSection {
 
 <Card title={title} recipe="feature-section">
   <div class="ax-feature-section__eyebrow">
@@ -11,3 +11,4 @@ component FeatureSection
     <Slot name="actions" />
   </div>
 </Card>
+}

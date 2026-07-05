@@ -1,5 +1,6 @@
-component Tabs
+component Tabs {
 
 <div class="ax-tabs" data-default-value={defaultValue}>
   <Slot />
 </div>
+}

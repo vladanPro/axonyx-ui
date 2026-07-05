@@ -1,5 +1,6 @@
-component TableCaption
+component TableCaption {
 
 <caption class="ax-table__caption">
   <Slot />
 </caption>
+}

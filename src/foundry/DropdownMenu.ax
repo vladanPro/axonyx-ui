@@ -1,4 +1,4 @@
-component DropdownMenu
+component DropdownMenu {
 
 <div class="ax-dropdown">
   <button class="ax-button ax-dropdown__trigger" data-variant={variant} type="button">
@@ -8,3 +8,4 @@ component DropdownMenu
     <Slot />
   </div>
 </div>
+}

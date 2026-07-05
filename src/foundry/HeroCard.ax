@@ -1,5 +1,6 @@
-component HeroCard
+component HeroCard {
 
 <Card title={title} recipe="hero-card">
   <Slot />
 </Card>
+}

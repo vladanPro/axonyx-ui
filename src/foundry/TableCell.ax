@@ -1,5 +1,6 @@
-component TableCell(align = "")
+component TableCell(align = "") {
 
 <td class="ax-table__cell" data-align={align}>
   <Slot />
 </td>
+}

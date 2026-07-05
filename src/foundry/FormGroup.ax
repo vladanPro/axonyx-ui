@@ -1,5 +1,6 @@
-component FormGroup(cols = "", gap = "")
+component FormGroup(cols = "", gap = "") {
 
 <div class="ax-form-group" data-cols={cols} data-gap={gap}>
   <Slot />
 </div>
+}

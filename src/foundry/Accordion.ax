@@ -1,5 +1,6 @@
-component Accordion
+component Accordion {
 
 <div class="ax-accordion" data-single={single}>
   <Slot />
 </div>
+}

@@ -1,4 +1,4 @@
-component DocsCodeBlock
+component DocsCodeBlock {
 
 <Card title={title} recipe="docs-code-block">
   <div class="ax-docs-code-block__eyebrow">
@@ -12,3 +12,4 @@ component DocsCodeBlock
     </pre>
   </div>
 </Card>
+}
