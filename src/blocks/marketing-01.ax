@@ -1,0 +1,43 @@
+import { Badge } from "../foundry/Badge.ax"
+import { Button } from "../foundry/Button.ax"
+import { ButtonGroup } from "../foundry/ButtonGroup.ax"
+import { ContentGrid } from "../foundry/ContentGrid.ax"
+import { Copy } from "../foundry/Copy.ax"
+import { HeroCard } from "../foundry/HeroCard.ax"
+import { SectionCard } from "../foundry/SectionCard.ax"
+import { Stack } from "../foundry/Stack.ax"
+
+component Marketing01(
+  eyebrow = "Foundry marketing block",
+  title = "Ship a Rust-first site without a JS stack.",
+  lead = "Use static output, strong surfaces, and a small number of obvious calls to action.",
+  primaryHref = "/docs/getting-started",
+  secondaryHref = "/components"
+) {
+
+<Stack gap="lg">
+  <HeroCard title={title}>
+    <Copy slot="eyebrow">{eyebrow}</Copy>
+    <Copy tone="lead">{lead}</Copy>
+    <ButtonGroup>
+      <Button href={primaryHref} variant="primary" surface="forged">Start building</Button>
+      <Button href={secondaryHref} variant="ghost">Browse components</Button>
+    </ButtonGroup>
+  </HeroCard>
+
+  <ContentGrid cols={3} gap="lg">
+    <SectionCard title="Fast">
+      <Badge tone="success">HTML</Badge>
+      <Copy>Static pages and package assets with a small runtime surface.</Copy>
+    </SectionCard>
+    <SectionCard title="Readable">
+      <Badge tone="info">ASX</Badge>
+      <Copy>Page files that frontend developers and AI agents can scan quickly.</Copy>
+    </SectionCard>
+    <SectionCard title="Ownable">
+      <Badge tone="warning">Cargo</Badge>
+      <Copy>Rust runtime, Axonyx UI components, and deployable output.</Copy>
+    </SectionCard>
+  </ContentGrid>
+</Stack>
+}

@@ -2,15 +2,16 @@
 //!
 //! This crate is the Cargo-side package for the same Foundry contract that is
 //! published to npm as `@axonyx/ui`. Build tools can depend on this crate to
-//! copy CSS, JavaScript helpers, and Axonyx-native `.ax` components without
-//! shelling out to npm or cloning the UI repository.
+//! copy CSS, JavaScript helpers, Axonyx-native `.ax` components, and registry
+//! blocks without shelling out to npm or cloning the UI repository.
 
 /// An embedded Axonyx UI source asset.
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 pub struct Asset {
     /// Package-relative path without the leading `src/`.
     ///
-    /// Examples: `css/index.css`, `foundry/Button.ax`, `js/dialog.js`.
+    /// Examples: `css/index.css`, `foundry/Button.ax`, `blocks/marketing-01.ax`,
+    /// `js/dialog.js`.
     pub path: &'static str,
     /// UTF-8 asset contents.
     pub contents: &'static str,
@@ -33,9 +34,23 @@ pub fn foundry_assets() -> &'static [Asset] {
     FOUNDRY_ASSETS
 }
 
+/// Returns Axonyx-native Foundry block assets.
+pub fn block_assets() -> &'static [Asset] {
+    BLOCK_ASSETS
+}
+
+/// Returns the package registry manifest.
+pub fn registry_manifest() -> &'static str {
+    REGISTRY_MANIFEST
+}
+
 /// Iterates through every embedded asset in a stable package order.
 pub fn all_assets() -> impl Iterator<Item = &'static Asset> {
-    CSS_ASSETS.iter().chain(JS_ASSETS).chain(FOUNDRY_ASSETS)
+    CSS_ASSETS
+        .iter()
+        .chain(JS_ASSETS)
+        .chain(FOUNDRY_ASSETS)
+        .chain(BLOCK_ASSETS)
 }
 
 /// Finds an embedded asset by package-relative path.
@@ -57,5 +72,17 @@ mod tests {
     fn exposes_foundry_component_asset() {
         let button = asset("foundry/Button.ax").expect("button component should be embedded");
         assert!(button.contents.contains("component Button"));
+    }
+
+    #[test]
+    fn exposes_block_asset() {
+        let block = asset("blocks/marketing-01.ax").expect("marketing block should be embedded");
+        assert!(block.contents.contains("component Marketing01"));
+    }
+
+    #[test]
+    fn exposes_registry_manifest() {
+        assert!(registry_manifest().contains("marketing-01"));
+        assert!(registry_manifest().contains("Button"));
     }
 }

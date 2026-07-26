@@ -14,6 +14,7 @@ Axonyx UI defines the visual contract for Axonyx primitives so projects like `ax
 axonyx-ui       = CSS tokens, themes, component styles, JS islands, native .ax Foundry components
 @axonyx/react   = React wrappers around the same shared CSS/data-attribute contract
 axonyx-site     = Axonyx-native app routes that consume the Foundry components
+axonyx-site-ui  = native Axonyx UI showcase and registry documentation
 ```
 
 ## Install
@@ -49,6 +50,24 @@ axonyx-ui = "0.0.48"
 The Cargo crate embeds the same Foundry assets that the npm package ships.
 Axonyx-native apps should use `cargo ax add ui` so the stylesheet and Foundry
 behavior runtime are wired into `app/layout.ax`.
+
+## Registry V0
+
+`Axonyx.registry.toml` describes the first native registry slice:
+
+- Components V0: `Button`, `Card`, `Field`, `AppShell`, `Sidebar`
+- Blocks V0: `marketing-01`, `docs-01`, `dashboard-01`
+
+The long-term CLI goal is:
+
+```bash
+cargo ax add button
+cargo ax add block dashboard-01
+cargo ax add theme silver
+```
+
+For now the Cargo crate embeds registry data and block source files so
+`cargo-axonyx` can later install them without scraping GitHub or npm.
 
 ## Foundry
 
@@ -250,6 +269,30 @@ src/foundry/
   DocsCodeBlock.ax
   Command.ax
   CommandList.ax
+```
+
+## Foundry Blocks
+
+The first block source files live in `src/blocks/`:
+
+```text
+src/blocks/
+  marketing-01.ax
+  docs-01.ax
+  dashboard-01.ax
+```
+
+Blocks are intended to install as editable app source, not opaque widgets.
+They compose existing Foundry components and remain Axonyx-native.
+
+Cargo consumers can inspect embedded assets:
+
+```rust
+for asset in axonyx_ui::block_assets() {
+    println!("{}", asset.path);
+}
+
+let registry = axonyx_ui::registry_manifest();
 ```
 
 Example import:

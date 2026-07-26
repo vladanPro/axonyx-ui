@@ -12,6 +12,8 @@
   "exports": {
     "./css/index.css": "./dist/css/index.css",
     "./foundry/*": "./dist/foundry/*",
+    "./blocks/*": "./dist/blocks/*",
+    "./registry": "./dist/Axonyx.registry.toml",
     "./js/index": "./dist/js/index.js",
     "./js/tabs": "./dist/js/tabs.js",
     "./js/dialog": "./dist/js/dialog.js",

@@ -1,0 +1,25 @@
+import { Badge } from "../foundry/Badge.ax"
+import { Card } from "../foundry/Card.ax"
+import { Copy } from "../foundry/Copy.ax"
+import { Sidebar } from "../foundry/Sidebar.ax"
+
+component Docs01(
+  title = "Getting started",
+  lead = "Install the CLI, choose a starter, run dev, then build static output."
+) {
+
+<div class="ax-app-shell">
+  <Sidebar>
+    <strong>Docs</strong>
+    <a href="/docs">Overview</a>
+    <a href="/docs/getting-started">Getting started</a>
+    <a href="/components">Components</a>
+    <a href="/blocks">Blocks</a>
+  </Sidebar>
+  <Card title={title} border="forged">
+    <Badge tone="success">Guide</Badge>
+    <Copy tone="lead">{lead}</Copy>
+    <pre class="docs-code">{"create-axonyx my-docs --yes --template docs\ncargo ax run dev"}</pre>
+  </Card>
+</div>
+}
