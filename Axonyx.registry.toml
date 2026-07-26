@@ -3,59 +3,108 @@ name = "Axonyx UI"
 namespace = "@axonyx/ui"
 description = "Foundry component and block registry for Axonyx-native apps."
 mode = "native"
+version = 1
 
 [[components]]
 name = "Button"
+title = "Button"
 path = "src/foundry/Button.ax"
+import = "@axonyx/ui/foundry/Button"
+preview = "/components/button"
 category = "actions"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add button"
+tags = ["action", "link", "cta", "forged"]
 description = "Primary action primitive for links, submits, ghost actions, and forged calls to action."
 
 [[components]]
 name = "Card"
+title = "Card"
 path = "src/foundry/Card.ax"
+import = "@axonyx/ui/foundry/Card"
+preview = "/components/card"
 category = "surfaces"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add card"
+tags = ["surface", "panel", "docs", "dashboard"]
 description = "Foundry surface primitive for content panels, dashboard widgets, and docs blocks."
 
 [[components]]
 name = "Field"
+title = "Field"
 path = "src/foundry/Field.ax"
+import = "@axonyx/ui/foundry/Field"
+preview = "/components/field"
 category = "forms"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add field"
+tags = ["form", "input", "label", "validation"]
 description = "Form shell for labels, inputs, hints, and validation states."
 
 [[components]]
 name = "AppShell"
+title = "AppShell"
 path = "src/foundry/AppShell.ax"
+import = "@axonyx/ui/foundry/AppShell"
+preview = "/components/app-shell"
 category = "layout"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add app-shell"
+tags = ["layout", "shell", "docs", "dashboard"]
 description = "Application frame for docs, dashboards, admin tools, and CMS layouts."
 
 [[components]]
 name = "Sidebar"
+title = "Sidebar"
 path = "src/foundry/Sidebar.ax"
+import = "@axonyx/ui/foundry/Sidebar"
+preview = "/components/sidebar"
 category = "layout"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add sidebar"
+tags = ["navigation", "layout", "rail", "menu"]
 description = "Navigation rail used by AppShell, docs pages, dashboards, and admin blocks."
 
 [[blocks]]
 name = "marketing-01"
+title = "Marketing 01"
 path = "src/blocks/marketing-01.ax"
+import = "@axonyx/ui/blocks/marketing-01"
+preview = "/blocks/marketing-01"
 category = "marketing"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add block marketing-01"
+tags = ["landing", "hero", "marketing", "cta"]
 description = "Hero, proof cards, feature grid, and call to action for product sites."
 
 [[blocks]]
 name = "docs-01"
+title = "Docs 01"
 path = "src/blocks/docs-01.ax"
+import = "@axonyx/ui/blocks/docs-01"
+preview = "/blocks/docs-01"
 category = "docs"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add block docs-01"
+tags = ["docs", "sidebar", "guide", "reference"]
 description = "Documentation shell with sidebar navigation, content rail, and install command space."
 
 [[blocks]]
 name = "dashboard-01"
+title = "Dashboard 01"
 path = "src/blocks/dashboard-01.ax"
+import = "@axonyx/ui/blocks/dashboard-01"
+preview = "/blocks/dashboard-01"
 category = "dashboard"
 status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add block dashboard-01"
+tags = ["dashboard", "admin", "metrics", "cms"]
 description = "Industrial admin dashboard shell for CMS, deploy, QA, and registry screens."
