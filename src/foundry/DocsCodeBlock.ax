@@ -1,15 +1,14 @@
-component DocsCodeBlock(title = "") {
+component DocsCodeBlock(title = "Code", language = "ax") {
 
-<Card title={title} recipe="docs-code-block">
-  <div class="ax-docs-code-block__eyebrow">
-    <Slot name="eyebrow" />
-  </div>
-  <div class="ax-docs-code-block__body">
-    <pre class="ax-docs-code-block__pre">
-      <code class="ax-docs-code-block__code">
-        <Slot />
-      </code>
-    </pre>
-  </div>
-</Card>
+<figure class="ax-code-block ax-docs-code-block" data-language={language}>
+  <figcaption class="ax-code-block__header">
+    <span class="ax-code-block__title">{title}</span>
+    <div class="ax-code-block__tools">
+      <span class="ax-code-block__language">{language}</span>
+      <button class="ax-code-block__copy" type="button" data-ax-copy-code="true">Copy</button>
+    </div>
+  </figcaption>
+
+  <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
+</figure>
 }

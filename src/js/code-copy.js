@@ -31,6 +31,7 @@
   function enhanceLegacyPre(pre) {
     if (pre.dataset.axCodeEnhanced === 'true') return;
     if (pre.closest('.ax-code-block, .ax-code-shell')) return;
+    if (pre.classList.contains('ax-docs-code-block__pre')) return;
     pre.dataset.axCodeEnhanced = 'true';
 
     const shell = document.createElement('figure');
@@ -40,16 +41,22 @@
     const header = document.createElement('figcaption');
     header.className = 'ax-code-shell__header';
 
+    const resolvedTitle = pre.dataset.title || pre.getAttribute('data-title') || 'Code';
+    const resolvedLanguage = shell.dataset.language || 'code';
+
     const title = document.createElement('span');
     title.className = 'ax-code-shell__title';
-    title.textContent = pre.dataset.title || pre.getAttribute('data-title') || 'Code';
+    title.textContent = resolvedTitle;
 
     const tools = document.createElement('div');
     tools.className = 'ax-code-shell__tools';
 
     const language = document.createElement('span');
     language.className = 'ax-code-shell__language';
-    language.textContent = shell.dataset.language || 'code';
+    language.textContent = resolvedLanguage;
+    if (resolvedTitle.toLowerCase() === resolvedLanguage.toLowerCase()) {
+      language.hidden = true;
+    }
 
     const button = document.createElement('button');
     button.className = 'ax-code-shell__copy';
