@@ -1,4 +1,4 @@
-page Surface(title = "", eyebrow = "", variant = "", padding = "")
+component Surface(title = "", eyebrow = "", variant = "", padding = "") {
 
 <section class="ax-surface" data-variant={variant} data-padding={padding}>
   <If when={eyebrow}>
@@ -9,3 +9,4 @@ page Surface(title = "", eyebrow = "", variant = "", padding = "")
   </If>
   <Slot />
 </section>
+}

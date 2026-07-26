@@ -1,4 +1,4 @@
-page Radio(name = "", value = "", checked = "", disabled = "")
+component Radio(name = "", value = "", checked = "", disabled = "") {
 
 <label class="ax-radio" data-checked={checked} data-disabled={disabled}>
   <input type="radio" name={name} value={value} />
@@ -6,3 +6,4 @@ page Radio(name = "", value = "", checked = "", disabled = "")
     <Slot />
   </span>
 </label>
+}

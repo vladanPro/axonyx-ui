@@ -1,5 +1,6 @@
-page HeroCard
+component HeroCard(title = "") {
 
 <Card title={title} recipe="hero-card">
   <Slot />
 </Card>
+}

@@ -1,5 +1,6 @@
-page FieldLabel(htmlFor = "")
+component FieldLabel(htmlFor = "") {
 
 <label class="ax-field-label" for={htmlFor}>
   <Slot />
 </label>
+}

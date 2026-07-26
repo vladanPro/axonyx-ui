@@ -1,0 +1,23 @@
+component Dashboard01 {
+
+<div class="ax-app-shell">
+  <Sidebar>
+    <strong>Console</strong>
+    <a href="/blocks/dashboard-01">Overview</a>
+    <a href="/components/table">Collections</a>
+    <a href="/registry">Registry</a>
+  </Sidebar>
+  <Stack gap="lg">
+    <ContentGrid cols={3} gap="lg">
+      <Stat label="Routes" value="84" />
+      <Stat label="Build" value="413ms" />
+      <Stat label="Packages" value="6" />
+    </ContentGrid>
+    <Card title="System status" border="forged">
+      <Badge tone="success">Runtime</Badge>
+      <StatusLamp tone="online" label="Runtime online" description="Tokio transport and package assets are ready." />
+      <Copy>Use this block as the base for Blockbit admin surfaces.</Copy>
+    </Card>
+  </Stack>
+</div>
+}

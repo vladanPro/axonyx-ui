@@ -1,4 +1,4 @@
-page EmptyState
+component EmptyState {
 
 <section class="ax-empty-state">
   <div class="ax-empty-state__icon">
@@ -14,3 +14,4 @@ page EmptyState
     <Slot name="actions" />
   </div>
 </section>
+}

@@ -1,4 +1,4 @@
-page Navbar
+component Navbar(brandHref = "") {
 
 <header class="ax-navbar">
   <a class="ax-navbar__brand" href={brandHref}>
@@ -8,3 +8,4 @@ page Navbar
     <Slot />
   </nav>
 </header>
+}

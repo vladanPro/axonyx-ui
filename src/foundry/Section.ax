@@ -1,5 +1,6 @@
-page Section
+component Section(width = "") {
 
 <section class="ax-section" data-width={width}>
   <Slot />
 </section>
+}

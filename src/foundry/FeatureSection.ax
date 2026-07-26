@@ -1,4 +1,4 @@
-page FeatureSection
+component FeatureSection(title = "") {
 
 <Card title={title} recipe="feature-section">
   <div class="ax-feature-section__eyebrow">
@@ -11,3 +11,4 @@ page FeatureSection
     <Slot name="actions" />
   </div>
 </Card>
+}

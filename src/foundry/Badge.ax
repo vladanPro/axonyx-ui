@@ -1,5 +1,6 @@
-page Badge(tone = "", variant = "", size = "")
+component Badge(tone = "", variant = "", size = "") {
 
 <span class="ax-badge" data-variant={variant}>
   <Slot />
 </span>
+}

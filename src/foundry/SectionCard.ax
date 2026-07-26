@@ -1,5 +1,6 @@
-page SectionCard
+component SectionCard(title = "") {
 
 <Card title={title}>
   <Slot />
 </Card>
+}

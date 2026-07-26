@@ -1,4 +1,4 @@
-page ListItem
+component ListItem(interactive = "", tone = "") {
 
 <div class="ax-list-item" data-tone={tone} data-interactive={interactive}>
   <span class="ax-list-item__leading">
@@ -11,3 +11,4 @@ page ListItem
     <Slot name="trailing" />
   </span>
 </div>
+}

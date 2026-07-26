@@ -1,5 +1,6 @@
-page Cluster
+component Cluster(align = "", gap = "", justify = "") {
 
 <div class="ax-cluster" data-gap={gap} data-align={align} data-justify={justify}>
   <Slot />
 </div>
+}

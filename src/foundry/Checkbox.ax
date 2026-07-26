@@ -1,4 +1,4 @@
-page Checkbox(name = "", checked = "", disabled = "")
+component Checkbox(name = "", checked = "", disabled = "") {
 
 <label class="ax-checkbox" data-checked={checked} data-disabled={disabled}>
   <input type="checkbox" name={name} />
@@ -6,3 +6,4 @@ page Checkbox(name = "", checked = "", disabled = "")
     <Slot />
   </span>
 </label>
+}

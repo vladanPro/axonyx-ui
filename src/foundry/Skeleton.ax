@@ -1,8 +1,4 @@
-page Skeleton
+component Skeleton(shape = "", width = "", height = "") {
 
-<span
-  class="ax-skeleton"
-  data-shape={shape}
-  data-width={width}
-  data-height={height}
-></span>
+<span class="ax-skeleton" data-shape={shape} data-width={width} data-height={height}></span>
+}

@@ -1,4 +1,4 @@
-page DropdownMenu
+component DropdownMenu(align = "", variant = "") {
 
 <div class="ax-dropdown">
   <button class="ax-button ax-dropdown__trigger" data-variant={variant} type="button">
@@ -8,3 +8,4 @@ page DropdownMenu
     <Slot />
   </div>
 </div>
+}

@@ -1,5 +1,6 @@
-page Avatar
+component Avatar(size = "") {
 
 <span class="ax-avatar" data-size={size}>
   <Slot />
 </span>
+}

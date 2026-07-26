@@ -1,5 +1,6 @@
-page Box(padding = "", surface = "")
+component Box(padding = "", surface = "") {
 
 <div class="ax-box" data-padding={padding} data-surface={surface}>
   <Slot />
 </div>
+}

@@ -1,4 +1,4 @@
-page DocsSection
+component DocsSection(title = "") {
 
 <Card title={title} recipe="docs-section">
   <div class="ax-docs-section__eyebrow">
@@ -16,3 +16,4 @@ page DocsSection
     <Slot name="actions" />
   </div>
 </Card>
+}

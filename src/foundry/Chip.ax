@@ -1,5 +1,6 @@
-page Chip(tone = "", size = "")
+component Chip(tone = "", size = "") {
 
 <span class="ax-chip" data-size={size} data-tone={tone}>
   <Slot />
 </span>
+}

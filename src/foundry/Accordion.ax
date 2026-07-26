@@ -1,5 +1,6 @@
-page Accordion
+component Accordion(single = "") {
 
 <div class="ax-accordion" data-single={single}>
   <Slot />
 </div>
+}

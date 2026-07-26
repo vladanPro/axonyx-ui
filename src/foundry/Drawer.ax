@@ -1,4 +1,4 @@
-page Drawer(id = "", side = "right", open = "false", title = "Drawer", description = "")
+component Drawer(id = "", side = "right", open = "false", title = "Drawer", description = "") {
 
 <div class="ax-drawer" id={id} data-side={side} data-open={open}>
   <div class="ax-drawer__backdrop" data-ax-drawer-close="true"></div>
@@ -15,3 +15,4 @@ page Drawer(id = "", side = "right", open = "false", title = "Drawer", descripti
     </div>
   </section>
 </div>
+}

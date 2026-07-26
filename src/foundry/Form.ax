@@ -1,12 +1,6 @@
-page Form(layout = "", density = "", surface = "", method = "post", action = "")
+component Form(layout = "", density = "", surface = "", method = "post", action = "") {
 
-<form
-  class="ax-form"
-  data-layout={layout}
-  data-density={density}
-  data-surface={surface}
-  method={method}
-  action={action}
->
+<form class="ax-form" data-layout={layout} data-density={density} data-surface={surface} method={method} action={action}>
   <Slot />
 </form>
+}

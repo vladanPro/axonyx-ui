@@ -1,4 +1,4 @@
-page Switch(name = "", checked = "", disabled = "")
+component Switch(name = "", checked = "", disabled = "") {
 
 <label class="ax-switch" data-checked={checked} data-disabled={disabled}>
   <input type="checkbox" name={name} />
@@ -9,3 +9,4 @@ page Switch(name = "", checked = "", disabled = "")
     <Slot />
   </span>
 </label>
+}

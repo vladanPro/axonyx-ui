@@ -1,4 +1,4 @@
-page Tab
+component Tab(title = "", value = "") {
 
 <div class="ax-tab" data-value={value}>
   <div class="ax-tab__label">{title}</div>
@@ -6,3 +6,4 @@ page Tab
     <Slot />
   </div>
 </div>
+}

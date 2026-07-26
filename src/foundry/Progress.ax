@@ -1,4 +1,4 @@
-page Progress(value = "0", height = "0.65rem")
+component Progress(value = "0", height = "0.65rem") {
 
 <div class="ax-progress">
   <div class="ax-progress__meta">
@@ -9,3 +9,4 @@ page Progress(value = "0", height = "0.65rem")
   </div>
   <progress class="ax-progress__native" value={value} max="100">{value}%</progress>
 </div>
+}

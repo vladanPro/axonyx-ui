@@ -1,5 +1,6 @@
-page Footer
+component Footer {
 
 <footer class="ax-layout-footer">
   <Slot />
 </footer>
+}

@@ -1,0 +1,61 @@
+[registry]
+name = "Axonyx UI"
+namespace = "@axonyx/ui"
+description = "Foundry component and block registry for Axonyx-native apps."
+mode = "native"
+
+[[components]]
+name = "Button"
+path = "src/foundry/Button.ax"
+category = "actions"
+status = "v0"
+description = "Primary action primitive for links, submits, ghost actions, and forged calls to action."
+
+[[components]]
+name = "Card"
+path = "src/foundry/Card.ax"
+category = "surfaces"
+status = "v0"
+description = "Foundry surface primitive for content panels, dashboard widgets, and docs blocks."
+
+[[components]]
+name = "Field"
+path = "src/foundry/Field.ax"
+category = "forms"
+status = "v0"
+description = "Form shell for labels, inputs, hints, and validation states."
+
+[[components]]
+name = "AppShell"
+path = "src/foundry/AppShell.ax"
+category = "layout"
+status = "v0"
+description = "Application frame for docs, dashboards, admin tools, and CMS layouts."
+
+[[components]]
+name = "Sidebar"
+path = "src/foundry/Sidebar.ax"
+category = "layout"
+status = "v0"
+description = "Navigation rail used by AppShell, docs pages, dashboards, and admin blocks."
+
+[[blocks]]
+name = "marketing-01"
+path = "src/blocks/marketing-01.ax"
+category = "marketing"
+status = "v0"
+description = "Hero, proof cards, feature grid, and call to action for product sites."
+
+[[blocks]]
+name = "docs-01"
+path = "src/blocks/docs-01.ax"
+category = "docs"
+status = "v0"
+description = "Documentation shell with sidebar navigation, content rail, and install command space."
+
+[[blocks]]
+name = "dashboard-01"
+path = "src/blocks/dashboard-01.ax"
+category = "dashboard"
+status = "v0"
+description = "Industrial admin dashboard shell for CMS, deploy, QA, and registry screens."

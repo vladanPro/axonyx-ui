@@ -1,5 +1,6 @@
-page Stepper(orientation = "vertical")
+component Stepper(orientation = "vertical") {
 
 <ol class="ax-stepper" data-orientation={orientation}>
   <Slot />
 </ol>
+}

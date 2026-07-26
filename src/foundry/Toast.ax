@@ -1,4 +1,4 @@
-page Toast(tone = "", title = "")
+component Toast(tone = "", title = "") {
 
 <div class="ax-toast" data-tone={tone} role="status">
   <div>
@@ -9,3 +9,4 @@ page Toast(tone = "", title = "")
   </div>
   <button class="ax-toast__close" type="button" aria-label="Dismiss toast" data-ax-toast-close="true">x</button>
 </div>
+}
