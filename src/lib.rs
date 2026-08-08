@@ -133,6 +133,7 @@ mod tests {
         let grid = asset("foundry/Grid.ax").expect("grid should be embedded");
         let stack = asset("foundry/Stack.ax").expect("stack should be embedded");
         let flex = asset("foundry/Flex.ax").expect("flex should be embedded");
+        let section = asset("foundry/Section.ax").expect("section should be embedded");
         let tokens = asset("css/tokens.css").expect("tokens should be embedded");
         let layout = asset("css/layout.css").expect("layout css should be embedded");
         let stack_css = asset("css/stack.css").expect("stack css should be embedded");
@@ -142,10 +143,17 @@ mod tests {
         assert!(grid.contents.contains("data-min={min}"));
         assert!(stack.contents.contains("data-align={align}"));
         assert!(flex.contents.contains("data-collapse={collapse}"));
+        assert!(section.contents.contains("data-spacing={spacing}"));
+        assert!(section.contents.contains("ax-section__description"));
         assert!(tokens.contents.contains("--ax-space-xs"));
         assert!(layout.contents.contains(".ax-grid[data-gap='2xl']"));
         assert!(stack_css.contents.contains(".ax-stack[data-align='end']"));
         assert!(primitives.contents.contains(".ax-flex[data-gap='2xl']"));
+        assert!(primitives
+            .contents
+            .contains(".ax-box[data-surface='inset']"));
+        assert!(primitives.contents.contains(".ax-inset[data-size='2xl']"));
+        assert!(primitives.contents.contains(".ax-bleed[data-padding='lg']"));
     }
 
     #[test]
@@ -204,5 +212,12 @@ mod tests {
         assert!(registry_manifest().contains("Grid"));
         assert!(registry_manifest().contains("Stack"));
         assert!(registry_manifest().contains("Flex"));
+        assert!(registry_manifest().contains("Cluster"));
+        assert!(registry_manifest().contains("Box"));
+        assert!(registry_manifest().contains("Surface"));
+        assert!(registry_manifest().contains("Section"));
+        assert!(registry_manifest().contains("Inset"));
+        assert!(registry_manifest().contains("Bleed"));
+        assert!(registry_manifest().contains("Center"));
     }
 }

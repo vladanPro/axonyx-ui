@@ -152,6 +152,10 @@
     width: 100%;
 }
 
+.ax-section[data-width='wide'] {
+    width: min(100%, var(--ax-container-xl));
+}
+
 .ax-section[data-width='lg'] {
     width: min(100%, var(--ax-container-lg));
 }
