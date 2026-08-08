@@ -1,0 +1,88 @@
+.ax-input-group {
+    display: flex;
+    width: 100%;
+    min-height: 2.45rem;
+    box-sizing: border-box;
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-md);
+    background: color-mix(in srgb, var(--ax-surface) 84%, black);
+    box-shadow: inset 0 1px 7px rgba(0, 0, 0, 0.26);
+    transition:
+        border-color 120ms ease,
+        box-shadow 120ms ease;
+}
+
+.ax-input-group:focus-within {
+    border-color: var(--ax-cyan);
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--ax-cyan) 42%, transparent),
+        inset 0 1px 7px rgba(0, 0, 0, 0.28);
+}
+
+.ax-input-group[data-size='sm'] {
+    min-height: 2rem;
+}
+
+.ax-input-group[data-size='lg'] {
+    min-height: 3rem;
+}
+
+.ax-input-group[data-size='sm'] > .ax-input,
+.ax-input-group[data-size='sm'] > .ax-select {
+    min-height: 2rem;
+    padding-block: 0.5rem;
+    font-size: 0.82rem;
+}
+
+.ax-input-group[data-size='lg'] > .ax-input,
+.ax-input-group[data-size='lg'] > .ax-select {
+    min-height: 3rem;
+    padding-block: 0.82rem;
+    font-size: 1rem;
+}
+
+.ax-input-group > .ax-input,
+.ax-input-group > .ax-select {
+    min-width: 0;
+    flex: 1 1 auto;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.ax-input-group > .ax-input:focus,
+.ax-input-group > .ax-select:focus {
+    box-shadow: none;
+}
+
+.ax-input-addon {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0 0.8rem;
+    color: var(--ax-text-muted);
+    font-family: var(--ax-font-mono);
+    font-size: 0.78rem;
+    white-space: nowrap;
+    background: color-mix(in srgb, var(--ax-surface-2) 76%, transparent);
+}
+
+.ax-input-addon[data-side='start'] {
+    border-right: 1px solid var(--ax-border);
+}
+
+.ax-input-addon[data-side='end'] {
+    border-left: 1px solid var(--ax-border);
+}
+
+.ax-input-group > .ax-button {
+    flex: none;
+    border: 0;
+    border-left: 1px solid var(--ax-border);
+    border-radius: 0;
+}

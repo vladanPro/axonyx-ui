@@ -24,6 +24,11 @@ This map tracks how `@axonyx/react` component names map to `.ax` Foundry files.
 - `Switch` -> `src/foundry/Switch.ax`
 - `Breadcrumbs` -> `src/foundry/Breadcrumbs.ax`
 - `ButtonGroup` -> `src/foundry/ButtonGroup.ax`
+- `Spinner` -> `src/foundry/Spinner.ax`
+- `Toggle` -> `src/foundry/Toggle.ax`
+- `ToggleGroup` -> `src/foundry/ToggleGroup.ax`
+- `InputGroup` -> `src/foundry/InputGroup.ax`
+- `InputAddon` -> `src/foundry/InputAddon.ax`
 - `Section` -> `src/foundry/Section.ax`
 - `Stack` -> `src/foundry/Stack.ax`
 - `Cluster` -> `src/foundry/Cluster.ax`

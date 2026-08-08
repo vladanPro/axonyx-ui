@@ -70,6 +70,71 @@ copy = "cargo ax add sidebar"
 tags = ["navigation", "layout", "rail", "menu"]
 description = "Navigation rail used by AppShell, docs pages, dashboards, and admin blocks."
 
+[[components]]
+name = "Spinner"
+title = "Spinner"
+path = "src/foundry/Spinner.ax"
+import = "@axonyx/ui/foundry/Spinner"
+preview = "/components/spinner"
+category = "feedback"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add spinner"
+tags = ["loading", "status", "feedback", "progress"]
+description = "Compact loading status indicator with semantic size and tone controls."
+
+[[components]]
+name = "Toggle"
+title = "Toggle"
+path = "src/foundry/Toggle.ax"
+import = "@axonyx/ui/foundry/Toggle"
+preview = "/components/toggle"
+category = "forms"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add toggle"
+tags = ["choice", "filter", "checkbox", "radio"]
+description = "Native checkbox or radio choice presented as a Foundry control surface."
+
+[[components]]
+name = "ToggleGroup"
+title = "ToggleGroup"
+path = "src/foundry/ToggleGroup.ax"
+import = "@axonyx/ui/foundry/ToggleGroup"
+preview = "/components/toggle"
+category = "forms"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add toggle-group"
+tags = ["choice", "segmented", "single", "multiple"]
+description = "Groups native Toggle controls into single- or multiple-selection sets."
+
+[[components]]
+name = "InputGroup"
+title = "InputGroup"
+path = "src/foundry/InputGroup.ax"
+import = "@axonyx/ui/foundry/InputGroup"
+preview = "/components/input-group"
+category = "forms"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add input-group"
+tags = ["input", "addon", "search", "url"]
+description = "Composes inputs, semantic add-ons, and actions into one accessible control boundary."
+
+[[components]]
+name = "InputAddon"
+title = "InputAddon"
+path = "src/foundry/InputAddon.ax"
+import = "@axonyx/ui/foundry/InputAddon"
+preview = "/components/input-group"
+category = "forms"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add input-addon"
+tags = ["input", "prefix", "suffix", "metadata"]
+description = "Start or end annotation for an InputGroup."
+
 [[blocks]]
 name = "marketing-01"
 title = "Marketing 01"

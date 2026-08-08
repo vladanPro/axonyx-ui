@@ -1,0 +1,96 @@
+.ax-toggle-group {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 0.35rem;
+    padding: 0.3rem;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background: color-mix(in srgb, var(--ax-surface) 88%, black);
+    box-shadow: inset 0 1px 8px rgba(0, 0, 0, 0.24);
+}
+
+.ax-toggle-group[data-orientation='vertical'] {
+    flex-direction: column;
+}
+
+.ax-toggle {
+    position: relative;
+    display: inline-flex;
+    min-width: 2.45rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.ax-toggle__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ax-toggle__surface {
+    position: relative;
+    display: inline-flex;
+    width: 100%;
+    min-height: 2.35rem;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.52rem 0.78rem;
+    border: 1px solid transparent;
+    border-radius: var(--ax-radius-md);
+    color: var(--ax-text-muted);
+    font-size: 0.86rem;
+    font-weight: 700;
+    transition:
+        color 120ms ease,
+        border-color 120ms ease,
+        background 120ms ease,
+        box-shadow 120ms ease;
+}
+
+.ax-toggle[data-size='sm'] .ax-toggle__surface,
+.ax-toggle-group[data-size='sm'] .ax-toggle__surface {
+    min-height: 1.95rem;
+    padding: 0.36rem 0.62rem;
+    font-size: 0.76rem;
+}
+
+.ax-toggle[data-size='lg'] .ax-toggle__surface,
+.ax-toggle-group[data-size='lg'] .ax-toggle__surface {
+    min-height: 2.8rem;
+    padding: 0.68rem 1rem;
+    font-size: 0.94rem;
+}
+
+.ax-toggle:hover .ax-toggle__surface {
+    color: var(--ax-text);
+    background: var(--ax-surface-2);
+}
+
+.ax-toggle__input:checked + .ax-toggle__surface {
+    border-color: color-mix(in srgb, var(--ax-primary) 58%, var(--ax-border-strong));
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--ax-primary) 18%, var(--ax-surface-2)),
+            color-mix(in srgb, var(--ax-primary) 9%, var(--ax-surface))
+        );
+    color: var(--ax-text);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 0 0 1px color-mix(in srgb, var(--ax-primary) 16%, transparent);
+}
+
+.ax-toggle__input:focus-visible + .ax-toggle__surface {
+    outline: 2px solid var(--ax-cyan);
+    outline-offset: 2px;
+}
+
+.ax-toggle[data-disabled='true'],
+.ax-toggle:has(.ax-toggle__input:disabled) {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

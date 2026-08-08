@@ -1,0 +1,6 @@
+component Spinner(size = "md", tone = "current", label = "Loading") {
+
+<span class="ax-spinner" data-size={size} data-tone={tone} role="status" aria-label={label}>
+  <span class="ax-spinner__ring" aria-hidden="true"></span>
+</span>
+}
