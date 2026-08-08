@@ -345,6 +345,32 @@
     });
   }
 
+  function setSidebarOpen(sidebar, open) {
+    const toggle = sidebar.querySelector('[data-ax-sidebar-toggle]');
+    sidebar.dataset.open = String(open);
+    if (toggle) toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  function bootSidebars() {
+    document.querySelectorAll('.ax-layout-sidebar[data-collapsible="true"]').forEach((sidebar) => {
+      if (sidebar.dataset.axSidebarReady === 'true') return;
+      sidebar.dataset.axSidebarReady = 'true';
+
+      const toggle = sidebar.querySelector('[data-ax-sidebar-toggle]');
+      setSidebarOpen(sidebar, sidebar.dataset.open === 'true');
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          setSidebarOpen(sidebar, sidebar.dataset.open !== 'true');
+        });
+      }
+
+      sidebar.querySelectorAll('a[href]').forEach((link) => {
+        link.addEventListener('click', () => setSidebarOpen(sidebar, false));
+      });
+    });
+  }
+
   function boot() {
     bootThemes();
     bootAccordions();
@@ -354,6 +380,7 @@
     bootMachineSwitches();
     bootSliders();
     bootToasts();
+    bootSidebars();
     bootCodeBlocks();
   }
 

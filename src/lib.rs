@@ -82,6 +82,13 @@ mod tests {
     }
 
     #[test]
+    fn exposes_collapsible_sidebar_contract() {
+        let sidebar = asset("foundry/Sidebar.ax").expect("sidebar should be embedded");
+        assert!(sidebar.contents.contains("data-ax-sidebar-toggle"));
+        assert!(sidebar.contents.contains("collapsible"));
+    }
+
+    #[test]
     fn exposes_block_asset() {
         let block = asset("blocks/marketing-01.ax").expect("marketing block should be embedded");
         assert!(block.contents.contains("component Marketing01"));
