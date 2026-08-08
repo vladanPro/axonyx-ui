@@ -1,0 +1,9 @@
+component Toggle(name = "", value = "", type = "checkbox", size = "md") {
+
+<label class="ax-toggle" data-size={size}>
+  <input class="ax-toggle__input" type={type} name={name} value={value} />
+  <span class="ax-toggle__surface">
+    <Slot />
+  </span>
+</label>
+}

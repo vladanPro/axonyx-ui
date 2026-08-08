@@ -12,6 +12,8 @@
 @import './sidebar.css';
 @import './button.css';
 @import './button-group.css';
+@import './spinner.css';
+@import './toggle.css';
 @import './toolbar.css';
 @import './badge.css';
 @import './chip.css';
@@ -21,6 +23,7 @@
 @import './cluster.css';
 @import './form.css';
 @import './field.css';
+@import './input-group.css';
 @import './select.css';
 @import './theme-switcher.css';
 @import './choice.css';

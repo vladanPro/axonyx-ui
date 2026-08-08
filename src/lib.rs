@@ -75,6 +75,26 @@ mod tests {
     }
 
     #[test]
+    fn exposes_form_composition_assets() {
+        let spinner = asset("foundry/Spinner.ax").expect("spinner should be embedded");
+        let toggle = asset("foundry/Toggle.ax").expect("toggle should be embedded");
+        let toggle_group =
+            asset("foundry/ToggleGroup.ax").expect("toggle group should be embedded");
+        let input_group = asset("foundry/InputGroup.ax").expect("input group should be embedded");
+        let input_addon = asset("foundry/InputAddon.ax").expect("input addon should be embedded");
+        let index = asset("css/index.css").expect("index css should be embedded");
+
+        assert!(spinner.contents.contains("component Spinner"));
+        assert!(toggle.contents.contains("component Toggle"));
+        assert!(toggle_group.contents.contains("component ToggleGroup"));
+        assert!(input_group.contents.contains("component InputGroup"));
+        assert!(input_addon.contents.contains("component InputAddon"));
+        assert!(index.contents.contains("spinner.css"));
+        assert!(index.contents.contains("toggle.css"));
+        assert!(index.contents.contains("input-group.css"));
+    }
+
+    #[test]
     fn exposes_component_page_contract() {
         let page = asset("foundry/ComponentPage.ax").expect("component page should be embedded");
         assert!(page.contents.contains("component ComponentPage"));
@@ -126,5 +146,8 @@ mod tests {
         assert!(registry_manifest().contains("login-01"));
         assert!(registry_manifest().contains("settings-01"));
         assert!(registry_manifest().contains("Button"));
+        assert!(registry_manifest().contains("ToggleGroup"));
+        assert!(registry_manifest().contains("InputGroup"));
+        assert!(registry_manifest().contains("Spinner"));
     }
 }

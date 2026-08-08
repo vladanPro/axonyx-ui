@@ -1,0 +1,6 @@
+component InputAddon(side = "start") {
+
+<span class="ax-input-addon" data-side={side}>
+  <Slot />
+</span>
+}

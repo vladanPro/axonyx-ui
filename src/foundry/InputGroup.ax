@@ -1,0 +1,6 @@
+component InputGroup(size = "md", surface = "inset") {
+
+<div class="ax-input-group" data-size={size} data-surface={surface}>
+  <Slot />
+</div>
+}

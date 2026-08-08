@@ -226,6 +226,11 @@ src/foundry/
   Switch.ax
   Breadcrumbs.ax
   ButtonGroup.ax
+  Spinner.ax
+  Toggle.ax
+  ToggleGroup.ax
+  InputGroup.ax
+  InputAddon.ax
   LinkButton.ax
   IconButton.ax
   Alert.ax
