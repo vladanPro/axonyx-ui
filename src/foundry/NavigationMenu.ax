@@ -1,0 +1,6 @@
+component NavigationMenu(orientation = "horizontal", label = "Primary navigation") {
+
+<nav class="ax-navigation-menu" data-orientation={orientation} aria-label={label}>
+  <Slot />
+</nav>
+}

@@ -29,6 +29,10 @@ This map tracks how `@axonyx/react` component names map to `.ax` Foundry files.
 - `ToggleGroup` -> `src/foundry/ToggleGroup.ax`
 - `InputGroup` -> `src/foundry/InputGroup.ax`
 - `InputAddon` -> `src/foundry/InputAddon.ax`
+- `Combobox`, `ComboboxOption` -> `src/foundry/Combobox.ax`, `src/foundry/ComboboxOption.ax`
+- `AlertDialog` -> `src/foundry/AlertDialog.ax`
+- `NavigationMenu`, `NavigationMenuList`, `NavigationMenuLink` -> `src/foundry/NavigationMenu*.ax`
+- `ScrollArea` -> `src/foundry/ScrollArea.ax`
 - `Section` -> `src/foundry/Section.ax`
 - `Stack` -> `src/foundry/Stack.ax`
 - `Cluster` -> `src/foundry/Cluster.ax`

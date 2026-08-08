@@ -1,0 +1,25 @@
+component AlertDialog(id = "", open = "", title = "Confirm action", description = "This action requires confirmation.") {
+
+<div class="ax-dialog ax-alert-dialog" id={id} data-open={open} role="alertdialog" aria-modal="true" aria-label={title}>
+  <div class="ax-dialog__backdrop"></div>
+
+  <section class="ax-dialog__panel ax-alert-dialog__panel">
+    <header class="ax-dialog__header ax-alert-dialog__header">
+      <span class="ax-alert-dialog__signal" aria-hidden="true"></span>
+      <div>
+        <strong class="ax-dialog__title">{title}</strong>
+        <p class="ax-alert-dialog__description">{description}</p>
+      </div>
+    </header>
+
+    <div class="ax-dialog__content">
+      <Slot />
+    </div>
+
+    <footer class="ax-alert-dialog__actions">
+      <button class="ax-button" data-variant="ghost" type="button" data-ax-dialog-close="true">Cancel</button>
+      <Slot name="action" />
+    </footer>
+  </section>
+</div>
+}

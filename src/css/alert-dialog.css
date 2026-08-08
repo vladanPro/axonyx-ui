@@ -1,0 +1,35 @@
+.ax-alert-dialog__panel {
+    width: min(30rem, calc(100vw - 2rem));
+}
+
+.ax-alert-dialog__header {
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.ax-alert-dialog__signal {
+    width: 0.72rem;
+    height: 0.72rem;
+    margin-top: 0.3rem;
+    flex: none;
+    border: 1px solid color-mix(in srgb, var(--ax-danger) 70%, black);
+    border-radius: 2px;
+    background: var(--ax-danger);
+    box-shadow: 0 0 0.8rem color-mix(in srgb, var(--ax-danger) 42%, transparent);
+    transform: rotate(45deg);
+}
+
+.ax-alert-dialog__description {
+    margin: 0.35rem 0 0;
+    color: var(--ax-text-muted);
+    line-height: 1.5;
+}
+
+.ax-alert-dialog__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--ax-space-sm);
+    padding: var(--ax-space-md);
+    border-top: 1px solid var(--ax-border);
+    background: color-mix(in srgb, var(--ax-surface-2) 64%, transparent);
+}

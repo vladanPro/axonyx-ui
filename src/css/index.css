@@ -24,12 +24,14 @@
 @import './form.css';
 @import './field.css';
 @import './input-group.css';
+@import './combobox.css';
 @import './select.css';
 @import './theme-switcher.css';
 @import './choice.css';
 @import './radio.css';
 @import './breadcrumbs.css';
 @import './menu.css';
+@import './navigation-menu.css';
 @import './command.css';
 @import './code-block.css';
 @import './tabs.css';
@@ -43,6 +45,7 @@
 @import './data.css';
 @import './alert.css';
 @import './dialog.css';
+@import './alert-dialog.css';
 @import './modal.css';
 @import './icons.css';
 @import './machine-switch.css';
@@ -54,3 +57,4 @@
 @import './slider.css';
 @import './rating.css';
 @import './timeline.css';
+@import './scroll-area.css';

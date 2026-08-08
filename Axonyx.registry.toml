@@ -135,6 +135,58 @@ copy = "cargo ax add input-addon"
 tags = ["input", "prefix", "suffix", "metadata"]
 description = "Start or end annotation for an InputGroup."
 
+[[components]]
+name = "Combobox"
+title = "Combobox"
+path = "src/foundry/Combobox.ax"
+import = "@axonyx/ui/foundry/Combobox"
+preview = "/components/combobox"
+category = "forms"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add combobox"
+tags = ["input", "search", "datalist", "selection"]
+description = "Native browser-backed option search using input and datalist semantics."
+
+[[components]]
+name = "AlertDialog"
+title = "AlertDialog"
+path = "src/foundry/AlertDialog.ax"
+import = "@axonyx/ui/foundry/AlertDialog"
+preview = "/components/alert-dialog"
+category = "overlays"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add alert-dialog"
+tags = ["confirm", "destructive", "dialog", "overlay"]
+description = "Focused confirmation boundary for consequential or destructive actions."
+
+[[components]]
+name = "NavigationMenu"
+title = "NavigationMenu"
+path = "src/foundry/NavigationMenu.ax"
+import = "@axonyx/ui/foundry/NavigationMenu"
+preview = "/components/navigation-menu"
+category = "navigation"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add navigation-menu"
+tags = ["navigation", "header", "links", "responsive"]
+description = "Horizontal or vertical navigation composition with active and accent states."
+
+[[components]]
+name = "ScrollArea"
+title = "ScrollArea"
+path = "src/foundry/ScrollArea.ax"
+import = "@axonyx/ui/foundry/ScrollArea"
+preview = "/components/scroll-area"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add scroll-area"
+tags = ["overflow", "scroll", "panel", "keyboard"]
+description = "Focusable overflow region with Foundry scrollbars and optional edge fade."
+
 [[blocks]]
 name = "marketing-01"
 title = "Marketing 01"

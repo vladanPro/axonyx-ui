@@ -1,0 +1,6 @@
+component NavigationMenuLink(href = "#", active = "", tone = "default") {
+
+<a class="ax-navigation-menu__link" href={href} data-active={active} data-tone={tone}>
+  <Slot />
+</a>
+}

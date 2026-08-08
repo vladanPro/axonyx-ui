@@ -231,6 +231,13 @@ src/foundry/
   ToggleGroup.ax
   InputGroup.ax
   InputAddon.ax
+  Combobox.ax
+  ComboboxOption.ax
+  AlertDialog.ax
+  NavigationMenu.ax
+  NavigationMenuList.ax
+  NavigationMenuLink.ax
+  ScrollArea.ax
   LinkButton.ax
   IconButton.ax
   Alert.ax

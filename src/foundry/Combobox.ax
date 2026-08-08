@@ -1,0 +1,9 @@
+component Combobox(id = "", name = "", listId = "", placeholder = "", value = "", size = "md", label = "Options") {
+
+<div class="ax-combobox" data-size={size}>
+  <input class="ax-input ax-combobox__input" id={id} name={name} list={listId} value={value} placeholder={placeholder} role="combobox" aria-autocomplete="list" aria-label={label} autocomplete="off" />
+  <datalist id={listId}>
+    <Slot />
+  </datalist>
+</div>
+}
