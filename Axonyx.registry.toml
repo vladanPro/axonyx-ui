@@ -185,7 +185,7 @@ status = "v0"
 install = "cargo ax add ui"
 copy = "cargo ax add bleed"
 tags = ["layout", "full-width", "media", "primitive"]
-description = "Full-viewport escape hatch for media, banners, and edge-to-edge panels."
+description = "Safe local gutter escape with an explicit viewport mode for edge-to-edge media."
 
 [[components]]
 name = "Center"
