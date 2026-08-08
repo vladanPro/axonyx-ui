@@ -1,0 +1,17 @@
+component ComponentPage(title = "", category = "Components", description = "", nextHref = "", nextLabel = "") {
+
+<Container max="xl">
+  <div class="ax-component-page">
+    <section class="ax-component-page__hero ax-card" data-recipe="hero-card">
+      <p class="ax-copy" data-tone="eyebrow">{category}</p>
+      <h1 class="ax-component-page__title">{title}</h1>
+      <p class="ax-copy" data-tone="lead">{description}</p>
+      <If when={nextHref}>
+        <a class="ax-button" data-variant="primary" href={nextHref}>{nextLabel}</a>
+      </If>
+    </section>
+
+    <Slot />
+  </div>
+</Container>
+}

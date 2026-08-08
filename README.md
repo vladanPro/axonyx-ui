@@ -262,6 +262,7 @@ src/foundry/
   Button.ax
   TextLink.ax
   FeatureSection.ax
+  ComponentPage.ax
   PageHeader.ax
   DocsSection.ax
   DocsCallout.ax

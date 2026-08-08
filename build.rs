@@ -25,7 +25,12 @@ fn main() {
     generated.push_str(&asset_array("FOUNDRY_ASSETS", &foundry));
     generated.push_str(&asset_array("BLOCK_ASSETS", &blocks));
     generated.push_str("pub const REGISTRY_MANIFEST: &str = include_str!(r#\"");
-    generated.push_str(&manifest_dir.join("Axonyx.registry.toml").display().to_string());
+    generated.push_str(
+        &manifest_dir
+            .join("Axonyx.registry.toml")
+            .display()
+            .to_string(),
+    );
     generated.push_str("\"#);\n");
 
     fs::write(target, generated).expect("asset manifest should write");

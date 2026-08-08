@@ -75,6 +75,13 @@ mod tests {
     }
 
     #[test]
+    fn exposes_component_page_contract() {
+        let page = asset("foundry/ComponentPage.ax").expect("component page should be embedded");
+        assert!(page.contents.contains("component ComponentPage"));
+        assert!(page.contents.contains("ax-component-page"));
+    }
+
+    #[test]
     fn exposes_block_asset() {
         let block = asset("blocks/marketing-01.ax").expect("marketing block should be embedded");
         assert!(block.contents.contains("component Marketing01"));
