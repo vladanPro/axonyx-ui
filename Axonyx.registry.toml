@@ -121,3 +121,16 @@ install = "cargo ax add ui"
 copy = "cargo ax add block login-01"
 tags = ["auth", "login", "form", "session"]
 description = "Responsive Foundry sign-in surface with native form semantics and a system-status brand panel."
+
+[[blocks]]
+name = "settings-01"
+title = "Settings 01"
+path = "src/blocks/settings-01.ax"
+import = "@axonyx/ui/blocks/settings-01"
+preview = "/blocks/settings-01"
+category = "application"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add block settings-01"
+tags = ["settings", "form", "app-shell", "workspace"]
+description = "Responsive application settings shell with grouped forms, preferences, and an explicit danger zone."

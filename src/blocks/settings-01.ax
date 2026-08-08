@@ -1,0 +1,86 @@
+component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "axonyx-site", email = "builder@example.com") {
+
+<AppShell railWidth="sm" gap="lg">
+  <Sidebar slot="sidebar" label="Settings navigation" collapsible="true">
+    <Stack gap="md">
+      <strong>Workspace settings</strong>
+      <nav class="ax-nav-list" aria-label="Settings sections">
+        <a class="ax-nav-item" data-active="true" href="#general">General</a>
+        <a class="ax-nav-item" href="#preferences">Preferences</a>
+        <a class="ax-nav-item" href="#danger-zone">Danger zone</a>
+      </nav>
+      <StatusLamp tone="online" label="Changes protected" description="Settings use the native Axonyx action boundary." />
+    </Stack>
+  </Sidebar>
+
+  <Main>
+    <Stack gap="lg">
+      <PageHeader title="Settings">
+        <Copy slot="eyebrow">Workspace control</Copy>
+        <Copy tone="lead">Manage identity, defaults, and publishing behavior from one responsive Foundry shell.</Copy>
+      </PageHeader>
+
+      <Form method="post" action={action}>
+        <Card title="General" border="forged">
+          <div id="general"></div>
+          <FormGroup cols="2" gap="lg">
+            <Field htmlFor="settings-workspace">
+              <FieldLabel htmlFor="settings-workspace">Workspace name</FieldLabel>
+              <Input id="settings-workspace" name="workspace" value={workspace} />
+              <FieldHint>Shown in navigation and deploy reports.</FieldHint>
+            </Field>
+            <Field htmlFor="settings-slug">
+              <FieldLabel htmlFor="settings-slug">Project slug</FieldLabel>
+              <Input id="settings-slug" name="slug" value={slug} />
+              <FieldHint>Used by generated routes and deployment metadata.</FieldHint>
+            </Field>
+          </FormGroup>
+          <Field htmlFor="settings-email">
+            <FieldLabel htmlFor="settings-email">Owner email</FieldLabel>
+            <input class="ax-input" id="settings-email" name="email" type="email" autocomplete="email" value={email} required="required" />
+          </Field>
+        </Card>
+
+        <Card title="Preferences" border="forged">
+          <div id="preferences"></div>
+          <FormGroup cols="2" gap="lg">
+            <Field htmlFor="settings-theme">
+              <FieldLabel htmlFor="settings-theme">Default theme</FieldLabel>
+              <Select id="settings-theme" name="theme">
+                <Option value="silver">Silver</Option>
+                <Option value="bronze">Bronze</Option>
+                <Option value="gold">Gold</Option>
+              </Select>
+            </Field>
+            <Field htmlFor="settings-timezone">
+              <FieldLabel htmlFor="settings-timezone">Timezone</FieldLabel>
+              <Select id="settings-timezone" name="timezone">
+                <Option value="Europe/Belgrade">Europe / Belgrade</Option>
+                <Option value="UTC">UTC</Option>
+                <Option value="America/New_York">America / New York</Option>
+              </Select>
+            </Field>
+          </FormGroup>
+          <Stack gap="md">
+            <Switch name="deploy_notifications">Deployment notifications</Switch>
+            <Switch name="public_status">Public runtime status</Switch>
+          </Stack>
+        </Card>
+
+        <Cluster gap="md" justify="end">
+          <Button href="#general" variant="ghost">Reset</Button>
+          <button class="ax-button" data-variant="primary" data-surface="forged" type="submit">Save changes</button>
+        </Cluster>
+      </Form>
+
+      <Card title="Danger zone" border="forged">
+        <div id="danger-zone"></div>
+        <Alert tone="warning" title="Destructive operations stay explicit">
+          Archive and deletion should be connected to separate confirmed actions, never hidden inside the settings form.
+        </Alert>
+        <Button href="#danger-zone" variant="ghost">Archive workspace</Button>
+      </Card>
+    </Stack>
+  </Main>
+</AppShell>
+}

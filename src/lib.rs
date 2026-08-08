@@ -103,9 +103,19 @@ mod tests {
     }
 
     #[test]
+    fn exposes_settings_block_with_application_shell() {
+        let block = asset("blocks/settings-01.ax").expect("settings block should be embedded");
+        assert!(block.contents.contains("component Settings01"));
+        assert!(block.contents.contains("<AppShell"));
+        assert!(block.contents.contains("type=\"submit\""));
+        assert!(block.contents.contains("Danger zone"));
+    }
+
+    #[test]
     fn exposes_registry_manifest() {
         assert!(registry_manifest().contains("marketing-01"));
         assert!(registry_manifest().contains("login-01"));
+        assert!(registry_manifest().contains("settings-01"));
         assert!(registry_manifest().contains("Button"));
     }
 }
