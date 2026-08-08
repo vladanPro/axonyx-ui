@@ -5,6 +5,10 @@
     gap: var(--ax-space-md);
 }
 
+.ax-cluster[data-gap='xs'] {
+    gap: var(--ax-space-xs);
+}
+
 .ax-cluster[data-gap='sm'] {
     gap: var(--ax-space-sm);
 }
@@ -19,6 +23,10 @@
 
 .ax-cluster[data-gap='xl'] {
     gap: var(--ax-space-xl);
+}
+
+.ax-cluster[data-gap='2xl'] {
+    gap: var(--ax-space-2xl);
 }
 
 .ax-cluster[data-align='start'] {

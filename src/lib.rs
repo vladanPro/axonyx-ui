@@ -128,6 +128,27 @@ mod tests {
     }
 
     #[test]
+    fn exposes_core_layout_contracts() {
+        let container = asset("foundry/Container.ax").expect("container should be embedded");
+        let grid = asset("foundry/Grid.ax").expect("grid should be embedded");
+        let stack = asset("foundry/Stack.ax").expect("stack should be embedded");
+        let flex = asset("foundry/Flex.ax").expect("flex should be embedded");
+        let tokens = asset("css/tokens.css").expect("tokens should be embedded");
+        let layout = asset("css/layout.css").expect("layout css should be embedded");
+        let stack_css = asset("css/stack.css").expect("stack css should be embedded");
+        let primitives = asset("css/primitives.css").expect("primitives css should be embedded");
+
+        assert!(container.contents.contains("data-recipe={recipe}"));
+        assert!(grid.contents.contains("data-min={min}"));
+        assert!(stack.contents.contains("data-align={align}"));
+        assert!(flex.contents.contains("data-collapse={collapse}"));
+        assert!(tokens.contents.contains("--ax-space-xs"));
+        assert!(layout.contents.contains(".ax-grid[data-gap='2xl']"));
+        assert!(stack_css.contents.contains(".ax-stack[data-align='end']"));
+        assert!(primitives.contents.contains(".ax-flex[data-gap='2xl']"));
+    }
+
+    #[test]
     fn exposes_collapsible_sidebar_contract() {
         let sidebar = asset("foundry/Sidebar.ax").expect("sidebar should be embedded");
         assert!(sidebar.contents.contains("data-ax-sidebar-toggle"));
@@ -179,5 +200,9 @@ mod tests {
         assert!(registry_manifest().contains("AlertDialog"));
         assert!(registry_manifest().contains("NavigationMenu"));
         assert!(registry_manifest().contains("ScrollArea"));
+        assert!(registry_manifest().contains("Container"));
+        assert!(registry_manifest().contains("Grid"));
+        assert!(registry_manifest().contains("Stack"));
+        assert!(registry_manifest().contains("Flex"));
     }
 }
