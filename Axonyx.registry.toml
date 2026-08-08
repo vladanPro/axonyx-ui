@@ -110,6 +110,97 @@ tags = ["layout", "flex", "responsive", "alignment"]
 description = "Directional flex composition with wrapping, alignment, distribution, and mobile collapse."
 
 [[components]]
+name = "Cluster"
+title = "Cluster"
+path = "src/foundry/Cluster.ax"
+import = "@axonyx/ui/foundry/Cluster"
+preview = "/components/cluster"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add cluster"
+tags = ["layout", "inline", "wrap", "actions"]
+description = "Wrapping inline composition for actions, badges, filters, and compact controls."
+
+[[components]]
+name = "Box"
+title = "Box"
+path = "src/foundry/Box.ax"
+import = "@axonyx/ui/foundry/Box"
+preview = "/components/box"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add box"
+tags = ["layout", "spacing", "surface", "primitive"]
+description = "Low-level spacing and material boundary for custom compositions."
+
+[[components]]
+name = "Surface"
+title = "Surface"
+path = "src/foundry/Surface.ax"
+import = "@axonyx/ui/foundry/Surface"
+preview = "/components/surface"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add surface"
+tags = ["layout", "surface", "foundry", "panel"]
+description = "Semantic Foundry panel with brushed, inset, and forged material treatments."
+
+[[components]]
+name = "Section"
+title = "Section"
+path = "src/foundry/Section.ax"
+import = "@axonyx/ui/foundry/Section"
+preview = "/components/section"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add section"
+tags = ["layout", "section", "content", "responsive"]
+description = "Page section with width, rhythm, alignment, and optional heading content."
+
+[[components]]
+name = "Inset"
+title = "Inset"
+path = "src/foundry/Inset.ax"
+import = "@axonyx/ui/foundry/Inset"
+preview = "/components/inset"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add inset"
+tags = ["layout", "spacing", "padding", "primitive"]
+description = "Semantic inner spacing wrapper driven by Foundry tokens."
+
+[[components]]
+name = "Bleed"
+title = "Bleed"
+path = "src/foundry/Bleed.ax"
+import = "@axonyx/ui/foundry/Bleed"
+preview = "/components/bleed"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add bleed"
+tags = ["layout", "full-width", "media", "primitive"]
+description = "Full-viewport escape hatch for media, banners, and edge-to-edge panels."
+
+[[components]]
+name = "Center"
+title = "Center"
+path = "src/foundry/Center.ax"
+import = "@axonyx/ui/foundry/Center"
+preview = "/components/center"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add center"
+tags = ["layout", "center", "empty-state", "focus"]
+description = "Two-axis centering for empty states, auth panels, and focused messages."
+
+[[components]]
 name = "Sidebar"
 title = "Sidebar"
 path = "src/foundry/Sidebar.ax"

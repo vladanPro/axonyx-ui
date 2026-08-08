@@ -3,6 +3,10 @@
     min-width: 0;
 }
 
+.ax-box[data-padding='xs'] {
+    padding: var(--ax-space-xs);
+}
+
 .ax-box[data-padding='sm'] {
     padding: var(--ax-space-sm);
 }
@@ -15,10 +19,35 @@
     padding: var(--ax-space-lg);
 }
 
-.ax-box[data-surface='true'] {
+.ax-box[data-padding='xl'] {
+    padding: var(--ax-space-xl);
+}
+
+.ax-box[data-padding='2xl'] {
+    padding: var(--ax-space-2xl);
+}
+
+.ax-box[data-surface='true'],
+.ax-box[data-surface='brushed'],
+.ax-box[data-surface='inset'],
+.ax-box[data-surface='forged'] {
     border: 1px solid var(--ax-border);
     border-radius: var(--ax-radius-lg);
     background: color-mix(in srgb, var(--ax-surface) 78%, transparent);
+}
+
+.ax-box[data-surface='inset'] {
+    border-color: color-mix(in srgb, var(--ax-border) 74%, black);
+    background: color-mix(in srgb, var(--ax-surface) 82%, black);
+    box-shadow: inset 0 1px 12px rgba(0, 0, 0, 0.28);
+}
+
+.ax-box[data-surface='forged'] {
+    border-color: var(--ax-border-strong);
+    background:
+        radial-gradient(circle at 100% 0, color-mix(in srgb, var(--ax-primary) 11%, transparent), transparent 36%),
+        linear-gradient(180deg, color-mix(in srgb, var(--ax-surface-2) 88%, transparent), color-mix(in srgb, var(--ax-surface) 92%, black));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .ax-flex {
@@ -150,6 +179,10 @@
     padding: var(--ax-space-md);
 }
 
+.ax-inset[data-size='xs'] {
+    padding: var(--ax-space-xs);
+}
+
 .ax-inset[data-size='sm'] {
     padding: var(--ax-space-sm);
 }
@@ -162,13 +195,38 @@
     padding: var(--ax-space-xl);
 }
 
+.ax-inset[data-size='2xl'] {
+    padding: var(--ax-space-2xl);
+}
+
 .ax-bleed {
     width: 100vw;
     margin-inline: calc(50% - 50vw);
 }
 
-.ax-bleed[data-padding='true'] {
+.ax-bleed[data-padding='true'],
+.ax-bleed[data-padding='md'] {
     padding-inline: var(--ax-space-md);
+}
+
+.ax-bleed[data-padding='xs'] {
+    padding-inline: var(--ax-space-xs);
+}
+
+.ax-bleed[data-padding='sm'] {
+    padding-inline: var(--ax-space-sm);
+}
+
+.ax-bleed[data-padding='lg'] {
+    padding-inline: var(--ax-space-lg);
+}
+
+.ax-bleed[data-padding='xl'] {
+    padding-inline: var(--ax-space-xl);
+}
+
+.ax-bleed[data-padding='2xl'] {
+    padding-inline: var(--ax-space-2xl);
 }
 
 @media (max-width: 700px) {

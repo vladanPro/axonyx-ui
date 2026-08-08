@@ -1,6 +1,15 @@
-component Section(width = "") {
+component Section(width = "", spacing = "md", align = "", eyebrow = "", title = "", description = "") {
 
-<section class="ax-section" data-width={width}>
+<section class="ax-section" data-width={width} data-spacing={spacing} data-align={align}>
+  <If when={eyebrow}>
+    <p class="ax-section__eyebrow">{eyebrow}</p>
+  </If>
+  <If when={title}>
+    <h2 class="ax-section__title">{title}</h2>
+  </If>
+  <If when={description}>
+    <p class="ax-section__description">{description}</p>
+  </If>
   <Slot />
 </section>
 }
