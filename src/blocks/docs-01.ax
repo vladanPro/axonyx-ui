@@ -1,3 +1,8 @@
+import { Badge } from "@axonyx/ui/foundry/Badge.ax"
+import { Card } from "@axonyx/ui/foundry/Card.ax"
+import { Copy } from "@axonyx/ui/foundry/Copy.ax"
+import { Sidebar } from "@axonyx/ui/foundry/Sidebar.ax"
+
 component Docs01(title = "Getting started", lead = "Install the CLI, choose a starter, run dev, then build static output.") {
 
 <div class="ax-app-shell">
