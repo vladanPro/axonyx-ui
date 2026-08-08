@@ -1,6 +1,14 @@
-component Sidebar {
+component Sidebar(label = "Navigation", collapsible = "false", open = "false") {
 
-<aside class="ax-layout-sidebar">
-  <Slot />
+<aside class="ax-layout-sidebar" data-collapsible={collapsible} data-open={open}>
+  <If when={collapsible}>
+    <button class="ax-layout-sidebar__toggle" type="button" aria-expanded={open} data-ax-sidebar-toggle="true">
+      <span>{label}</span>
+      <span class="ax-layout-sidebar__toggle-mark" aria-hidden="true">+</span>
+    </button>
+  </If>
+  <div class="ax-layout-sidebar__content">
+    <Slot />
+  </div>
 </aside>
 }

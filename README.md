@@ -244,6 +244,7 @@ src/foundry/
   Section.ax
   Cluster.ax
   AppShell.ax
+  Sidebar.ax
   Table.ax
   List.ax
   ListItem.ax
@@ -270,6 +271,15 @@ src/foundry/
   DocsCodeBlock.ax
   Command.ax
   CommandList.ax
+```
+
+`Sidebar` can collapse its navigation on narrow viewports while remaining a
+normal rail on desktop:
+
+```ax
+<Sidebar label="Component navigation" collapsible="true">
+  <nav>...</nav>
+</Sidebar>
 ```
 
 ## Foundry Blocks
