@@ -38,6 +38,14 @@
     gap: var(--ax-space-lg);
 }
 
+.ax-app-shell[data-mode='embedded'] {
+    min-height: auto;
+    overflow: hidden;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background: color-mix(in srgb, var(--ax-surface) 78%, var(--ax-bg));
+}
+
 .ax-sidebar,
 .ax-rail {
     min-height: 100vh;

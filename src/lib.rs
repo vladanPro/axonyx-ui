@@ -109,6 +109,15 @@ mod tests {
         assert!(block.contents.contains("<AppShell"));
         assert!(block.contents.contains("type=\"submit\""));
         assert!(block.contents.contains("Danger zone"));
+        assert!(block.contents.contains("mode=\"embedded\""));
+    }
+
+    #[test]
+    fn dashboard_block_uses_stat_slots() {
+        let block = asset("blocks/dashboard-01.ax").expect("dashboard block should be embedded");
+        assert!(block.contents.contains("slot=\"label\""));
+        assert!(block.contents.contains("slot=\"value\""));
+        assert!(!block.contents.contains("<Stat label="));
     }
 
     #[test]

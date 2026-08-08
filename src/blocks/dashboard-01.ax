@@ -1,7 +1,10 @@
 import { Badge } from "@axonyx/ui/foundry/Badge.ax"
+import { AppShell } from "@axonyx/ui/foundry/AppShell.ax"
 import { Card } from "@axonyx/ui/foundry/Card.ax"
 import { ContentGrid } from "@axonyx/ui/foundry/ContentGrid.ax"
 import { Copy } from "@axonyx/ui/foundry/Copy.ax"
+import { Main } from "@axonyx/ui/foundry/Main.ax"
+import { PageHeader } from "@axonyx/ui/foundry/PageHeader.ax"
 import { Sidebar } from "@axonyx/ui/foundry/Sidebar.ax"
 import { Stack } from "@axonyx/ui/foundry/Stack.ax"
 import { Stat } from "@axonyx/ui/foundry/Stat.ax"
@@ -9,24 +12,34 @@ import { StatusLamp } from "@axonyx/ui/foundry/StatusLamp.ax"
 
 component Dashboard01 {
 
-<div class="ax-app-shell">
-  <Sidebar>
-    <strong>Console</strong>
-    <a href="/blocks/dashboard-01">Overview</a>
-    <a href="/components/table">Collections</a>
-    <a href="/registry">Registry</a>
+<AppShell railWidth="sm" gap="lg" mode="embedded">
+  <Sidebar slot="sidebar" label="Console navigation" collapsible="true">
+    <Stack gap="md">
+      <strong>Foundry console</strong>
+      <nav class="ax-nav-list" aria-label="Dashboard sections">
+        <a class="ax-nav-item" href="#overview" data-active="true">Overview</a>
+        <a class="ax-nav-item" href="#collections">Collections</a>
+        <a class="ax-nav-item" href="#activity">Activity</a>
+      </nav>
+      <StatusLamp tone="online" label="Runtime online" description="Tokio transport is healthy." />
+    </Stack>
   </Sidebar>
-  <Stack gap="lg">
-    <ContentGrid cols={3} gap="lg">
-      <Stat label="Routes" value="84" />
-      <Stat label="Build" value="413ms" />
-      <Stat label="Packages" value="6" />
-    </ContentGrid>
-    <Card title="System status" border="forged">
-      <Badge tone="success">Runtime</Badge>
-      <StatusLamp tone="online" label="Runtime online" description="Tokio transport and package assets are ready." />
-      <Copy>Use this block as the base for Blockbit admin surfaces.</Copy>
-    </Card>
-  </Stack>
-</div>
+  <Main>
+    <Stack gap="lg">
+      <PageHeader title="Operations overview">
+        <Copy slot="eyebrow">Dashboard</Copy>
+        <Copy tone="lead">Monitor routes, builds, and package health from one responsive application shell.</Copy>
+      </PageHeader>
+      <ContentGrid cols={3} gap="lg">
+        <Stat tone="positive"><span slot="label">Routes</span><span slot="value">84</span><span slot="delta">+12%</span>Ready routes</Stat>
+        <Stat><span slot="label">Build</span><span slot="value">413ms</span><span slot="delta">Melt</span>Latest production build</Stat>
+        <Stat tone="warning"><span slot="label">Packages</span><span slot="value">6</span><span slot="delta">Cargo</span>Resolved dependencies</Stat>
+      </ContentGrid>
+      <Card title="System status" border="forged">
+        <Badge tone="success">Runtime</Badge>
+        <Copy>Tokio transport, package assets, and state manifests are ready for the next deployment.</Copy>
+      </Card>
+    </Stack>
+  </Main>
+</AppShell>
 }
