@@ -413,6 +413,60 @@
     });
   }
 
+  const previousDialogFocus = new WeakMap();
+
+  function dialogFocusableElements(dialog) {
+    return Array.from(
+      dialog.querySelectorAll(
+        'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      )
+    ).filter((element) => !element.hasAttribute('hidden'));
+  }
+
+  function closeDialog(dialog) {
+    if (!dialog) return;
+    dialog.dataset.open = 'false';
+    dialog.setAttribute('hidden', '');
+    delete document.documentElement.dataset.dialogOpen;
+
+    const trigger = previousDialogFocus.get(dialog);
+    if (trigger && trigger.focus) trigger.focus();
+    previousDialogFocus.delete(dialog);
+  }
+
+  function openDialog(id, trigger) {
+    const dialog = document.getElementById(id);
+    if (!dialog) return;
+    previousDialogFocus.set(dialog, trigger || document.activeElement);
+    dialog.dataset.open = 'true';
+    dialog.removeAttribute('hidden');
+    document.documentElement.dataset.dialogOpen = 'true';
+
+    const closeButton = dialog.querySelector('[data-ax-dialog-close]');
+    if (closeButton && closeButton.focus) closeButton.focus();
+  }
+
+  function bootDialogs() {
+    document.querySelectorAll('.ax-dialog').forEach((dialog) => {
+      if (dialog.dataset.open === 'true') {
+        dialog.removeAttribute('hidden');
+      } else {
+        dialog.setAttribute('hidden', '');
+      }
+
+      dialog.querySelectorAll('[data-ax-dialog-close]').forEach((trigger) => {
+        trigger.addEventListener('click', () => closeDialog(dialog));
+      });
+    });
+
+    document.querySelectorAll('[data-ax-dialog-open]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const id = trigger.getAttribute('data-ax-dialog-open');
+        if (id) openDialog(id, trigger);
+      });
+    });
+  }
+
   function setMachineSwitchState(control, nextState) {
     const isOn = nextState === 'on';
     const offPad = control.querySelector('.ax-machine-switch__pad[data-tone="danger"]');
@@ -508,6 +562,7 @@
     bootTabs();
     bootFloatingSurfaces();
     bootDrawers();
+    bootDialogs();
     bootMachineSwitches();
     bootSliders();
     bootToasts();
@@ -516,10 +571,34 @@
   }
 
   document.addEventListener('keydown', (event) => {
+    const openDialogRoot = document.querySelector('.ax-dialog[data-open="true"]');
+    if (openDialogRoot) {
+      if (event.key === 'Escape') {
+        closeDialog(openDialogRoot);
+        return;
+      }
+
+      if (event.key === 'Tab') {
+        const focusable = dialogFocusableElements(openDialogRoot);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (first && last && event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (first && last && !event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    }
+
     if (event.key !== 'Escape') return;
     closeFloatingSurfaces();
     closeDrawer(document.querySelector('.ax-drawer[data-open="true"]'));
   });
+
+  window.AxonyxDialog = { open: openDialog };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', boot, { once: true });

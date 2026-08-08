@@ -103,17 +103,21 @@ mod tests {
             asset("foundry/NavigationMenu.ax").expect("navigation menu should be embedded");
         let scroll_area = asset("foundry/ScrollArea.ax").expect("scroll area should be embedded");
         let index = asset("css/index.css").expect("index css should be embedded");
+        let runtime = asset("js/index.js").expect("index runtime should be embedded");
 
         assert!(combobox.contents.contains("component Combobox"));
         assert!(combobox.contents.contains("<datalist"));
         assert!(alert_dialog.contents.contains("role=\"alertdialog\""));
         assert!(alert_dialog.contents.contains("data-ax-dialog-close"));
+        assert!(alert_dialog.contents.contains("hidden=\"true\""));
         assert!(navigation.contents.contains("component NavigationMenu"));
         assert!(scroll_area.contents.contains("role=\"region\""));
         assert!(index.contents.contains("combobox.css"));
         assert!(index.contents.contains("alert-dialog.css"));
         assert!(index.contents.contains("navigation-menu.css"));
         assert!(index.contents.contains("scroll-area.css"));
+        assert!(runtime.contents.contains("bootDialogs"));
+        assert!(runtime.contents.contains("window.AxonyxDialog"));
     }
 
     #[test]
