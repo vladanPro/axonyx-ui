@@ -1,0 +1,6 @@
+component NavigationMenuList {
+
+<div class="ax-navigation-menu__list">
+  <Slot />
+</div>
+}

@@ -1,0 +1,70 @@
+.ax-scroll-area {
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+    overscroll-behavior: contain;
+    scrollbar-color: var(--ax-border-strong) transparent;
+    scrollbar-width: thin;
+}
+
+.ax-scroll-area[data-orientation='vertical'] {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.ax-scroll-area[data-orientation='horizontal'] {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.ax-scroll-area[data-orientation='both'] {
+    overflow: auto;
+}
+
+.ax-scroll-area[data-height='sm'] {
+    max-height: 10rem;
+}
+
+.ax-scroll-area[data-height='md'] {
+    max-height: 18rem;
+}
+
+.ax-scroll-area[data-height='lg'] {
+    max-height: 28rem;
+}
+
+.ax-scroll-area[data-height='full'] {
+    max-height: 100%;
+}
+
+.ax-scroll-area:focus-visible {
+    outline: 2px solid var(--ax-cyan);
+    outline-offset: 2px;
+}
+
+.ax-scroll-area::-webkit-scrollbar {
+    width: 0.65rem;
+    height: 0.65rem;
+}
+
+.ax-scroll-area::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 999px;
+    background: var(--ax-border-strong);
+    background-clip: padding-box;
+}
+
+.ax-scroll-area[data-edge='fade'] {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 0.8rem, black calc(100% - 0.8rem), transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 0.8rem, black calc(100% - 0.8rem), transparent);
+}
+
+.ax-scroll-area[data-edge='fade'][data-orientation='horizontal'] {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 0.8rem, black calc(100% - 0.8rem), transparent);
+    mask-image: linear-gradient(to right, transparent, black 0.8rem, black calc(100% - 0.8rem), transparent);
+}
+
+.ax-scroll-area[data-edge='none'] {
+    -webkit-mask-image: none;
+    mask-image: none;
+}

@@ -1,0 +1,4 @@
+component ComboboxOption(value = "", label = "") {
+
+<option value={value} label={label}></option>
+}

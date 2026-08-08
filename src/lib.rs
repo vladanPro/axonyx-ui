@@ -95,6 +95,28 @@ mod tests {
     }
 
     #[test]
+    fn exposes_application_composition_assets() {
+        let combobox = asset("foundry/Combobox.ax").expect("combobox should be embedded");
+        let alert_dialog =
+            asset("foundry/AlertDialog.ax").expect("alert dialog should be embedded");
+        let navigation =
+            asset("foundry/NavigationMenu.ax").expect("navigation menu should be embedded");
+        let scroll_area = asset("foundry/ScrollArea.ax").expect("scroll area should be embedded");
+        let index = asset("css/index.css").expect("index css should be embedded");
+
+        assert!(combobox.contents.contains("component Combobox"));
+        assert!(combobox.contents.contains("<datalist"));
+        assert!(alert_dialog.contents.contains("role=\"alertdialog\""));
+        assert!(alert_dialog.contents.contains("data-ax-dialog-close"));
+        assert!(navigation.contents.contains("component NavigationMenu"));
+        assert!(scroll_area.contents.contains("role=\"region\""));
+        assert!(index.contents.contains("combobox.css"));
+        assert!(index.contents.contains("alert-dialog.css"));
+        assert!(index.contents.contains("navigation-menu.css"));
+        assert!(index.contents.contains("scroll-area.css"));
+    }
+
+    #[test]
     fn exposes_component_page_contract() {
         let page = asset("foundry/ComponentPage.ax").expect("component page should be embedded");
         assert!(page.contents.contains("component ComponentPage"));
@@ -149,5 +171,9 @@ mod tests {
         assert!(registry_manifest().contains("ToggleGroup"));
         assert!(registry_manifest().contains("InputGroup"));
         assert!(registry_manifest().contains("Spinner"));
+        assert!(registry_manifest().contains("Combobox"));
+        assert!(registry_manifest().contains("AlertDialog"));
+        assert!(registry_manifest().contains("NavigationMenu"));
+        assert!(registry_manifest().contains("ScrollArea"));
     }
 }
