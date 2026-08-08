@@ -21,7 +21,7 @@ import { Switch } from "@axonyx/ui/foundry/Switch.ax"
 
 component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "axonyx-site", email = "builder@example.com") {
 
-<AppShell railWidth="sm" gap="lg">
+<AppShell railWidth="sm" gap="lg" mode="embedded">
   <Sidebar slot="sidebar" label="Settings navigation" collapsible="true">
     <Stack gap="md">
       <strong>Workspace settings</strong>
