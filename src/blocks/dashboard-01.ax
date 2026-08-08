@@ -1,3 +1,12 @@
+import { Badge } from "@axonyx/ui/foundry/Badge.ax"
+import { Card } from "@axonyx/ui/foundry/Card.ax"
+import { ContentGrid } from "@axonyx/ui/foundry/ContentGrid.ax"
+import { Copy } from "@axonyx/ui/foundry/Copy.ax"
+import { Sidebar } from "@axonyx/ui/foundry/Sidebar.ax"
+import { Stack } from "@axonyx/ui/foundry/Stack.ax"
+import { Stat } from "@axonyx/ui/foundry/Stat.ax"
+import { StatusLamp } from "@axonyx/ui/foundry/StatusLamp.ax"
+
 component Dashboard01 {
 
 <div class="ax-app-shell">

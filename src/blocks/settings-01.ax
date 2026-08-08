@@ -1,3 +1,24 @@
+import { Alert } from "@axonyx/ui/foundry/Alert.ax"
+import { AppShell } from "@axonyx/ui/foundry/AppShell.ax"
+import { Button } from "@axonyx/ui/foundry/Button.ax"
+import { Card } from "@axonyx/ui/foundry/Card.ax"
+import { Cluster } from "@axonyx/ui/foundry/Cluster.ax"
+import { Copy } from "@axonyx/ui/foundry/Copy.ax"
+import { Field } from "@axonyx/ui/foundry/Field.ax"
+import { FieldHint } from "@axonyx/ui/foundry/FieldHint.ax"
+import { FieldLabel } from "@axonyx/ui/foundry/FieldLabel.ax"
+import { Form } from "@axonyx/ui/foundry/Form.ax"
+import { FormGroup } from "@axonyx/ui/foundry/FormGroup.ax"
+import { Input } from "@axonyx/ui/foundry/Input.ax"
+import { Main } from "@axonyx/ui/foundry/Main.ax"
+import { Option } from "@axonyx/ui/foundry/Option.ax"
+import { PageHeader } from "@axonyx/ui/foundry/PageHeader.ax"
+import { Select } from "@axonyx/ui/foundry/Select.ax"
+import { Sidebar } from "@axonyx/ui/foundry/Sidebar.ax"
+import { Stack } from "@axonyx/ui/foundry/Stack.ax"
+import { StatusLamp } from "@axonyx/ui/foundry/StatusLamp.ax"
+import { Switch } from "@axonyx/ui/foundry/Switch.ax"
+
 component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "axonyx-site", email = "builder@example.com") {
 
 <AppShell railWidth="sm" gap="lg">
