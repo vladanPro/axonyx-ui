@@ -58,6 +58,58 @@ tags = ["layout", "shell", "docs", "dashboard"]
 description = "Application frame for docs, dashboards, admin tools, and CMS layouts."
 
 [[components]]
+name = "Container"
+title = "Container"
+path = "src/foundry/Container.ax"
+import = "@axonyx/ui/foundry/Container"
+preview = "/components/container"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add container"
+tags = ["layout", "width", "responsive", "page"]
+description = "Centers page content within predictable responsive width and padding boundaries."
+
+[[components]]
+name = "Grid"
+title = "Grid"
+path = "src/foundry/Grid.ax"
+import = "@axonyx/ui/foundry/Grid"
+preview = "/components/grid"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add grid"
+tags = ["layout", "columns", "responsive", "cards"]
+description = "Responsive fixed-column or minimum-width grid for pages, forms, and dashboards."
+
+[[components]]
+name = "Stack"
+title = "Stack"
+path = "src/foundry/Stack.ax"
+import = "@axonyx/ui/foundry/Stack"
+preview = "/components/stack"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add stack"
+tags = ["layout", "vertical", "spacing", "content"]
+description = "Vertical flow primitive with semantic spacing and cross-axis alignment."
+
+[[components]]
+name = "Flex"
+title = "Flex"
+path = "src/foundry/Flex.ax"
+import = "@axonyx/ui/foundry/Flex"
+preview = "/components/flex"
+category = "layout"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add flex"
+tags = ["layout", "flex", "responsive", "alignment"]
+description = "Directional flex composition with wrapping, alignment, distribution, and mobile collapse."
+
+[[components]]
 name = "Sidebar"
 title = "Sidebar"
 path = "src/foundry/Sidebar.ax"

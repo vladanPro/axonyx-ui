@@ -3,6 +3,10 @@
     flex-direction: column;
 }
 
+.ax-stack[data-gap='xs'] {
+    gap: var(--ax-space-xs);
+}
+
 .ax-stack[data-gap='sm'] {
     gap: var(--ax-space-sm);
 }
@@ -29,6 +33,10 @@
 
 .ax-stack[data-align='center'] {
     align-items: center;
+}
+
+.ax-stack[data-align='end'] {
+    align-items: flex-end;
 }
 
 .ax-stack[data-align='stretch'] {

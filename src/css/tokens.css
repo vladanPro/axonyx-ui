@@ -6,6 +6,7 @@
     --ax-font-mono: 'IBM Plex Mono', 'JetBrains Mono', monospace;
 
     /* spacing */
+    --ax-space-xs: 0.5rem; /* 8 */
     --ax-space-sm: 0.75rem; /* 12 */
     --ax-space-md: 1rem; /* 16 */
     --ax-space-lg: 1.5rem; /* 24 */
