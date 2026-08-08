@@ -108,3 +108,16 @@ install = "cargo ax add ui"
 copy = "cargo ax add block dashboard-01"
 tags = ["dashboard", "admin", "metrics", "cms"]
 description = "Industrial admin dashboard shell for CMS, deploy, QA, and registry screens."
+
+[[blocks]]
+name = "login-01"
+title = "Login 01"
+path = "src/blocks/login-01.ax"
+import = "@axonyx/ui/blocks/login-01"
+preview = "/blocks/login-01"
+category = "auth"
+status = "v0"
+install = "cargo ax add ui"
+copy = "cargo ax add block login-01"
+tags = ["auth", "login", "form", "session"]
+description = "Responsive Foundry sign-in surface with native form semantics and a system-status brand panel."
