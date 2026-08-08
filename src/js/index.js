@@ -84,10 +84,141 @@
     }
   }
 
+  const codeKeywords = new Set([
+    'action', 'as', 'ASX', 'backend', 'component', 'const', 'data', 'each',
+    'else', 'env', 'export', 'from', 'fn', 'guard', 'if', 'import', 'in',
+    'let', 'loader', 'match', 'page', 'query', 'render', 'require', 'return',
+    'scope', 'state', 'type', 'use', 'where',
+  ]);
+  const codeTypes = new Set([
+    'Boolean', 'DateTime', 'List', 'Map', 'Number', 'Option', 'Post', 'Public',
+    'Result', 'Secret', 'Set', 'String', 'User',
+  ]);
+  const codeLiterals = new Set(['false', 'null', 'none', 'ok', 'true']);
+  const shellCommands = new Set([
+    'cargo', 'cd', 'create-axonyx', 'docker', 'git', 'npm', 'npx', 'pnpm',
+  ]);
+
+  function appendCodeToken(fragment, value, token) {
+    if (!token) {
+      fragment.append(document.createTextNode(value));
+      return;
+    }
+    const span = document.createElement('span');
+    span.className = 'ax-code-token';
+    span.dataset.token = token;
+    span.textContent = value;
+    fragment.append(span);
+  }
+
+  function highlightCode(code) {
+    if (code.dataset.axHighlighted === 'true') return;
+    const source = code.textContent || '';
+    const language = (
+      code.closest('[data-language]')?.dataset.language ||
+      code.dataset.language ||
+      'ax'
+    ).toLowerCase();
+    const shellLike = ['bash', 'shell', 'sh', 'terminal'].includes(language);
+    const hashComments = shellLike || ['toml', 'yaml', 'yml'].includes(language);
+    const fragment = document.createDocumentFragment();
+    let index = 0;
+    let afterTagOpen = false;
+
+    while (index < source.length) {
+      const rest = source.slice(index);
+      const char = source[index];
+
+      if (/\s/.test(char)) {
+        const match = rest.match(/^\s+/)[0];
+        appendCodeToken(fragment, match);
+        index += match.length;
+        continue;
+      }
+
+      if (rest.startsWith('//') || rest.startsWith('<!--') || (hashComments && char === '#')) {
+        const close = rest.startsWith('<!--') ? rest.indexOf('-->') : -1;
+        const line = rest.indexOf('\n');
+        const length = close >= 0 ? close + 3 : line >= 0 ? line : rest.length;
+        appendCodeToken(fragment, rest.slice(0, length), 'comment');
+        index += length;
+        continue;
+      }
+
+      if (rest.startsWith('/*')) {
+        const close = rest.indexOf('*/', 2);
+        const length = close >= 0 ? close + 2 : rest.length;
+        appendCodeToken(fragment, rest.slice(0, length), 'comment');
+        index += length;
+        continue;
+      }
+
+      if (char === '"' || char === "'" || char === '`') {
+        let end = index + 1;
+        while (end < source.length) {
+          if (source[end] === '\\') {
+            end += 2;
+            continue;
+          }
+          if (source[end] === char) {
+            end += 1;
+            break;
+          }
+          end += 1;
+        }
+        appendCodeToken(fragment, source.slice(index, end), 'string');
+        index = end;
+        continue;
+      }
+
+      const number = rest.match(/^\b(?:0x[\da-f]+|\d+(?:\.\d+)?)\b/i);
+      if (number) {
+        appendCodeToken(fragment, number[0], 'number');
+        index += number[0].length;
+        continue;
+      }
+
+      const identifier = rest.match(/^[@A-Za-z_$][\w$-]*/);
+      if (identifier) {
+        const value = identifier[0];
+        const remaining = rest.slice(value.length);
+        let token = null;
+        if (afterTagOpen) token = 'tag';
+        else if (shellLike && shellCommands.has(value)) token = 'command';
+        else if (codeKeywords.has(value)) token = 'keyword';
+        else if (codeTypes.has(value) || /^[A-Z][A-Za-z0-9_]*$/.test(value)) token = 'type';
+        else if (codeLiterals.has(value)) token = 'literal';
+        else if (/^\s*=/.test(remaining) && source.slice(0, index).lastIndexOf('<') > source.slice(0, index).lastIndexOf('>')) token = 'attribute';
+        appendCodeToken(fragment, value, token);
+        afterTagOpen = false;
+        index += value.length;
+        continue;
+      }
+
+      const punctuation = rest.match(/^(?:<\/|\/>|=>|->|\?\?|\?\.|==|!=|<=|>=|&&|\|\||[{}()[\].,:;=<>+*/!?|&-])/);
+      if (punctuation) {
+        appendCodeToken(fragment, punctuation[0], 'punctuation');
+        afterTagOpen = punctuation[0] === '<' || punctuation[0] === '</';
+        index += punctuation[0].length;
+        continue;
+      }
+
+      appendCodeToken(fragment, char);
+      index += 1;
+    }
+
+    code.replaceChildren(fragment);
+    code.dataset.axHighlighted = 'true';
+  }
+
   function bootCodeBlocks() {
     document
       .querySelectorAll('pre.docs-code, pre[data-ax-code], .ax-card pre, .ui-code-window pre')
       .forEach(enhanceLegacyCodePre);
+
+    document
+      .querySelectorAll('.ax-code-block code, .ax-code-shell code, pre.docs-code code')
+      .forEach(highlightCode);
 
     document.querySelectorAll('[data-ax-copy-code]').forEach((btn) => {
       if (btn.dataset.axCopyReady === 'true') return;
