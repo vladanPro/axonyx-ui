@@ -1,6 +1,6 @@
 component AlertDialog(id = "", open = "", title = "Confirm action", description = "This action requires confirmation.") {
 
-<div class="ax-dialog ax-alert-dialog" id={id} data-open={open} role="alertdialog" aria-modal="true" aria-label={title}>
+<div class="ax-dialog ax-alert-dialog" id={id} data-open={open} role="alertdialog" aria-modal="true" aria-label={title} hidden="true">
   <div class="ax-dialog__backdrop"></div>
 
   <section class="ax-dialog__panel ax-alert-dialog__panel">
