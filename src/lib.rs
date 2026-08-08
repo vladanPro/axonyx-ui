@@ -95,8 +95,17 @@ mod tests {
     }
 
     #[test]
+    fn exposes_login_block_with_native_form_semantics() {
+        let block = asset("blocks/login-01.ax").expect("login block should be embedded");
+        assert!(block.contents.contains("component Login01"));
+        assert!(block.contents.contains("type=\"submit\""));
+        assert!(block.contents.contains("autocomplete=\"current-password\""));
+    }
+
+    #[test]
     fn exposes_registry_manifest() {
         assert!(registry_manifest().contains("marketing-01"));
+        assert!(registry_manifest().contains("login-01"));
         assert!(registry_manifest().contains("Button"));
     }
 }

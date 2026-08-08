@@ -56,7 +56,7 @@ behavior runtime are wired into `app/layout.ax`.
 `Axonyx.registry.toml` describes the first native registry slice:
 
 - Components V0: `Button`, `Card`, `Field`, `AppShell`, `Sidebar`
-- Blocks V0: `marketing-01`, `docs-01`, `dashboard-01`
+- Blocks V0: `marketing-01`, `docs-01`, `dashboard-01`, `login-01`
 
 The long-term CLI goal is:
 
