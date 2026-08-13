@@ -1,59 +1,59 @@
 # React to AX Adapter Map
 
-This map tracks how `@axonyx/react` component names map to `.ax` Foundry files.
+This map tracks how `@axonyx/react` component names map to `.asx` Foundry files.
 
 ## Covered
 
-- `Button` -> `src/foundry/Button.ax`
-- `LinkButton` -> `src/foundry/LinkButton.ax`
-- `IconButton` -> `src/foundry/IconButton.ax`
-- `Container` -> `src/foundry/Container.ax`
-- `Grid` -> `src/foundry/Grid.ax`
-- `Card` -> `src/foundry/SectionCard.ax`
-- `Badge` -> `src/foundry/Badge.ax`
-- `Chip` -> `src/foundry/Chip.ax`
-- `Avatar` -> `src/foundry/Avatar.ax`
-- `Divider` -> `src/foundry/Divider.ax`
-- `Field` -> `src/foundry/Field.ax`
-- `Input` -> `src/foundry/Input.ax`
-- `Textarea` -> `src/foundry/Textarea.ax`
-- `Select` -> `src/foundry/Select.ax`
-- `Option` -> `src/foundry/Option.ax`
-- `Checkbox` -> `src/foundry/Checkbox.ax`
-- `Radio` -> `src/foundry/Radio.ax`
-- `Switch` -> `src/foundry/Switch.ax`
-- `Breadcrumbs` -> `src/foundry/Breadcrumbs.ax`
-- `ButtonGroup` -> `src/foundry/ButtonGroup.ax`
-- `Spinner` -> `src/foundry/Spinner.ax`
-- `Toggle` -> `src/foundry/Toggle.ax`
-- `ToggleGroup` -> `src/foundry/ToggleGroup.ax`
-- `InputGroup` -> `src/foundry/InputGroup.ax`
-- `InputAddon` -> `src/foundry/InputAddon.ax`
-- `Combobox`, `ComboboxOption` -> `src/foundry/Combobox.ax`, `src/foundry/ComboboxOption.ax`
-- `AlertDialog` -> `src/foundry/AlertDialog.ax`
-- `NavigationMenu`, `NavigationMenuList`, `NavigationMenuLink` -> `src/foundry/NavigationMenu*.ax`
-- `ScrollArea` -> `src/foundry/ScrollArea.ax`
-- `Section` -> `src/foundry/Section.ax`
-- `Stack` -> `src/foundry/Stack.ax`
-- `Cluster` -> `src/foundry/Cluster.ax`
-- `Navbar` -> `src/foundry/Navbar.ax`
-- `Footer` -> `src/foundry/Footer.ax`
-- `AppShell` -> `src/foundry/AppShell.ax`
-- `Table` -> `src/foundry/Table.ax`
-- `List` -> `src/foundry/List.ax`
-- `EmptyState` -> `src/foundry/EmptyState.ax`
-- `Skeleton` -> `src/foundry/Skeleton.ax`
-- `Progress` -> `src/foundry/Progress.ax`
-- `StatusLamp` -> `src/foundry/StatusLamp.ax`
-- `Stat` -> `src/foundry/Stat.ax`
-- `Pagination` -> `src/foundry/Pagination.ax`
-- `Tooltip` -> `src/foundry/Tooltip.ax`
-- `CodeBlock` -> `src/foundry/CodeBlock.ax`
-- `Command` -> `src/foundry/CommandList.ax`
-- `PropsTable` -> `src/foundry/PropsTable.ax`
+- `Button` -> `src/foundry/Button.asx`
+- `LinkButton` -> `src/foundry/LinkButton.asx`
+- `IconButton` -> `src/foundry/IconButton.asx`
+- `Container` -> `src/foundry/Container.asx`
+- `Grid` -> `src/foundry/Grid.asx`
+- `Card` -> `src/foundry/SectionCard.asx`
+- `Badge` -> `src/foundry/Badge.asx`
+- `Chip` -> `src/foundry/Chip.asx`
+- `Avatar` -> `src/foundry/Avatar.asx`
+- `Divider` -> `src/foundry/Divider.asx`
+- `Field` -> `src/foundry/Field.asx`
+- `Input` -> `src/foundry/Input.asx`
+- `Textarea` -> `src/foundry/Textarea.asx`
+- `Select` -> `src/foundry/Select.asx`
+- `Option` -> `src/foundry/Option.asx`
+- `Checkbox` -> `src/foundry/Checkbox.asx`
+- `Radio` -> `src/foundry/Radio.asx`
+- `Switch` -> `src/foundry/Switch.asx`
+- `Breadcrumbs` -> `src/foundry/Breadcrumbs.asx`
+- `ButtonGroup` -> `src/foundry/ButtonGroup.asx`
+- `Spinner` -> `src/foundry/Spinner.asx`
+- `Toggle` -> `src/foundry/Toggle.asx`
+- `ToggleGroup` -> `src/foundry/ToggleGroup.asx`
+- `InputGroup` -> `src/foundry/InputGroup.asx`
+- `InputAddon` -> `src/foundry/InputAddon.asx`
+- `Combobox`, `ComboboxOption` -> `src/foundry/Combobox.asx`, `src/foundry/ComboboxOption.asx`
+- `AlertDialog` -> `src/foundry/AlertDialog.asx`
+- `NavigationMenu`, `NavigationMenuList`, `NavigationMenuLink` -> `src/foundry/NavigationMenu*.asx`
+- `ScrollArea` -> `src/foundry/ScrollArea.asx`
+- `Section` -> `src/foundry/Section.asx`
+- `Stack` -> `src/foundry/Stack.asx`
+- `Cluster` -> `src/foundry/Cluster.asx`
+- `Navbar` -> `src/foundry/Navbar.asx`
+- `Footer` -> `src/foundry/Footer.asx`
+- `AppShell` -> `src/foundry/AppShell.asx`
+- `Table` -> `src/foundry/Table.asx`
+- `List` -> `src/foundry/List.asx`
+- `EmptyState` -> `src/foundry/EmptyState.asx`
+- `Skeleton` -> `src/foundry/Skeleton.asx`
+- `Progress` -> `src/foundry/Progress.asx`
+- `StatusLamp` -> `src/foundry/StatusLamp.asx`
+- `Stat` -> `src/foundry/Stat.asx`
+- `Pagination` -> `src/foundry/Pagination.asx`
+- `Tooltip` -> `src/foundry/Tooltip.asx`
+- `CodeBlock` -> `src/foundry/CodeBlock.asx`
+- `Command` -> `src/foundry/CommandList.asx`
+- `PropsTable` -> `src/foundry/PropsTable.asx`
 
 ## Notes
 
 - Adapter components intentionally stay thin and map to existing CSS contract classes.
 - For some React components, the AX equivalent is a semantic sibling, not always a 1:1 API clone.
-- This map is the source of truth for authoring migration from React JSX to Axonyx `.ax`.
+- This map is the source of truth for authoring migration from React JSX to Axonyx `.asx`.

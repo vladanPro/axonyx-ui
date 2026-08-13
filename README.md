@@ -11,7 +11,7 @@ It is built on the **Foundry** design language: a system-oriented visual languag
 Axonyx UI defines the visual contract for Axonyx primitives so projects like `axonyx-site`, static HTML pages, and React adapters can import a stable, reusable UI layer instead of carrying page-specific styling.
 
 ```txt
-axonyx-ui       = CSS tokens, themes, component styles, JS islands, native .ax Foundry components
+axonyx-ui       = CSS tokens, themes, component styles, JS islands, native .asx Foundry components
 @axonyx/react   = React wrappers around the same shared CSS/data-attribute contract
 axonyx-site     = Axonyx-native app routes that consume the Foundry components
 axonyx-site-ui  = native Axonyx UI showcase and registry documentation
@@ -49,7 +49,7 @@ axonyx-ui = "0.0.53"
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
 Axonyx-native apps should use `cargo ax add ui` so the stylesheet and Foundry
-behavior runtime are wired into `app/layout.ax`.
+behavior runtime are wired into `app/layout.asx`.
 
 ## Registry V0
 
@@ -78,7 +78,7 @@ Core ideas:
 - engineered surfaces instead of floating paper
 - signal-driven accent color instead of decorative color usage
 - structured dark foundations for serious interfaces
-- semantic primitives that map cleanly from `.ax`
+- semantic primitives that map cleanly from `.asx`
 - theme finishes inspired by metal: Bronze, Silver, and Gold
 - industrial controls such as status lamps and machine-style switches, used sparingly where state matters
 
@@ -124,7 +124,7 @@ Projects should load one global stylesheet in the shell or layout, not inside ea
 
 ## Rendering Contract
 
-The first stable Foundry contract for `.ax` primitives is:
+The first stable Foundry contract for `.asx` primitives is:
 
 - `Container max: "xl"` -> `<div class="ax-container" data-max="xl">`
 - `Grid cols: 2, gap: "lg"` -> `<div class="ax-grid" data-cols="2" data-gap="lg">`
@@ -202,87 +202,87 @@ The CSS contract can be used directly by Axonyx-native or static HTML output:
 
 React users should use `MachineSwitch` from `@axonyx/react/client`.
 
-## Foundry .ax Components
+## Foundry .asx Components
 
-The package also exposes importable `.ax` components for Axonyx apps. Source files live in `src/foundry/` and are copied to `dist/foundry/` during `npm run build`, so published packages can be imported through the same public namespace:
+The package also exposes importable `.asx` components for Axonyx apps. Source files live in `src/foundry/` and are copied to `dist/foundry/` during `npm run build`, so published packages can be imported through the same public namespace:
 
 ```text
 src/foundry/
-  Container.ax
-  Grid.ax
-  Card.ax
-  Copy.ax
-  Badge.ax
-  Chip.ax
-  Avatar.ax
-  Divider.ax
-  Field.ax
-  Input.ax
-  Textarea.ax
-  Select.ax
-  Option.ax
-  Checkbox.ax
-  Radio.ax
-  Switch.ax
-  Breadcrumbs.ax
-  ButtonGroup.ax
-  Spinner.ax
-  Toggle.ax
-  ToggleGroup.ax
-  InputGroup.ax
-  InputAddon.ax
-  Combobox.ax
-  ComboboxOption.ax
-  AlertDialog.ax
-  NavigationMenu.ax
-  NavigationMenuList.ax
-  NavigationMenuLink.ax
-  ScrollArea.ax
-  LinkButton.ax
-  IconButton.ax
-  Alert.ax
-  Accordion.ax
-  AccordionItem.ax
-  DropdownMenu.ax
-  DropdownItem.ax
-  DropdownLabel.ax
-  DropdownSeparator.ax
-  Dialog.ax
-  Popover.ax
-  Drawer.ax
-  Toast.ax
-  ToastViewport.ax
-  MachineSwitch.ax
-  Section.ax
-  Cluster.ax
-  AppShell.ax
-  Sidebar.ax
-  Table.ax
-  List.ax
-  ListItem.ax
-  EmptyState.ax
-  Skeleton.ax
-  Progress.ax
-  StatusLamp.ax
-  Stat.ax
-  Pagination.ax
-  Tooltip.ax
-  SiteShell.ax
-  HeroCard.ax
-  ContentGrid.ax
-  Stack.ax
-  SectionCard.ax
-  Button.ax
-  TextLink.ax
-  FeatureSection.ax
-  ComponentPage.ax
-  PageHeader.ax
-  DocsSection.ax
-  DocsCallout.ax
-  DocsNav.ax
-  DocsCodeBlock.ax
-  Command.ax
-  CommandList.ax
+  Container.asx
+  Grid.asx
+  Card.asx
+  Copy.asx
+  Badge.asx
+  Chip.asx
+  Avatar.asx
+  Divider.asx
+  Field.asx
+  Input.asx
+  Textarea.asx
+  Select.asx
+  Option.asx
+  Checkbox.asx
+  Radio.asx
+  Switch.asx
+  Breadcrumbs.asx
+  ButtonGroup.asx
+  Spinner.asx
+  Toggle.asx
+  ToggleGroup.asx
+  InputGroup.asx
+  InputAddon.asx
+  Combobox.asx
+  ComboboxOption.asx
+  AlertDialog.asx
+  NavigationMenu.asx
+  NavigationMenuList.asx
+  NavigationMenuLink.asx
+  ScrollArea.asx
+  LinkButton.asx
+  IconButton.asx
+  Alert.asx
+  Accordion.asx
+  AccordionItem.asx
+  DropdownMenu.asx
+  DropdownItem.asx
+  DropdownLabel.asx
+  DropdownSeparator.asx
+  Dialog.asx
+  Popover.asx
+  Drawer.asx
+  Toast.asx
+  ToastViewport.asx
+  MachineSwitch.asx
+  Section.asx
+  Cluster.asx
+  AppShell.asx
+  Sidebar.asx
+  Table.asx
+  List.asx
+  ListItem.asx
+  EmptyState.asx
+  Skeleton.asx
+  Progress.asx
+  StatusLamp.asx
+  Stat.asx
+  Pagination.asx
+  Tooltip.asx
+  SiteShell.asx
+  HeroCard.asx
+  ContentGrid.asx
+  Stack.asx
+  SectionCard.asx
+  Button.asx
+  TextLink.asx
+  FeatureSection.asx
+  ComponentPage.asx
+  PageHeader.asx
+  DocsSection.asx
+  DocsCallout.asx
+  DocsNav.asx
+  DocsCodeBlock.asx
+  Command.asx
+  CommandList.asx
 ```
 
 `Sidebar` can collapse its navigation on narrow viewports while remaining a
@@ -300,9 +300,9 @@ The first block source files live in `src/blocks/`:
 
 ```text
 src/blocks/
-  marketing-01.ax
-  docs-01.ax
-  dashboard-01.ax
+  marketing-01.asx
+  docs-01.asx
+  dashboard-01.asx
 ```
 
 Blocks are intended to install as editable app source, not opaque widgets.
@@ -321,14 +321,14 @@ let registry = axonyx_ui::registry_manifest();
 Example import:
 
 ```ax
-import { SectionCard } from "@axonyx/ui/foundry/SectionCard.ax"
+import { SectionCard } from "@axonyx/ui/foundry/SectionCard.asx"
 ```
 
-All Foundry `.ax` files use the same importable page-component shape expected by current Axonyx tooling:
+All Foundry `.asx` files use the same importable page-component shape expected by current Axonyx tooling:
 
 ```ax
-import { Alert } from "@axonyx/ui/foundry/Alert.ax"
-import { MachineSwitch } from "@axonyx/ui/foundry/MachineSwitch.ax"
+import { Alert } from "@axonyx/ui/foundry/Alert.asx"
+import { MachineSwitch } from "@axonyx/ui/foundry/MachineSwitch.asx"
 
 <Alert tone="warning" title="Beta API">
   This contract can still change before 1.0.
@@ -352,9 +352,9 @@ Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/` ex
 
 - `css/*` for the global Foundry stylesheet contract
 - `js/*` for the Foundry behavior runtime and progressive-enhancement helpers
-- `foundry/*.ax` for Axonyx-native UI components
+- `foundry/*.asx` for Axonyx-native UI components
 
-Build tools can read these through `css_assets()`, `js_assets()`, `foundry_assets()`, or `asset("foundry/Button.ax")` without requiring npm.
+Build tools can read these through `css_assets()`, `js_assets()`, `foundry_assets()`, or `asset("foundry/Button.asx")` without requiring npm.
 
 React to Axonyx adapter coverage lives in:
 
@@ -365,7 +365,7 @@ docs/react-ax-adapter-map.md
 Named slot example:
 
 ```ax
-import { FeatureSection } from "@axonyx/ui/foundry/FeatureSection.ax"
+import { FeatureSection } from "@axonyx/ui/foundry/FeatureSection.asx"
 
 <FeatureSection title="Build with slots">
   <Copy slot="eyebrow">Foundry</Copy>
