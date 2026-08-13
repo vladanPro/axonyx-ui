@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync } from 'node:fs';
+import { cpSync, mkdirSync, rmSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = process.cwd();
@@ -13,6 +13,8 @@ const distJs = resolve(root, 'dist/js');
 const distFoundry = resolve(root, 'dist/foundry');
 const distBlocks = resolve(root, 'dist/blocks');
 
+rmSync(distFoundry, { recursive: true, force: true });
+rmSync(distBlocks, { recursive: true, force: true });
 mkdirSync(distCss, { recursive: true });
 mkdirSync(distJs, { recursive: true });
 mkdirSync(distFoundry, { recursive: true });
