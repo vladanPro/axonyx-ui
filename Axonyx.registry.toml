@@ -15,8 +15,8 @@ category = "actions"
 status = "v0"
 install = "cargo ax add ui"
 copy = "cargo ax add button"
-tags = ["action", "link", "cta", "forged"]
-description = "Primary action primitive for links, submits, ghost actions, and forged calls to action."
+tags = ["action", "button", "submit", "forged"]
+description = "Semantic button primitive for local actions, submits, resets, ghost actions, and forged controls. Use LinkButton for navigation."
 
 [[components]]
 name = "Card"
