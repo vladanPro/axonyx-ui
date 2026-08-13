@@ -89,7 +89,7 @@ component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "ax
         </Card>
 
         <Cluster gap="md" justify="end">
-          <Button href="#general" variant="ghost">Reset</Button>
+          <Button type="reset" variant="ghost">Reset</Button>
           <button class="ax-button" data-variant="primary" data-surface="forged" type="submit">Save changes</button>
         </Cluster>
       </Form>
@@ -99,7 +99,7 @@ component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "ax
         <Alert tone="warning" title="Destructive operations stay explicit">
           Archive and deletion should be connected to separate confirmed actions, never hidden inside the settings form.
         </Alert>
-        <Button href="#danger-zone" variant="ghost">Archive workspace</Button>
+        <Button variant="ghost">Archive workspace</Button>
       </Card>
     </Stack>
   </Main>

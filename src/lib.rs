@@ -71,7 +71,14 @@ mod tests {
     #[test]
     fn exposes_foundry_component_asset() {
         let button = asset("foundry/Button.asx").expect("button component should be embedded");
+        let link_button =
+            asset("foundry/LinkButton.asx").expect("link button component should be embedded");
         assert!(button.contents.contains("component Button"));
+        assert!(button.contents.contains("<button"));
+        assert!(button.contents.contains("type = \"button\""));
+        assert!(!button.contents.contains("href = \"#\""));
+        assert!(link_button.contents.contains("<a"));
+        assert!(link_button.contents.contains("href={href}"));
     }
 
     #[test]

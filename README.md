@@ -206,6 +206,18 @@ React users should use `MachineSwitch` from `@axonyx/react/client`.
 
 The package also exposes importable `.asx` components for Axonyx apps. Source files live in `src/foundry/` and are copied to `dist/foundry/` during `npm run build`, so published packages can be imported through the same public namespace:
 
+Action and navigation semantics stay explicit even when they share the same
+Foundry styling:
+
+```asx
+<Button on:click={count += 1}>Increase</Button>
+<Button type="submit">Save</Button>
+<LinkButton href="/docs">Read docs</LinkButton>
+```
+
+`Button` renders a semantic `<button type="button">` by default. Use
+`LinkButton` when the control changes location.
+
 ```text
 src/foundry/
   Container.asx

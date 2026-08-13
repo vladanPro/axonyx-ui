@@ -1,9 +1,9 @@
 import { Badge } from "@axonyx/ui/foundry/Badge.asx"
-import { Button } from "@axonyx/ui/foundry/Button.asx"
 import { ButtonGroup } from "@axonyx/ui/foundry/ButtonGroup.asx"
 import { ContentGrid } from "@axonyx/ui/foundry/ContentGrid.asx"
 import { Copy } from "@axonyx/ui/foundry/Copy.asx"
 import { HeroCard } from "@axonyx/ui/foundry/HeroCard.asx"
+import { LinkButton } from "@axonyx/ui/foundry/LinkButton.asx"
 import { SectionCard } from "@axonyx/ui/foundry/SectionCard.asx"
 import { Stack } from "@axonyx/ui/foundry/Stack.asx"
 
@@ -14,8 +14,8 @@ component Marketing01(eyebrow = "Foundry marketing block", title = "Ship a Rust-
     <Copy slot="eyebrow">{eyebrow}</Copy>
     <Copy tone="lead">{lead}</Copy>
     <ButtonGroup>
-      <Button href={primaryHref} variant="primary" surface="forged">Start building</Button>
-      <Button href={secondaryHref} variant="ghost">Browse components</Button>
+      <LinkButton href={primaryHref} variant="primary" surface="forged">Start building</LinkButton>
+      <LinkButton href={secondaryHref} variant="ghost">Browse components</LinkButton>
     </ButtonGroup>
   </HeroCard>
 
