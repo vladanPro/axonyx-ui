@@ -8,7 +8,7 @@ version = 1
 [[components]]
 name = "Button"
 title = "Button"
-path = "src/foundry/Button.ax"
+path = "src/foundry/Button.asx"
 import = "@axonyx/ui/foundry/Button"
 preview = "/components/button"
 category = "actions"
@@ -21,7 +21,7 @@ description = "Primary action primitive for links, submits, ghost actions, and f
 [[components]]
 name = "Card"
 title = "Card"
-path = "src/foundry/Card.ax"
+path = "src/foundry/Card.asx"
 import = "@axonyx/ui/foundry/Card"
 preview = "/components/card"
 category = "surfaces"
@@ -34,7 +34,7 @@ description = "Foundry surface primitive for content panels, dashboard widgets, 
 [[components]]
 name = "Field"
 title = "Field"
-path = "src/foundry/Field.ax"
+path = "src/foundry/Field.asx"
 import = "@axonyx/ui/foundry/Field"
 preview = "/components/field"
 category = "forms"
@@ -47,7 +47,7 @@ description = "Form shell for labels, inputs, hints, and validation states."
 [[components]]
 name = "AppShell"
 title = "AppShell"
-path = "src/foundry/AppShell.ax"
+path = "src/foundry/AppShell.asx"
 import = "@axonyx/ui/foundry/AppShell"
 preview = "/components/app-shell"
 category = "layout"
@@ -60,7 +60,7 @@ description = "Application frame for docs, dashboards, admin tools, and CMS layo
 [[components]]
 name = "Container"
 title = "Container"
-path = "src/foundry/Container.ax"
+path = "src/foundry/Container.asx"
 import = "@axonyx/ui/foundry/Container"
 preview = "/components/container"
 category = "layout"
@@ -73,7 +73,7 @@ description = "Centers page content within predictable responsive width and padd
 [[components]]
 name = "Grid"
 title = "Grid"
-path = "src/foundry/Grid.ax"
+path = "src/foundry/Grid.asx"
 import = "@axonyx/ui/foundry/Grid"
 preview = "/components/grid"
 category = "layout"
@@ -86,7 +86,7 @@ description = "Responsive fixed-column or minimum-width grid for pages, forms, a
 [[components]]
 name = "Stack"
 title = "Stack"
-path = "src/foundry/Stack.ax"
+path = "src/foundry/Stack.asx"
 import = "@axonyx/ui/foundry/Stack"
 preview = "/components/stack"
 category = "layout"
@@ -99,7 +99,7 @@ description = "Vertical flow primitive with semantic spacing and cross-axis alig
 [[components]]
 name = "Flex"
 title = "Flex"
-path = "src/foundry/Flex.ax"
+path = "src/foundry/Flex.asx"
 import = "@axonyx/ui/foundry/Flex"
 preview = "/components/flex"
 category = "layout"
@@ -112,7 +112,7 @@ description = "Directional flex composition with wrapping, alignment, distributi
 [[components]]
 name = "Cluster"
 title = "Cluster"
-path = "src/foundry/Cluster.ax"
+path = "src/foundry/Cluster.asx"
 import = "@axonyx/ui/foundry/Cluster"
 preview = "/components/cluster"
 category = "layout"
@@ -125,7 +125,7 @@ description = "Wrapping inline composition for actions, badges, filters, and com
 [[components]]
 name = "Box"
 title = "Box"
-path = "src/foundry/Box.ax"
+path = "src/foundry/Box.asx"
 import = "@axonyx/ui/foundry/Box"
 preview = "/components/box"
 category = "layout"
@@ -138,7 +138,7 @@ description = "Low-level spacing and material boundary for custom compositions."
 [[components]]
 name = "Surface"
 title = "Surface"
-path = "src/foundry/Surface.ax"
+path = "src/foundry/Surface.asx"
 import = "@axonyx/ui/foundry/Surface"
 preview = "/components/surface"
 category = "layout"
@@ -151,7 +151,7 @@ description = "Semantic Foundry panel with brushed, inset, and forged material t
 [[components]]
 name = "Section"
 title = "Section"
-path = "src/foundry/Section.ax"
+path = "src/foundry/Section.asx"
 import = "@axonyx/ui/foundry/Section"
 preview = "/components/section"
 category = "layout"
@@ -164,7 +164,7 @@ description = "Page section with width, rhythm, alignment, and optional heading 
 [[components]]
 name = "Inset"
 title = "Inset"
-path = "src/foundry/Inset.ax"
+path = "src/foundry/Inset.asx"
 import = "@axonyx/ui/foundry/Inset"
 preview = "/components/inset"
 category = "layout"
@@ -177,7 +177,7 @@ description = "Semantic inner spacing wrapper driven by Foundry tokens."
 [[components]]
 name = "Bleed"
 title = "Bleed"
-path = "src/foundry/Bleed.ax"
+path = "src/foundry/Bleed.asx"
 import = "@axonyx/ui/foundry/Bleed"
 preview = "/components/bleed"
 category = "layout"
@@ -190,7 +190,7 @@ description = "Safe local gutter escape with an explicit viewport mode for edge-
 [[components]]
 name = "Center"
 title = "Center"
-path = "src/foundry/Center.ax"
+path = "src/foundry/Center.asx"
 import = "@axonyx/ui/foundry/Center"
 preview = "/components/center"
 category = "layout"
@@ -203,7 +203,7 @@ description = "Two-axis centering for empty states, auth panels, and focused mes
 [[components]]
 name = "Sidebar"
 title = "Sidebar"
-path = "src/foundry/Sidebar.ax"
+path = "src/foundry/Sidebar.asx"
 import = "@axonyx/ui/foundry/Sidebar"
 preview = "/components/sidebar"
 category = "layout"
@@ -216,7 +216,7 @@ description = "Navigation rail used by AppShell, docs pages, dashboards, and adm
 [[components]]
 name = "Spinner"
 title = "Spinner"
-path = "src/foundry/Spinner.ax"
+path = "src/foundry/Spinner.asx"
 import = "@axonyx/ui/foundry/Spinner"
 preview = "/components/spinner"
 category = "feedback"
@@ -229,7 +229,7 @@ description = "Compact loading status indicator with semantic size and tone cont
 [[components]]
 name = "Toggle"
 title = "Toggle"
-path = "src/foundry/Toggle.ax"
+path = "src/foundry/Toggle.asx"
 import = "@axonyx/ui/foundry/Toggle"
 preview = "/components/toggle"
 category = "forms"
@@ -242,7 +242,7 @@ description = "Native checkbox or radio choice presented as a Foundry control su
 [[components]]
 name = "ToggleGroup"
 title = "ToggleGroup"
-path = "src/foundry/ToggleGroup.ax"
+path = "src/foundry/ToggleGroup.asx"
 import = "@axonyx/ui/foundry/ToggleGroup"
 preview = "/components/toggle"
 category = "forms"
@@ -255,7 +255,7 @@ description = "Groups native Toggle controls into single- or multiple-selection 
 [[components]]
 name = "InputGroup"
 title = "InputGroup"
-path = "src/foundry/InputGroup.ax"
+path = "src/foundry/InputGroup.asx"
 import = "@axonyx/ui/foundry/InputGroup"
 preview = "/components/input-group"
 category = "forms"
@@ -268,7 +268,7 @@ description = "Composes inputs, semantic add-ons, and actions into one accessibl
 [[components]]
 name = "InputAddon"
 title = "InputAddon"
-path = "src/foundry/InputAddon.ax"
+path = "src/foundry/InputAddon.asx"
 import = "@axonyx/ui/foundry/InputAddon"
 preview = "/components/input-group"
 category = "forms"
@@ -281,7 +281,7 @@ description = "Start or end annotation for an InputGroup."
 [[components]]
 name = "Combobox"
 title = "Combobox"
-path = "src/foundry/Combobox.ax"
+path = "src/foundry/Combobox.asx"
 import = "@axonyx/ui/foundry/Combobox"
 preview = "/components/combobox"
 category = "forms"
@@ -294,7 +294,7 @@ description = "Native browser-backed option search using input and datalist sema
 [[components]]
 name = "AlertDialog"
 title = "AlertDialog"
-path = "src/foundry/AlertDialog.ax"
+path = "src/foundry/AlertDialog.asx"
 import = "@axonyx/ui/foundry/AlertDialog"
 preview = "/components/alert-dialog"
 category = "overlays"
@@ -307,7 +307,7 @@ description = "Focused confirmation boundary for consequential or destructive ac
 [[components]]
 name = "NavigationMenu"
 title = "NavigationMenu"
-path = "src/foundry/NavigationMenu.ax"
+path = "src/foundry/NavigationMenu.asx"
 import = "@axonyx/ui/foundry/NavigationMenu"
 preview = "/components/navigation-menu"
 category = "navigation"
@@ -320,7 +320,7 @@ description = "Horizontal or vertical navigation composition with active and acc
 [[components]]
 name = "ScrollArea"
 title = "ScrollArea"
-path = "src/foundry/ScrollArea.ax"
+path = "src/foundry/ScrollArea.asx"
 import = "@axonyx/ui/foundry/ScrollArea"
 preview = "/components/scroll-area"
 category = "layout"
@@ -333,7 +333,7 @@ description = "Focusable overflow region with Foundry scrollbars and optional ed
 [[blocks]]
 name = "marketing-01"
 title = "Marketing 01"
-path = "src/blocks/marketing-01.ax"
+path = "src/blocks/marketing-01.asx"
 import = "@axonyx/ui/blocks/marketing-01"
 preview = "/blocks/marketing-01"
 category = "marketing"
@@ -346,7 +346,7 @@ description = "Hero, proof cards, feature grid, and call to action for product s
 [[blocks]]
 name = "docs-01"
 title = "Docs 01"
-path = "src/blocks/docs-01.ax"
+path = "src/blocks/docs-01.asx"
 import = "@axonyx/ui/blocks/docs-01"
 preview = "/blocks/docs-01"
 category = "docs"
@@ -359,7 +359,7 @@ description = "Documentation shell with sidebar navigation, content rail, and in
 [[blocks]]
 name = "dashboard-01"
 title = "Dashboard 01"
-path = "src/blocks/dashboard-01.ax"
+path = "src/blocks/dashboard-01.asx"
 import = "@axonyx/ui/blocks/dashboard-01"
 preview = "/blocks/dashboard-01"
 category = "dashboard"
@@ -372,7 +372,7 @@ description = "Industrial admin dashboard shell for CMS, deploy, QA, and registr
 [[blocks]]
 name = "login-01"
 title = "Login 01"
-path = "src/blocks/login-01.ax"
+path = "src/blocks/login-01.asx"
 import = "@axonyx/ui/blocks/login-01"
 preview = "/blocks/login-01"
 category = "auth"
@@ -385,7 +385,7 @@ description = "Responsive Foundry sign-in surface with native form semantics and
 [[blocks]]
 name = "settings-01"
 title = "Settings 01"
-path = "src/blocks/settings-01.ax"
+path = "src/blocks/settings-01.asx"
 import = "@axonyx/ui/blocks/settings-01"
 preview = "/blocks/settings-01"
 category = "application"

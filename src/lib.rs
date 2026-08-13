@@ -2,7 +2,7 @@
 //!
 //! This crate is the Cargo-side package for the same Foundry contract that is
 //! published to npm as `@axonyx/ui`. Build tools can depend on this crate to
-//! copy CSS, JavaScript helpers, Axonyx-native `.ax` components, and registry
+//! copy CSS, JavaScript helpers, Axonyx-native `.asx` components, and registry
 //! blocks without shelling out to npm or cloning the UI repository.
 
 /// An embedded Axonyx UI source asset.
@@ -10,7 +10,7 @@
 pub struct Asset {
     /// Package-relative path without the leading `src/`.
     ///
-    /// Examples: `css/index.css`, `foundry/Button.ax`, `blocks/marketing-01.ax`,
+    /// Examples: `css/index.css`, `foundry/Button.asx`, `blocks/marketing-01.asx`,
     /// `js/dialog.js`.
     pub path: &'static str,
     /// UTF-8 asset contents.
@@ -70,18 +70,18 @@ mod tests {
 
     #[test]
     fn exposes_foundry_component_asset() {
-        let button = asset("foundry/Button.ax").expect("button component should be embedded");
+        let button = asset("foundry/Button.asx").expect("button component should be embedded");
         assert!(button.contents.contains("component Button"));
     }
 
     #[test]
     fn exposes_form_composition_assets() {
-        let spinner = asset("foundry/Spinner.ax").expect("spinner should be embedded");
-        let toggle = asset("foundry/Toggle.ax").expect("toggle should be embedded");
+        let spinner = asset("foundry/Spinner.asx").expect("spinner should be embedded");
+        let toggle = asset("foundry/Toggle.asx").expect("toggle should be embedded");
         let toggle_group =
-            asset("foundry/ToggleGroup.ax").expect("toggle group should be embedded");
-        let input_group = asset("foundry/InputGroup.ax").expect("input group should be embedded");
-        let input_addon = asset("foundry/InputAddon.ax").expect("input addon should be embedded");
+            asset("foundry/ToggleGroup.asx").expect("toggle group should be embedded");
+        let input_group = asset("foundry/InputGroup.asx").expect("input group should be embedded");
+        let input_addon = asset("foundry/InputAddon.asx").expect("input addon should be embedded");
         let index = asset("css/index.css").expect("index css should be embedded");
 
         assert!(spinner.contents.contains("component Spinner"));
@@ -96,12 +96,12 @@ mod tests {
 
     #[test]
     fn exposes_application_composition_assets() {
-        let combobox = asset("foundry/Combobox.ax").expect("combobox should be embedded");
+        let combobox = asset("foundry/Combobox.asx").expect("combobox should be embedded");
         let alert_dialog =
-            asset("foundry/AlertDialog.ax").expect("alert dialog should be embedded");
+            asset("foundry/AlertDialog.asx").expect("alert dialog should be embedded");
         let navigation =
-            asset("foundry/NavigationMenu.ax").expect("navigation menu should be embedded");
-        let scroll_area = asset("foundry/ScrollArea.ax").expect("scroll area should be embedded");
+            asset("foundry/NavigationMenu.asx").expect("navigation menu should be embedded");
+        let scroll_area = asset("foundry/ScrollArea.asx").expect("scroll area should be embedded");
         let index = asset("css/index.css").expect("index css should be embedded");
         let runtime = asset("js/index.js").expect("index runtime should be embedded");
 
@@ -122,19 +122,19 @@ mod tests {
 
     #[test]
     fn exposes_component_page_contract() {
-        let page = asset("foundry/ComponentPage.ax").expect("component page should be embedded");
+        let page = asset("foundry/ComponentPage.asx").expect("component page should be embedded");
         assert!(page.contents.contains("component ComponentPage"));
         assert!(page.contents.contains("ax-component-page"));
     }
 
     #[test]
     fn exposes_core_layout_contracts() {
-        let container = asset("foundry/Container.ax").expect("container should be embedded");
-        let grid = asset("foundry/Grid.ax").expect("grid should be embedded");
-        let stack = asset("foundry/Stack.ax").expect("stack should be embedded");
-        let flex = asset("foundry/Flex.ax").expect("flex should be embedded");
-        let section = asset("foundry/Section.ax").expect("section should be embedded");
-        let bleed = asset("foundry/Bleed.ax").expect("bleed should be embedded");
+        let container = asset("foundry/Container.asx").expect("container should be embedded");
+        let grid = asset("foundry/Grid.asx").expect("grid should be embedded");
+        let stack = asset("foundry/Stack.asx").expect("stack should be embedded");
+        let flex = asset("foundry/Flex.asx").expect("flex should be embedded");
+        let section = asset("foundry/Section.asx").expect("section should be embedded");
+        let bleed = asset("foundry/Bleed.asx").expect("bleed should be embedded");
         let tokens = asset("css/tokens.css").expect("tokens should be embedded");
         let layout = asset("css/layout.css").expect("layout css should be embedded");
         let stack_css = asset("css/stack.css").expect("stack css should be embedded");
@@ -163,20 +163,20 @@ mod tests {
 
     #[test]
     fn exposes_collapsible_sidebar_contract() {
-        let sidebar = asset("foundry/Sidebar.ax").expect("sidebar should be embedded");
+        let sidebar = asset("foundry/Sidebar.asx").expect("sidebar should be embedded");
         assert!(sidebar.contents.contains("data-ax-sidebar-toggle"));
         assert!(sidebar.contents.contains("collapsible"));
     }
 
     #[test]
     fn exposes_block_asset() {
-        let block = asset("blocks/marketing-01.ax").expect("marketing block should be embedded");
+        let block = asset("blocks/marketing-01.asx").expect("marketing block should be embedded");
         assert!(block.contents.contains("component Marketing01"));
     }
 
     #[test]
     fn exposes_login_block_with_native_form_semantics() {
-        let block = asset("blocks/login-01.ax").expect("login block should be embedded");
+        let block = asset("blocks/login-01.asx").expect("login block should be embedded");
         assert!(block.contents.contains("component Login01"));
         assert!(block.contents.contains("type=\"submit\""));
         assert!(block.contents.contains("autocomplete=\"current-password\""));
@@ -184,7 +184,7 @@ mod tests {
 
     #[test]
     fn exposes_settings_block_with_application_shell() {
-        let block = asset("blocks/settings-01.ax").expect("settings block should be embedded");
+        let block = asset("blocks/settings-01.asx").expect("settings block should be embedded");
         assert!(block.contents.contains("component Settings01"));
         assert!(block.contents.contains("<AppShell"));
         assert!(block.contents.contains("type=\"submit\""));
@@ -194,7 +194,7 @@ mod tests {
 
     #[test]
     fn dashboard_block_uses_stat_slots() {
-        let block = asset("blocks/dashboard-01.ax").expect("dashboard block should be embedded");
+        let block = asset("blocks/dashboard-01.asx").expect("dashboard block should be embedded");
         assert!(block.contents.contains("slot=\"label\""));
         assert!(block.contents.contains("slot=\"value\""));
         assert!(!block.contents.contains("<Stat label="));
