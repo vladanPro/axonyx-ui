@@ -5,9 +5,14 @@
   const allowedThemes = new Set(['silver', 'bronze', 'gold']);
   const codeCopyIcon = '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="9" y="9" width="10" height="10" rx="2"></rect><path d="M5 15V7a2 2 0 0 1 2-2h8"></path></svg>';
 
-  function copyText(text) {
-    if (navigator.clipboard) {
-      return navigator.clipboard.writeText(text);
+  async function copyText(text) {
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch {
+        // Some browser contexts expose the API but deny clipboard writes.
+      }
     }
     const textarea = document.createElement('textarea');
     textarea.value = text;
@@ -15,9 +20,13 @@
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    return Promise.resolve();
+    let copied;
+    try {
+      copied = document.execCommand('copy');
+    } finally {
+      textarea.remove();
+    }
+    if (!copied) throw new Error('Clipboard write was denied');
   }
 
   function codeButtonLabel(label) {

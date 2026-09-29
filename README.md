@@ -4,6 +4,10 @@ Axonyx UI is the design-system layer for the Axonyx ecosystem.
 
 Website: https://axonyx.dev
 
+The opt-in Bronze/Silver/Gold finish is documented in
+[Foundry finish](docs/foundry-finish.md). Its shared CSS source is
+`src/css/foundry.css`.
+
 It is built on the **Foundry** design language: a system-oriented visual language for builders, with engineered surfaces, signal-driven states, and metal-inspired themes.
 
 ## Purpose
@@ -99,6 +103,24 @@ The first themes are:
 - `bronze`
 - `silver`
 - `gold`
+
+## Responsive layout
+
+`Grid` and `ContentGrid` accept desktop `cols` plus optional `colsTablet` and
+`colsMobile` overrides. Fixed-column grids still collapse to one column below
+900px when no override is set. Tablet applies through 900px; mobile applies
+through 600px. Use `min` instead for an intrinsic auto-fit grid.
+
+```asx
+<Grid cols="4" colsTablet="2" colsMobile="1" gap="lg">
+  <Card title="One" />
+  <Card title="Two" />
+  <Card title="Three" />
+  <Card title="Four" />
+</Grid>
+```
+
+The React `Grid` wrapper exposes the same props and uses the same CSS contract.
 
 ## Theme Model
 

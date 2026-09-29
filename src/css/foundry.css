@@ -1,0 +1,78 @@
+/* Foundry finish foundation. Load after Axonyx UI, then your token overrides.
+   Apply data-foundry="bronze|silver|gold" to a container. No markup changes.
+   Nested containers form independent theme boundaries. */
+[data-foundry] {
+  color-scheme: dark;
+  --ax-bg: #121313;
+  --ax-surface: #1b1c1c;
+  --ax-surface-2: #222323;
+  --ax-text: #f1efeb;
+  --ax-text-soft: #ddd9d3;
+  --ax-text-muted: #a7a9ac;
+  --ax-border: #3b3d3d;
+  --ax-border-strong: #636563;
+  --ax-radius-md: 8px;
+  --ax-radius-lg: 10px;
+  --ax-font-sans: 'Segoe UI', Arial, sans-serif;
+  --ax-font-mono: Consolas, monospace;
+  --ax-primary: #cf9974;
+  --ax-on-primary: #171411;
+  --ax-card-surface: var(--ax-surface);
+  --ax-card-shadow: inset 0 1px 0 #ffffff06, 0 6px 20px #00000016;
+  --ax-link: var(--ax-primary);
+  --ax-success: #65d78b;
+  font-family: var(--ax-font-sans);
+  color: var(--ax-text);
+  background: var(--ax-bg);
+}
+[data-foundry='bronze'] { --ax-primary: #cf9974; --ax-bg: #141413; --ax-surface: #1d1d1b; }
+[data-foundry='silver'] { --ax-primary: #bfc4cd; --ax-bg: #121416; --ax-surface: #1b1e21; }
+[data-foundry='gold'] { --ax-primary: #d8b464; --ax-bg: #161511; --ax-surface: #201e18; }
+[data-foundry] *, [data-foundry] *::before, [data-foundry] *::after { box-sizing: border-box; }
+[data-foundry] .ax-button {
+  min-height: 38px; padding: 9px 20px; border-radius: var(--ax-radius-md);
+  border: 1px solid var(--ax-border-strong); background: transparent;
+  box-shadow: inset 0 1px 0 #ffffff07; color: var(--ax-text);
+  font: 500 13px/1.4 var(--ax-font-sans); text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  cursor: pointer; transition: background .15s, border-color .15s;
+}
+[data-foundry] .ax-button[data-variant='primary'] {
+  background: linear-gradient(#ffffff12, #00000008), var(--ax-primary);
+  color: var(--ax-on-primary); border-color: color-mix(in srgb, var(--ax-primary) 80%, white);
+}
+[data-foundry] .ax-button:hover { border-color: var(--ax-primary); background-color: var(--ax-surface-2); }
+[data-foundry] .ax-button[data-variant='primary']:hover { background-color: var(--ax-primary); filter: brightness(1.08); }
+[data-foundry] .ax-input, [data-foundry] .ax-select, [data-foundry] .ax-textarea {
+  min-width: 0; width: 100%; min-height: 40px; padding: 9px 12px;
+  border: 1px solid var(--ax-border-strong); border-radius: var(--ax-radius-md);
+  background: linear-gradient(#ffffff03, transparent), var(--ax-surface);
+  color: var(--ax-text); box-shadow: inset 0 1px 2px #00000030;
+  font: 400 14px/1.4 var(--ax-font-sans);
+}
+[data-foundry] .ax-input::placeholder { color: var(--ax-text-muted); opacity: 1; }
+[data-foundry] .ax-badge { border: 1px solid var(--ax-border); background: var(--ax-surface); color: var(--ax-text); border-radius: 5px; padding: 5px 10px; font: 12px/1.4 var(--ax-font-sans); }
+[data-foundry] .ax-switch { position: relative; display: inline-flex; align-items: center; min-width: 48px; min-height: 44px; padding: 0; cursor: pointer; }
+[data-foundry] .ax-switch input { position: absolute; opacity: 0; width: 100%; height: 100%; inset: 0; margin: 0; cursor: pointer; z-index: 1; pointer-events: auto; }
+[data-foundry] .ax-switch__track { display: block; width: 48px; height: 28px; padding: 3px; border-radius: 100px; background: #3a3c3e; border: 1px solid #ffffff0c; }
+[data-foundry] .ax-switch__thumb { position: relative; top: 0; left: 0; display: block; width: 20px; height: 20px; border-radius: 50%; background: #f6f4ef; box-shadow: 0 1px 3px #0005; transform: none; transition: transform .15s; }
+[data-foundry] .ax-switch:has(input:checked) .ax-switch__track { background: var(--ax-primary); }
+[data-foundry] .ax-switch:has(input:checked) .ax-switch__thumb { transform: translateX(20px); background: #f6f4ef; }
+[data-foundry] .ax-switch input:checked + .ax-switch__track .ax-switch__thumb { transform: translateX(20px); background: #f6f4ef; }
+[data-foundry] .ax-switch:not(:has(input:checked)) .ax-switch__track { background: #3a3c3e; }
+[data-foundry] .ax-switch:not(:has(input:checked)) .ax-switch__thumb { transform: none; background: #f6f4ef; }
+[data-foundry] .ax-card { padding: 24px; gap: 16px; border: 1px solid var(--ax-border); border-radius: var(--ax-radius-lg); background: var(--ax-card-surface); box-shadow: var(--ax-card-shadow); }
+[data-foundry] .ax-card__title { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; letter-spacing: -.3px; }
+[data-foundry] :is(.ax-field-label,.ax-field__label) { font-size: 13px; font-weight: 500; }
+[data-foundry] :is(.ax-field__hint,.ax-field-hint) { color: var(--ax-text-muted); font-size: 12px; }
+[data-foundry] .ax-checkbox { font-size: 14px; font-weight: 400; }
+[data-foundry] .ax-checkbox input { accent-color: var(--ax-primary); }
+[data-foundry] .ax-button[data-size='sm'] { min-height: 32px; padding: 6px 12px; font-size: 12px; }
+[data-foundry] .ax-button[data-size='lg'] { min-height: 46px; padding: 12px 24px; font-size: 15px; }
+[data-foundry] .ax-button[data-variant='ghost'] { background: transparent; border-color: transparent; box-shadow: none; }
+[data-foundry] .ax-button[data-variant='danger'] { background: var(--ax-danger, #ff6b6b); color: #160606; border-color: transparent; }
+[data-foundry] :is(.ax-input,.ax-select,.ax-textarea)[aria-invalid='true'] { border-color: var(--ax-danger, #ff6b6b); }
+[data-foundry] :is(button,input,select,textarea):disabled,
+[data-foundry] [data-disabled='true'] { opacity: .5; cursor: not-allowed; }
+[data-foundry] :is(button,a,input,select,textarea):focus-visible, [data-foundry] .ax-switch:has(input:focus-visible) { outline: 2px solid var(--ax-primary); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { [data-foundry] *, [data-foundry] *::before, [data-foundry] *::after { transition: none !important; animation: none !important; } }

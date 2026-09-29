@@ -1,0 +1,9 @@
+component SidebarItem(href = "#", active = "false", meta = "") {
+
+<a class="ax-sidebar-item" href={href} data-active={active} aria-current={active}>
+  <span class="ax-sidebar-item__content"><Slot /></span>
+  <If when={meta}>
+    <span class="ax-sidebar-item__meta">{meta}</span>
+  </If>
+</a>
+}
