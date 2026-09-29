@@ -1,0 +1,43 @@
+.ax-component-install {
+    display: grid;
+    min-width: 0;
+    gap: var(--ax-space-md);
+}
+
+.ax-component-install__title {
+    margin: 0;
+    color: var(--ax-text);
+    font-family: var(--ax-font-sans);
+    font-size: 1.35rem;
+}
+
+.ax-component-install__manual {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-md);
+    background: var(--ax-surface);
+}
+
+.ax-component-install__manual-toggle {
+    padding: 0.8rem var(--ax-space-md);
+    color: var(--ax-text-soft);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.ax-component-install__manual-toggle:hover {
+    background: var(--ax-surface-2);
+}
+
+.ax-component-install__manual-toggle:focus-visible {
+    outline: 2px solid var(--ax-primary);
+    outline-offset: -3px;
+}
+
+.ax-component-install__manual-body {
+    display: grid;
+    min-width: 0;
+    gap: var(--ax-space-md);
+    padding: 0 var(--ax-space-md) var(--ax-space-md);
+}

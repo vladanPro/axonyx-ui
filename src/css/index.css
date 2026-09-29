@@ -1,4 +1,5 @@
 @import './tokens.css';
+@import './foundry.css';
 @import './themes.css';
 @import './layout.css';
 @import './primitives.css';
@@ -40,6 +41,8 @@
 @import './tooltip.css';
 @import './overlay.css';
 @import './component-preview.css';
+@import './component-example.css';
+@import './component-install.css';
 @import './component-page.css';
 @import './props-table.css';
 @import './data.css';

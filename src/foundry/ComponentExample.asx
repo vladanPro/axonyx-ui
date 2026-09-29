@@ -1,0 +1,20 @@
+component ComponentExample(title = "", description = "") {
+
+<section class="ax-component-example">
+  <header class="ax-component-example__header">
+    <h2 class="ax-component-example__title">{title}</h2>
+    <If when={description}>
+      <p class="ax-component-example__description">{description}</p>
+    </If>
+  </header>
+  <div class="ax-component-example__preview">
+    <Slot name="preview" />
+  </div>
+  <details class="ax-component-example__source">
+    <summary class="ax-component-example__source-toggle">View code</summary>
+    <div class="ax-component-example__source-body">
+      <Slot name="code" />
+    </div>
+  </details>
+</section>
+}

@@ -23,6 +23,7 @@ body {
 
 .ax-container {
     width: min(100% - 2rem, var(--ax-container-xl));
+    min-width: 0;
     margin-inline: auto;
 }
 
@@ -61,30 +62,32 @@ body {
 
 .ax-grid {
     display: grid;
+    --ax-grid-columns: 1;
+    grid-template-columns: repeat(var(--ax-grid-columns), minmax(0, 1fr));
 }
 
 .ax-grid[data-cols='1'] {
-    grid-template-columns: 1fr;
+    --ax-grid-columns: 1;
 }
 
 .ax-grid[data-cols='2'] {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    --ax-grid-columns: 2;
 }
 
 .ax-grid[data-cols='3'] {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    --ax-grid-columns: 3;
 }
 
 .ax-grid[data-cols='4'] {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    --ax-grid-columns: 4;
 }
 
 .ax-grid[data-cols='5'] {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    --ax-grid-columns: 5;
 }
 
 .ax-grid[data-cols='6'] {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    --ax-grid-columns: 6;
 }
 
 .ax-grid[data-min='sm'] {
@@ -165,11 +168,21 @@ img {
 }
 
 @media (max-width: 900px) {
-    .ax-grid[data-cols='2'],
-    .ax-grid[data-cols='3'],
-    .ax-grid[data-cols='4'],
-    .ax-grid[data-cols='5'],
-    .ax-grid[data-cols='6'] {
-        grid-template-columns: 1fr;
-    }
+    .ax-grid[data-cols] { --ax-grid-columns: 1; }
+    .ax-grid[data-cols-tablet='1'] { --ax-grid-columns: 1; }
+    .ax-grid[data-cols-tablet='2'] { --ax-grid-columns: 2; }
+    .ax-grid[data-cols-tablet='3'] { --ax-grid-columns: 3; }
+    .ax-grid[data-cols-tablet='4'] { --ax-grid-columns: 4; }
+    .ax-grid[data-cols-tablet='5'] { --ax-grid-columns: 5; }
+    .ax-grid[data-cols-tablet='6'] { --ax-grid-columns: 6; }
+}
+
+@media (max-width: 600px) {
+    .ax-grid[data-cols] { --ax-grid-columns: 1; }
+    .ax-grid[data-cols-mobile='1'] { --ax-grid-columns: 1; }
+    .ax-grid[data-cols-mobile='2'] { --ax-grid-columns: 2; }
+    .ax-grid[data-cols-mobile='3'] { --ax-grid-columns: 3; }
+    .ax-grid[data-cols-mobile='4'] { --ax-grid-columns: 4; }
+    .ax-grid[data-cols-mobile='5'] { --ax-grid-columns: 5; }
+    .ax-grid[data-cols-mobile='6'] { --ax-grid-columns: 6; }
 }

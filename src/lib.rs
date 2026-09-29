@@ -171,8 +171,50 @@ mod tests {
     #[test]
     fn exposes_collapsible_sidebar_contract() {
         let sidebar = asset("foundry/Sidebar.asx").expect("sidebar should be embedded");
+        let section =
+            asset("foundry/SidebarSection.asx").expect("sidebar section should be embedded");
+        let item = asset("foundry/SidebarItem.asx").expect("sidebar item should be embedded");
+        let header = asset("foundry/SidebarHeader.asx").expect("sidebar header should be embedded");
+        let footer = asset("foundry/SidebarFooter.asx").expect("sidebar footer should be embedded");
         assert!(sidebar.contents.contains("data-ax-sidebar-toggle"));
         assert!(sidebar.contents.contains("collapsible"));
+        assert!(sidebar.contents.contains("<Slot name=\"header\" />"));
+        assert!(sidebar.contents.contains("<Slot name=\"footer\" />"));
+        assert!(section.contents.contains("ax-sidebar-section__body"));
+        assert!(item.contents.contains("aria-current={active}"));
+        assert!(header.contents.contains("ax-layout-sidebar__header"));
+        assert!(footer.contents.contains("ax-layout-sidebar__footer"));
+    }
+
+    #[test]
+    fn exposes_interactive_component_example_contract() {
+        let example =
+            asset("foundry/ComponentExample.asx").expect("component example should be embedded");
+        let style = asset("css/component-example.css")
+            .expect("component example styles should be embedded");
+        let index = asset("css/index.css").expect("index css should be embedded");
+
+        assert!(example.contents.contains("<Slot name=\"preview\" />"));
+        assert!(example.contents.contains("<Slot name=\"code\" />"));
+        assert!(example.contents.contains("<details"));
+        assert!(style
+            .contents
+            .contains(".ax-component-example__source-toggle"));
+        assert!(index.contents.contains("component-example.css"));
+    }
+
+    #[test]
+    fn exposes_component_install_contract() {
+        let install =
+            asset("foundry/ComponentInstall.asx").expect("component install should be embedded");
+        let style = asset("css/component-install.css")
+            .expect("component install styles should be embedded");
+        let index = asset("css/index.css").expect("index css should be embedded");
+
+        assert!(install.contents.contains("<DocsCodeBlock"));
+        assert!(install.contents.contains("Manual setup"));
+        assert!(style.contents.contains(".ax-component-install__manual"));
+        assert!(index.contents.contains("component-install.css"));
     }
 
     #[test]

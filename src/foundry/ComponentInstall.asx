@@ -1,0 +1,15 @@
+import { DocsCodeBlock } from "@axonyx/ui/foundry/DocsCodeBlock.asx"
+
+component ComponentInstall(command = "cargo ax add ui", title = "Installation") {
+
+<section class="ax-component-install">
+  <h2 class="ax-component-install__title">{title}</h2>
+  <DocsCodeBlock title="Command" language="bash">{command}</DocsCodeBlock>
+  <details class="ax-component-install__manual">
+    <summary class="ax-component-install__manual-toggle">Manual setup</summary>
+    <div class="ax-component-install__manual-body">
+      <Slot />
+    </div>
+  </details>
+</section>
+}

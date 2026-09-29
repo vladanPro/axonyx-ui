@@ -1,0 +1,6 @@
+component SidebarFooter {
+
+<footer class="ax-layout-sidebar__footer">
+  <Slot />
+</footer>
+}

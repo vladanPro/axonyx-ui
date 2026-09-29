@@ -1,0 +1,6 @@
+component SidebarHeader {
+
+<header class="ax-layout-sidebar__header">
+  <Slot />
+</header>
+}
