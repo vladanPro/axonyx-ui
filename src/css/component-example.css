@@ -1,0 +1,91 @@
+.ax-component-example {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--ax-border);
+    border-radius: var(--ax-radius-lg);
+    background: var(--ax-surface);
+}
+
+.ax-component-example__header {
+    display: grid;
+    gap: var(--ax-space-xs);
+    padding: var(--ax-space-lg);
+    border-bottom: 1px solid var(--ax-border);
+}
+
+.ax-component-example__title,
+.ax-component-example__description {
+    margin: 0;
+}
+
+.ax-component-example__title {
+    color: var(--ax-text);
+    font-family: var(--ax-font-sans);
+    font-size: 1.15rem;
+    line-height: 1.25;
+}
+
+.ax-component-example__description {
+    color: var(--ax-text-muted);
+    line-height: 1.55;
+}
+
+.ax-component-example__preview {
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2rem);
+    background:
+        linear-gradient(color-mix(in srgb, var(--ax-border) 32%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--ax-border) 32%, transparent) 1px, transparent 1px),
+        var(--ax-bg);
+    background-size: 2rem 2rem;
+}
+
+.ax-component-example__source {
+    border-top: 1px solid var(--ax-border);
+}
+
+.ax-component-example__source-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 2.75rem;
+    padding: 0.7rem var(--ax-space-lg);
+    color: var(--ax-text-soft);
+    cursor: pointer;
+    font-weight: 700;
+    list-style: none;
+}
+
+.ax-component-example__source-toggle::-webkit-details-marker {
+    display: none;
+}
+
+.ax-component-example__source-toggle::after {
+    content: '+';
+    color: var(--ax-primary);
+    font-family: var(--ax-font-mono);
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.ax-component-example__source[open] .ax-component-example__source-toggle::after {
+    content: '-';
+}
+
+.ax-component-example__source-toggle:hover {
+    background: var(--ax-surface-2);
+}
+
+.ax-component-example__source-toggle:focus-visible {
+    outline: 2px solid var(--ax-primary);
+    outline-offset: -3px;
+}
+
+.ax-component-example__source-body {
+    min-width: 0;
+    padding: 0 var(--ax-space-lg) var(--ax-space-lg);
+}
+
+.ax-component-example__source-body > .ax-code-block {
+    width: 100%;
+}
