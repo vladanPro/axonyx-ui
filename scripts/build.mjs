@@ -26,4 +26,6 @@ cpSync(srcFoundry, distFoundry, { recursive: true });
 cpSync(srcBlocks, distBlocks, { recursive: true });
 cpSync(resolve(root, 'Axonyx.registry.toml'), resolve(root, 'dist/Axonyx.registry.toml'));
 
+cpSync(resolve(root, 'src/brand'), resolve(root, 'dist/brand'), { recursive: true });
+
 console.log('Axonyx UI build complete');
