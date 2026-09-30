@@ -64,12 +64,34 @@ are included. Existing behavior code continues to own interaction.
 Complex overlay, navigation and data components inherit tokens but have not
 received a complete individual visual/state audit in this pilot.
 
-## Site synchronization
+## Style and palette
 
-Run `axonyx-site-ui/scripts/sync-foundry-theme.ps1` after editing this file.
-It copies the foundation to the site's public assets and versions the CSS/JS
-references. This avoids requiring an unpublished sibling Cargo dependency on
-the deployed site. Do not hand-edit the generated site copy.
+Version 0.0.73 adds an independent style axis. Existing `data-foundry` containers
+keep the Alloy appearance by default. Choose both on the same container:
 
-After releasing the package, the site can use its packaged foundation directly
-and remove the interim snapshot.
+```html
+<div data-foundry="bronze" data-foundry-style="forge">
+  <!-- Existing Foundry components -->
+</div>
+```
+
+- **Alloy**: restrained borders, rounded corners, subtle surface depth (default).
+- **Forge**: angular corners, stronger material borders, beveled buttons and inset fields.
+- **Classic**: original Axonyx UI palette values, large corners and rich card surfaces, using the original base component recipes. Site layout stays the same.
+- **Palette**: `bronze`, `silver`, or `gold`, independently of style.
+
+Each nested `data-foundry` container resets to Alloy unless it explicitly selects
+Forge or Classic. Styles never change component markup, events, slots, or behavior.
+Load brand overrides after the foundation, using `[data-foundry].my-brand` as before.
+Style tokens include `--ax-radius-md`, `--ax-radius-lg`, `--ax-card-shadow`,
+`--ax-button-shadow`, `--ax-button-finish`, `--ax-input-shadow`,
+`--ax-input-finish`, `--ax-badge-radius`, and `--ax-control-weight`.
+The catalog's header selection persists locally; applications can choose their own
+controls and persistence. This CSS API does not add a framework configuration key.
+
+The foundation uses CSS `@scope` to isolate nested containers (Baseline 2025 browsers).
+Use the complete package `css/index.css`, or load `css/foundry.css` after base UI CSS.
+No catalog stylesheet or JavaScript is needed to render a selected style.
+
+The foundation also styles PageHeader/HeroCard, code blocks, component previews,
+and `.ax-appearance` controls, so documentation sites share the same finish.

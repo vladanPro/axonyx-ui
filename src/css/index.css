@@ -1,5 +1,4 @@
 @import './tokens.css';
-@import './foundry.css';
 @import './themes.css';
 @import './layout.css';
 @import './primitives.css';
@@ -61,3 +60,4 @@
 @import './rating.css';
 @import './timeline.css';
 @import './scroll-area.css';
+@import './foundry.css';
