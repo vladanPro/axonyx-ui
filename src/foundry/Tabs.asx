@@ -1,6 +1,7 @@
 component Tabs(defaultValue = "") {
-
-<div class="ax-tabs" data-default-value={defaultValue}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-tabs" data-default-value={defaultValue}>
+      <Slot />
+    </div>
+  }
 }

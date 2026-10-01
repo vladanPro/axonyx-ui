@@ -1,6 +1,7 @@
 component Toolbar(density = "", variant = "") {
-
-<div class="ax-toolbar" data-density={density} data-variant={variant}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-toolbar" data-density={density} data-variant={variant}>
+      <Slot />
+    </div>
+  }
 }

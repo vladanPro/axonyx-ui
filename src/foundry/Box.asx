@@ -1,6 +1,7 @@
 component Box(padding = "", surface = "") {
-
-<div class="ax-box" data-padding={padding} data-surface={surface}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-box" data-padding={padding} data-surface={surface}>
+      <Slot />
+    </div>
+  }
 }

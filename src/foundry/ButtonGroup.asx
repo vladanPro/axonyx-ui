@@ -1,6 +1,7 @@
 component ButtonGroup {
-
-<div class="ax-button-group">
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-button-group">
+      <Slot />
+    </div>
+  }
 }

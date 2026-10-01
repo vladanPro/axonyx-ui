@@ -1,12 +1,13 @@
 component Progress(value = "0", height = "0.65rem") {
-
-<div class="ax-progress">
-  <div class="ax-progress__meta">
-    <span>
-      <Slot name="label" />
-    </span>
-    <span>{value}%</span>
-  </div>
-  <progress class="ax-progress__native" value={value} max="100">{value}%</progress>
-</div>
+  return ASX {
+    <div class="ax-progress">
+      <div class="ax-progress__meta">
+        <span>
+          <Slot name="label" />
+        </span>
+        <span>{value}%</span>
+      </div>
+      <progress class="ax-progress__native" value={value} max="100">{value}%</progress>
+    </div>
+  }
 }

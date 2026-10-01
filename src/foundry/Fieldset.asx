@@ -1,6 +1,7 @@
 component Fieldset(surface = "") {
-
-<fieldset class="ax-fieldset" data-surface={surface}>
-  <Slot />
-</fieldset>
+  return ASX {
+    <fieldset class="ax-fieldset" data-surface={surface}>
+      <Slot />
+    </fieldset>
+  }
 }

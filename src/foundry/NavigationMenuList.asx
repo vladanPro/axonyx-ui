@@ -1,6 +1,7 @@
 component NavigationMenuList {
-
-<div class="ax-navigation-menu__list">
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-navigation-menu__list">
+      <Slot />
+    </div>
+  }
 }

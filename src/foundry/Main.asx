@@ -1,6 +1,7 @@
 component Main {
-
-<main class="ax-layout-main">
-  <Slot />
-</main>
+  return ASX {
+    <main class="ax-layout-main">
+      <Slot />
+    </main>
+  }
 }

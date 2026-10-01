@@ -1,6 +1,7 @@
 component Container(max = "xl", padding = "", fluid = "", recipe = "") {
-
-<div class="ax-container" data-max={max} data-padding={padding} data-fluid={fluid} data-recipe={recipe}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-container" data-max={max} data-padding={padding} data-fluid={fluid} data-recipe={recipe}>
+      <Slot />
+    </div>
+  }
 }

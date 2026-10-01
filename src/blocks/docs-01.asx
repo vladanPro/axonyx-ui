@@ -11,36 +11,37 @@ import { Sidebar } from "@axonyx/ui/foundry/Sidebar.asx"
 import { Stack } from "@axonyx/ui/foundry/Stack.asx"
 
 component Docs01(title = "Getting started", lead = "Install the CLI, choose a starter, run dev, then build static output.") {
-
-<AppShell railWidth="sm" gap="lg" mode="embedded">
-  <Sidebar slot="sidebar" label="Docs navigation" collapsible="true">
-    <Stack gap="md">
-      <strong>Documentation</strong>
-      <nav class="ax-nav-list" aria-label="Documentation sections">
-        <a class="ax-nav-item" href="#overview" data-active="true">Overview</a>
-        <a class="ax-nav-item" href="#install">Install</a>
-        <a class="ax-nav-item" href="#components">Components</a>
-        <a class="ax-nav-item" href="#next">Next steps</a>
-      </nav>
-    </Stack>
-  </Sidebar>
-  <Main>
-    <Stack gap="lg">
-      <PageHeader title={title}>
-        <Copy slot="eyebrow">Guide</Copy>
-        <Copy tone="lead">{lead}</Copy>
-      </PageHeader>
-      <DocsSection title="Install">
-        <div id="install"></div>
-        <Copy>Create a docs project and start the native Axonyx development server.</Copy>
-        <DocsCodeBlock title="Terminal" language="bash">{"create-axonyx my-docs --yes --template docs\ncargo ax run dev"}</DocsCodeBlock>
-      </DocsSection>
-      <DocsCallout title="Foundry composition">
-        <div id="components"></div>
-        <Badge tone="success">Package owned</Badge>
-        <Copy>The shell, navigation, page header, code block, and content rhythm come from Axonyx UI.</Copy>
-      </DocsCallout>
-    </Stack>
-  </Main>
-</AppShell>
+  return ASX {
+    <AppShell railWidth="sm" gap="lg" mode="embedded">
+      <Sidebar slot="sidebar" label="Docs navigation" collapsible="true">
+        <Stack gap="md">
+          <strong>Documentation</strong>
+          <nav class="ax-nav-list" aria-label="Documentation sections">
+            <a class="ax-nav-item" href="#overview" data-active="true">Overview</a>
+            <a class="ax-nav-item" href="#install">Install</a>
+            <a class="ax-nav-item" href="#components">Components</a>
+            <a class="ax-nav-item" href="#next">Next steps</a>
+          </nav>
+        </Stack>
+      </Sidebar>
+      <Main>
+        <Stack gap="lg">
+          <PageHeader title={title}>
+            <Copy slot="eyebrow">Guide</Copy>
+            <Copy tone="lead">{lead}</Copy>
+          </PageHeader>
+          <DocsSection title="Install">
+            <div id="install"></div>
+            <Copy>Create a docs project and start the native Axonyx development server.</Copy>
+            <DocsCodeBlock title="Terminal" language="bash">{"create-axonyx my-docs --yes --template docs\ncargo ax run dev"}</DocsCodeBlock>
+          </DocsSection>
+          <DocsCallout title="Foundry composition">
+            <div id="components"></div>
+            <Badge tone="success">Package owned</Badge>
+            <Copy>The shell, navigation, page header, code block, and content rhythm come from Axonyx UI.</Copy>
+          </DocsCallout>
+        </Stack>
+      </Main>
+    </AppShell>
+  }
 }

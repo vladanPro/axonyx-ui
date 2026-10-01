@@ -1,6 +1,7 @@
 component ToastViewport {
-
-<div class="ax-toast-viewport">
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-toast-viewport">
+      <Slot />
+    </div>
+  }
 }

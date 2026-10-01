@@ -1,6 +1,7 @@
 component TableHead {
-
-<thead class="ax-table__head">
-  <Slot />
-</thead>
+  return ASX {
+    <thead class="ax-table__head">
+      <Slot />
+    </thead>
+  }
 }

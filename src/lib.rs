@@ -63,6 +63,19 @@ mod tests {
     use super::*;
 
     #[test]
+    fn native_components_use_explicit_return_asx() {
+        for asset in foundry_assets().iter().chain(block_assets()) {
+            if asset.path.ends_with(".asx") {
+                assert!(
+                    asset.contents.contains("\n  return ASX {\n"),
+                    "{} should use the explicit component render boundary",
+                    asset.path
+                );
+            }
+        }
+    }
+
+    #[test]
     fn exposes_core_css_asset() {
         let index = asset("css/index.css").expect("index css should be embedded");
         assert!(index.contents.contains("tokens.css"));

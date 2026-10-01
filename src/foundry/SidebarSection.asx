@@ -1,11 +1,12 @@
 component SidebarSection(title = "") {
-
-<section class="ax-sidebar-section">
-  <If when={title}>
-    <strong class="ax-sidebar-section__title">{title}</strong>
-  </If>
-  <div class="ax-sidebar-section__body">
-    <Slot />
-  </div>
-</section>
+  return ASX {
+    <section class="ax-sidebar-section">
+      <If when={title}>
+        <strong class="ax-sidebar-section__title">{title}</strong>
+      </If>
+      <div class="ax-sidebar-section__body">
+        <Slot />
+      </div>
+    </section>
+  }
 }

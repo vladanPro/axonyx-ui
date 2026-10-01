@@ -1,9 +1,10 @@
 component AccordionItem(open = "", title = "") {
-
-<div class="ax-accordion__item" data-open={open}>
-  <div class="ax-accordion__trigger">{title}</div>
-  <div class="ax-accordion__content">
-    <Slot />
-  </div>
-</div>
+  return ASX {
+    <div class="ax-accordion__item" data-open={open}>
+      <div class="ax-accordion__trigger">{title}</div>
+      <div class="ax-accordion__content">
+        <Slot />
+      </div>
+    </div>
+  }
 }

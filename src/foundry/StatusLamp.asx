@@ -1,16 +1,17 @@
 component StatusLamp(tone = "neutral", pulse = "false", label = "", description = "") {
-
-<div class="ax-status-lamp" data-tone={tone} data-pulse={pulse}>
-  <span class="ax-status-lamp__light"></span>
-  <span class="ax-status-lamp__body">
-    <span class="ax-status-lamp__label">
-      {label}
-      <Slot name="label" />
-    </span>
-    <span class="ax-status-lamp__description">
-      {description}
-      <Slot />
-    </span>
-  </span>
-</div>
+  return ASX {
+    <div class="ax-status-lamp" data-tone={tone} data-pulse={pulse}>
+      <span class="ax-status-lamp__light"></span>
+      <span class="ax-status-lamp__body">
+        <span class="ax-status-lamp__label">
+          {label}
+          <Slot name="label" />
+        </span>
+        <span class="ax-status-lamp__description">
+          {description}
+          <Slot />
+        </span>
+      </span>
+    </div>
+  }
 }

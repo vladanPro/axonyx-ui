@@ -1,6 +1,7 @@
 component Center(min = "") {
-
-<div class="ax-center" data-min={min}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-center" data-min={min}>
+      <Slot />
+    </div>
+  }
 }

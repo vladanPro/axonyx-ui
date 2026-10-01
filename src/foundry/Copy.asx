@@ -1,6 +1,7 @@
 component Copy {
-
-<p class="ax-copy">
-  <Slot />
-</p>
+  return ASX {
+    <p class="ax-copy">
+      <Slot />
+    </p>
+  }
 }

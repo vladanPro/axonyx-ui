@@ -1,6 +1,7 @@
 component FieldError {
-
-<p class="ax-field__error">
-  <Slot />
-</p>
+  return ASX {
+    <p class="ax-field__error">
+      <Slot />
+    </p>
+  }
 }
