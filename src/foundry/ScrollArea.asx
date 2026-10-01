@@ -1,6 +1,7 @@
 component ScrollArea(height = "md", orientation = "vertical", edge = "fade", label = "Scrollable content") {
-
-<div class="ax-scroll-area" data-height={height} data-orientation={orientation} data-edge={edge} role="region" aria-label={label} tabindex="0">
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-scroll-area" data-height={height} data-orientation={orientation} data-edge={edge} role="region" aria-label={label} tabindex="0">
+      <Slot />
+    </div>
+  }
 }

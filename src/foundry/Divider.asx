@@ -1,4 +1,5 @@
 component Divider(orientation = "", tone = "") {
-
-<hr class="ax-divider" data-tone={tone} data-orientation={orientation} />
+  return ASX {
+    <hr class="ax-divider" data-tone={tone} data-orientation={orientation} />
+  }
 }

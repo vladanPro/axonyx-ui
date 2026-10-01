@@ -1,6 +1,7 @@
 component Grid(cols = "1", colsTablet = "", colsMobile = "", gap = "md", align = "", min = "") {
-
-<div class="ax-grid" data-cols={cols} data-cols-tablet={colsTablet} data-cols-mobile={colsMobile} data-gap={gap} data-align={align} data-min={min}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-grid" data-cols={cols} data-cols-tablet={colsTablet} data-cols-mobile={colsMobile} data-gap={gap} data-align={align} data-min={min}>
+      <Slot />
+    </div>
+  }
 }

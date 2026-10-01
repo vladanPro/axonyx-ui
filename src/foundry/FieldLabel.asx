@@ -1,6 +1,7 @@
 component FieldLabel(htmlFor = "") {
-
-<label class="ax-field-label" for={htmlFor}>
-  <Slot />
-</label>
+  return ASX {
+    <label class="ax-field-label" for={htmlFor}>
+      <Slot />
+    </label>
+  }
 }

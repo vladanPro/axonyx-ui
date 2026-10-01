@@ -48,7 +48,7 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.0.53"
+axonyx-ui = "0.0.74"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
@@ -379,6 +379,23 @@ import { MachineSwitch } from "@axonyx/ui/foundry/MachineSwitch.asx"
 
 Cargo consumers also get this namespace contract through `Axonyx.package.toml`.
 Axonyx tooling reads that metadata to map `@axonyx/ui` to the packaged `src/` export root.
+
+Native Foundry components use the same explicit render boundary as pages:
+
+```asx
+component AccordionItem(open = "", title = "") {
+  return ASX {
+    <div class="ax-accordion__item" data-open={open}>
+      <div class="ax-accordion__trigger">{title}</div>
+      <div class="ax-accordion__content"><Slot /></div>
+    </div>
+  }
+}
+```
+
+Publish these updated `.asx` assets only after the matching Axonyx compiler
+release supports component `return ASX`. Older compilers still expect implicit
+component markup or `render ASX`.
 
 ## Cargo Package
 

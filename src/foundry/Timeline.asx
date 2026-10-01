@@ -1,6 +1,7 @@
 component Timeline(density = "") {
-
-<ol class="ax-timeline" data-density={density}>
-  <Slot />
-</ol>
+  return ASX {
+    <ol class="ax-timeline" data-density={density}>
+      <Slot />
+    </ol>
+  }
 }

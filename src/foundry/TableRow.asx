@@ -1,6 +1,7 @@
 component TableRow {
-
-<tr class="ax-table__row">
-  <Slot />
-</tr>
+  return ASX {
+    <tr class="ax-table__row">
+      <Slot />
+    </tr>
+  }
 }

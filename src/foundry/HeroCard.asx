@@ -1,6 +1,7 @@
 component HeroCard(title = "") {
-
-<Card title={title} recipe="hero-card">
-  <Slot />
-</Card>
+  return ASX {
+    <Card title={title} recipe="hero-card">
+      <Slot />
+    </Card>
+  }
 }

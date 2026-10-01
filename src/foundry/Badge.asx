@@ -1,6 +1,7 @@
 component Badge(tone = "", variant = "", size = "") {
-
-<span class="ax-badge" data-variant={variant}>
-  <Slot />
-</span>
+  return ASX {
+    <span class="ax-badge" data-variant={variant}>
+      <Slot />
+    </span>
+  }
 }

@@ -1,6 +1,7 @@
 component SidebarHeader {
-
-<header class="ax-layout-sidebar__header">
-  <Slot />
-</header>
+  return ASX {
+    <header class="ax-layout-sidebar__header">
+      <Slot />
+    </header>
+  }
 }

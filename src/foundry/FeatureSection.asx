@@ -1,14 +1,15 @@
 component FeatureSection(title = "") {
-
-<Card title={title} recipe="feature-section">
-  <div class="ax-feature-section__eyebrow">
-    <Slot name="eyebrow" />
-  </div>
-  <div class="ax-feature-section__body">
-    <Slot />
-  </div>
-  <div class="ax-feature-section__actions">
-    <Slot name="actions" />
-  </div>
-</Card>
+  return ASX {
+    <Card title={title} recipe="feature-section">
+      <div class="ax-feature-section__eyebrow">
+        <Slot name="eyebrow" />
+      </div>
+      <div class="ax-feature-section__body">
+        <Slot />
+      </div>
+      <div class="ax-feature-section__actions">
+        <Slot name="actions" />
+      </div>
+    </Card>
+  }
 }

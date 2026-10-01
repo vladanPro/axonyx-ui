@@ -1,12 +1,13 @@
 component ComponentPreview(surface = "", title = "") {
+  return ASX {
+    <section class="ax-component-preview" data-surface={surface}>
+      <header class="ax-component-preview__header">
+        <strong class="ax-component-preview__title">{title}</strong>
+      </header>
 
-<section class="ax-component-preview" data-surface={surface}>
-  <header class="ax-component-preview__header">
-    <strong class="ax-component-preview__title">{title}</strong>
-  </header>
-
-  <div class="ax-component-preview__stage">
-    <Slot />
-  </div>
-</section>
+      <div class="ax-component-preview__stage">
+        <Slot />
+      </div>
+    </section>
+  }
 }

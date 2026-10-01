@@ -1,8 +1,9 @@
 import { Grid } from "@axonyx/ui/foundry/Grid.asx"
 
 component ContentGrid(cols = "", colsTablet = "", colsMobile = "", gap = "") {
-
-<Grid cols={cols} colsTablet={colsTablet} colsMobile={colsMobile} gap={gap}>
-  <Slot />
-</Grid>
+  return ASX {
+    <Grid cols={cols} colsTablet={colsTablet} colsMobile={colsMobile} gap={gap}>
+      <Slot />
+    </Grid>
+  }
 }

@@ -1,6 +1,7 @@
 component TableBody {
-
-<tbody class="ax-table__body">
-  <Slot />
-</tbody>
+  return ASX {
+    <tbody class="ax-table__body">
+      <Slot />
+    </tbody>
+  }
 }

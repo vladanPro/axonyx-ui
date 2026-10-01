@@ -1,4 +1,5 @@
 component Spacer(size = "md") {
-
-<span class="ax-spacer" data-size={size}></span>
+  return ASX {
+    <span class="ax-spacer" data-size={size}></span>
+  }
 }

@@ -1,6 +1,7 @@
 component PaginationItem(href = "#", current = "", disabled = "") {
-
-<a class="ax-pagination__item" href={href} data-current={current} data-disabled={disabled}>
-  <Slot />
-</a>
+  return ASX {
+    <a class="ax-pagination__item" href={href} data-current={current} data-disabled={disabled}>
+      <Slot />
+    </a>
+  }
 }

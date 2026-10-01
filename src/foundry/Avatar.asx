@@ -1,6 +1,7 @@
 component Avatar(size = "") {
-
-<span class="ax-avatar" data-size={size}>
-  <Slot />
-</span>
+  return ASX {
+    <span class="ax-avatar" data-size={size}>
+      <Slot />
+    </span>
+  }
 }

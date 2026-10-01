@@ -1,14 +1,15 @@
 component DocsCodeBlock(title = "Code", language = "ax") {
+  return ASX {
+    <figure class="ax-code-block ax-docs-code-block" data-language={language}>
+      <figcaption class="ax-code-block__header">
+        <span class="ax-code-block__title">{title}</span>
+        <div class="ax-code-block__tools">
+          <span class="ax-code-block__language">{language}</span>
+          <button class="ax-code-block__copy" type="button" data-ax-copy-code="true">Copy</button>
+        </div>
+      </figcaption>
 
-<figure class="ax-code-block ax-docs-code-block" data-language={language}>
-  <figcaption class="ax-code-block__header">
-    <span class="ax-code-block__title">{title}</span>
-    <div class="ax-code-block__tools">
-      <span class="ax-code-block__language">{language}</span>
-      <button class="ax-code-block__copy" type="button" data-ax-copy-code="true">Copy</button>
-    </div>
-  </figcaption>
-
-  <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
-</figure>
+      <pre class="ax-code-block__pre"><code class="ax-code-block__code"><Slot /></code></pre>
+    </figure>
+  }
 }
