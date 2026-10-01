@@ -1,6 +1,7 @@
 component SectionCard(title = "") {
-
-<Card title={title}>
-  <Slot />
-</Card>
+  return ASX {
+    <Card title={title}>
+      <Slot />
+    </Card>
+  }
 }

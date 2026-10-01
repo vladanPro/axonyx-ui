@@ -1,6 +1,7 @@
 component Legend {
-
-<legend class="ax-fieldset__legend">
-  <Slot />
-</legend>
+  return ASX {
+    <legend class="ax-fieldset__legend">
+      <Slot />
+    </legend>
+  }
 }

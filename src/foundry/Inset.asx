@@ -1,6 +1,7 @@
 component Inset(size = "md") {
-
-<div class="ax-inset" data-size={size}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-inset" data-size={size}>
+      <Slot />
+    </div>
+  }
 }

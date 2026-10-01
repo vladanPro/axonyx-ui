@@ -1,6 +1,7 @@
 component Bleed(mode = "gutter", size = "md", padding = "") {
-
-<div class="ax-bleed" data-mode={mode} data-size={size} data-padding={padding}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-bleed" data-mode={mode} data-size={size} data-padding={padding}>
+      <Slot />
+    </div>
+  }
 }

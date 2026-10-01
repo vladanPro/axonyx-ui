@@ -1,6 +1,7 @@
 component TextLink(href = "") {
-
-<a class="ax-link" href={href}>
-  <Slot />
-</a>
+  return ASX {
+    <a class="ax-link" href={href}>
+      <Slot />
+    </a>
+  }
 }

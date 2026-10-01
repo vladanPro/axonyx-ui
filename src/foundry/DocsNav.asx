@@ -1,11 +1,12 @@
 component DocsNav(title = "") {
-
-<Card title={title} recipe="docs-nav">
-  <div class="ax-docs-nav__body">
-    <Slot />
-  </div>
-  <div class="ax-docs-nav__actions">
-    <Slot name="actions" />
-  </div>
-</Card>
+  return ASX {
+    <Card title={title} recipe="docs-nav">
+      <div class="ax-docs-nav__body">
+        <Slot />
+      </div>
+      <div class="ax-docs-nav__actions">
+        <Slot name="actions" />
+      </div>
+    </Card>
+  }
 }

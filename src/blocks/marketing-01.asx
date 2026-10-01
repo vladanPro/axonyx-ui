@@ -8,30 +8,31 @@ import { SectionCard } from "@axonyx/ui/foundry/SectionCard.asx"
 import { Stack } from "@axonyx/ui/foundry/Stack.asx"
 
 component Marketing01(eyebrow = "Foundry marketing block", title = "Ship a Rust-first site without a JS stack.", lead = "Use static output, strong surfaces, and a small number of obvious calls to action.", primaryHref = "/docs/getting-started", secondaryHref = "/components") {
+  return ASX {
+    <Stack gap="lg">
+      <HeroCard title={title}>
+        <Copy slot="eyebrow">{eyebrow}</Copy>
+        <Copy tone="lead">{lead}</Copy>
+        <ButtonGroup>
+          <LinkButton href={primaryHref} variant="primary" surface="forged">Start building</LinkButton>
+          <LinkButton href={secondaryHref} variant="ghost">Browse components</LinkButton>
+        </ButtonGroup>
+      </HeroCard>
 
-<Stack gap="lg">
-  <HeroCard title={title}>
-    <Copy slot="eyebrow">{eyebrow}</Copy>
-    <Copy tone="lead">{lead}</Copy>
-    <ButtonGroup>
-      <LinkButton href={primaryHref} variant="primary" surface="forged">Start building</LinkButton>
-      <LinkButton href={secondaryHref} variant="ghost">Browse components</LinkButton>
-    </ButtonGroup>
-  </HeroCard>
-
-  <ContentGrid cols={3} gap="lg">
-    <SectionCard title="Fast">
-      <Badge tone="success">HTML</Badge>
-      <Copy>Static pages and package assets with a small runtime surface.</Copy>
-    </SectionCard>
-    <SectionCard title="Readable">
-      <Badge tone="info">ASX</Badge>
-      <Copy>Page files that frontend developers and AI agents can scan quickly.</Copy>
-    </SectionCard>
-    <SectionCard title="Ownable">
-      <Badge tone="warning">Cargo</Badge>
-      <Copy>Rust runtime, Axonyx UI components, and deployable output.</Copy>
-    </SectionCard>
-  </ContentGrid>
-</Stack>
+      <ContentGrid cols={3} gap="lg">
+        <SectionCard title="Fast">
+          <Badge tone="success">HTML</Badge>
+          <Copy>Static pages and package assets with a small runtime surface.</Copy>
+        </SectionCard>
+        <SectionCard title="Readable">
+          <Badge tone="info">ASX</Badge>
+          <Copy>Page files that frontend developers and AI agents can scan quickly.</Copy>
+        </SectionCard>
+        <SectionCard title="Ownable">
+          <Badge tone="warning">Cargo</Badge>
+          <Copy>Rust runtime, Axonyx UI components, and deployable output.</Copy>
+        </SectionCard>
+      </ContentGrid>
+    </Stack>
+  }
 }

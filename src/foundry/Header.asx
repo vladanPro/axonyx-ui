@@ -1,6 +1,7 @@
 component Header(sticky = "") {
-
-<header class="ax-layout-header" data-sticky={sticky}>
-  <Slot />
-</header>
+  return ASX {
+    <header class="ax-layout-header" data-sticky={sticky}>
+      <Slot />
+    </header>
+  }
 }

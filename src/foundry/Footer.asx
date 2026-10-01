@@ -1,6 +1,7 @@
 component Footer {
-
-<footer class="ax-layout-footer">
-  <Slot />
-</footer>
+  return ASX {
+    <footer class="ax-layout-footer">
+      <Slot />
+    </footer>
+  }
 }

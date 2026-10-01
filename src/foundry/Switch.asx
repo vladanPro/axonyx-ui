@@ -1,12 +1,13 @@
 component Switch(name = "", checked = "", disabled = "") {
-
-<label class="ax-switch" data-checked={checked} data-disabled={disabled}>
-  <input type="checkbox" name={name} />
-  <span class="ax-switch__track">
-    <span class="ax-switch__thumb"></span>
-  </span>
-  <span>
-    <Slot />
-  </span>
-</label>
+  return ASX {
+    <label class="ax-switch" data-checked={checked} data-disabled={disabled}>
+      <input type="checkbox" name={name} />
+      <span class="ax-switch__track">
+        <span class="ax-switch__thumb"></span>
+      </span>
+      <span>
+        <Slot />
+      </span>
+    </label>
+  }
 }

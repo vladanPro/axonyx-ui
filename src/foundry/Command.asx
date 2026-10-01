@@ -1,6 +1,7 @@
 component Command(size = "") {
-
-<div class="ax-command" data-size={size}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-command" data-size={size}>
+      <Slot />
+    </div>
+  }
 }

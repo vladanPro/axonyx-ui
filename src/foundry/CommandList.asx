@@ -1,14 +1,15 @@
 component CommandList(title = "") {
-
-<Card title={title} recipe="command-list">
-  <div class="ax-command-list__eyebrow">
-    <Slot name="eyebrow" />
-  </div>
-  <div class="ax-command-list__body">
-    <Slot />
-  </div>
-  <div class="ax-command-list__actions">
-    <Slot name="actions" />
-  </div>
-</Card>
+  return ASX {
+    <Card title={title} recipe="command-list">
+      <div class="ax-command-list__eyebrow">
+        <Slot name="eyebrow" />
+      </div>
+      <div class="ax-command-list__body">
+        <Slot />
+      </div>
+      <div class="ax-command-list__actions">
+        <Slot name="actions" />
+      </div>
+    </Card>
+  }
 }

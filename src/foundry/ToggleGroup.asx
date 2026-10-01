@@ -1,6 +1,7 @@
 component ToggleGroup(size = "md", orientation = "horizontal", selection = "multiple", label = "Options") {
-
-<div class="ax-toggle-group" data-size={size} data-orientation={orientation} data-selection={selection} role="group" aria-label={label}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-toggle-group" data-size={size} data-orientation={orientation} data-selection={selection} role="group" aria-label={label}>
+      <Slot />
+    </div>
+  }
 }

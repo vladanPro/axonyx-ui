@@ -1,6 +1,7 @@
 component Chip(tone = "", size = "") {
-
-<span class="ax-chip" data-size={size} data-tone={tone}>
-  <Slot />
-</span>
+  return ASX {
+    <span class="ax-chip" data-size={size} data-tone={tone}>
+      <Slot />
+    </span>
+  }
 }

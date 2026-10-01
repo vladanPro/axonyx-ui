@@ -1,6 +1,7 @@
 component SiteShell(max = "") {
-
-<Container max={max} recipe="app-shell">
-  <Slot />
-</Container>
+  return ASX {
+    <Container max={max} recipe="app-shell">
+      <Slot />
+    </Container>
+  }
 }

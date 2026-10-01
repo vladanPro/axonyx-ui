@@ -1,6 +1,7 @@
 component DropdownLabel {
-
-<div class="ax-dropdown__label">
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-dropdown__label">
+      <Slot />
+    </div>
+  }
 }

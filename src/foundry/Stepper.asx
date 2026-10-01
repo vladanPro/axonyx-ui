@@ -1,6 +1,7 @@
 component Stepper(orientation = "vertical") {
-
-<ol class="ax-stepper" data-orientation={orientation}>
-  <Slot />
-</ol>
+  return ASX {
+    <ol class="ax-stepper" data-orientation={orientation}>
+      <Slot />
+    </ol>
+  }
 }

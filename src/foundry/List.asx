@@ -1,6 +1,7 @@
 component List(divided = "") {
-
-<div class="ax-list" data-divided={divided}>
-  <Slot />
-</div>
+  return ASX {
+    <div class="ax-list" data-divided={divided}>
+      <Slot />
+    </div>
+  }
 }
