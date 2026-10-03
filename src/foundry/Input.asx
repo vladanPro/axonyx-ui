@@ -1,5 +1,5 @@
-component Input(size = "", id = "", name = "", type = "text", value = "", placeholder = "", disabled = "", invalid = "") {
+component Input(size = "", id = "", name = "", type = "text", value = "", placeholder = "", disabled = "", invalid = "", required = "", describedBy = "") {
   return ASX {
-    <input class="ax-input" data-size={size} id={id} name={name} type={type} value={value} placeholder={placeholder} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid} />
+    <input class="ax-input" data-size={size} id={id} name={name} type={type} value={value} placeholder={placeholder} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid} aria-describedby={describedBy} disabled={disabled == "true"} required={required == "true"} />
   }
 }

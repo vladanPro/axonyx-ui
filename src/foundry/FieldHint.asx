@@ -1,6 +1,6 @@
-component FieldHint {
+component FieldHint(id = "") {
   return ASX {
-    <p class="ax-field__hint">
+    <p class="ax-field__hint" id={id}>
       <Slot />
     </p>
   }
