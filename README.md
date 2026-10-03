@@ -48,7 +48,7 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.0.74"
+axonyx-ui = "0.0.75"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
@@ -59,8 +59,17 @@ behavior runtime are wired into `app/layout.asx`.
 
 `Axonyx.registry.toml` describes the first native registry slice:
 
-- Components V0: `Button`, `Card`, `Field`, `AppShell`, `Sidebar`
+- Components V0: 25 registered entries, from `Button` and `Card` to layout,
+  form, navigation, and overlay primitives
 - Blocks V0: `marketing-01`, `docs-01`, `dashboard-01`, `login-01`, `settings-01`
+
+The [component coverage inventory](docs/component-coverage.md) distinguishes
+native source files, catalog imports, registry entries, and React exports.
+Its QA columns remain unknown because this source inventory does not consume
+browser test results. Regenerate it with `npm run audit:coverage`
+when the sibling `axonyx-site-ui` and `axonyx-react` repositories are present.
+The targeted [browser QA notes](docs/browser-qa.md) cover the first overlay and
+basic form scenarios; run them with `npm run test:browser` against a local catalog.
 
 The long-term CLI goal is:
 

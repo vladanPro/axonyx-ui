@@ -62,17 +62,33 @@ pub fn asset(path: &str) -> Option<&'static Asset> {
 mod tests {
     use super::*;
 
+    fn has_explicit_return_asx(contents: &str) -> bool {
+        contents
+            .lines()
+            .any(|line| line.trim_end_matches('\r') == "  return ASX {")
+    }
+
     #[test]
     fn native_components_use_explicit_return_asx() {
         for asset in foundry_assets().iter().chain(block_assets()) {
             if asset.path.ends_with(".asx") {
                 assert!(
-                    asset.contents.contains("\n  return ASX {\n"),
+                    has_explicit_return_asx(asset.contents),
                     "{} should use the explicit component render boundary",
                     asset.path
                 );
             }
         }
+    }
+
+    #[test]
+    fn explicit_return_asx_accepts_lf_and_crlf() {
+        assert!(has_explicit_return_asx(
+            "component Demo() {\n  return ASX {\n  }\n}"
+        ));
+        assert!(has_explicit_return_asx(
+            "component Demo() {\r\n  return ASX {\r\n  }\r\n}"
+        ));
     }
 
     #[test]

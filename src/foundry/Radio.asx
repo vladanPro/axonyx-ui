@@ -1,7 +1,7 @@
 component Radio(name = "", value = "", checked = "", disabled = "") {
   return ASX {
     <label class="ax-radio" data-checked={checked} data-disabled={disabled}>
-      <input type="radio" name={name} value={value} />
+      <input type="radio" name={name} value={value} checked={checked == "true"} disabled={disabled == "true"} />
       <span>
         <Slot />
       </span>

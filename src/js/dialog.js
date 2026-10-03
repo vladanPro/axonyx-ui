@@ -17,7 +17,7 @@
     dialog.removeAttribute('hidden');
     document.documentElement.dataset.dialogOpen = 'true';
 
-    const closeButton = dialog.querySelector('[data-ax-dialog-close]');
+    const closeButton = dialog.querySelector('button[data-ax-dialog-close]');
     if (closeButton && closeButton.focus) closeButton.focus();
   }
 
