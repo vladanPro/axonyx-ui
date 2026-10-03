@@ -25,12 +25,14 @@ Chromium browser must be installed for the local developer environment.
 | AlertDialog | Open, Cancel focus, backdrop cannot dismiss, Escape and focus restoration at both widths | Screen-reader announcement and destructive action wiring |
 | DropdownMenu | Keyboard open, `aria-expanded`, menu links, Escape and focus restoration at both widths | Arrow-key menu navigation and menu role semantics |
 | Combobox | Native datalist association, three options, typed value at both widths | Browser suggestion popup interaction and validation |
-| Checkbox | Native checkbox toggles at both widths | Disabled/checked props in a released catalog package |
+| Checkbox | Native toggle, checked initial value, and disabled input at both widths | Assistive-technology review |
 | Select | Native selection changes at both widths | Disabled/invalid states and long option lists |
+| Switch | Initial checked state, pointer and Space toggles, and disabled input at both widths | Assistive-technology review |
+| Radio | Initial selection, exclusive group behavior, pointer and Space selection, disabled option, and arrow-key navigation at both widths | Assistive-technology review |
 
 Separately, a temporary Axonyx route proved that boolean expressions emit
 `checked` and `disabled` HTML attributes only when true. The route was removed
-after verification. `Switch` and `Radio` now use that mechanism in their source,
-but their complete rendered components still need a browser pass after the next
-UI package release. The [coverage inventory](component-coverage.md) keeps QA
-columns unknown until that broader pass is recorded.
+after verification. `Switch` and `Radio` use that mechanism in their source,
+and the published 0.0.75 catalog is covered by the browser checks above. The
+[coverage inventory](component-coverage.md) is a source inventory rather than
+a completion certificate; untested accessibility and edge states remain open.
