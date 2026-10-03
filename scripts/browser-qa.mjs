@@ -127,6 +127,34 @@ try {
       await select.selectOption('gold');
       assert.equal(await select.inputValue(), 'gold');
     });
+
+    await run(`Switch ${label}`, viewport, async (page) => {
+      await visit(page, '/components/switch');
+      const streaming = page.locator('input[name="streaming"]');
+      const drafts = page.locator('input[name="drafts"]');
+      assert.equal(await streaming.isChecked(), true, 'checked prop should reach the native input');
+      assert.equal(await drafts.isChecked(), false);
+      await streaming.click();
+      assert.equal(await streaming.isChecked(), false);
+      await drafts.focus();
+      await page.keyboard.press('Space');
+      assert.equal(await drafts.isChecked(), true, 'Space should toggle a focused switch');
+    });
+
+    await run(`Radio ${label}`, viewport, async (page) => {
+      await visit(page, '/components/radio');
+      const site = page.locator('input[name="template"][value="site"]');
+      const docs = page.locator('input[name="template"][value="docs"]');
+      const blog = page.locator('input[name="template"][value="blog"]');
+      assert.equal(await site.isChecked(), true, 'checked prop should select the initial radio');
+      await blog.click();
+      assert.equal(await blog.isChecked(), true);
+      assert.equal(await site.isChecked(), false, 'radio group should be mutually exclusive');
+      await docs.focus();
+      await page.keyboard.press('Space');
+      assert.equal(await docs.isChecked(), true, 'Space should select a focused radio');
+      assert.equal(await blog.isChecked(), false);
+    });
   }
 } finally {
   await browser.close();
