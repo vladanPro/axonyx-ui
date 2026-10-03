@@ -23,7 +23,7 @@ Chromium browser must be installed for the local developer environment.
 | Drawer | Plain ID and CSS-selector triggers, close button, Escape, focus restoration at both widths | Full focus trap and nested drawers |
 | Popover | Keyboard open, `aria-expanded`, Escape, focus restoration at both widths | Rich interactive content and positioning at viewport edges |
 | AlertDialog | Open, Cancel focus, backdrop cannot dismiss, Escape and focus restoration at both widths | Screen-reader announcement and destructive action wiring |
-| DropdownMenu | Keyboard open, `aria-expanded`, menu links, Escape and focus restoration at both widths | Arrow-key menu navigation and menu role semantics |
+| DropdownMenu | Native link semantics, keyboard open, `aria-expanded`, ArrowUp/ArrowDown/Home/End navigation, Tab exit, Escape and focus restoration at both widths | Disabled items, type-ahead, and assistive-technology review |
 | Combobox | Native datalist association, three options, typed value at both widths | Browser suggestion popup interaction and validation |
 | Checkbox | Native toggle, checked initial value, and disabled input at both widths | Assistive-technology review |
 | Select | Native selection changes at both widths | Disabled/invalid states and long option lists |
