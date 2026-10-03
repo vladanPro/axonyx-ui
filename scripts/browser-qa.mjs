@@ -78,6 +78,44 @@ try {
       assert.equal(await trigger.evaluate((node) => node === document.activeElement), true);
     });
 
+    await run(`AlertDialog ${label}`, viewport, async (page) => {
+      await visit(page, '/components/alert-dialog');
+      const trigger = page.getByRole('button', { name: 'Delete project' }).first();
+      const dialog = page.locator('#delete-project-dialog');
+      await trigger.click();
+      assert.equal(await dialog.getAttribute('data-open'), 'true');
+      assert.equal(await page.evaluate(() => document.activeElement?.textContent?.trim()), 'Cancel');
+      await dialog.locator('.ax-dialog__backdrop').click({ force: true });
+      assert.equal(await dialog.getAttribute('data-open'), 'true', 'backdrop must not dismiss a destructive confirmation');
+      await page.keyboard.press('Escape');
+      assert.equal(await dialog.getAttribute('data-open'), 'false');
+      assert.equal(await trigger.evaluate((node) => node === document.activeElement), true);
+    });
+
+    await run(`DropdownMenu ${label}`, viewport, async (page) => {
+      await visit(page, '/components/dropdown-menu');
+      const menu = page.locator('.ax-dropdown').first();
+      const trigger = menu.locator('button').first();
+      await trigger.focus();
+      await page.keyboard.press('Enter');
+      assert.equal(await menu.getAttribute('data-open'), 'true');
+      assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
+      assert.equal(await menu.locator('a[href="/components"]').count(), 1);
+      await page.keyboard.press('Escape');
+      assert.equal(await menu.getAttribute('data-open'), 'false');
+      assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+      assert.equal(await trigger.evaluate((node) => node === document.activeElement), true);
+    });
+
+    await run(`Combobox ${label}`, viewport, async (page) => {
+      await visit(page, '/components/combobox');
+      const input = page.getByRole('combobox', { name: 'Project environment' });
+      assert.equal(await input.getAttribute('list'), 'environment-options');
+      assert.equal(await page.locator('#environment-options option').count(), 3);
+      await input.fill('Production');
+      assert.equal(await input.inputValue(), 'Production');
+    });
+
     await run(`Native form controls ${label}`, viewport, async (page) => {
       await visit(page, '/components/checkbox');
       const checkbox = page.locator('input[name="deploy_preview"]');
