@@ -395,6 +395,12 @@
       });
 
       if (root.matches('.ax-dropdown')) {
+        root.addEventListener('focusout', (event) => {
+          if (root.contains(event.relatedTarget)) return;
+          root.dataset.open = 'false';
+          trigger.setAttribute('aria-expanded', 'false');
+        });
+
         trigger.addEventListener('keydown', (event) => {
           if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
           event.preventDefault();

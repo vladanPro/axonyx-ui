@@ -124,7 +124,10 @@ try {
       await page.keyboard.press('ArrowUp');
       assert.equal(await menu.getAttribute('data-open'), 'true');
       assert.equal(await items.last().evaluate((node) => node === document.activeElement), true);
-      await page.keyboard.press('Escape');
+      await page.keyboard.press('Tab');
+      assert.equal(await menu.getAttribute('data-open'), 'false', 'leaving the dropdown should close it');
+      assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
+      assert.equal(await menu.evaluate((node) => node.contains(document.activeElement)), false);
     });
 
     await run(`Combobox ${label}`, viewport, async (page) => {
