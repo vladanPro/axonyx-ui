@@ -65,9 +65,11 @@ behavior runtime are wired into `app/layout.asx`.
 
 The [component coverage inventory](docs/component-coverage.md) distinguishes
 native source files, catalog imports, registry entries, and React exports.
-Interaction, keyboard, and mobile behavior remain unverified until a browser
-QA pass records evidence. Regenerate the inventory with `npm run audit:coverage`
+Its QA columns remain unknown because this source inventory does not consume
+browser test results. Regenerate it with `npm run audit:coverage`
 when the sibling `axonyx-site-ui` and `axonyx-react` repositories are present.
+The targeted [browser QA notes](docs/browser-qa.md) cover the first overlay and
+basic form scenarios; run them with `npm run test:browser` against a local catalog.
 
 The long-term CLI goal is:
 

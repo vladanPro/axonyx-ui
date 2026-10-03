@@ -27,12 +27,17 @@
     "dist",
     "docs/foundry-finish.md",
     "docs/component-coverage.md",
+    "docs/browser-qa.md",
     "README.md"
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
     "audit:coverage": "node scripts/audit-component-coverage.mjs --write",
+    "test:browser": "node scripts/browser-qa.mjs",
     "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "playwright": "1.60.0"
   },
   "keywords": [
     "axonyx",

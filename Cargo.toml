@@ -18,9 +18,12 @@ include = [
   "src/js/**",
   "src/foundry/**",
   "docs/foundry-finish.md",
+  "docs/component-coverage.md",
+  "docs/browser-qa.md",
   "README.md",
   "package.json",
   "!dist/**",
+  "!node_modules/**",
 ]
 
 [lib]
