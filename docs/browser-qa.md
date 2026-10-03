@@ -27,10 +27,12 @@ Chromium browser must be installed for the local developer environment.
 | Combobox | Native datalist association, three options, typed value at both widths | Browser suggestion popup interaction and validation |
 | Checkbox | Native checkbox toggles at both widths | Disabled/checked props in a released catalog package |
 | Select | Native selection changes at both widths | Disabled/invalid states and long option lists |
+| Switch | Initial checked state, pointer toggle, and Space toggle at both widths | Disabled state and assistive-technology review |
+| Radio | Initial selection, exclusive group behavior, pointer and Space selection at both widths | Disabled state and arrow-key navigation |
 
 Separately, a temporary Axonyx route proved that boolean expressions emit
 `checked` and `disabled` HTML attributes only when true. The route was removed
-after verification. `Switch` and `Radio` now use that mechanism in their source,
-but their complete rendered components still need a browser pass after the next
-UI package release. The [coverage inventory](component-coverage.md) keeps QA
-columns unknown until that broader pass is recorded.
+after verification. `Switch` and `Radio` use that mechanism in their source,
+and the published 0.0.75 catalog is covered by the browser checks above. The
+[coverage inventory](component-coverage.md) is a source inventory rather than
+a completion certificate; untested accessibility and edge states remain open.
