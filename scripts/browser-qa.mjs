@@ -122,6 +122,14 @@ try {
       assert.equal(await checkbox.isChecked(), false);
       await checkbox.check();
       assert.equal(await checkbox.isChecked(), true);
+      const checks = page.locator('input[name="run_checks"]');
+      const notify = page.locator('input[name="notify_team"]');
+      assert.equal(await checks.isChecked(), true);
+      assert.equal(await notify.isDisabled(), true);
+      await notify.focus();
+      assert.equal(await notify.evaluate((node) => node === document.activeElement), false, 'disabled checkbox must not receive focus');
+      await notify.evaluate((node) => node.parentElement.click());
+      assert.equal(await notify.isChecked(), false, 'disabled checkbox must not toggle from its label');
       await visit(page, '/components/select');
       const select = page.locator('select[name="theme"]');
       await select.selectOption('gold');
@@ -132,6 +140,7 @@ try {
       await visit(page, '/components/switch');
       const streaming = page.locator('input[name="streaming"]');
       const drafts = page.locator('input[name="drafts"]');
+      const notifications = page.locator('input[name="notifications"]');
       assert.equal(await streaming.isChecked(), true, 'checked prop should reach the native input');
       assert.equal(await drafts.isChecked(), false);
       await streaming.click();
@@ -139,6 +148,11 @@ try {
       await drafts.focus();
       await page.keyboard.press('Space');
       assert.equal(await drafts.isChecked(), true, 'Space should toggle a focused switch');
+      assert.equal(await notifications.isDisabled(), true);
+      await notifications.focus();
+      assert.equal(await notifications.evaluate((node) => node === document.activeElement), false, 'disabled switch must not receive focus');
+      await notifications.evaluate((node) => node.parentElement.click());
+      assert.equal(await notifications.isChecked(), false, 'disabled switch must not toggle from its label');
     });
 
     await run(`Radio ${label}`, viewport, async (page) => {
@@ -146,7 +160,9 @@ try {
       const site = page.locator('input[name="template"][value="site"]');
       const docs = page.locator('input[name="template"][value="docs"]');
       const blog = page.locator('input[name="template"][value="blog"]');
+      const portfolio = page.locator('input[name="template"][value="portfolio"]');
       assert.equal(await site.isChecked(), true, 'checked prop should select the initial radio');
+      assert.equal(await portfolio.isDisabled(), true);
       await blog.click();
       assert.equal(await blog.isChecked(), true);
       assert.equal(await site.isChecked(), false, 'radio group should be mutually exclusive');
@@ -154,6 +170,11 @@ try {
       await page.keyboard.press('Space');
       assert.equal(await docs.isChecked(), true, 'Space should select a focused radio');
       assert.equal(await blog.isChecked(), false);
+      await page.keyboard.press('ArrowRight');
+      assert.equal(await blog.isChecked(), true, 'arrow key should move within the radio group');
+      await page.keyboard.press('ArrowRight');
+      assert.equal(await site.isChecked(), true, 'arrow key should skip disabled radio and wrap');
+      assert.equal(await portfolio.isChecked(), false);
     });
   }
 } finally {
