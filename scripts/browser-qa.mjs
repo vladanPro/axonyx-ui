@@ -101,10 +101,30 @@ try {
       assert.equal(await menu.getAttribute('data-open'), 'true');
       assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
       assert.equal(await menu.locator('a[href="/components"]').count(), 1);
+      assert.equal(await menu.locator('[role="menu"]').count(), 0, 'navigation links must keep native link semantics');
+      const items = menu.locator('.ax-dropdown__item');
+      await page.keyboard.press('Tab');
+      assert.equal(await items.first().evaluate((node) => node === document.activeElement), true, 'Tab should enter native links');
+      await page.keyboard.press('Shift+Tab');
+      assert.equal(await trigger.evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('ArrowDown');
+      assert.equal(await items.nth(0).evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('ArrowDown');
+      assert.equal(await items.nth(1).evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('ArrowUp');
+      assert.equal(await items.first().evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('End');
+      assert.equal(await items.last().evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('Home');
+      assert.equal(await items.first().evaluate((node) => node === document.activeElement), true);
       await page.keyboard.press('Escape');
       assert.equal(await menu.getAttribute('data-open'), 'false');
       assert.equal(await trigger.getAttribute('aria-expanded'), 'false');
       assert.equal(await trigger.evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('ArrowUp');
+      assert.equal(await menu.getAttribute('data-open'), 'true');
+      assert.equal(await items.last().evaluate((node) => node === document.activeElement), true);
+      await page.keyboard.press('Escape');
     });
 
     await run(`Combobox ${label}`, viewport, async (page) => {

@@ -376,6 +376,13 @@
       const trigger = root.querySelector('.ax-dropdown__trigger, .ax-popover__trigger, .ax-popover > button, [slot="trigger"]');
       if (!trigger) return;
 
+      const dropdownItems = () => Array.from(root.querySelectorAll('.ax-dropdown__menu .ax-dropdown__item'))
+        .filter((item) => !item.matches('[disabled], [aria-disabled="true"]'));
+      const focusDropdownItem = (index) => {
+        const items = dropdownItems();
+        if (items.length) items[(index + items.length) % items.length].focus();
+      };
+
       root.dataset.open = root.dataset.open === 'true' ? 'true' : 'false';
       trigger.setAttribute('aria-expanded', root.dataset.open);
       trigger.addEventListener('click', (event) => {
@@ -386,16 +393,38 @@
         root.dataset.open = open ? 'false' : 'true';
         trigger.setAttribute('aria-expanded', root.dataset.open);
       });
+
+      if (root.matches('.ax-dropdown')) {
+        trigger.addEventListener('keydown', (event) => {
+          if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+          event.preventDefault();
+          event.stopPropagation();
+          closeFloatingSurfaces(root);
+          root.dataset.open = 'true';
+          trigger.setAttribute('aria-expanded', 'true');
+          focusDropdownItem(event.key === 'ArrowDown' ? 0 : -1);
+        });
+
+        root.addEventListener('keydown', (event) => {
+          if (root.dataset.open !== 'true') return;
+          const items = dropdownItems();
+          const current = items.indexOf(document.activeElement);
+          if (current < 0) return;
+
+          let next;
+          if (event.key === 'ArrowDown') next = current + 1;
+          else if (event.key === 'ArrowUp') next = current - 1;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = items.length - 1;
+          else return;
+
+          event.preventDefault();
+          focusDropdownItem(next);
+        });
+      }
     });
 
     document.addEventListener('click', () => closeFloatingSurfaces());
-    document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
-      const open = document.querySelector('.ax-dropdown[data-open="true"], .ax-popover[data-open="true"]');
-      if (!open) return;
-      closeFloatingSurfaces();
-      open.querySelector('.ax-dropdown__trigger, .ax-popover > button')?.focus();
-    });
   }
 
   const previousDrawerFocus = new WeakMap();
@@ -621,7 +650,9 @@
     }
 
     if (event.key !== 'Escape') return;
+    const openFloatingSurface = document.querySelector('.ax-dropdown[data-open="true"], .ax-popover[data-open="true"]');
     closeFloatingSurfaces();
+    openFloatingSurface?.querySelector('.ax-dropdown__trigger, .ax-popover > button')?.focus();
     closeDrawer(document.querySelector('.ax-drawer[data-open="true"]'));
   });
 
