@@ -1,16 +1,7 @@
 component Field(state = "", htmlFor = "") {
   return ASX {
-    <label class="ax-field" data-state={state} for={htmlFor}>
-      <span class="ax-field__label">
-        <Slot name="label" />
-      </span>
+    <div class="ax-field" data-state={state} data-for={htmlFor}>
       <Slot />
-      <p class="ax-field__hint">
-        <Slot name="hint" />
-      </p>
-      <p class="ax-field__error">
-        <Slot name="error" />
-      </p>
-    </label>
+    </div>
   }
 }

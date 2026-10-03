@@ -1,6 +1,6 @@
-component Select(size = "", surface = "", id = "", name = "", disabled = "", invalid = "") {
+component Select(size = "", surface = "", id = "", name = "", disabled = "", invalid = "", required = "", describedBy = "") {
   return ASX {
-    <select class="ax-select" data-size={size} data-surface={surface} id={id} name={name} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid}>
+    <select class="ax-select" data-size={size} data-surface={surface} id={id} name={name} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid} aria-describedby={describedBy} disabled={disabled == "true"} required={required == "true"}>
       <Slot />
     </select>
   }

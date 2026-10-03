@@ -1,6 +1,6 @@
-component Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "") {
+component Textarea(size = "", id = "", name = "", value = "", placeholder = "", disabled = "", invalid = "", required = "", describedBy = "") {
   return ASX {
-    <textarea class="ax-textarea" data-size={size} id={id} name={name} placeholder={placeholder} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid}>
+    <textarea class="ax-textarea" data-size={size} id={id} name={name} placeholder={placeholder} data-disabled={disabled} data-invalid={invalid} aria-invalid={invalid} aria-describedby={describedBy} disabled={disabled == "true"} required={required == "true"}>
       {value}
     </textarea>
   }
