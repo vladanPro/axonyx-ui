@@ -7,14 +7,17 @@ import { chromium } from 'playwright';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const baseUrl = process.env.AXONYX_UI_BASE_URL || 'http://127.0.0.1:3105';
 const localBehavior = readFileSync(join(root, 'src', 'js', 'index.js'), 'utf8');
+const usePackageBehavior = process.env.AXONYX_UI_USE_PACKAGE_JS === '1';
 const browser = await chromium.launch({ headless: true });
 
 async function run(name, viewport, check) {
   const page = await browser.newPage({ viewport });
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.route(/\/_ax\/pkg\/axonyx-ui\/js\/index\.[^/]+\.js$/, (route) =>
-    route.fulfill({ status: 200, contentType: 'application/javascript', body: localBehavior }));
+  if (!usePackageBehavior) {
+    await page.route(/\/_ax\/pkg\/axonyx-ui\/js\/index\.[^/]+\.js$/, (route) =>
+      route.fulfill({ status: 200, contentType: 'application/javascript', body: localBehavior }));
+  }
 
   try {
     await check(page);
