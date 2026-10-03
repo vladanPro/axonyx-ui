@@ -1,6 +1,6 @@
-component FieldError {
+component FieldError(id = "") {
   return ASX {
-    <p class="ax-field__error">
+    <p class="ax-field__error" id={id}>
       <Slot />
     </p>
   }

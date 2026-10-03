@@ -48,7 +48,7 @@ import "@axonyx/ui/css/index.css";
 
 ```toml
 [dependencies]
-axonyx-ui = "0.0.75"
+axonyx-ui = "0.0.76"
 ```
 
 The Cargo crate embeds the same Foundry assets that the npm package ships.
@@ -130,6 +130,22 @@ through 600px. Use `min` instead for an intrinsic auto-fit grid.
 ```
 
 The React `Grid` wrapper exposes the same props and uses the same CSS contract.
+
+## Native forms
+
+`Field` is a layout container, not a label. Pair it with `FieldLabel` and a
+matching input `id`; give hints and errors their own IDs when the input should
+announce them. `Input`, `Textarea`, and `Select` forward `required="true"` and
+`disabled="true"` to native HTML controls. Browser validation is not a
+substitute for server-side action validation.
+
+```asx
+<Field htmlFor="project-name">
+  <FieldLabel htmlFor="project-name">Project name</FieldLabel>
+  <Input id="project-name" name="project_name" required="true" describedBy="project-hint" />
+  <FieldHint id="project-hint">Required for the project.</FieldHint>
+</Field>
+```
 
 ## Theme Model
 

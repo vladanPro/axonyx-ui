@@ -136,6 +136,27 @@ try {
       assert.equal(await select.inputValue(), 'gold');
     });
 
+    await run(`Form contract ${label}`, viewport, async (page) => {
+      await visit(page, '/components/forms');
+      const name = page.locator('input[name="name"]');
+      const label = page.locator('label[for="name"]');
+      assert.equal(await page.locator('.ax-field').first().evaluate((node) => node.tagName), 'DIV');
+      assert.equal(await page.locator('label label').count(), 0, 'form labels must not be nested');
+      assert.equal(await name.getAttribute('aria-describedby'), 'name-hint');
+      assert.equal(await page.locator('#name-hint').textContent(), 'Required for the project.');
+      assert.equal(await name.evaluate((node) => node.required), true);
+      assert.equal(await name.evaluate((node) => node.checkValidity()), false);
+      await label.click();
+      assert.equal(await name.evaluate((node) => node === document.activeElement), true);
+      await name.fill('Blockbit');
+      assert.equal(await name.evaluate((node) => node.checkValidity()), true);
+      assert.equal(await page.locator('textarea[name="notes"]').isDisabled(), true);
+      assert.equal(await page.locator('select[name="type"]').evaluate((node) => node.required), true);
+      assert.equal(await page.locator('select[name="region"]').isDisabled(), true);
+      await visit(page, '/components/input');
+      assert.equal(await page.locator('input[name="build_id"]').isDisabled(), true);
+    });
+
     await run(`Switch ${label}`, viewport, async (page) => {
       await visit(page, '/components/switch');
       const streaming = page.locator('input[name="streaming"]');
