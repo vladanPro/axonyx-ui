@@ -22,6 +22,9 @@ Chromium browser must be installed for the local developer environment.
 | Dialog | Open, focus close button, Escape, restore trigger focus at desktop and mobile widths | Full screen-reader review and nested dialogs |
 | Drawer | Plain ID and CSS-selector triggers, close button, Escape, focus restoration at both widths | Full focus trap and nested drawers |
 | Popover | Keyboard open, `aria-expanded`, Escape, focus restoration at both widths | Rich interactive content and positioning at viewport edges |
+| AlertDialog | Open, Cancel focus, backdrop cannot dismiss, Escape and focus restoration at both widths | Screen-reader announcement and destructive action wiring |
+| DropdownMenu | Keyboard open, `aria-expanded`, menu links, Escape and focus restoration at both widths | Arrow-key menu navigation and menu role semantics |
+| Combobox | Native datalist association, three options, typed value at both widths | Browser suggestion popup interaction and validation |
 | Checkbox | Native checkbox toggles at both widths | Disabled/checked props in a released catalog package |
 | Select | Native selection changes at both widths | Disabled/invalid states and long option lists |
 
