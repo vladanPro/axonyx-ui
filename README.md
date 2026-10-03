@@ -59,8 +59,15 @@ behavior runtime are wired into `app/layout.asx`.
 
 `Axonyx.registry.toml` describes the first native registry slice:
 
-- Components V0: `Button`, `Card`, `Field`, `AppShell`, `Sidebar`
+- Components V0: 25 registered entries, from `Button` and `Card` to layout,
+  form, navigation, and overlay primitives
 - Blocks V0: `marketing-01`, `docs-01`, `dashboard-01`, `login-01`, `settings-01`
+
+The [component coverage inventory](docs/component-coverage.md) distinguishes
+native source files, catalog imports, registry entries, and React exports.
+Interaction, keyboard, and mobile behavior remain unverified until a browser
+QA pass records evidence. Regenerate the inventory with `npm run audit:coverage`
+when the sibling `axonyx-site-ui` and `axonyx-react` repositories are present.
 
 The long-term CLI goal is:
 

@@ -26,10 +26,12 @@
   "files": [
     "dist",
     "docs/foundry-finish.md",
+    "docs/component-coverage.md",
     "README.md"
   ],
   "scripts": {
     "build": "node scripts/build.mjs",
+    "audit:coverage": "node scripts/audit-component-coverage.mjs --write",
     "prepack": "npm run build"
   },
   "keywords": [
