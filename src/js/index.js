@@ -367,6 +367,7 @@
     document.querySelectorAll('.ax-dropdown, .ax-popover').forEach((root) => {
       if (except && root === except) return;
       root.dataset.open = 'false';
+      root.querySelector('.ax-dropdown__trigger, .ax-popover > button')?.setAttribute('aria-expanded', 'false');
     });
   }
 
@@ -376,28 +377,43 @@
       if (!trigger) return;
 
       root.dataset.open = root.dataset.open === 'true' ? 'true' : 'false';
+      trigger.setAttribute('aria-expanded', root.dataset.open);
       trigger.addEventListener('click', (event) => {
         event.preventDefault();
         event.stopPropagation();
         const open = root.dataset.open === 'true';
         closeFloatingSurfaces(root);
         root.dataset.open = open ? 'false' : 'true';
+        trigger.setAttribute('aria-expanded', root.dataset.open);
       });
     });
 
     document.addEventListener('click', () => closeFloatingSurfaces());
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      const open = document.querySelector('.ax-dropdown[data-open="true"], .ax-popover[data-open="true"]');
+      if (!open) return;
+      closeFloatingSurfaces();
+      open.querySelector('.ax-dropdown__trigger, .ax-popover > button')?.focus();
+    });
   }
+
+  const previousDrawerFocus = new WeakMap();
 
   function closeDrawer(drawer) {
     if (!drawer) return;
     drawer.dataset.open = 'false';
     drawer.setAttribute('aria-hidden', 'true');
+    previousDrawerFocus.get(drawer)?.focus();
+    previousDrawerFocus.delete(drawer);
   }
 
   function openDrawer(drawer) {
     if (!drawer) return;
+    previousDrawerFocus.set(drawer, document.activeElement);
     drawer.dataset.open = 'true';
     drawer.removeAttribute('aria-hidden');
+    drawer.querySelector('button[data-ax-drawer-close]')?.focus();
   }
 
   function bootDrawers() {
@@ -415,9 +431,11 @@
 
     document.querySelectorAll('[data-ax-drawer-open]').forEach((trigger) => {
       trigger.addEventListener('click', () => {
-        const selector = trigger.getAttribute('data-ax-drawer-open');
-        if (!selector) return;
-        openDrawer(document.querySelector(selector));
+        const target = trigger.getAttribute('data-ax-drawer-open');
+        if (!target) return;
+        const byId = document.getElementById(target);
+        const drawer = byId || document.querySelector(target);
+        openDrawer(drawer?.matches('.ax-drawer') ? drawer : drawer?.querySelector('.ax-drawer'));
       });
     });
   }
@@ -451,7 +469,7 @@
     dialog.removeAttribute('hidden');
     document.documentElement.dataset.dialogOpen = 'true';
 
-    const closeButton = dialog.querySelector('[data-ax-dialog-close]');
+    const closeButton = dialog.querySelector('button[data-ax-dialog-close]');
     if (closeButton && closeButton.focus) closeButton.focus();
   }
 
