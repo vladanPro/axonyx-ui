@@ -7,14 +7,19 @@ import { chromium } from 'playwright';
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const baseUrl = process.env.AXONYX_UI_BASE_URL || 'http://127.0.0.1:3105';
 const localBehavior = readFileSync(join(root, 'src', 'js', 'index.js'), 'utf8');
+const usePackageBehavior = process.env.AXONYX_UI_USE_PACKAGE_JS === '1';
+const useSourceCss = process.env.AXONYX_UI_USE_SOURCE_CSS === '1';
+const checkCssFix = process.env.AXONYX_UI_CHECK_CSS_FIX === '1';
 const browser = await chromium.launch({ headless: true });
 
 async function run(name, viewport, check) {
   const page = await browser.newPage({ viewport });
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  await page.route(/\/_ax\/pkg\/axonyx-ui\/js\/index\.[^/]+\.js$/, (route) =>
-    route.fulfill({ status: 200, contentType: 'application/javascript', body: localBehavior }));
+  if (!usePackageBehavior) {
+    await page.route(/\/_ax\/pkg\/axonyx-ui\/js\/index\.[^/]+\.js$/, (route) =>
+      route.fulfill({ status: 200, contentType: 'application/javascript', body: localBehavior }));
+  }
 
   try {
     await check(page);
@@ -28,6 +33,11 @@ async function run(name, viewport, check) {
 async function visit(page, route) {
   const response = await page.goto(`${baseUrl}${route}`);
   assert.equal(response?.status(), 200, `${route} should render`);
+  if (useSourceCss) {
+    for (const file of ['component-example.css', 'foundry.css']) {
+      await page.addStyleTag({ content: readFileSync(join(root, 'src', 'css', file), 'utf8') });
+    }
+  }
 }
 
 try {
@@ -102,6 +112,13 @@ try {
       assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
       assert.equal(await menu.locator('a[href="/components"]').count(), 1);
       assert.equal(await menu.locator('[role="menu"]').count(), 0, 'navigation links must keep native link semantics');
+      if (checkCssFix) {
+        await menu.locator('.ax-dropdown__menu').scrollIntoViewIfNeeded();
+        assert.equal(await menu.locator('.ax-dropdown__menu').evaluate((node) => {
+          const rect = node.getBoundingClientRect();
+          return node.contains(document.elementFromPoint(rect.left + rect.width / 2, rect.bottom - 8));
+        }), true, 'open dropdown must be hit-testable beyond the preview boundary');
+      }
       const items = menu.locator('.ax-dropdown__item');
       await page.keyboard.press('Tab');
       assert.equal(await items.first().evaluate((node) => node === document.activeElement), true, 'Tab should enter native links');
@@ -220,6 +237,30 @@ try {
       assert.equal(await site.isChecked(), true, 'arrow key should skip disabled radio and wrap');
       assert.equal(await portfolio.isChecked(), false);
     });
+
+    if (checkCssFix) {
+      await run(`Field focus ${label}`, viewport, async (page) => {
+        await visit(page, '/components/field');
+        for (const [id, token] of [['project-name', '--ax-primary'], ['email', '--ax-danger']]) {
+          const input = page.locator(`#${id}`);
+          await input.focus();
+          const style = await input.evaluate((node, colorToken) => {
+            const probe = document.createElement('span');
+            probe.style.color = `var(${colorToken})`;
+            document.body.append(probe);
+            const result = {
+              outline: getComputedStyle(node).outlineStyle,
+              border: getComputedStyle(node).borderColor,
+              expected: getComputedStyle(probe).color,
+            };
+            probe.remove();
+            return result;
+          }, token);
+          assert.equal(style.outline, 'none', `${id} should not have an outer focus frame`);
+          assert.equal(style.border, style.expected, `${id} should use its semantic focus border`);
+        }
+      });
+    }
   }
 } finally {
   await browser.close();
