@@ -17,11 +17,13 @@
     display: grid;
     gap: 0.25rem;
     min-width: 12rem;
+    max-width: calc(100vw - 1rem);
     padding: 0.45rem;
     border: 1px solid var(--ax-border);
     border-radius: var(--ax-radius-md);
     background: color-mix(in srgb, var(--ax-surface) 94%, black);
     box-shadow: 0 22px 64px rgba(0, 0, 0, 0.34);
+    transform: translateX(var(--ax-dropdown-shift, 0px));
 }
 
 .ax-dropdown[data-open='false'] .ax-dropdown__menu {
