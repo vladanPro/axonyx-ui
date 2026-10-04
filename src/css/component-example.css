@@ -6,6 +6,12 @@
     background: var(--ax-surface);
 }
 
+.ax-component-example:has(.ax-dropdown[data-open='true'], .ax-popover[data-open='true']) {
+    position: relative;
+    z-index: 50;
+    overflow: visible;
+}
+
 .ax-component-example__header {
     display: grid;
     gap: var(--ax-space-xs);

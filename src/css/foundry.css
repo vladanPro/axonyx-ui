@@ -100,6 +100,16 @@
 :scope :is(button,input,select,textarea):disabled,
 :scope [data-disabled='true'] { opacity: .5; cursor: not-allowed; }
 :scope :is(button,a,input,select,textarea):focus-visible, :scope .ax-switch:has(input:focus-visible) { outline: 2px solid var(--ax-primary); outline-offset: 4px; }
+:scope .ax-field :is(.ax-input,.ax-textarea):focus-visible {
+    outline: none;
+    border-color: var(--ax-primary);
+    box-shadow: inset 0 0 0 1px var(--ax-primary), var(--ax-input-shadow);
+}
+:scope .ax-field[data-state='error'] :is(.ax-input,.ax-textarea):focus-visible,
+:scope .ax-field :is(.ax-input,.ax-textarea)[aria-invalid='true']:focus-visible {
+    border-color: var(--ax-danger);
+    box-shadow: inset 0 0 0 1px var(--ax-danger), var(--ax-input-shadow);
+}
 @media (prefers-reduced-motion: reduce) { :scope *, :scope *::before, :scope *::after { transition: none !important; animation: none !important; } }
 
 /* Classic: original tokens.css / themes.css and component base recipes. */
