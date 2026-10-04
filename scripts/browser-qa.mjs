@@ -34,7 +34,7 @@ async function visit(page, route) {
   const response = await page.goto(`${baseUrl}${route}`);
   assert.equal(response?.status(), 200, `${route} should render`);
   if (useSourceCss) {
-    for (const file of ['component-example.css', 'foundry.css']) {
+    for (const file of ['component-example.css', 'dropdown.css', 'foundry.css']) {
       await page.addStyleTag({ content: readFileSync(join(root, 'src', 'css', file), 'utf8') });
     }
   }
@@ -112,6 +112,13 @@ try {
       assert.equal(await trigger.getAttribute('aria-expanded'), 'true');
       assert.equal(await menu.locator('a[href="/components"]').count(), 1);
       assert.equal(await menu.locator('[role="menu"]').count(), 0, 'navigation links must keep native link semantics');
+      if (checkCssFix) {
+        const bounds = await menu.locator('.ax-dropdown__menu').evaluate((node) => {
+          const rect = node.getBoundingClientRect();
+          return { left: rect.left, right: rect.right, viewport: window.innerWidth };
+        });
+        assert.ok(bounds.left >= 7 && bounds.right <= bounds.viewport - 7, 'dropdown must stay inside the viewport');
+      }
       if (checkCssFix) {
         await menu.locator('.ax-dropdown__menu').scrollIntoViewIfNeeded();
         assert.equal(await menu.locator('.ax-dropdown__menu').evaluate((node) => {

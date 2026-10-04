@@ -372,6 +372,25 @@
   }
 
   function bootFloatingSurfaces() {
+    function positionDropdown(root) {
+      const menu = root.querySelector('.ax-dropdown__menu');
+      if (!menu) return;
+
+      const preferred = menu.dataset.preferredAlign || menu.dataset.align || 'end';
+      menu.dataset.preferredAlign = preferred;
+      menu.dataset.align = preferred;
+      menu.style.removeProperty('--ax-dropdown-shift');
+
+      let rect = menu.getBoundingClientRect();
+      if (preferred === 'end' && rect.left < 8) menu.dataset.align = 'start';
+      else if (preferred === 'start' && rect.right > window.innerWidth - 8) menu.dataset.align = 'end';
+
+      rect = menu.getBoundingClientRect();
+      const shift = rect.left < 8 ? 8 - rect.left
+        : rect.right > window.innerWidth - 8 ? window.innerWidth - 8 - rect.right : 0;
+      if (shift) menu.style.setProperty('--ax-dropdown-shift', `${shift}px`);
+    }
+
     document.querySelectorAll('.ax-dropdown, .ax-popover').forEach((root) => {
       const trigger = root.querySelector('.ax-dropdown__trigger, .ax-popover__trigger, .ax-popover > button, [slot="trigger"]');
       if (!trigger) return;
@@ -392,6 +411,7 @@
         closeFloatingSurfaces(root);
         root.dataset.open = open ? 'false' : 'true';
         trigger.setAttribute('aria-expanded', root.dataset.open);
+        if (root.dataset.open === 'true' && root.matches('.ax-dropdown')) positionDropdown(root);
       });
 
       if (root.matches('.ax-dropdown')) {
@@ -408,6 +428,7 @@
           closeFloatingSurfaces(root);
           root.dataset.open = 'true';
           trigger.setAttribute('aria-expanded', 'true');
+          positionDropdown(root);
           focusDropdownItem(event.key === 'ArrowDown' ? 0 : -1);
         });
 
@@ -431,6 +452,9 @@
     });
 
     document.addEventListener('click', () => closeFloatingSurfaces());
+    window.addEventListener('resize', () => {
+      document.querySelectorAll('.ax-dropdown[data-open="true"]').forEach(positionDropdown);
+    });
   }
 
   const previousDrawerFocus = new WeakMap();
