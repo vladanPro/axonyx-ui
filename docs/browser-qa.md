@@ -27,7 +27,8 @@ Chromium browser must be installed for the local developer environment.
 | Combobox | Native datalist association, three options, typed value at both widths | Browser suggestion popup interaction and validation |
 | Checkbox | Native toggle, checked initial value, and disabled input at both widths | Assistive-technology review |
 | Select | Native selection changes at both widths | Disabled/invalid states and long option lists |
-| Form contract | Field/label structure, required input validation, hint association, and disabled textarea at both widths | Backend action submission and assistive-technology review |
+| Option | Non-first initial selection, false flag omission, disabled keyboard skipping, reset, GET submission, and a required disabled placeholder at both widths with JS enabled and disabled | Native picker pointer interaction across operating systems and assistive-technology review |
+| Form contract | Field/label structure, required input validation, hint association, and omitted disabled record ID at both widths | Backend action submission and assistive-technology review |
 | Switch | Initial checked state, pointer and Space toggles, and disabled input at both widths | Assistive-technology review |
 | Radio | Initial selection, exclusive group behavior, pointer and Space selection, disabled option, and arrow-key navigation at both widths | Assistive-technology review |
 
@@ -38,3 +39,9 @@ and the 0.0.75 catalog was covered by the browser checks above. The native form
 contract additions are exercised against the 0.0.76 catalog pilot. The
 [coverage inventory](component-coverage.md) is a source inventory rather than
 a completion certificate; untested accessibility and edge states remain open.
+
+The 0.0.80 Select pilot uses actual native selected/disabled attributes. The suite
+includes four Option scenarios (desktop/mobile, JS/no-JS) and is aligned with the
+current Forms overview and CMS Form example. Before publication, the native
+catalog was built against the local UI path; replacing only JS would not test
+changes to the Option markup. The complete suite passed 24 browser scenarios.

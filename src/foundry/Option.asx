@@ -1,6 +1,6 @@
 component Option(value = "", selected = "", disabled = "") {
   return ASX {
-    <option value={value} data-selected={selected} data-disabled={disabled}>
+    <option value={value} data-selected={selected} data-disabled={disabled} selected={selected == "true"} disabled={disabled == "true"}>
       <Slot />
     </option>
   }
