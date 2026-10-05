@@ -12,8 +12,8 @@ const useSourceCss = process.env.AXONYX_UI_USE_SOURCE_CSS === '1';
 const checkCssFix = process.env.AXONYX_UI_CHECK_CSS_FIX === '1';
 const browser = await chromium.launch({ headless: true });
 
-async function run(name, viewport, check) {
-  const page = await browser.newPage({ viewport });
+async function run(name, viewport, check, options = {}) {
+  const page = await browser.newPage({ viewport, ...options });
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   if (!usePackageBehavior) {
@@ -185,24 +185,72 @@ try {
 
     await run(`Form contract ${label}`, viewport, async (page) => {
       await visit(page, '/components/forms');
-      const name = page.locator('input[name="name"]');
-      const label = page.locator('label[for="name"]');
+      const name = page.locator('input[name="project_name"]');
+      const fieldLabel = page.locator('label[for="settings-name"]');
       assert.equal(await page.locator('.ax-field').first().evaluate((node) => node.tagName), 'DIV');
       assert.equal(await page.locator('label label').count(), 0, 'form labels must not be nested');
-      assert.equal(await name.getAttribute('aria-describedby'), 'name-hint');
-      assert.equal(await page.locator('#name-hint').textContent(), 'Required for the project.');
+      assert.equal(await name.getAttribute('aria-describedby'), 'settings-name-hint');
+      assert.equal(await page.locator('#settings-name-hint').textContent(), 'Required for the project.');
       assert.equal(await name.evaluate((node) => node.required), true);
       assert.equal(await name.evaluate((node) => node.checkValidity()), false);
-      await label.click();
+      await fieldLabel.click();
       assert.equal(await name.evaluate((node) => node === document.activeElement), true);
       await name.fill('Blockbit');
       assert.equal(await name.evaluate((node) => node.checkValidity()), true);
-      assert.equal(await page.locator('textarea[name="notes"]').isDisabled(), true);
-      assert.equal(await page.locator('select[name="type"]').evaluate((node) => node.required), true);
-      assert.equal(await page.locator('select[name="region"]').isDisabled(), true);
+      await visit(page, '/components/form');
+      const editor = page.locator('#cms-editor form');
+      assert.equal(await editor.locator('textarea[name="summary"]').isDisabled(), false);
+      assert.equal(await editor.locator('input[name="post_id"]').isDisabled(), true);
+      const values = await editor.evaluate((node) => Object.fromEntries(new FormData(node)));
+      assert.equal('post_id' in values, false, 'disabled record ID must not be submitted');
       await visit(page, '/components/input');
       assert.equal(await page.locator('input[name="build_id"]').isDisabled(), true);
     });
+
+    for (const javaScriptEnabled of [true, false]) {
+      await run(`Select option flags ${label} ${javaScriptEnabled ? 'JS' : 'no JS'}`, viewport, async (page) => {
+        await visit(page, '/components/select');
+        const form = page.locator('#option-form form');
+        const select = form.locator('select[name="status"]');
+        assert.equal(await select.inputValue(), 'published', 'selected prop should choose a non-first option');
+        assert.equal(await select.locator('option[value="published"]').evaluate((node) => node.defaultSelected), true);
+        assert.equal(await select.locator('option[value="archived"]').evaluate((node) => node.disabled), true);
+        const draft = select.locator('option[value="draft"]');
+        assert.equal(await draft.getAttribute('selected'), null, 'selected=false must omit the boolean attribute');
+        assert.equal(await draft.getAttribute('disabled'), null, 'disabled=false must omit the boolean attribute');
+        await select.focus();
+        await page.keyboard.press('ArrowDown');
+        assert.equal(await select.inputValue(), 'scheduled', 'keyboard should skip the disabled archived option');
+        await page.keyboard.press('ArrowUp');
+        assert.equal(await select.inputValue(), 'published');
+        await select.selectOption('draft');
+        await form.getByRole('button', { name: 'Reset selection' }).click();
+        assert.equal(await select.inputValue(), 'published', 'reset should restore the selected prop');
+        await select.selectOption('scheduled');
+        const values = await form.evaluate((node) => Object.fromEntries(new FormData(node)));
+        assert.deepEqual(values, { status: 'scheduled' });
+        const loaded = page.waitForResponse((response) => response.request().isNavigationRequest() && new URL(response.url()).pathname === '/components/select');
+        await form.getByRole('button', { name: 'Preview selection' }).click();
+        const response = await loaded;
+        assert.equal(response.status(), 200);
+        assert.equal(response.request().method(), 'GET');
+        await page.waitForLoadState();
+        assert.equal(new URL(page.url()).searchParams.get('status'), 'scheduled');
+
+        const requiredForm = page.locator('#required-select-preview form');
+        const category = requiredForm.locator('select[name="category"]');
+        assert.equal(await category.inputValue(), '');
+        assert.equal(await category.locator('option[value=""]').evaluate((node) => node.disabled && node.defaultSelected), true);
+        assert.equal(await category.evaluate((node) => node.validity.valueMissing), true);
+        const before = page.url();
+        await requiredForm.getByRole('button', { name: 'Preview category' }).click();
+        assert.equal(page.url(), before, 'disabled placeholder must not satisfy required validation');
+        await category.selectOption('news');
+        assert.equal(await category.evaluate((node) => node.checkValidity()), true);
+        assert.equal(await requiredForm.locator('select[name="locale"]').isDisabled(), true);
+        assert.deepEqual(await requiredForm.evaluate((node) => Object.fromEntries(new FormData(node))), { category: 'news' });
+      }, { javaScriptEnabled });
+    }
 
     await run(`Switch ${label}`, viewport, async (page) => {
       await visit(page, '/components/switch');
