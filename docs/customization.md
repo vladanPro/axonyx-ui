@@ -1,4 +1,4 @@
-# Foundry Customization V1 (development)
+# Foundry Customization V1
 
 This pilot covers Button, Card, and Field/Input. It is not a promise that every
 component supports every CSS property through a token. Package styles never
@@ -29,7 +29,8 @@ rendered root element. Inline style declarations append to existing root styles,
 so later declarations win. Do not pass class and className together. A fragment
 is not a group-wide styling target: use a real wrapper when styling multiple roots.
 No attributes go into children implicitly; tokens reach children by CSS inheritance.
-This requires the forthcoming core release, not merely updating the UI package.
+This requires axonyx-core 0.6.2 and cargo-axonyx 0.6.4 or newer, alongside
+axonyx-ui 0.0.81; merely updating the UI package is not sufficient.
 
 ## Pilot tokens
 
