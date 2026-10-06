@@ -52,3 +52,12 @@ JS/no-JS scenarios verify real submission and independent groups. The complete
 suite passed 32 scenarios against installed package assets. Existing assertions
 now match the non-first Radio default and check that a disabled Checkbox retains
 its initial state rather than assuming that state is always unchecked.
+
+## Customization development pilot
+
+Run `npm run test:customization` against a catalog built with the new local core
+and UI sources. It checks merged root classes, inline geometry tokens, native
+label focus and input behavior, source expansion and overflow across Classic,
+Alloy and Forge, Bronze/Silver/Gold, and 1440px/390px widths (18 combinations).
+The page is not available on the published 0.0.80 catalog. Core root-attribute
+forwarding and UI tokens must ship together before deploying it.

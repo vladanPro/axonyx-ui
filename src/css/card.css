@@ -1,12 +1,12 @@
 .ax-card {
     position: relative;
     display: grid;
-    gap: 1rem;
+    gap: var(--ax-card-gap, 1rem);
     background: var(--ax-card-surface);
     border: 1px solid var(--ax-border);
-    border-radius: var(--ax-radius-lg);
+    border-radius: var(--ax-card-radius, var(--ax-radius-lg));
     box-shadow: var(--ax-card-shadow);
-    padding: 1.25rem;
+    padding: var(--ax-card-padding, 1.25rem);
     color: var(--ax-text);
 }
 

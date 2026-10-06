@@ -55,10 +55,10 @@
 }
 :scope *, :scope *::before, :scope *::after { box-sizing: border-box; }
 :scope .ax-button {
-  min-height: 38px; padding: 9px 20px; border-radius: var(--ax-radius-md);
+  min-height: var(--ax-button-min-height, 38px); padding: var(--ax-button-padding, 9px 20px); border-radius: var(--ax-button-radius, var(--ax-radius-md));
   border: 1px solid var(--ax-border-strong); background: transparent;
   box-shadow: var(--ax-button-shadow); color: var(--ax-text);
-  font: var(--ax-control-weight) 13px/1.4 var(--ax-font-sans); text-decoration: none;
+  font: var(--ax-control-weight) var(--ax-button-font-size, 13px)/1.4 var(--ax-font-sans); text-decoration: none;
   display: inline-flex; align-items: center; justify-content: center; gap: 8px;
   cursor: pointer; transition: background .15s, border-color .15s;
 }
@@ -69,8 +69,8 @@
 :scope .ax-button:hover { border-color: var(--ax-primary); background-color: var(--ax-surface-2); }
 :scope .ax-button[data-variant='primary']:hover { background-color: var(--ax-primary); filter: brightness(1.08); }
 :scope .ax-input, :scope .ax-select, :scope .ax-textarea {
-  min-width: 0; width: 100%; min-height: 40px; padding: 9px 12px;
-  border: 1px solid var(--ax-border-strong); border-radius: var(--ax-radius-md);
+  min-width: 0; width: 100%; min-height: var(--ax-input-min-height, 40px); padding: var(--ax-input-padding, 9px 12px);
+  border: 1px solid var(--ax-border-strong); border-radius: var(--ax-input-radius, var(--ax-radius-md));
   background: var(--ax-input-finish), var(--ax-surface);
   color: var(--ax-text); box-shadow: var(--ax-input-shadow);
   font: 400 14px/1.4 var(--ax-font-sans);
@@ -86,14 +86,14 @@
 :scope .ax-switch input:checked + .ax-switch__track .ax-switch__thumb { transform: translateX(20px); background: #f6f4ef; }
 :scope .ax-switch:not(:has(input:checked)) .ax-switch__track { background: #3a3c3e; }
 :scope .ax-switch:not(:has(input:checked)) .ax-switch__thumb { transform: none; background: #f6f4ef; }
-:scope .ax-card { padding: 24px; gap: 16px; border: 1px solid var(--ax-border); border-radius: var(--ax-radius-lg); background: var(--ax-card-surface); box-shadow: var(--ax-card-shadow); }
+:scope .ax-card { padding: var(--ax-card-padding, 24px); gap: var(--ax-card-gap, 16px); border: 1px solid var(--ax-border); border-radius: var(--ax-card-radius, var(--ax-radius-lg)); background: var(--ax-card-surface); box-shadow: var(--ax-card-shadow); }
 :scope .ax-card__title { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; letter-spacing: -.3px; }
-:scope :is(.ax-field-label,.ax-field__label) { font-size: 13px; font-weight: 500; }
+:scope :is(.ax-field-label,.ax-field__label) { font-size: var(--ax-field-label-font-size, 13px); font-weight: 500; }
 :scope :is(.ax-field__hint,.ax-field-hint) { color: var(--ax-text-muted); font-size: 12px; }
 :scope .ax-checkbox { font-size: 14px; font-weight: 400; }
 :scope .ax-checkbox input { accent-color: var(--ax-primary); }
-:scope .ax-button[data-size='sm'] { min-height: 32px; padding: 6px 12px; font-size: 12px; }
-:scope .ax-button[data-size='lg'] { min-height: 46px; padding: 12px 24px; font-size: 15px; }
+:scope .ax-button[data-size='sm'] { min-height: var(--ax-button-min-height, 32px); padding: var(--ax-button-padding, 6px 12px); font-size: var(--ax-button-font-size, 12px); }
+:scope .ax-button[data-size='lg'] { min-height: var(--ax-button-min-height, 46px); padding: var(--ax-button-padding, 12px 24px); font-size: var(--ax-button-font-size, 15px); }
 :scope .ax-button[data-variant='ghost'] { background: transparent; border-color: transparent; box-shadow: none; }
 :scope .ax-button[data-variant='danger'] { background: var(--ax-danger, #ff6b6b); color: #160606; border-color: transparent; }
 :scope :is(.ax-input,.ax-select,.ax-textarea)[aria-invalid='true'] { border-color: var(--ax-danger, #ff6b6b); }
@@ -231,17 +231,17 @@
         radial-gradient(circle at top left, rgba(224, 185, 75, 0.1), transparent 42%),
         linear-gradient(180deg, rgba(30, 22, 14, 0.98), rgba(13, 11, 9, 0.98));
 }
-:scope[data-foundry-style='classic'] .ax-button { min-height: 0; box-shadow: none; line-height: normal; }
+:scope[data-foundry-style='classic'] .ax-button { min-height: var(--ax-button-min-height, 0px); box-shadow: none; line-height: normal; }
 :scope[data-foundry-style='classic'] .ax-button {
     position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 0.4rem;
-    font-size: 0.9rem;
+    font-size: var(--ax-button-font-size, 0.9rem);
     font-weight: 500;
-    border-radius: var(--ax-radius-md);
-    padding: 0.6rem 0.9rem;
+    border-radius: var(--ax-button-radius, var(--ax-radius-md));
+    padding: var(--ax-button-padding, 0.6rem 0.9rem);
     border: 1px solid var(--ax-border);
     background: var(--ax-surface-2);
     color: var(--ax-text);
@@ -262,7 +262,8 @@
     width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--ax-border);
-    border-radius: var(--ax-radius-md);
+    border-radius: var(--ax-input-radius, var(--ax-radius-md));
+    min-height: var(--ax-input-min-height, 40px);
     background:
         linear-gradient(
             180deg,
@@ -273,7 +274,7 @@
     font-family: var(--ax-font-sans);
     font-size: 0.95rem;
     line-height: 1.4;
-    padding: 0.7rem 0.85rem;
+    padding: var(--ax-input-padding, 0.7rem 0.85rem);
     box-shadow:
         inset 0 1px 7px rgba(0, 0, 0, 0.26),
         0 0 0 1px rgba(255, 255, 255, 0.015);
@@ -283,7 +284,7 @@
     box-sizing: border-box;
     appearance: none;
     border: 1px solid var(--ax-border);
-    border-radius: var(--ax-radius-md);
+    border-radius: var(--ax-input-radius, var(--ax-radius-md));
     background:
         linear-gradient(
             180deg,
@@ -294,7 +295,7 @@
     font-family: var(--ax-font-sans);
     font-size: 0.95rem;
     line-height: 1.4;
-    padding: 0.7rem 2.35rem 0.7rem 0.85rem;
+    padding: var(--ax-input-padding, 0.7rem 2.35rem 0.7rem 0.85rem);
     box-shadow:
         inset 0 1px 7px rgba(0, 0, 0, 0.26),
         0 0 0 1px rgba(255, 255, 255, 0.015);
@@ -321,12 +322,12 @@
 :scope[data-foundry-style='classic'] .ax-card {
     position: relative;
     display: grid;
-    gap: 1rem;
+    gap: var(--ax-card-gap, 1rem);
     background: var(--ax-card-surface);
     border: 1px solid var(--ax-border);
-    border-radius: var(--ax-radius-lg);
+    border-radius: var(--ax-card-radius, var(--ax-radius-lg));
     box-shadow: var(--ax-card-shadow);
-    padding: 1.25rem;
+    padding: var(--ax-card-padding, 1.25rem);
     color: var(--ax-text);
 }
 :scope[data-foundry-style='classic'] .ax-badge {
