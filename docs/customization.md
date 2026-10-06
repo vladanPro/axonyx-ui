@@ -1,6 +1,6 @@
 # Foundry Customization V1
 
-This pilot covers Button, Card, and Field/Input. It is not a promise that every
+This pilot covers Button, Card, and Field/Input/Select/Textarea. It is not a promise that every
 component supports every CSS property through a token. Package styles never
 require !important for these tokens.
 
@@ -39,9 +39,30 @@ axonyx-ui 0.0.81; merely updating the UI package is not sufficient.
 | Button | --ax-button-min-height, --ax-button-padding, --ax-button-radius, --ax-button-font-size | Minimum height, CSS padding, corners, typography |
 | Card | --ax-card-padding, --ax-card-gap, --ax-card-radius | Root spacing and corners |
 | Field | --ax-field-gap, --ax-field-label-font-size | Label/control rhythm and label typography |
-| Input/Textarea | --ax-input-min-height, --ax-input-padding, --ax-input-radius | Control geometry; field-level tokens inherit |
+| Input | --ax-input-min-height, --ax-input-padding, --ax-input-radius | Shared control geometry; field-level tokens inherit |
+| Select | --ax-select-min-height, --ax-select-padding, --ax-select-radius | Select-specific geometry, falling back to shared input tokens |
+| Textarea | --ax-textarea-min-height, --ax-textarea-padding, --ax-textarea-radius, --ax-textarea-resize | Multiline geometry and resize behavior, falling back to shared input tokens |
 
-The Foundry input recipe shares these geometry tokens with Select. Size recipes
+Select/Textarea-specific tokens require UI 0.0.82. They work with and without a
+Foundry boundary, for sm/md/lg controls. Existing defaults stay unchanged when
+no override is supplied. Shared input tokens still provide a form-wide baseline;
+specific tokens win without changing neighboring inputs. For Select padding,
+reserve room on the right for the arrow. Textarea minimum height is not fixed
+height: rows, text metrics, padding, and user resizing can make it larger.
+
+```css
+.account-field {
+  --ax-input-min-height: 44px;
+  --ax-input-radius: 6px;
+  --ax-select-padding: 0 36px 0 12px;
+  --ax-textarea-min-height: 140px;
+  --ax-textarea-padding: 12px;
+  --ax-textarea-radius: 10px;
+  --ax-textarea-resize: vertical;
+}
+```
+
+Size recipes
 and specialized surfaces still own their remaining details. Card recipes such as
 page-header intentionally reset their layout; this pilot documents ordinary Card.
 

@@ -10,6 +10,10 @@ const localBehavior = readFileSync(join(root, 'src', 'js', 'index.js'), 'utf8');
 const usePackageBehavior = process.env.AXONYX_UI_USE_PACKAGE_JS === '1';
 const useSourceCss = process.env.AXONYX_UI_USE_SOURCE_CSS === '1';
 const checkCssFix = process.env.AXONYX_UI_CHECK_CSS_FIX === '1';
+const sourceCss = useSourceCss
+  ? readFileSync(join(root, 'src', 'css', 'index.css'), 'utf8')
+    .replace(/@import '\.\/([^']+)';/g, (_, file) => readFileSync(join(root, 'src', 'css', file), 'utf8'))
+  : null;
 const browser = await chromium.launch({ headless: true });
 
 async function run(name, viewport, check, options = {}) {
@@ -19,6 +23,10 @@ async function run(name, viewport, check, options = {}) {
   if (!usePackageBehavior) {
     await page.route(/\/_ax\/pkg\/axonyx-ui\/js\/index\.[^/]+\.js$/, (route) =>
       route.fulfill({ status: 200, contentType: 'application/javascript', body: localBehavior }));
+  }
+  if (sourceCss) {
+    await page.route(/\/_ax\/pkg\/axonyx-ui\/index\.[^/]+\.css$/, route =>
+      route.fulfill({ status: 200, contentType: 'text/css', body: sourceCss }));
   }
 
   try {
@@ -33,11 +41,6 @@ async function run(name, viewport, check, options = {}) {
 async function visit(page, route) {
   const response = await page.goto(`${baseUrl}${route}`);
   assert.equal(response?.status(), 200, `${route} should render`);
-  if (useSourceCss) {
-    for (const file of ['component-example.css', 'dropdown.css', 'foundry.css']) {
-      await page.addStyleTag({ content: readFileSync(join(root, 'src', 'css', file), 'utf8') });
-    }
-  }
 }
 
 try {

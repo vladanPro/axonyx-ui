@@ -59,5 +59,17 @@ Run `npm run test:customization` against a catalog built with the new local core
 and UI sources. It checks merged root classes, inline geometry tokens, native
 label focus and input behavior, source expansion and overflow across Classic,
 Alloy and Forge, Bronze/Silver/Gold, and 1440px/390px widths (18 combinations).
-The page is not available on the published 0.0.80 catalog. Core root-attribute
-forwarding and UI tokens must ship together before deploying it.
+The pilot shipped in UI 0.0.81 with core 0.6.2/CLI 0.6.4, and its native and React
+catalog pages passed the same geometry checks against published packages.
+
+## Form geometry contract
+
+Run `npm run test:form-geometry` for Select/Textarea-specific tokens and their
+fallback to shared Input geometry. This is a CSS contract fixture, not a claim
+that every application form has been tested. It covers 72 combinations of
+plain/Classic/Alloy/Forge, Bronze/Silver/Gold, sm/md/lg, and desktop/mobile,
+including native labels, editing, selection, disabled options and FormData.
+
+Set `AXONYX_UI_BASELINE_REF=v0.0.81` to compare default geometry with the published
+baseline before applying overrides. The baseline comparison requires the Git
+tag locally. No server or page-specific JavaScript is required for this fixture.

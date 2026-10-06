@@ -125,8 +125,20 @@
 }
 
 .ax-textarea {
-    min-height: 7rem;
-    resize: vertical;
+    min-height: var(--ax-textarea-min-height, var(--ax-input-min-height, 7rem));
+    padding: var(--ax-textarea-padding, var(--ax-input-padding, 0.7rem 0.85rem));
+    border-radius: var(--ax-textarea-radius, var(--ax-input-radius, var(--ax-radius-md)));
+    resize: var(--ax-textarea-resize, vertical);
+}
+
+.ax-textarea[data-size='sm'] {
+    min-height: var(--ax-textarea-min-height, var(--ax-input-min-height, 2rem));
+    padding: var(--ax-textarea-padding, var(--ax-input-padding, 0.5rem 0.72rem));
+}
+
+.ax-textarea[data-size='lg'] {
+    min-height: var(--ax-textarea-min-height, var(--ax-input-min-height, 3rem));
+    padding: var(--ax-textarea-padding, var(--ax-input-padding, 0.82rem 1rem));
 }
 
 .ax-input::placeholder,
