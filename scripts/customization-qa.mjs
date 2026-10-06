@@ -41,6 +41,26 @@ try {
         assert.equal(geometry.button.radius, '6px');
         assert.equal(geometry.button.font, '14px');
         assert.equal(geometry.button.type, 'button');
+        const formGeometry = await page.evaluate(() => {
+          const select = document.getElementById('custom-status');
+          const textarea = document.getElementById('custom-summary');
+          return { selectHeight: select.getBoundingClientRect().height,
+            selectPadding: getComputedStyle(select).paddingRight,
+            textareaHeight: textarea.getBoundingClientRect().height,
+            textareaRadius: getComputedStyle(textarea).borderRadius };
+        });
+        assert.equal(formGeometry.selectHeight, 44);
+        assert.equal(formGeometry.selectPadding, '36px');
+        assert.equal(formGeometry.textareaHeight, 140);
+        assert.equal(formGeometry.textareaRadius, '10px');
+        await page.locator('label[for="custom-status"]').click();
+        await page.locator('#custom-status').selectOption('published');
+        assert.equal(await page.locator('#custom-status').inputValue(), 'published');
+        assert.equal(await page.locator('#custom-status option[value="locked"]').evaluate(node => node.disabled), true);
+        await page.locator('label[for="custom-summary"]').click();
+        assert.equal(await page.locator('#custom-summary').evaluate(node => node === document.activeElement), true);
+        await page.locator('#custom-summary').fill('Editable summary');
+        assert.equal(await page.locator('#custom-summary').inputValue(), 'Editable summary');
         assert.equal(geometry.overflow, false);
         await page.locator('label[for="custom-name"]').click();
         assert.equal(await page.locator('#custom-name').evaluate((node) => node === document.activeElement), true);
