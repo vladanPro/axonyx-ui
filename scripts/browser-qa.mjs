@@ -45,6 +45,89 @@ try {
     ['desktop', { width: 1280, height: 900 }],
     ['mobile', { width: 390, height: 844 }],
   ]) {
+    for (const javaScriptEnabled of [true, false]) {
+      const mode = javaScriptEnabled ? 'JS' : 'no-JS';
+      await run(`Checkbox form ${label} ${mode}`, viewport, async (page) => {
+        await visit(page, '/components/checkbox');
+        const form = page.locator('#checkbox-settings form');
+        const preview = form.getByRole('checkbox', { name: 'Create a deploy preview', exact: true });
+        const checks = form.getByRole('checkbox', { name: 'Run Foundry checks', exact: true });
+        const unavailable = form.getByRole('checkbox', { name: 'Notify the project team (unavailable)', exact: true });
+        assert.equal(await preview.isChecked(), false);
+        assert.equal(await checks.isChecked(), true);
+        assert.equal(await unavailable.isChecked(), true);
+        assert.equal(await unavailable.isDisabled(), true);
+        assert.equal(await preview.getAttribute('checked'), null);
+        assert.equal(await preview.getAttribute('disabled'), null);
+        assert.deepEqual(await form.evaluate((node) => [...new FormData(node)]), [['run_checks', 'on']]);
+        await form.locator('label').filter({ hasText: 'Create a deploy preview' }).click();
+        assert.equal(await preview.isChecked(), true, 'label should toggle its checkbox');
+        await checks.focus();
+        await page.keyboard.press('Space');
+        assert.equal(await checks.isChecked(), false);
+        assert.deepEqual(await form.evaluate((node) => [...new FormData(node)]), [['deploy_preview', 'on']]);
+        await form.getByRole('button', { name: 'Reset settings' }).click();
+        assert.equal(await preview.isChecked(), false);
+        assert.equal(await checks.isChecked(), true);
+        await preview.check();
+        await checks.uncheck();
+        const response = await Promise.all([
+          page.waitForNavigation(),
+          form.getByRole('button', { name: 'Preview settings' }).click(),
+        ]);
+        assert.equal(response[0]?.status(), 200);
+        const url = new URL(page.url());
+        assert.equal(url.pathname, '/components/checkbox');
+        assert.equal(url.hash, '#checkbox-settings');
+        assert.deepEqual([...url.searchParams], [['deploy_preview', 'on']]);
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      }, { javaScriptEnabled });
+
+      await run(`Radio form ${label} ${mode}`, viewport, async (page) => {
+        await visit(page, '/components/radio');
+        const form = page.locator('#radio-settings form');
+        const site = form.getByRole('radio', { name: 'Site', exact: true });
+        const docs = form.getByRole('radio', { name: 'Docs', exact: true });
+        const blog = form.getByRole('radio', { name: 'Blog', exact: true });
+        assert.equal(await docs.isChecked(), true);
+        assert.equal(await site.getAttribute('checked'), null);
+        assert.equal(await site.getAttribute('disabled'), null);
+        assert.equal(await form.getByRole('radio', { name: 'Portfolio (unavailable)', exact: true }).isDisabled(), true);
+        await docs.focus();
+        await page.keyboard.press('ArrowDown');
+        assert.equal(await blog.isChecked(), true, 'arrow key should skip disabled Portfolio');
+        assert.equal(await docs.isChecked(), false, 'group must remain exclusive');
+        assert.equal(await blog.evaluate((node) => node === document.activeElement), true);
+        await page.keyboard.press('ArrowUp');
+        assert.equal(await docs.isChecked(), true);
+        await form.locator('label').filter({ hasText: /^Site$/ }).click();
+        assert.equal(await site.isChecked(), true, 'native label should select its radio');
+        assert.deepEqual(await form.evaluate((node) => [...new FormData(node)]), [['template', 'site']]);
+        await form.getByRole('button', { name: 'Reset template' }).click();
+        assert.equal(await docs.isChecked(), true);
+        assert.equal(await site.isChecked(), false);
+        await page.getByRole('radio', { name: 'Compact', exact: true }).check();
+        assert.equal(await page.getByRole('radio', { name: 'Left', exact: true }).isChecked(), true);
+        assert.equal(await docs.isChecked(), true, 'other group choices must remain unchanged');
+        await blog.check();
+        const response = await Promise.all([
+          page.waitForNavigation(),
+          form.getByRole('button', { name: 'Preview template' }).click(),
+        ]);
+        assert.equal(response[0]?.status(), 200);
+        const url = new URL(page.url());
+        assert.equal(url.pathname, '/components/radio');
+        assert.equal(url.hash, '#radio-settings');
+        assert.deepEqual([...url.searchParams], [['template', 'blog']]);
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      }, { javaScriptEnabled });
+    }
+  }
+
+  for (const [label, viewport] of [
+    ['desktop', { width: 1280, height: 900 }],
+    ['mobile', { width: 390, height: 844 }],
+  ]) {
     await run(`Dialog ${label}`, viewport, async (page) => {
       await visit(page, '/components/dialog');
       const trigger = page.getByRole('button', { name: 'Open dialog' });
@@ -173,10 +256,11 @@ try {
       const notify = page.locator('input[name="notify_team"]');
       assert.equal(await checks.isChecked(), true);
       assert.equal(await notify.isDisabled(), true);
+      const initialNotifyChecked = await notify.isChecked();
       await notify.focus();
       assert.equal(await notify.evaluate((node) => node === document.activeElement), false, 'disabled checkbox must not receive focus');
       await notify.evaluate((node) => node.parentElement.click());
-      assert.equal(await notify.isChecked(), false, 'disabled checkbox must not toggle from its label');
+      assert.equal(await notify.isChecked(), initialNotifyChecked, 'disabled checkbox must not toggle from its label');
       await visit(page, '/components/select');
       const select = page.locator('select[name="theme"]');
       await select.selectOption('gold');
@@ -277,7 +361,7 @@ try {
       const docs = page.locator('input[name="template"][value="docs"]');
       const blog = page.locator('input[name="template"][value="blog"]');
       const portfolio = page.locator('input[name="template"][value="portfolio"]');
-      assert.equal(await site.isChecked(), true, 'checked prop should select the initial radio');
+      assert.equal(await docs.isChecked(), true, 'checked prop should select the initial radio');
       assert.equal(await portfolio.isDisabled(), true);
       await blog.click();
       assert.equal(await blog.isChecked(), true);
