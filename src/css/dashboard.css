@@ -1,0 +1,61 @@
+.ax-dashboard {
+    --ax-input-min-height: 2.75rem;
+    --ax-input-padding: 0.65rem 0.8rem;
+    --ax-select-padding: 0.65rem 2.25rem 0.65rem 0.8rem;
+    --ax-textarea-min-height: 8.75rem;
+    --ax-textarea-padding: 0.8rem;
+}
+
+.ax-dashboard__main {
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.ax-dashboard .ax-sidebar {
+    min-height: 0;
+}
+
+.ax-dashboard__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.ax-dashboard__navigation summary {
+    cursor: pointer;
+    padding-block: 0.65rem;
+    color: var(--ax-text);
+    font-weight: 700;
+}
+
+.ax-dashboard__navigation .ax-nav-list {
+    margin-top: var(--ax-space-sm);
+}
+
+.ax-dashboard__section {
+    min-width: 0;
+    scroll-margin-top: 8rem;
+}
+
+.ax-dashboard .ax-card > *,
+.ax-dashboard .ax-form > * {
+    min-width: 0;
+}
+
+.ax-dashboard .ax-table {
+    min-width: 28rem;
+}
+
+.ax-dashboard .ax-table tbody th {
+    background: transparent;
+    color: var(--ax-text);
+    font-size: inherit;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+.ax-dashboard :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--ax-primary);
+    outline-offset: 3px;
+}

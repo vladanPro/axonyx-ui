@@ -73,3 +73,15 @@ including native labels, editing, selection, disabled options and FormData.
 Set `AXONYX_UI_BASELINE_REF=v0.0.81` to compare default geometry with the published
 baseline before applying overrides. The baseline comparison requires the Git
 tag locally. No server or page-specific JavaScript is required for this fixture.
+
+## Dashboard composition
+
+UI 0.0.83 expands dashboard-01 into a static content workspace. The catalog uses
+id="catalog-dashboard" for the embedded preview. The browser suite checks its
+native navigation disclosure, four sample records, required title, selection,
+reset and page overflow at desktop/mobile with JavaScript enabled and disabled.
+Additional composition validation covers 36 style/palette/viewport/JS combinations,
+keyboard focus, internal table scrolling, label associations, real GET payloads
+and source expansion. GET sends public sample values in the URL and reloads the
+page; it does not save a record or refresh the static table. Distinguish this
+composition test from an authenticated CMS or runtime-data benchmark.

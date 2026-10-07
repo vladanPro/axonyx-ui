@@ -276,6 +276,12 @@ mod tests {
         assert!(block.contents.contains("slot=\"label\""));
         assert!(block.contents.contains("slot=\"value\""));
         assert!(!block.contents.contains("<Stat label="));
+        assert!(block.contents.contains("submitAction = \"\""));
+        assert!(block.contents.contains("<details"));
+        assert!(block.contents.contains("<caption"));
+        assert!(block.contents.contains("type=\"reset\""));
+        assert!(block.contents.contains("method=\"get\""));
+        assert!(asset("css/dashboard.css").is_some());
     }
 
     #[test]
