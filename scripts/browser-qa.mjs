@@ -50,6 +50,26 @@ try {
   ]) {
     for (const javaScriptEnabled of [true, false]) {
       const mode = javaScriptEnabled ? 'JS' : 'no-JS';
+      await run(`Dashboard composition ${label} ${mode}`, viewport, async (page) => {
+        await visit(page, '/blocks/dashboard-01');
+        const block = page.locator('#catalog-dashboard');
+        await block.getByRole('heading', { name: 'Operations overview' }).waitFor();
+        const navigation = block.locator('.ax-dashboard__navigation');
+        await navigation.locator('summary').click();
+        assert.equal(await navigation.locator('nav').isVisible(), false);
+        await navigation.locator('summary').click();
+        assert.equal(await navigation.locator('nav').isVisible(), true);
+        assert.equal(await block.locator('tbody tr').count(), 4);
+        const form = block.getByRole('form', { name: 'Sample article editor' });
+        await form.locator('input[name="title"]').fill('');
+        assert.equal(await form.evaluate(node => node.checkValidity()), false);
+        await form.locator('input[name="title"]').fill('Public sample');
+        await form.locator('select[name="status"]').selectOption('review');
+        await form.getByRole('button', { name: 'Reset fields' }).click();
+        assert.equal(await form.locator('input[name="title"]').inputValue(), 'Foundry layout guide');
+        assert.equal(await form.locator('select[name="status"]').inputValue(), 'draft');
+        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+      }, { javaScriptEnabled });
       await run(`Checkbox form ${label} ${mode}`, viewport, async (page) => {
         await visit(page, '/components/checkbox');
         const form = page.locator('#checkbox-settings form');

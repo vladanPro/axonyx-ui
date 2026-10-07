@@ -367,7 +367,7 @@ status = "v0"
 install = "cargo ax add ui"
 copy = "cargo ax add block dashboard-01"
 tags = ["dashboard", "admin", "metrics", "cms"]
-description = "Industrial admin dashboard shell for CMS, deploy, QA, and registry screens."
+description = "Responsive content workspace with native navigation, static sample records, and a GET editor preview. No database or authentication is connected."
 
 [[blocks]]
 name = "login-01"
