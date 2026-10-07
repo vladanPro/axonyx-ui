@@ -268,6 +268,15 @@ mod tests {
         assert!(block.contents.contains("type=\"submit\""));
         assert!(block.contents.contains("Danger zone"));
         assert!(block.contents.contains("mode=\"embedded\""));
+        assert!(block.contents.contains("method = \"get\""));
+        assert!(block.contents.contains("<details"));
+        assert!(block.contents.contains("data-ax-field-error=\"slug\""));
+        assert!(block.contents.contains("data-state=\"complete\""));
+        assert!(!block.contents.contains("Changes protected"));
+        assert!(!block.contents.contains("<Main>"));
+        assert!(asset("css/settings.css").is_some());
+        let button = asset("foundry/Button.asx").expect("button should be embedded");
+        assert!(button.contents.contains("disabled={disabled == \"true\"}"));
     }
 
     #[test]

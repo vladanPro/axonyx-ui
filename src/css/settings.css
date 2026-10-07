@@ -1,0 +1,48 @@
+.ax-settings {
+    --ax-input-min-height: 2.75rem;
+    --ax-input-padding: 0.65rem 0.8rem;
+    --ax-select-padding: 0.65rem 2.25rem 0.65rem 0.8rem;
+}
+
+.ax-settings__main {
+    min-width: 0;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.ax-settings .ax-sidebar {
+    min-height: 0;
+}
+
+.ax-settings__title {
+    margin: 0;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
+}
+
+.ax-settings__navigation summary {
+    cursor: pointer;
+    padding-block: 0.65rem;
+    font-weight: 700;
+}
+
+.ax-settings__navigation .ax-nav-list {
+    margin-top: var(--ax-space-sm);
+}
+
+.ax-settings__section {
+    min-width: 0;
+    scroll-margin-top: 8rem;
+}
+
+.ax-settings .ax-card > * {
+    min-width: 0;
+}
+
+.ax-settings .ax-field__error:empty {
+    display: none;
+}
+
+.ax-settings :where(a, button, input, select, summary):focus-visible {
+    outline: 2px solid var(--ax-primary);
+    outline-offset: 3px;
+}
