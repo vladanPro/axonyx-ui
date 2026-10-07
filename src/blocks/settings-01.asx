@@ -1,108 +1,108 @@
-import { Alert } from "@axonyx/ui/foundry/Alert.asx"
-import { AppShell } from "@axonyx/ui/foundry/AppShell.asx"
-import { Button } from "@axonyx/ui/foundry/Button.asx"
-import { Card } from "@axonyx/ui/foundry/Card.asx"
-import { Cluster } from "@axonyx/ui/foundry/Cluster.asx"
-import { Copy } from "@axonyx/ui/foundry/Copy.asx"
-import { Field } from "@axonyx/ui/foundry/Field.asx"
-import { FieldHint } from "@axonyx/ui/foundry/FieldHint.asx"
-import { FieldLabel } from "@axonyx/ui/foundry/FieldLabel.asx"
-import { Form } from "@axonyx/ui/foundry/Form.asx"
-import { FormGroup } from "@axonyx/ui/foundry/FormGroup.asx"
-import { Input } from "@axonyx/ui/foundry/Input.asx"
-import { Main } from "@axonyx/ui/foundry/Main.asx"
-import { Option } from "@axonyx/ui/foundry/Option.asx"
-import { PageHeader } from "@axonyx/ui/foundry/PageHeader.asx"
-import { Select } from "@axonyx/ui/foundry/Select.asx"
-import { Sidebar } from "@axonyx/ui/foundry/Sidebar.asx"
-import { Stack } from "@axonyx/ui/foundry/Stack.asx"
-import { StatusLamp } from "@axonyx/ui/foundry/StatusLamp.asx"
-import { Switch } from "@axonyx/ui/foundry/Switch.asx"
+import { Alert } from "@axonyx/ui/foundry/Alert"
+import { AppShell } from "@axonyx/ui/foundry/AppShell"
+import { Button } from "@axonyx/ui/foundry/Button"
+import { Card } from "@axonyx/ui/foundry/Card"
+import { Checkbox } from "@axonyx/ui/foundry/Checkbox"
+import { Copy } from "@axonyx/ui/foundry/Copy"
+import { Field } from "@axonyx/ui/foundry/Field"
+import { FieldError } from "@axonyx/ui/foundry/FieldError"
+import { FieldHint } from "@axonyx/ui/foundry/FieldHint"
+import { FieldLabel } from "@axonyx/ui/foundry/FieldLabel"
+import { Flex } from "@axonyx/ui/foundry/Flex"
+import { Form } from "@axonyx/ui/foundry/Form"
+import { FormGroup } from "@axonyx/ui/foundry/FormGroup"
+import { Input } from "@axonyx/ui/foundry/Input"
+import { Option } from "@axonyx/ui/foundry/Option"
+import { Select } from "@axonyx/ui/foundry/Select"
+import { Sidebar } from "@axonyx/ui/foundry/Sidebar"
+import { Stack } from "@axonyx/ui/foundry/Stack"
 
-component Settings01(action = "/settings", workspace = "Axonyx Site", slug = "axonyx-site", email = "builder@example.com") {
+component Settings01(id = "settings-demo", action = "", method = "get", submitLabel = "Preview submission", completeMessage = "Request completed.", workspace = "Axonyx Site", slug = "axonyx-site", email = "builder@example.com") {
   return ASX {
-    <AppShell railWidth="sm" gap="lg" mode="embedded">
-      <Sidebar slot="sidebar" label="Settings navigation" collapsible="true">
-        <Stack gap="md">
+    <AppShell id={id} class="ax-settings" railWidth="sm" mode="embedded">
+      <Sidebar slot="sidebar" label="Settings navigation">
+        <Stack gap="lg">
           <strong>Workspace settings</strong>
-          <nav class="ax-nav-list" aria-label="Settings sections">
-            <a class="ax-nav-item" data-active="true" href="#general">General</a>
-            <a class="ax-nav-item" href="#preferences">Preferences</a>
-            <a class="ax-nav-item" href="#danger-zone">Danger zone</a>
-          </nav>
-          <StatusLamp tone="online" label="Changes protected" description="Settings use the native Axonyx action boundary." />
+          <details class="ax-settings__navigation" open={true}>
+            <summary>Settings sections</summary>
+            <nav class="ax-nav-list" aria-label="Settings sections">
+              <a class="ax-nav-item" href={"#" + id + "-general"}>General</a>
+              <a class="ax-nav-item" href={"#" + id + "-preferences"}>Preferences</a>
+              <a class="ax-nav-item" href={"#" + id + "-danger"}>Danger zone</a>
+            </nav>
+          </details>
+          <Copy>This block does not provide authentication or persistence. Connect your own authorized action for real changes.</Copy>
         </Stack>
       </Sidebar>
-
-      <Main>
+      <section class="ax-settings__main" aria-label="Workspace settings">
         <Stack gap="lg">
-          <PageHeader title="Settings">
-            <Copy slot="eyebrow">Workspace control</Copy>
-            <Copy tone="lead">Manage identity, defaults, and publishing behavior from one responsive Foundry shell.</Copy>
-          </PageHeader>
-
-          <Form method="post" action={action}>
-            <Card title="General" border="forged">
-              <div id="general"></div>
+          <header>
+            <Copy>Workspace control</Copy>
+            <h2 class="ax-settings__title">Settings</h2>
+            <Copy>Compose identity and preferences with native, accessible form controls.</Copy>
+          </header>
+          <Form method={method} action={action} aria-label="Workspace settings form">
+            <Card id={id + "-general"} class="ax-settings__section" title="General" border="forged">
               <FormGroup cols="2" gap="lg">
-                <Field htmlFor="settings-workspace">
-                  <FieldLabel htmlFor="settings-workspace">Workspace name</FieldLabel>
-                  <Input id="settings-workspace" name="workspace" value={workspace} />
-                  <FieldHint>Shown in navigation and deploy reports.</FieldHint>
+                <Field>
+                  <FieldLabel htmlFor={id + "-workspace"}>Workspace name</FieldLabel>
+                  <Input id={id + "-workspace"} name="workspace" value={workspace} required="true" describedBy={id + "-workspace-hint " + id + "-workspace-error"} />
+                  <FieldHint id={id + "-workspace-hint"}>Required. Use public sample text in this demo.</FieldHint>
+                  <FieldError id={id + "-workspace-error"} data-ax-field-error="workspace" />
                 </Field>
-                <Field htmlFor="settings-slug">
-                  <FieldLabel htmlFor="settings-slug">Project slug</FieldLabel>
-                  <Input id="settings-slug" name="slug" value={slug} />
-                  <FieldHint>Used by generated routes and deployment metadata.</FieldHint>
+                <Field>
+                  <FieldLabel htmlFor={id + "-slug"}>Project slug</FieldLabel>
+                  <Input id={id + "-slug"} name="slug" value={slug} required="true" describedBy={id + "-slug-hint " + id + "-slug-error"} />
+                  <FieldHint id={id + "-slug-hint"}>The connected server action must validate this identifier.</FieldHint>
+                  <FieldError id={id + "-slug-error"} data-ax-field-error="slug" />
                 </Field>
               </FormGroup>
-              <Field htmlFor="settings-email">
-                <FieldLabel htmlFor="settings-email">Owner email</FieldLabel>
-                <input class="ax-input" id="settings-email" name="email" type="email" autocomplete="email" value={email} required="required" />
+              <Field>
+                <FieldLabel htmlFor={id + "-email"}>Owner email</FieldLabel>
+                <Input id={id + "-email"} name="email" type="email" value={email} required="true" autocomplete="email" describedBy={id + "-email-error"} />
+                <FieldError id={id + "-email-error"} data-ax-field-error="email" />
               </Field>
             </Card>
-
-            <Card title="Preferences" border="forged">
-              <div id="preferences"></div>
+            <Card id={id + "-preferences"} class="ax-settings__section" title="Preferences" border="forged">
               <FormGroup cols="2" gap="lg">
-                <Field htmlFor="settings-theme">
-                  <FieldLabel htmlFor="settings-theme">Default theme</FieldLabel>
-                  <Select id="settings-theme" name="theme">
-                    <Option value="silver">Silver</Option>
+                <Field>
+                  <FieldLabel htmlFor={id + "-theme"}>Default palette</FieldLabel>
+                  <Select id={id + "-theme"} name="theme" required="true" describedBy={id + "-theme-error"}>
+                    <Option value="silver" selected="true">Silver</Option>
                     <Option value="bronze">Bronze</Option>
                     <Option value="gold">Gold</Option>
                   </Select>
+                  <FieldError id={id + "-theme-error"} data-ax-field-error="theme" />
                 </Field>
-                <Field htmlFor="settings-timezone">
-                  <FieldLabel htmlFor="settings-timezone">Timezone</FieldLabel>
-                  <Select id="settings-timezone" name="timezone">
-                    <Option value="Europe/Belgrade">Europe / Belgrade</Option>
+                <Field>
+                  <FieldLabel htmlFor={id + "-timezone"}>Timezone</FieldLabel>
+                  <Select id={id + "-timezone"} name="timezone" required="true" describedBy={id + "-timezone-error"}>
+                    <Option value="Europe/Belgrade" selected="true">Europe / Belgrade</Option>
                     <Option value="UTC">UTC</Option>
                     <Option value="America/New_York">America / New York</Option>
                   </Select>
+                  <FieldError id={id + "-timezone-error"} data-ax-field-error="timezone" />
                 </Field>
               </FormGroup>
-              <Stack gap="md">
-                <Switch name="deploy_notifications">Deployment notifications</Switch>
-                <Switch name="public_status">Public runtime status</Switch>
-              </Stack>
+              <Checkbox name="deploy_notifications" checked="true">Deployment notifications</Checkbox>
+              <Copy>Preferences are submitted as values; this demo does not change the site's palette or send notifications.</Copy>
             </Card>
-
-            <Cluster gap="md" justify="end">
-              <Button type="reset" variant="ghost">Reset</Button>
-              <button class="ax-button" data-variant="primary" data-surface="forged" type="submit">Save changes</button>
-            </Cluster>
+            <Flex gap="sm" wrap="true">
+              <Button type="submit" variant="primary">{submitLabel}</Button>
+              <Button type="reset" variant="ghost">Reset fields</Button>
+            </Flex>
+            <p class="ax-action-status" data-state="pending" role="status" hidden={true}>Submitting settings...</p>
+            <p class="ax-action-status" data-state="complete" role="status" hidden={true}>{completeMessage}</p>
+            <p class="ax-action-status" data-state="error" role="status" hidden={true}>Request rejected. Check the field messages or try again.</p>
+            <Slot name="feedback" />
+            <Copy>The default GET preview exposes values in the URL. Never submit secrets here. Set method="post" and action to an authorized handler for production writes.</Copy>
           </Form>
-
-          <Card title="Danger zone" border="forged">
-            <div id="danger-zone"></div>
-            <Alert tone="warning" title="Destructive operations stay explicit">
-              Archive and deletion should be connected to separate confirmed actions, never hidden inside the settings form.
-            </Alert>
-            <Button variant="ghost">Archive workspace</Button>
+          <Card id={id + "-danger"} class="ax-settings__section" title="Danger zone" border="forged">
+            <Alert tone="warning" title="Destructive operations stay separate">Archive and deletion require a separate authorized, confirmed action.</Alert>
+            <Button disabled="true" variant="ghost">Archive unavailable in demo</Button>
           </Card>
         </Stack>
-      </Main>
+      </section>
     </AppShell>
   }
 }

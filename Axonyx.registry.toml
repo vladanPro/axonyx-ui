@@ -393,4 +393,4 @@ status = "v0"
 install = "cargo ax add ui"
 copy = "cargo ax add block settings-01"
 tags = ["settings", "form", "app-shell", "workspace"]
-description = "Responsive application settings shell with grouped forms, preferences, and an explicit danger zone."
+description = "Responsive settings composition with native controls, unique IDs, action feedback targets and an explicitly disabled demo danger zone. No authentication or persistence is provided."

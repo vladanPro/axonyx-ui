@@ -85,3 +85,21 @@ keyboard focus, internal table scrolling, label associations, real GET payloads
 and source expansion. GET sends public sample values in the URL and reloads the
 page; it does not save a record or refresh the static table. Distinguish this
 composition test from an authenticated CMS or runtime-data benchmark.
+
+## Settings composition
+
+Run npm run test:settings against the catalog's compiled production server.
+Settings01 composes native form controls and the Axonyx action runtime's
+field-error/status targets; no settings-specific browser script is added.
+The catalog action validates public sample values and never persists changes.
+Use project slug admin to trigger a real 422 response, then correct it.
+Tests cover desktop/mobile, JS/no-JS, required/email constraints, reset,
+disabled destructive action, server errors, success and 36 appearance/viewport
+combinations without horizontal page overflow. JS also preserves entered values
+and applies a server patch to the last-accepted-request message.
+
+The preview interpreter in CLI 0.6.4 does not handle every lowered validation
+expression. Use cargo ax build --clean --compiled and cargo ax run start
+--compiled. Current no-JS error re-render shows field errors but resets values
+to the initial sample; do not claim value retention or inline success in no-JS
+mode. Firefox/WebKit are not covered.
