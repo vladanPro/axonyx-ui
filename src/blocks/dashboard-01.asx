@@ -3,44 +3,100 @@ import { AppShell } from "@axonyx/ui/foundry/AppShell.asx"
 import { Card } from "@axonyx/ui/foundry/Card.asx"
 import { ContentGrid } from "@axonyx/ui/foundry/ContentGrid.asx"
 import { Copy } from "@axonyx/ui/foundry/Copy.asx"
-import { Main } from "@axonyx/ui/foundry/Main.asx"
-import { PageHeader } from "@axonyx/ui/foundry/PageHeader.asx"
+import { Button } from "@axonyx/ui/foundry/Button.asx"
+import { Field } from "@axonyx/ui/foundry/Field.asx"
+import { FieldHint } from "@axonyx/ui/foundry/FieldHint.asx"
+import { FieldLabel } from "@axonyx/ui/foundry/FieldLabel.asx"
+import { Flex } from "@axonyx/ui/foundry/Flex.asx"
+import { Form } from "@axonyx/ui/foundry/Form.asx"
+import { Input } from "@axonyx/ui/foundry/Input.asx"
+import { LinkButton } from "@axonyx/ui/foundry/LinkButton.asx"
+import { Option } from "@axonyx/ui/foundry/Option.asx"
+import { Select } from "@axonyx/ui/foundry/Select.asx"
+import { Table } from "@axonyx/ui/foundry/Table.asx"
+import { Textarea } from "@axonyx/ui/foundry/Textarea.asx"
 import { Sidebar } from "@axonyx/ui/foundry/Sidebar.asx"
 import { Stack } from "@axonyx/ui/foundry/Stack.asx"
 import { Stat } from "@axonyx/ui/foundry/Stat.asx"
-import { StatusLamp } from "@axonyx/ui/foundry/StatusLamp.asx"
 
-component Dashboard01 {
+component Dashboard01(id = "dashboard-demo", submitAction = "") {
   return ASX {
-    <AppShell railWidth="sm" gap="lg" mode="embedded">
-      <Sidebar slot="sidebar" label="Console navigation" collapsible="true">
-        <Stack gap="md">
+    <AppShell class="ax-dashboard" id={id} railWidth="sm" mode="embedded">
+      <Sidebar slot="sidebar" label="Console navigation">
+        <Stack gap="lg">
           <strong>Foundry console</strong>
-          <nav class="ax-nav-list" aria-label="Dashboard sections">
-            <a class="ax-nav-item" href="#overview" data-active="true">Overview</a>
-            <a class="ax-nav-item" href="#collections">Collections</a>
-            <a class="ax-nav-item" href="#activity">Activity</a>
-          </nav>
-          <StatusLamp tone="online" label="Runtime online" description="Tokio transport is healthy." />
+          <Badge>Sample workspace</Badge>
+          <details class="ax-dashboard__navigation" open={true}>
+            <summary>Console navigation</summary>
+            <nav class="ax-nav-list" aria-label="Dashboard sections">
+              <a class="ax-nav-item" href={"#" + id + "-overview"}>Overview</a>
+              <a class="ax-nav-item" href={"#" + id + "-records"}>Content</a>
+              <a class="ax-nav-item" href={"#" + id + "-editor"}>Editor</a>
+            </nav>
+          </details>
+          <Copy>Static sample data. No database or authentication is connected.</Copy>
         </Stack>
       </Sidebar>
-      <Main>
+      <section class="ax-dashboard__main" aria-label="Dashboard content">
         <Stack gap="lg">
-          <PageHeader title="Operations overview">
-            <Copy slot="eyebrow">Dashboard</Copy>
-            <Copy tone="lead">Monitor routes, builds, and package health from one responsive application shell.</Copy>
-          </PageHeader>
-          <ContentGrid cols={3} gap="lg">
-            <Stat tone="positive"><span slot="label">Routes</span><span slot="value">84</span><span slot="delta">+12%</span>Ready routes</Stat>
-            <Stat><span slot="label">Build</span><span slot="value">413ms</span><span slot="delta">Melt</span>Latest production build</Stat>
-            <Stat tone="warning"><span slot="label">Packages</span><span slot="value">6</span><span slot="delta">Cargo</span>Resolved dependencies</Stat>
+          <header id={id + "-overview"} class="ax-dashboard__section">
+            <Flex justify="between" align="center" wrap="true">
+              <Stack gap="sm">
+                <Copy>Content workspace</Copy>
+                <h2 class="ax-dashboard__title">Operations overview</h2>
+              </Stack>
+              <LinkButton href={"#" + id + "-editor"} variant="primary">Open editor</LinkButton>
+            </Flex>
+            <Copy>Compose navigation, metrics, a table and native form controls from Foundry primitives.</Copy>
+          </header>
+          <ContentGrid cols="3" colsTablet="3" colsMobile="1" gap="md">
+            <Stat><span slot="label">Sample records</span><span slot="value">4</span>Rows shown below</Stat>
+            <Stat tone="warning"><span slot="label">Drafts</span><span slot="value">2</span>Awaiting publication</Stat>
+            <Stat tone="positive"><span slot="label">Published</span><span slot="value">1</span>One record is in review</Stat>
           </ContentGrid>
-          <Card title="System status" border="forged">
-            <Badge tone="success">Runtime</Badge>
-            <Copy>Tokio transport, package assets, and state manifests are ready for the next deployment.</Copy>
+          <Card id={id + "-records"} class="ax-dashboard__section" title="Content queue" border="forged">
+            <Copy>These records illustrate the layout; editing the form does not update this table.</Copy>
+            <Table density="sm" zebra="true" tabindex="0" role="region" aria-label="Sample content table, scroll horizontally on small screens">
+              <caption class="ax-table__caption">Sample articles - four records</caption>
+              <thead><tr><th scope="col">Title</th><th scope="col">Status</th><th scope="col">Owner</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Getting started</th><td><Badge tone="success">Published</Badge></td><td>Alex</td></tr>
+                <tr><th scope="row">Foundry layout guide</th><td><Badge tone="warning">Draft</Badge></td><td>Sam</td></tr>
+                <tr><th scope="row">Release checklist</th><td><Badge>Review</Badge></td><td>Alex</td></tr>
+                <tr><th scope="row">New workspace</th><td><Badge tone="warning">Draft</Badge></td><td>Jo</td></tr>
+              </tbody>
+            </Table>
+          </Card>
+          <Card id={id + "-editor"} class="ax-dashboard__section" title="Article editor" border="forged">
+            <Form method="get" action={submitAction} aria-label="Sample article editor">
+              <Field>
+                <FieldLabel htmlFor={id + "-title"}>Title</FieldLabel>
+                <Input id={id + "-title"} name="title" value="Foundry layout guide" required="true" describedBy={id + "-title-hint"} />
+                <FieldHint id={id + "-title-hint"}>Required. Use public sample text only.</FieldHint>
+              </Field>
+              <Field>
+                <FieldLabel htmlFor={id + "-status"}>Status</FieldLabel>
+                <Select id={id + "-status"} name="status">
+                  <Option value="draft" selected="true">Draft</Option>
+                  <Option value="review">Review</Option>
+                  <Option value="published">Published</Option>
+                  <Option value="archived" disabled="true">Archived (unavailable)</Option>
+                </Select>
+              </Field>
+              <Field>
+                <FieldLabel htmlFor={id + "-summary"}>Summary</FieldLabel>
+                <Textarea id={id + "-summary"} name="summary" value="A practical guide to composing a Foundry workspace." describedBy={id + "-summary-hint"} />
+                <FieldHint id={id + "-summary-hint"}>Optional. The preview sends values in the URL, not to a database.</FieldHint>
+              </Field>
+              <Flex gap="sm" wrap="true">
+                <Button variant="primary" type="submit">Preview submission</Button>
+                <Button variant="ghost" type="reset">Reset fields</Button>
+              </Flex>
+              <Copy>This GET demo reloads the page. It does not save changes. Connect an authorized POST action in your application for a real save.</Copy>
+            </Form>
           </Card>
         </Stack>
-      </Main>
+      </section>
     </AppShell>
   }
 }
