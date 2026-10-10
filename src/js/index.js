@@ -372,23 +372,27 @@
   }
 
   function bootFloatingSurfaces() {
-    function positionDropdown(root) {
-      const menu = root.querySelector('.ax-dropdown__menu');
+    function positionFloatingSurface(root) {
+      const menu = root.querySelector('.ax-dropdown__menu, .ax-popover__content');
       if (!menu) return;
 
-      const preferred = menu.dataset.preferredAlign || menu.dataset.align || 'end';
-      menu.dataset.preferredAlign = preferred;
-      menu.dataset.align = preferred;
-      menu.style.removeProperty('--ax-dropdown-shift');
+      const isDropdown = root.matches('.ax-dropdown');
+      const shiftProperty = isDropdown ? '--ax-dropdown-shift' : '--ax-popover-shift';
+      menu.style.removeProperty(shiftProperty);
 
-      let rect = menu.getBoundingClientRect();
-      if (preferred === 'end' && rect.left < 8) menu.dataset.align = 'start';
-      else if (preferred === 'start' && rect.right > window.innerWidth - 8) menu.dataset.align = 'end';
+      if (isDropdown) {
+        const preferred = menu.dataset.preferredAlign || menu.dataset.align || 'end';
+        menu.dataset.preferredAlign = preferred;
+        menu.dataset.align = preferred;
+        const rect = menu.getBoundingClientRect();
+        if (preferred === 'end' && rect.left < 8) menu.dataset.align = 'start';
+        else if (preferred === 'start' && rect.right > window.innerWidth - 8) menu.dataset.align = 'end';
+      }
 
-      rect = menu.getBoundingClientRect();
+      const rect = menu.getBoundingClientRect();
       const shift = rect.left < 8 ? 8 - rect.left
         : rect.right > window.innerWidth - 8 ? window.innerWidth - 8 - rect.right : 0;
-      if (shift) menu.style.setProperty('--ax-dropdown-shift', `${shift}px`);
+      if (shift) menu.style.setProperty(shiftProperty, `${shift}px`);
     }
 
     document.querySelectorAll('.ax-dropdown, .ax-popover').forEach((root) => {
@@ -411,7 +415,7 @@
         closeFloatingSurfaces(root);
         root.dataset.open = open ? 'false' : 'true';
         trigger.setAttribute('aria-expanded', root.dataset.open);
-        if (root.dataset.open === 'true' && root.matches('.ax-dropdown')) positionDropdown(root);
+        if (root.dataset.open === 'true') positionFloatingSurface(root);
       });
 
       if (root.matches('.ax-dropdown')) {
@@ -428,7 +432,7 @@
           closeFloatingSurfaces(root);
           root.dataset.open = 'true';
           trigger.setAttribute('aria-expanded', 'true');
-          positionDropdown(root);
+          positionFloatingSurface(root);
           focusDropdownItem(event.key === 'ArrowDown' ? 0 : -1);
         });
 
@@ -453,7 +457,7 @@
 
     document.addEventListener('click', () => closeFloatingSurfaces());
     window.addEventListener('resize', () => {
-      document.querySelectorAll('.ax-dropdown[data-open="true"]').forEach(positionDropdown);
+      document.querySelectorAll('.ax-dropdown[data-open="true"], .ax-popover[data-open="true"]').forEach(positionFloatingSurface);
     });
   }
 

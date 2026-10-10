@@ -78,6 +78,7 @@
     border-radius: var(--ax-radius-lg);
     background: color-mix(in srgb, var(--ax-surface) 96%, black);
     box-shadow: 0 22px 70px rgba(0, 0, 0, 0.36);
+    transform: translateX(var(--ax-popover-shift, 0px));
 }
 
 .ax-popover[data-open='false'] .ax-popover__content {
