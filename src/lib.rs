@@ -98,6 +98,16 @@ mod tests {
     }
 
     #[test]
+    fn exposes_color_modes_after_foundry_recipes() {
+        let index = asset("css/index.css").expect("index css should be embedded");
+        let modes = asset("css/modes.css").expect("color modes should be embedded");
+        assert!(index.contents.find("foundry.css") < index.contents.find("modes.css"));
+        assert!(modes.contents.contains("data-foundry-mode='light'"));
+        assert!(modes.contents.contains("color-scheme: light"));
+        assert!(modes.contents.contains("--ax-on-primary: #ffffff"));
+    }
+
+    #[test]
     fn exposes_foundry_component_asset() {
         let button = asset("foundry/Button.asx").expect("button component should be embedded");
         let link_button =

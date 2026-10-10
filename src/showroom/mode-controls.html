@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foundry mode controls QA</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { margin: 0; }
+    main { min-height: 100vh; padding: 24px; }
+    .controls { display: grid; gap: 24px; max-width: 48rem; margin: auto; }
+    .row { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+    .ax-card { min-width: 0; }
+  </style>
+  <script src="../js/index.js" defer></script>
+</head>
+<body>
+  <main data-foundry="silver" data-foundry-style="classic" data-foundry-mode="light">
+    <div class="controls">
+      <h1>Foundry controls</h1>
+      <article class="ax-card">
+        <h2 class="ax-card__title">Overlays</h2>
+        <div class="row">
+          <div class="ax-dropdown" id="menu">
+            <button class="ax-button ax-dropdown__trigger" type="button">Actions</button>
+            <div class="ax-dropdown__menu" data-align="start">
+              <button class="ax-dropdown__item" type="button">Edit post</button>
+              <button class="ax-dropdown__item" type="button" disabled>Unavailable</button>
+              <button class="ax-dropdown__item" type="button" data-tone="danger">Delete post</button>
+            </div>
+          </div>
+          <div class="ax-popover" id="popover">
+            <button class="ax-button" type="button">Publishing</button>
+            <div class="ax-popover__content" data-side="bottom">Only published posts are public.</div>
+          </div>
+          <span class="ax-tooltip" id="tooltip"><button class="ax-button" type="button">Help</button><span class="ax-tooltip__content">Safe preview</span></span>
+        </div>
+        <div class="row">
+          <button class="ax-button" type="button" data-ax-dialog-open="confirm">Open dialog</button>
+          <button class="ax-button" type="button" data-ax-drawer-open="tools">Open drawer</button>
+        </div>
+        <div class="ax-toast" id="toast"><div><strong class="ax-toast__title">Draft saved</strong><p class="ax-toast__description">Visible only to administrators.</p></div><button class="ax-toast__close" type="button" aria-label="Dismiss notification">x</button></div>
+      </article>
+      <article class="ax-card">
+        <h2 class="ax-card__title">Native controls</h2>
+        <label class="ax-checkbox"><input type="checkbox" id="featured"><span>Featured post</span></label>
+        <div class="ax-radio-group"><label class="ax-radio"><input type="radio" name="visibility" value="public" checked><span>Public</span></label><label class="ax-radio"><input type="radio" name="visibility" value="private"><span>Private</span></label></div>
+        <label class="ax-switch"><input type="checkbox" id="switch"><span class="ax-switch__track"><span class="ax-switch__thumb"></span></span><span>Enable comments</span></label>
+        <label class="ax-slider"><span>Preview size</span><input class="ax-slider__input" type="range" id="range" min="0" max="100" value="40"></label>
+        <div class="ax-alert" data-tone="danger"><span class="ax-alert__marker"></span><div><strong class="ax-alert__title">Cannot publish</strong><span class="ax-alert__content">Add a title before publishing.</span></div></div>
+        <span class="ax-status-lamp" data-tone="online"><span class="ax-status-lamp__light"></span><span class="ax-status-lamp__body"><span class="ax-status-lamp__label">Online</span><span class="ax-status-lamp__description">Server ready</span></span></span>
+        <button class="ax-button" type="button" disabled>Unavailable action</button>
+      </article>
+    </div>
+    <div class="ax-dialog" id="confirm" data-open="false" role="dialog" aria-modal="true" aria-label="Confirm change" hidden>
+      <div class="ax-dialog__backdrop" data-ax-dialog-close="true"></div>
+      <section class="ax-dialog__panel"><header class="ax-dialog__header"><strong class="ax-dialog__title">Confirm change</strong><button class="ax-dialog__close" type="button" aria-label="Close dialog" data-ax-dialog-close="true">x</button></header><div class="ax-dialog__content">Your draft remains private.</div></section>
+    </div>
+    <div class="ax-drawer" id="tools" data-side="right" data-open="false">
+      <div class="ax-drawer__backdrop" data-ax-drawer-close="true"></div>
+      <section class="ax-drawer__panel" role="dialog" aria-modal="true" aria-label="Tools"><header class="ax-drawer__header"><strong class="ax-drawer__title">Tools</strong><button class="ax-button" type="button" data-ax-drawer-close="true">Close</button></header><div class="ax-drawer__content">Publishing tools</div></section>
+    </div>
+  </main>
+</body>
+</html>
