@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Legura - Foundry light pilot</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <style>
+    body { margin: 0; }
+    .pilot { min-height: 100vh; display: grid; grid-template-columns: 230px minmax(0, 1fr); }
+    .pilot-nav { padding: 28px 20px; border-right: 1px solid var(--ax-border); background: var(--ax-surface); }
+    .pilot-nav h1 { font-size: 24px; margin: 0 0 36px; }
+    .pilot-nav a { display: block; padding: 12px; margin: 4px 0; border-radius: 8px; color: var(--ax-text-soft); text-decoration: none; }
+    .pilot-nav a[aria-current] { background: var(--ax-surface-2); color: var(--ax-primary); font-weight: 600; }
+    .pilot-main { min-width: 0; padding: 32px; }
+    .pilot-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+    .pilot-header h2 { margin: 0 0 8px; }
+    .pilot-controls { display: flex; flex-wrap: wrap; gap: 12px; }
+    .pilot-controls label { display: grid; gap: 6px; font-size: 13px; }
+    .pilot-content { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; }
+    .pilot-form { display: grid; gap: 18px; }
+    .pilot-note { color: var(--ax-text-muted); line-height: 1.6; }
+    @media (max-width: 800px) { .pilot { grid-template-columns: 1fr; } .pilot-nav { border-right: 0; border-bottom: 1px solid var(--ax-border); } .pilot-nav h1 { margin-bottom: 12px; } .pilot-nav nav { display: flex; flex-wrap: wrap; } .pilot-main { padding: 20px; } .pilot-content { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="pilot" data-foundry="silver" data-foundry-style="classic" data-foundry-mode="light">
+    <aside class="pilot-nav">
+      <h1>Legura</h1>
+      <nav aria-label="Administration">
+        <a href="#content" aria-current="page">Content</a>
+        <a href="#editor">Editor</a>
+      </nav>
+      <p class="pilot-note">Foundry light-mode preview.<br>Same components. A lighter surface.</p>
+    </aside>
+    <main class="pilot-main" id="content">
+      <header class="pilot-header">
+        <div><h2>Your content</h2><span class="pilot-note">A focused workspace for publishing.</span></div>
+        <div class="pilot-controls">
+          <label>Palette<select class="ax-select" id="palette"><option>silver</option><option>bronze</option><option>gold</option></select></label>
+          <label>Style<select class="ax-select" id="style"><option>classic</option><option>alloy</option><option>forge</option></select></label>
+          <label>Mode<select class="ax-select" id="mode"><option>light</option><option>dark</option></select></label>
+        </div>
+      </header>
+      <div class="pilot-content">
+        <article class="ax-card">
+          <h3 class="ax-card__title">Recent posts</h3>
+          <div class="ax-table-wrap"><table class="ax-table">
+            <thead><tr><th>Title</th><th>Status</th></tr></thead>
+            <tbody><tr><td>Welcome to Legura</td><td><span class="ax-badge">Published</span></td></tr><tr><td>A quieter workspace</td><td><span class="ax-badge">Draft</span></td></tr><tr><td>Built to last</td><td><span class="ax-badge">Draft</span></td></tr></tbody>
+          </table></div>
+          <p class="pilot-note">Preview data only. This page does not write to a database.</p>
+        </article>
+        <article class="ax-card" id="editor">
+          <h3 class="ax-card__title">Edit post</h3>
+          <form class="pilot-form" onsubmit="event.preventDefault()">
+            <div class="ax-field"><label class="ax-field__label" for="title">Title</label><input class="ax-input" id="title" value="A quieter workspace"></div>
+            <div class="ax-field"><label class="ax-field__label" for="summary">Summary</label><textarea class="ax-textarea" id="summary" rows="4">Content first, with familiar Foundry controls.</textarea></div>
+            <div class="ax-field"><label class="ax-field__label" for="status">Status</label><select class="ax-select" id="status"><option>Draft</option><option>Published</option></select></div>
+            <div class="pilot-controls"><button class="ax-button" data-variant="primary" type="submit">Save draft</button><button class="ax-button" data-variant="danger" type="button">Delete</button></div>
+          </form>
+        </article>
+      </div>
+    </main>
+  </div>
+  <script>
+    const root = document.querySelector('.pilot');
+    for (const [id, key] of [['palette', 'foundry'], ['style', 'foundryStyle'], ['mode', 'foundryMode']]) {
+      document.getElementById(id).addEventListener('change', event => { root.dataset[key] = event.target.value; });
+    }
+  </script>
+</body>
+</html>

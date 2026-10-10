@@ -1,0 +1,112 @@
+/* Mode is independent of palette/style. Omission preserves the dark contract.
+   Each Foundry boundary resets mode so nested previews do not inherit light. */
+@scope ([data-foundry]) to (:scope [data-foundry]) {
+  :scope {
+    --ax-border-subtle: initial;
+    --ax-danger: #ff6b6b;
+    --ax-warning: #ffb84d;
+  }
+
+  :scope[data-foundry-mode='light'] {
+    color-scheme: light;
+    --ax-bg: #f3f5f7;
+    --ax-surface: #ffffff;
+    --ax-surface-2: #e9edf2;
+    --ax-text: #202731;
+    --ax-text-soft: #394554;
+    --ax-text-muted: #536173;
+    --ax-border: #d5dbe3;
+    --ax-border-subtle: var(--ax-border);
+    --ax-border-strong: #8794a5;
+    --ax-primary: #46586f;
+    --ax-on-primary: #ffffff;
+    --ax-link: #354f73;
+    --ax-cyan: #23617a;
+    --ax-success: #197341;
+    --ax-warning: #835500;
+    --ax-danger: #b52635;
+    --ax-on-danger: #ffffff;
+    --ax-card-surface: var(--ax-surface);
+    --ax-card-shadow: 0 1px 2px #26344808, 0 8px 24px #26344808;
+    --ax-button-shadow: inset 0 1px 0 #ffffff30;
+    --ax-button-finish: linear-gradient(#ffffff08, #00000005);
+    --ax-input-shadow: inset 0 1px 2px #26344808;
+    --ax-input-finish: linear-gradient(transparent, transparent);
+  }
+
+  :scope[data-foundry-mode='light'][data-foundry='bronze'] {
+    --ax-bg: #f6f3ef;
+    --ax-surface-2: #eee5db;
+    --ax-text: #302820;
+    --ax-text-soft: #514235;
+    --ax-text-muted: #6d5b4b;
+    --ax-border: #dfd3c7;
+    --ax-border-strong: #a58a74;
+    --ax-primary: #885432;
+    --ax-link: #7c4829;
+    --ax-cyan: #805222;
+  }
+
+  :scope[data-foundry-mode='light'][data-foundry='gold'] {
+    --ax-bg: #f7f5ed;
+    --ax-surface-2: #efe8d4;
+    --ax-text: #302b1d;
+    --ax-text-soft: #514831;
+    --ax-text-muted: #6b5e3e;
+    --ax-border: #ded6be;
+    --ax-border-strong: #a59466;
+    --ax-primary: #796019;
+    --ax-link: #705611;
+    --ax-cyan: #76611e;
+  }
+
+  /* Keep forged geometry and raised surfaces without black plate shadows. */
+  :scope[data-foundry-mode='light'][data-foundry-style='forge'] {
+    --ax-card-surface: linear-gradient(145deg, #ffffff90, transparent 55%), var(--ax-surface);
+    --ax-card-shadow: inset 0 2px 0 #fff, inset 0 -1px 0 #26344818, 0 8px 0 -5px #26344820, 0 14px 28px #26344810;
+    --ax-button-shadow: inset 0 2px 0 #ffffff40, inset 0 -2px 0 #00000015, 0 2px 0 #26344825;
+    --ax-button-finish: linear-gradient(#ffffff18, transparent 48%, #00000008);
+    --ax-input-shadow: inset 0 2px 4px #26344812;
+  }
+
+  :scope[data-foundry-mode='light'] :is(.ax-input, .ax-textarea) {
+    background: var(--ax-input-finish), var(--ax-surface);
+    box-shadow: var(--ax-input-shadow);
+  }
+
+  :scope[data-foundry-mode='light'] .ax-select {
+    color-scheme: light;
+    background-color: var(--ax-surface);
+    background-image: linear-gradient(45deg, transparent 50%, var(--ax-primary) 50%), linear-gradient(135deg, var(--ax-primary) 50%, transparent 50%);
+    background-position: calc(100% - 1rem) 50%, calc(100% - .72rem) 50%;
+    background-size: .34rem .34rem, .34rem .34rem;
+    background-repeat: no-repeat;
+    box-shadow: var(--ax-input-shadow);
+  }
+
+  :scope[data-foundry-mode='light'] .ax-button[data-variant='primary'] { color: var(--ax-on-primary); }
+  :scope[data-foundry-mode='light'] .ax-button[data-variant='danger'] {
+    background: var(--ax-danger);
+    color: var(--ax-on-danger);
+    border-color: transparent;
+  }
+
+  :scope[data-foundry-mode='light'] :is(.ax-dropdown__menu, .ax-popover__content, .ax-tooltip__content) {
+    background: var(--ax-surface);
+    color: var(--ax-text-soft);
+    box-shadow: 0 8px 28px #26344820;
+  }
+
+  :scope[data-foundry-mode='light'] :is(.ax-toast, .ax-drawer__panel) {
+    box-shadow: 0 16px 48px #26344824;
+  }
+
+  :scope[data-foundry-mode='light'] .ax-switch:not(:has(input:checked)) .ax-switch__track {
+    background: var(--ax-surface-2);
+    border-color: var(--ax-border-strong);
+  }
+
+  :scope[data-foundry-mode='light'] .ax-switch:not(:has(input:checked)) .ax-switch__thumb {
+    background: var(--ax-text-muted);
+  }
+}

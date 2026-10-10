@@ -10,6 +10,38 @@ require !important for these tokens.
 2. Component tokens set dimensions without replacing markup or behavior.
 3. A custom class or inline style handles a particular instance.
 
+## Light and dark mode
+
+Available in Axonyx UI 0.0.85. This release verifies the dashboard/form/overlay
+pilot, not every specialized industrial component or browser engine.
+
+Palette, finish and color mode are independent. The package stylesheet includes
+the mode recipes; no extra JavaScript or duplicate components are needed:
+
+```html
+<div data-foundry="silver" data-foundry-style="classic" data-foundry-mode="light">
+  <!-- Existing Axonyx UI components -->
+</div>
+```
+
+Use `light` or `dark` with Bronze/Silver/Gold and Classic/Alloy/Forge.
+Omitting mode preserves the existing dark appearance. Each nested Foundry
+boundary resets to dark unless it explicitly opts into light; set all three
+attributes on independent previews. Mode belongs on the same element as
+`data-foundry`, not on an arbitrary ancestor. This does not yet add a persistent
+mode picker or OS preference detection to the Theme component.
+
+The standalone `src/showroom/light-dashboard.html` previews a Legura workspace
+with ordinary cards, a table, fields and buttons. It is a visual pilot, not a
+live CMS or a completed all-component light-mode accessibility audit.
+Run `npm run test:modes` for the browser matrix and contrast checks.
+
+The matrix also verifies menu keyboard navigation, popover bounds on resize,
+tooltip focus, dialog/drawer dismissal and focus restoration, toast dismissal,
+native checkbox/radio/switch/range interactions, and disabled controls. These
+tests use package behavior with representative component HTML in Chromium;
+they do not replace compiled application acceptance or cross-browser QA.
+
 Load application CSS after the package stylesheet. For a nested Foundry boundary,
 put overrides on that boundary, not its parent: palette/style tokens reset there.
 Component geometry tokens inherit normally; reset them explicitly when needed.
