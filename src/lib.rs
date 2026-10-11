@@ -328,4 +328,28 @@ mod tests {
         assert!(registry_manifest().contains("Bleed"));
         assert!(registry_manifest().contains("Center"));
     }
+
+    #[test]
+    fn exposes_native_editor_icons() {
+        for name in [
+            "ParagraphIcon",
+            "Heading2Icon",
+            "Heading3Icon",
+            "BoldIcon",
+            "ItalicIcon",
+            "ListIcon",
+            "OrderedListIcon",
+            "LinkIcon",
+            "UnlinkIcon",
+            "UndoIcon",
+            "RedoIcon",
+        ] {
+            let path = format!("foundry/icons/{name}.asx");
+            let icon = asset(&path).expect("editor icon must be embedded in the Cargo package");
+            assert!(icon.contents.contains("viewBox=\"0 0 24 24\""));
+            assert!(icon.contents.contains("stroke=\"currentColor\""));
+            assert!(icon.contents.contains("fill=\"none\""));
+            assert!(icon.contents.contains("aria-hidden=\"true\""));
+        }
+    }
 }
