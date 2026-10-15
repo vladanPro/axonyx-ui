@@ -84,6 +84,26 @@ try {
             assert.equal(await page.locator(`#${id}`).evaluate(node => node === document.activeElement), true);
           }
           await page.locator('#name').fill('Foundry');
+          if (style !== 'plain') {
+            const focusStyle = id => page.locator('#' + id).evaluate(node => {
+              const css = getComputedStyle(node);
+              return { outline: css.outlineStyle, border: css.borderColor, shadow: css.boxShadow };
+            });
+            await page.locator('#name').focus();
+            const inputFocus = await focusStyle('name');
+            await page.keyboard.press('Tab');
+            assert.equal(await page.locator('#status').evaluate(node => node === document.activeElement), true);
+            assert.deepEqual(await focusStyle('status'), inputFocus, 'Select focus must match the input border, without an outer ring');
+            assert.equal((await focusStyle('status')).outline, 'none');
+            assert.deepEqual(await geometry(page), inherited, 'Focus must not change field geometry');
+            for (const id of ['name', 'status']) await page.locator('#' + id).evaluate(node => node.setAttribute('aria-invalid', 'true'));
+            await page.locator('#name').focus();
+            const inputError = await focusStyle('name');
+            await page.keyboard.press('Tab');
+            assert.deepEqual(await focusStyle('status'), inputError, 'Select focus must preserve the error border');
+            assert.notEqual(inputError.border, inputFocus.border);
+            for (const id of ['name', 'status']) await page.locator('#' + id).evaluate(node => node.removeAttribute('aria-invalid'));
+          }
           await page.locator('#summary').fill('Editable summary');
           await page.locator('#status').selectOption('published');
           assert.deepEqual(await page.locator('#fixture').evaluate(node => Object.fromEntries(new FormData(node))),
