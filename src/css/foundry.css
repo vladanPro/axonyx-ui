@@ -110,11 +110,13 @@
 :scope :is(button,input,select,textarea):disabled,
 :scope [data-disabled='true'] { opacity: .5; cursor: not-allowed; }
 :scope :is(button,a,input,select,textarea):focus-visible, :scope .ax-switch:has(input:focus-visible) { outline: 2px solid var(--ax-primary); outline-offset: 4px; }
+:scope select.ax-select:focus,
 :scope .ax-field :is(.ax-input,.ax-select,.ax-textarea):focus-visible {
     outline: none;
     border-color: var(--ax-primary);
     box-shadow: inset 0 0 0 1px var(--ax-primary), var(--ax-input-shadow);
 }
+:scope select.ax-select[aria-invalid='true']:focus,
 :scope .ax-field[data-state='error'] :is(.ax-input,.ax-select,.ax-textarea):focus-visible,
 :scope .ax-field :is(.ax-input,.ax-select,.ax-textarea)[aria-invalid='true']:focus-visible {
     border-color: var(--ax-danger);

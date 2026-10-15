@@ -21,7 +21,7 @@ const markup = size => `<form id="fixture" style="max-width:560px;margin:auto">
     <option value="draft">Draft</option><option value="published">Published</option><option value="locked" disabled>Locked</option>
   </select></div>
   <div class="ax-field"><label for="summary">Summary</label><textarea class="ax-textarea" id="summary" name="summary" data-size="${size}"></textarea></div>
-</form>`;
+</form><label for="appearance">Appearance</label><select id="appearance" class="ax-select"><option>Light</option><option>Dark</option></select>`;
 
 async function geometry(page) {
   return page.evaluate(() => Object.fromEntries(['name', 'status', 'summary'].map(id => {
@@ -84,11 +84,28 @@ try {
             assert.equal(await page.locator(`#${id}`).evaluate(node => node === document.activeElement), true);
           }
           await page.locator('#name').fill('Foundry');
+          const focusStyle = id => page.locator('#' + id).evaluate(node => {
+            const css = getComputedStyle(node);
+            return { outline: css.outlineStyle, border: css.borderColor, shadow: css.boxShadow };
+          });
+          for (const surface of ['', 'forged']) {
+            await page.locator('#appearance').evaluate((node, surface) => { node.dataset.surface = surface; node.blur(); }, surface);
+            await page.locator('#appearance').focus();
+            const standalone = await focusStyle('appearance');
+            assert.equal(standalone.outline, 'none', 'Standalone selects must not use an outer outline');
+            if (style === 'plain') assert.ok(!standalone.shadow.includes('0px 0px 0px 2px'), 'Standalone select must not add a focus halo');
+            else {
+              await page.locator('#name').focus();
+              assert.deepEqual(standalone, await focusStyle('name'), 'Standalone select must use the shared Foundry focus recipe');
+            }
+            await page.locator('#appearance').evaluate(node => node.setAttribute('aria-invalid', 'true'));
+            await page.locator('#appearance').focus();
+            const invalid = await focusStyle('appearance');
+            assert.equal(invalid.outline, 'none');
+            assert.notEqual(invalid.border, standalone.border, 'Standalone select must preserve error state');
+            await page.locator('#appearance').evaluate(node => node.removeAttribute('aria-invalid'));
+          }
           if (style !== 'plain') {
-            const focusStyle = id => page.locator('#' + id).evaluate(node => {
-              const css = getComputedStyle(node);
-              return { outline: css.outlineStyle, border: css.borderColor, shadow: css.boxShadow };
-            });
             await page.locator('#name').focus();
             const inputFocus = await focusStyle('name');
             await page.keyboard.press('Tab');
