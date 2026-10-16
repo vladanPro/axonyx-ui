@@ -21,11 +21,28 @@ page DataTableExample() {
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow><TableCell><a href="#alpha">Alpha</a></TableCell><TableCell>Published</TableCell></TableRow>
-            <TableRow><TableCell>Echo</TableCell><TableCell>Draft</TableCell></TableRow>
-            <TableRow><TableCell>Bravo</TableCell><TableCell>Published</TableCell></TableRow>
-            <TableRow><TableCell>Delta</TableCell><TableCell>Draft</TableCell></TableRow>
-            <TableRow><TableCell>Charlie</TableCell><TableCell>Published</TableCell></TableRow>
+            <TableRow>
+              <TableCell>
+                <a href="#alpha">Alpha</a>
+              </TableCell>
+              <TableCell>Published</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Echo</TableCell>
+              <TableCell>Draft</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Bravo</TableCell>
+              <TableCell>Published</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Delta</TableCell>
+              <TableCell>Draft</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell>Charlie</TableCell>
+              <TableCell>Published</TableCell>
+            </TableRow>
           </TableBody>
         </Table>
       </DataTable>

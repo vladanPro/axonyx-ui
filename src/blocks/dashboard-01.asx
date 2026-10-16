@@ -54,24 +54,76 @@ component Dashboard01(id = "dashboard-demo", submitAction = "") {
             <Stat tone="warning"><span slot="label">Drafts</span><span slot="value">2</span>Awaiting publication</Stat>
             <Stat tone="positive"><span slot="label">Published</span><span slot="value">1</span>One record is in review</Stat>
           </ContentGrid>
-          <Card id={id + "-records"} class="ax-dashboard__section" title="Content queue" border="forged">
+          <Card
+            id={id + "-records"}
+            class="ax-dashboard__section"
+            title="Content queue"
+            border="forged"
+          >
             <Copy>These records illustrate the layout; editing the form does not update this table.</Copy>
-            <Table density="sm" zebra="true" tabindex="0" role="region" aria-label="Sample content table, scroll horizontally on small screens">
+            <Table
+              density="sm"
+              zebra="true"
+              tabindex="0"
+              role="region"
+              aria-label="Sample content table, scroll horizontally on small screens"
+            >
               <caption class="ax-table__caption">Sample articles - four records</caption>
-              <thead><tr><th scope="col">Title</th><th scope="col">Status</th><th scope="col">Owner</th></tr></thead>
+              <thead>
+                <tr>
+                  <th scope="col">Title</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Owner</th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><th scope="row">Getting started</th><td><Badge tone="success">Published</Badge></td><td>Alex</td></tr>
-                <tr><th scope="row">Foundry layout guide</th><td><Badge tone="warning">Draft</Badge></td><td>Sam</td></tr>
-                <tr><th scope="row">Release checklist</th><td><Badge>Review</Badge></td><td>Alex</td></tr>
-                <tr><th scope="row">New workspace</th><td><Badge tone="warning">Draft</Badge></td><td>Jo</td></tr>
+                <tr>
+                  <th scope="row">Getting started</th>
+                  <td>
+                    <Badge tone="success">Published</Badge>
+                  </td>
+                  <td>Alex</td>
+                </tr>
+                <tr>
+                  <th scope="row">Foundry layout guide</th>
+                  <td>
+                    <Badge tone="warning">Draft</Badge>
+                  </td>
+                  <td>Sam</td>
+                </tr>
+                <tr>
+                  <th scope="row">Release checklist</th>
+                  <td>
+                    <Badge>Review</Badge>
+                  </td>
+                  <td>Alex</td>
+                </tr>
+                <tr>
+                  <th scope="row">New workspace</th>
+                  <td>
+                    <Badge tone="warning">Draft</Badge>
+                  </td>
+                  <td>Jo</td>
+                </tr>
               </tbody>
             </Table>
           </Card>
-          <Card id={id + "-editor"} class="ax-dashboard__section" title="Article editor" border="forged">
+          <Card
+            id={id + "-editor"}
+            class="ax-dashboard__section"
+            title="Article editor"
+            border="forged"
+          >
             <Form method="get" action={submitAction} aria-label="Sample article editor">
               <Field>
                 <FieldLabel htmlFor={id + "-title"}>Title</FieldLabel>
-                <Input id={id + "-title"} name="title" value="Foundry layout guide" required="true" describedBy={id + "-title-hint"} />
+                <Input
+                  id={id + "-title"}
+                  name="title"
+                  value="Foundry layout guide"
+                  required="true"
+                  describedBy={id + "-title-hint"}
+                />
                 <FieldHint id={id + "-title-hint"}>Required. Use public sample text only.</FieldHint>
               </Field>
               <Field>
@@ -85,7 +137,12 @@ component Dashboard01(id = "dashboard-demo", submitAction = "") {
               </Field>
               <Field>
                 <FieldLabel htmlFor={id + "-summary"}>Summary</FieldLabel>
-                <Textarea id={id + "-summary"} name="summary" value="A practical guide to composing a Foundry workspace." describedBy={id + "-summary-hint"} />
+                <Textarea
+                  id={id + "-summary"}
+                  name="summary"
+                  value="A practical guide to composing a Foundry workspace."
+                  describedBy={id + "-summary-hint"}
+                />
                 <FieldHint id={id + "-summary-hint"}>Optional. The preview sends values in the URL, not to a database.</FieldHint>
               </Field>
               <Flex gap="sm" wrap="true">

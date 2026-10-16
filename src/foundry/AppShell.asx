@@ -1,6 +1,12 @@
 component AppShell(rail = "left", railWidth = "md", gap = "", mode = "") {
   return ASX {
-    <div class="ax-app-shell" data-rail={rail} data-rail-width={railWidth} data-gap={gap} data-mode={mode}>
+    <div
+      class="ax-app-shell"
+      data-rail={rail}
+      data-rail-width={railWidth}
+      data-gap={gap}
+      data-mode={mode}
+    >
       <Slot name="sidebar" />
       <Slot />
     </div>
