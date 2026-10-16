@@ -9,7 +9,9 @@ the border, without changing control geometry or removing button focus indicator
 Form geometry/focus QA is now a required package CI step. It covers standalone
 and field selects, default/forged surfaces, error states, all Foundry finishes and
 palettes, three sizes and desktop/mobile viewports. Existing color-mode and package
-checks remain mandatory. No HTML, component API, JS behavior or dependency changes.
+checks remain mandatory. The focus correction does not change existing component
+markup, APIs, JS behavior or dependencies; the separate DataTable additions are
+described below.
 
 The content-editor focus correction is a separate legura-editor Git package
 change (PR16); this UI version does not publish that editor crate or adopt it in
