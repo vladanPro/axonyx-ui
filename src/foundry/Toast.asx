@@ -7,7 +7,12 @@ component Toast(tone = "", title = "") {
           <Slot />
         </p>
       </div>
-      <button class="ax-toast__close" type="button" aria-label="Dismiss toast" data-ax-toast-close="true">x</button>
+      <button
+        class="ax-toast__close"
+        type="button"
+        aria-label="Dismiss toast"
+        data-ax-toast-close="true"
+      >x</button>
     </div>
   }
 }

@@ -1,6 +1,11 @@
 component DataTable(label = "Records", pageSize = "10", searchLabel = "Search records", emptyLabel = "No matching records.") {
   return ASX {
-    <section class="ax-data-table" data-ax-data-table="true" data-page-size={pageSize} aria-label={label}>
+    <section
+      class="ax-data-table"
+      data-ax-data-table="true"
+      data-page-size={pageSize}
+      aria-label={label}
+    >
       <div class="ax-data-table__toolbar" data-ax-table-controls="true" hidden>
         <label class="ax-data-table__search">
           <span>{searchLabel}</span>
@@ -12,7 +17,12 @@ component DataTable(label = "Records", pageSize = "10", searchLabel = "Search re
       <div class="ax-data-table__footer" data-ax-table-controls="true" hidden>
         <span role="status" aria-live="polite" aria-atomic="true" data-ax-table-status="true"></span>
         <div class="ax-data-table__pages">
-          <button type="button" class="ax-button" data-variant="outline" data-ax-table-previous="true">Previous</button>
+          <button
+            type="button"
+            class="ax-button"
+            data-variant="outline"
+            data-ax-table-previous="true"
+          >Previous</button>
           <button type="button" class="ax-button" data-variant="outline" data-ax-table-next="true">Next</button>
         </div>
       </div>
