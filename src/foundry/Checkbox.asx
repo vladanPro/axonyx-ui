@@ -1,7 +1,12 @@
 component Checkbox(name = "", checked = "", disabled = "") {
   return ASX {
     <label class="ax-checkbox" data-checked={checked} data-disabled={disabled}>
-      <input type="checkbox" name={name} checked={checked == "true"} disabled={disabled == "true"} />
+      <input
+        type="checkbox"
+        name={name}
+        checked={checked == "true"}
+        disabled={disabled == "true"}
+      />
       <span>
         <Slot />
       </span>

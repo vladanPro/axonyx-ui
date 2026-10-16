@@ -98,6 +98,24 @@ mod tests {
     }
 
     #[test]
+    fn exposes_data_table_composition() {
+        let component = asset("foundry/DataTable.asx").expect("native data table");
+        assert!(component.contents.contains("<Slot />"));
+        assert!(component
+            .contents
+            .contains("data-ax-table-controls=\"true\" hidden"));
+        assert!(asset("css/data-table.css").is_some());
+        assert!(asset("css/index.css")
+            .unwrap()
+            .contents
+            .contains("data-table.css"));
+        assert!(asset("js/index.js")
+            .unwrap()
+            .contents
+            .contains("bootDataTables();"));
+    }
+
+    #[test]
     fn exposes_color_modes_after_foundry_recipes() {
         let index = asset("css/index.css").expect("index css should be embedded");
         let modes = asset("css/modes.css").expect("color modes should be embedded");

@@ -1,6 +1,14 @@
 component Flex(direction = "row", gap = "md", align = "", justify = "", wrap = "", collapse = "") {
   return ASX {
-    <div class="ax-flex" data-direction={direction} data-gap={gap} data-align={align} data-justify={justify} data-wrap={wrap} data-collapse={collapse}>
+    <div
+      class="ax-flex"
+      data-direction={direction}
+      data-gap={gap}
+      data-align={align}
+      data-justify={justify}
+      data-wrap={wrap}
+      data-collapse={collapse}
+    >
       <Slot />
     </div>
   }

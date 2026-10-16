@@ -20,7 +20,11 @@ component Login01(brand = "Axonyx", eyebrow = "Secure workspace", title = "Retur
         <Surface eyebrow={eyebrow} title={brand} variant="forged" padding="lg">
           <Stack gap="lg">
             <Copy tone="lead">{lead}</Copy>
-            <StatusLamp tone="online" label="Systems online" description="Encrypted session transport is ready." />
+            <StatusLamp
+              tone="online"
+              label="Systems online"
+              description="Encrypted session transport is ready."
+            />
             <Copy>Foundry surfaces keep the account boundary clear without turning the page into a generic auth template.</Copy>
           </Stack>
         </Surface>
@@ -29,12 +33,28 @@ component Login01(brand = "Axonyx", eyebrow = "Secure workspace", title = "Retur
           <Form method="post" action={action}>
             <Field htmlFor="login-email">
               <FieldLabel htmlFor="login-email">Email</FieldLabel>
-              <input class="ax-input" id="login-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required="required" />
+              <input
+                class="ax-input"
+                id="login-email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required="required"
+              />
               <FieldHint>Use the address connected to your workspace.</FieldHint>
             </Field>
             <Field htmlFor="login-password">
               <FieldLabel htmlFor="login-password">Password</FieldLabel>
-              <input class="ax-input" id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required="required" />
+              <input
+                class="ax-input"
+                id="login-password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+                required="required"
+              />
             </Field>
             <Cluster gap="md" justify="between" align="center">
               <Checkbox name="remember">Keep me signed in</Checkbox>

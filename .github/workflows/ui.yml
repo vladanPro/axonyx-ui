@@ -13,6 +13,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  source-format:
+    name: Axonyx Source Format
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo install cargo-axonyx --git https://github.com/vladanPro/axonyx-framework --rev 79c58a2968307b4fd4301c33b31b751d6e94b823 --force
+      - run: bash scripts/format-sources.sh --check
+      - name: Check staged-source hook safety
+        shell: pwsh
+        run: ./scripts/test-format-hook.ps1 -FormatterPath (Get-Command cargo-ax).Source
   package:
     name: Package and Color Modes
     runs-on: ubuntu-latest
@@ -28,6 +40,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: npm run test:modes
       - run: npm run test:form-geometry
+      - run: npm run test:data-table
       - run: npm run build
       - run: npm pack --dry-run
       - run: cargo fmt --all -- --check
