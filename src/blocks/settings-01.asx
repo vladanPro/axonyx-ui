@@ -121,23 +121,28 @@ component Settings01(id = "settings-demo", action = "", method = "get", submitLa
               </FormGroup>
               <Checkbox name="deploy_notifications" checked="true">Deployment notifications</Checkbox>
               <Copy>Preferences are submitted as values; this demo does not change the site's palette or send notifications.</Copy>
-              </Card>
-                <Flex gap="sm" wrap="true">
-                <Button type="submit" variant="primary">{submitLabel}</Button>
-                <Button type="reset" variant="ghost">Reset fields</Button>
-              </Flex>
-                <p class="ax-action-status" data-state="pending" role="status" hidden={true}>Submitting settings...</p>
-                <p class="ax-action-status" data-state="complete" role="status" hidden={true}>{completeMessage}</p>
-                <p class="ax-action-status" data-state="error" role="status" hidden={true}>Request rejected. Check the field messages or try again.</p>
-                <Slot name="feedback" />
-                <Copy>The default GET preview exposes values in the URL. Never submit secrets here. Set method="post" and action to an authorized handler for production writes.</Copy>
-              </Form>
-                <Card id={id + "-danger"} class="ax-settings__section" title="Danger zone" border="forged">
-                <Alert tone="warning" title="Destructive operations stay separate">Archive and deletion require a separate authorized, confirmed action.</Alert>
-                <Button disabled="true" variant="ghost">Archive unavailable in demo</Button>
-              </Card>
-              </Stack>
-              </section>
-              </AppShell>
-              }
-              }
+            </Card>
+            <Flex gap="sm" wrap="true">
+              <Button type="submit" variant="primary">{submitLabel}</Button>
+              <Button type="reset" variant="ghost">Reset fields</Button>
+            </Flex>
+            <p class="ax-action-status" data-state="pending" role="status" hidden={true}>Submitting settings...</p>
+            <p class="ax-action-status" data-state="complete" role="status" hidden={true}>{completeMessage}</p>
+            <p class="ax-action-status" data-state="error" role="status" hidden={true}>Request rejected. Check the field messages or try again.</p>
+            <Slot name="feedback" />
+            <Copy>The default GET preview exposes values in the URL. Never submit secrets here. Set method="post" and action to an authorized handler for production writes.</Copy>
+          </Form>
+          <Card
+            id={id + "-danger"}
+            class="ax-settings__section"
+            title="Danger zone"
+            border="forged"
+          >
+            <Alert tone="warning" title="Destructive operations stay separate">Archive and deletion require a separate authorized, confirmed action.</Alert>
+            <Button disabled="true" variant="ghost">Archive unavailable in demo</Button>
+          </Card>
+        </Stack>
+      </section>
+    </AppShell>
+  }
+}

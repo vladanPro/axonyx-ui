@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo install cargo-axonyx --git https://github.com/vladanPro/axonyx-framework --rev 5369b735287e7b3ad602c86de2125210c8ff7d2c --force
+      - run: cargo install cargo-axonyx --git https://github.com/vladanPro/axonyx-framework --rev 79c58a2968307b4fd4301c33b31b751d6e94b823 --force
       - run: bash scripts/format-sources.sh --check
       - name: Check staged-source hook safety
         shell: pwsh
