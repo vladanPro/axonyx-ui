@@ -13,6 +13,18 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  source-format:
+    name: Axonyx Source Format
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo install cargo-axonyx --git https://github.com/vladanPro/axonyx-framework --rev 5369b735287e7b3ad602c86de2125210c8ff7d2c --force
+      - run: bash scripts/format-sources.sh --check
+      - name: Check staged-source hook safety
+        shell: pwsh
+        run: ./scripts/test-format-hook.ps1 -FormatterPath (Get-Command cargo-ax).Source
   package:
     name: Package and Color Modes
     runs-on: ubuntu-latest
