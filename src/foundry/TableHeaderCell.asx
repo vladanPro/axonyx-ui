@@ -1,6 +1,6 @@
-component TableHeaderCell(align = "", scope = "col") {
+component TableHeaderCell(align = "", scope = "col", sort = "") {
   return ASX {
-    <th class="ax-table__header-cell" data-align={align} scope={scope}>
+    <th class="ax-table__header-cell" data-align={align} scope={scope} data-ax-sort={sort}>
       <Slot />
     </th>
   }

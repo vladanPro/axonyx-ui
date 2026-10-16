@@ -21,6 +21,8 @@ include = [
   "docs/component-coverage.md",
   "docs/browser-qa.md",
   "docs/customization.md",
+  "docs/data-table-v0.md",
+  "examples/data-table/**",
   "README.md",
   "package.json",
   "!dist/**",

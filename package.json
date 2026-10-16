@@ -29,6 +29,8 @@
     "docs/component-coverage.md",
     "docs/browser-qa.md",
     "docs/customization.md",
+    "docs/data-table-v0.md",
+    "examples/data-table",
     "README.md"
   ],
   "scripts": {
@@ -36,6 +38,7 @@
     "audit:coverage": "node scripts/audit-component-coverage.mjs --write",
     "test:browser": "node scripts/browser-qa.mjs",
     "test:settings": "node scripts/settings-qa.mjs",
+    "test:data-table": "node scripts/data-table-qa.mjs",
     "test:customization": "node scripts/customization-qa.mjs",
     "test:form-geometry": "node scripts/form-geometry-qa.mjs",
     "test:modes": "node scripts/modes-qa.mjs",
