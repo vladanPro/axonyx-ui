@@ -646,7 +646,83 @@
     });
   }
 
+  function bootDataTables() {
+    document.querySelectorAll('[data-ax-data-table]').forEach(root => {
+      if (root.dataset.axTableReady === 'true') return;
+      const table = root.querySelector('table');
+      const body = table?.tBodies[0];
+      const search = root.querySelector('[data-ax-table-search]');
+      const previous = root.querySelector('[data-ax-table-previous]');
+      const next = root.querySelector('[data-ax-table-next]');
+      const status = root.querySelector('[data-ax-table-status]');
+      const empty = root.querySelector('[data-ax-table-empty]');
+      if (!body || !search || !previous || !next || !status || !empty) return;
+      if (root.querySelectorAll('table').length !== 1 || table.tBodies.length !== 1) return;
+      // This bounded client view owns only the rows already rendered by the server.
+      const rows = Array.from(body.rows);
+      const size = Number(root.dataset.pageSize);
+      const pageSize = Number.isSafeInteger(size) && size > 0 ? size : 10;
+      const headers = Array.from(table.tHead?.rows[0]?.cells || []);
+      const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+      let page = 0;
+      let sortIndex = -1;
+      let direction = 1;
+
+      function render() {
+        const query = search.value.trim().toLocaleLowerCase();
+        const visible = rows.filter(row => Array.from(row.cells).some(cell =>
+          cell.textContent.toLocaleLowerCase().includes(query)));
+        if (sortIndex >= 0) {
+          visible.sort((a, b) => {
+            const left = a.cells[sortIndex]?.textContent.trim() || '';
+            const right = b.cells[sortIndex]?.textContent.trim() || '';
+            return direction * collator.compare(left, right);
+          });
+        }
+        const pages = Math.max(1, Math.ceil(visible.length / pageSize));
+        page = Math.min(page, pages - 1);
+        const start = page * pageSize;
+        const shown = new Set(visible.slice(start, start + pageSize));
+        rows.forEach(row => { row.hidden = !shown.has(row); });
+        // Move existing nodes, never rebuild cells: row links and handlers survive sorting.
+        visible.forEach(row => body.append(row));
+        previous.disabled = page === 0;
+        next.disabled = page === pages - 1;
+        empty.hidden = visible.length !== 0;
+        status.textContent = `${visible.length ? start + 1 : 0}-${Math.min(start + pageSize, visible.length)} of ${visible.length} records. Page ${page + 1} of ${pages}.`;
+      }
+
+      headers.forEach((header, index) => {
+        if (header.dataset.axSort !== 'text') return;
+        // Rich headers with controls are deliberately not rewritten.
+        if (header.children.length) return;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'ax-data-table__sort';
+        button.textContent = header.textContent;
+        button.setAttribute('aria-label', header.textContent.trim());
+        header.replaceChildren(button);
+        header.setAttribute('aria-sort', 'none');
+        button.addEventListener('click', () => {
+          direction = sortIndex === index ? -direction : 1;
+          sortIndex = index;
+          page = 0;
+          headers.forEach(cell => cell.removeAttribute('aria-sort'));
+          header.setAttribute('aria-sort', direction === 1 ? 'ascending' : 'descending');
+          render();
+        });
+      });
+      search.addEventListener('input', () => { page = 0; render(); });
+      previous.addEventListener('click', () => { page = Math.max(0, page - 1); render(); });
+      next.addEventListener('click', () => { page += 1; render(); });
+      root.querySelectorAll('[data-ax-table-controls]').forEach(control => { control.hidden = false; });
+      root.dataset.axTableReady = 'true';
+      render();
+    });
+  }
+
   function boot() {
+    bootDataTables();
     bootThemes();
     bootAccordions();
     bootTabs();

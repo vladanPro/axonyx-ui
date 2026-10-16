@@ -27,6 +27,7 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: npm run test:modes
+      - run: npm run test:data-table
       - run: npm run build
       - run: npm pack --dry-run
       - run: cargo fmt --all -- --check
