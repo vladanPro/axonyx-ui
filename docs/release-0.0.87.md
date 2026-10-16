@@ -16,5 +16,17 @@ change (PR16); this UI version does not publish that editor crate or adopt it in
 Legura. Consumer updates must be explicit. Private rehearsal CSS previews are
 temporary and must be removed when those package changes are adopted.
 
+The candidate also includes progressive DataTable composition with search,
+sorting and pagination, native examples and package assets. It does not add a
+new React adapter API. Native sources use the shared compiler formatting rules;
+source-format CI is separate from behavior tests. These source-only changes do
+not change component semantics.
+
+The release branch now includes the current dev baseline rather than only the
+earlier focus patch. Both form-geometry and DataTable browser checks remain in
+package CI alongside the color-mode checks.
+
 Cargo and npm publication are independent. This file records a candidate,
-not a claim that either registry already contains version 0.0.87.
+not a claim that either registry already contains version 0.0.87. Consumers,
+including the catalog's Git preview dependency, must be updated only after
+the corresponding registry publication is verified.
