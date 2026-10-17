@@ -121,3 +121,39 @@ and box sizing, and check text wrapping, focus, error, disabled and mobile state
 A matching rectangle is not enough if keyboard access or contrast regresses.
 Avoid selecting anonymous child positions; use the documented semantic classes
 such as .ax-card__title, .ax-field__label and .ax-field__hint when a token is absent.
+# Shared documentation sidebar navigation
+
+Use `ax-sidebar-nav` on a labeled `nav` inside a Sidebar, or on a standalone
+navigation region. The same CSS is shipped through Cargo and npm; no React-only
+skin or duplicated site rules are needed. This opt-in recipe does not change
+the default SidebarItem appearance used by dashboards and CMS installations.
+
+```asx
+<Sidebar>
+  <nav class="ax-sidebar-nav" aria-label="Documentation">
+    <a href="/docs" aria-current={route.path == "/docs"}>Overview</a>
+    <a href="/docs/pages" aria-current={route.path == "/docs/pages"}>Pages</a>
+  </nav>
+</Sidebar>
+```
+
+```tsx
+<nav className="ax-sidebar-nav" aria-label="Documentation">
+  <a href="/docs" aria-current={pathname === "/docs" ? "page" : undefined}>
+    Overview
+  </a>
+</nav>
+```
+
+Routing stays with the application. The recipe understands `aria-current="page"`,
+`"location"` or `"true"`, plus `data-active="true"` and the legacy `is-active`
+class. False/absent values are not selected. Hash-location selection and route
+selection may coexist in separate navigation regions. There is no hidden router,
+automatic URL matching or JavaScript requirement in this style.
+
+The default row uses 13px text, 6px/10px padding, 5px corners, a palette-tinted
+selected surface and a thin accent left edge. Override
+`--ax-sidebar-nav-gap`, `--ax-sidebar-nav-item-height`,
+`--ax-sidebar-nav-item-padding`, `--ax-sidebar-nav-item-radius` or
+`--ax-sidebar-nav-active-background` on the navigation region when needed.
+Group disclosure behavior and page/sidebar positioning remain compositional.
