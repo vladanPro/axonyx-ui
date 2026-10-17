@@ -480,6 +480,14 @@ Disable it with `git config --local --unset core.hooksPath`. Keep baseline
 formatting changes separate from behavior changes. The CI job checks source
 formatting and validates the hook in a disposable Git repository.
 
+## Shared Site Header
+
+Use the opt-in `ax-site-header` recipe for consistent site chrome, brand sizing,
+current links and keyboard focus across native and React applications. Route
+matching remains application-owned. The native runtime enhances mobile menus;
+without JavaScript the navigation stays usable. See
+[the markup and behavior contract](docs/site-header-v1.md).
+
 ## Links
 
 - npm: https://www.npmjs.com/package/@axonyx/ui

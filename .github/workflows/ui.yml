@@ -42,6 +42,7 @@ jobs:
       - run: npm run test:form-geometry
       - run: npm run test:data-table
       - run: npm run test:sidebar-nav
+      - run: npm run test:site-header
       - run: npm run build
       - run: npm pack --dry-run
       - run: cargo fmt --all -- --check
