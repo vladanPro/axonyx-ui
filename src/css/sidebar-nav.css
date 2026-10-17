@@ -1,0 +1,42 @@
+/* Opt-in navigation recipe shared by native pages and React adapters. */
+.ax-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--ax-sidebar-nav-gap, 3px);
+    color: var(--ax-text-muted);
+}
+
+.ax-sidebar-nav a {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    position: relative;
+    min-height: var(--ax-sidebar-nav-item-height, 33px);
+    padding: var(--ax-sidebar-nav-item-padding, 6px 10px);
+    border: 1px solid transparent;
+    border-radius: var(--ax-sidebar-nav-item-radius, 5px);
+    color: var(--ax-text-soft);
+    font-size: 13px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: color 0.16s ease, background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.ax-sidebar-nav a:hover {
+    color: var(--ax-text);
+    background: color-mix(in srgb, var(--ax-primary) 10%, transparent);
+}
+
+.ax-sidebar-nav a:is([aria-current='page'], [aria-current='location'], [aria-current='true'], [data-active='true'], .is-active) {
+    color: var(--ax-text);
+    background: var(--ax-sidebar-nav-active-background, color-mix(in srgb, var(--ax-primary) 12%, transparent));
+    border-color: transparent;
+    border-left-color: var(--ax-primary);
+    box-shadow: none;
+}
+
+.ax-sidebar-nav a:focus-visible {
+    outline: 2px solid var(--ax-primary);
+    outline-offset: 2px;
+}

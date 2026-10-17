@@ -227,6 +227,11 @@ mod tests {
 
     #[test]
     fn exposes_collapsible_sidebar_contract() {
+        let navigation =
+            asset("css/sidebar-nav.css").expect("shared navigation should be embedded");
+        assert!(navigation.contents.contains(".ax-sidebar-nav"));
+        assert!(navigation.contents.contains("[aria-current='page']"));
+        assert!(navigation.contents.contains("--ax-sidebar-nav-item-radius"));
         let sidebar = asset("foundry/Sidebar.asx").expect("sidebar should be embedded");
         let section =
             asset("foundry/SidebarSection.asx").expect("sidebar section should be embedded");
