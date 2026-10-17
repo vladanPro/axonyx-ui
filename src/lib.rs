@@ -226,6 +226,17 @@ mod tests {
     }
 
     #[test]
+    fn exposes_site_header_contract() {
+        let header = asset("css/site-header.css").expect("shared site header should be embedded");
+        assert!(header.contents.contains(".ax-site-header__links"));
+        assert!(header.contents.contains("[aria-current='page']"));
+        assert!(header.contents.contains("--ax-site-header-max"));
+        let runtime = asset("js/index.js").expect("shared runtime should be embedded");
+        assert!(runtime.contents.contains("function bootSiteHeaders()"));
+        assert!(runtime.contents.contains("toggle.dataset.ready = 'true'"));
+    }
+
+    #[test]
     fn exposes_collapsible_sidebar_contract() {
         let navigation =
             asset("css/sidebar-nav.css").expect("shared navigation should be embedded");
