@@ -1,0 +1,57 @@
+.ax-data-table {
+    display: grid;
+    gap: var(--ax-space-md);
+    min-width: 0;
+}
+
+.ax-data-table [hidden] {
+    display: none !important;
+}
+
+.ax-data-table__toolbar,
+.ax-data-table__footer,
+.ax-data-table__pages {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--ax-space-sm);
+}
+
+.ax-data-table__footer {
+    justify-content: space-between;
+    color: var(--ax-text-muted);
+    font-size: 0.85rem;
+}
+
+.ax-data-table__search {
+    display: grid;
+    gap: var(--ax-space-xs);
+    width: min(100%, 22rem);
+    font-size: 0.85rem;
+}
+
+.ax-data-table__empty {
+    margin: 0;
+    padding: var(--ax-space-lg);
+    text-align: center;
+    color: var(--ax-text-muted);
+}
+
+.ax-data-table__sort {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--ax-space-sm);
+    padding: 0.25rem 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    cursor: pointer;
+}
+
+.ax-data-table__sort::after { content: '\2195'; }
+.ax-data-table th[aria-sort='ascending'] .ax-data-table__sort::after { content: '\2191'; }
+.ax-data-table th[aria-sort='descending'] .ax-data-table__sort::after { content: '\2193'; }
+.ax-data-table__sort:focus-visible { outline: 2px solid var(--ax-primary); outline-offset: 4px; }

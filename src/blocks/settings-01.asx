@@ -46,28 +46,58 @@ component Settings01(id = "settings-demo", action = "", method = "get", submitLa
               <FormGroup cols="2" gap="lg">
                 <Field>
                   <FieldLabel htmlFor={id + "-workspace"}>Workspace name</FieldLabel>
-                  <Input id={id + "-workspace"} name="workspace" value={workspace} required="true" describedBy={id + "-workspace-hint " + id + "-workspace-error"} />
+                  <Input
+                    id={id + "-workspace"}
+                    name="workspace"
+                    value={workspace}
+                    required="true"
+                    describedBy={id + "-workspace-hint " + id + "-workspace-error"}
+                  />
                   <FieldHint id={id + "-workspace-hint"}>Required. Use public sample text in this demo.</FieldHint>
                   <FieldError id={id + "-workspace-error"} data-ax-field-error="workspace" />
                 </Field>
                 <Field>
                   <FieldLabel htmlFor={id + "-slug"}>Project slug</FieldLabel>
-                  <Input id={id + "-slug"} name="slug" value={slug} required="true" describedBy={id + "-slug-hint " + id + "-slug-error"} />
+                  <Input
+                    id={id + "-slug"}
+                    name="slug"
+                    value={slug}
+                    required="true"
+                    describedBy={id + "-slug-hint " + id + "-slug-error"}
+                  />
                   <FieldHint id={id + "-slug-hint"}>The connected server action must validate this identifier.</FieldHint>
                   <FieldError id={id + "-slug-error"} data-ax-field-error="slug" />
                 </Field>
               </FormGroup>
               <Field>
                 <FieldLabel htmlFor={id + "-email"}>Owner email</FieldLabel>
-                <Input id={id + "-email"} name="email" type="email" value={email} required="true" autocomplete="email" describedBy={id + "-email-error"} />
+                <Input
+                  id={id + "-email"}
+                  name="email"
+                  type="email"
+                  value={email}
+                  required="true"
+                  autocomplete="email"
+                  describedBy={id + "-email-error"}
+                />
                 <FieldError id={id + "-email-error"} data-ax-field-error="email" />
               </Field>
             </Card>
-            <Card id={id + "-preferences"} class="ax-settings__section" title="Preferences" border="forged">
+            <Card
+              id={id + "-preferences"}
+              class="ax-settings__section"
+              title="Preferences"
+              border="forged"
+            >
               <FormGroup cols="2" gap="lg">
                 <Field>
                   <FieldLabel htmlFor={id + "-theme"}>Default palette</FieldLabel>
-                  <Select id={id + "-theme"} name="theme" required="true" describedBy={id + "-theme-error"}>
+                  <Select
+                    id={id + "-theme"}
+                    name="theme"
+                    required="true"
+                    describedBy={id + "-theme-error"}
+                  >
                     <Option value="silver" selected="true">Silver</Option>
                     <Option value="bronze">Bronze</Option>
                     <Option value="gold">Gold</Option>
@@ -76,7 +106,12 @@ component Settings01(id = "settings-demo", action = "", method = "get", submitLa
                 </Field>
                 <Field>
                   <FieldLabel htmlFor={id + "-timezone"}>Timezone</FieldLabel>
-                  <Select id={id + "-timezone"} name="timezone" required="true" describedBy={id + "-timezone-error"}>
+                  <Select
+                    id={id + "-timezone"}
+                    name="timezone"
+                    required="true"
+                    describedBy={id + "-timezone-error"}
+                  >
                     <Option value="Europe/Belgrade" selected="true">Europe / Belgrade</Option>
                     <Option value="UTC">UTC</Option>
                     <Option value="America/New_York">America / New York</Option>
@@ -97,7 +132,12 @@ component Settings01(id = "settings-demo", action = "", method = "get", submitLa
             <Slot name="feedback" />
             <Copy>The default GET preview exposes values in the URL. Never submit secrets here. Set method="post" and action to an authorized handler for production writes.</Copy>
           </Form>
-          <Card id={id + "-danger"} class="ax-settings__section" title="Danger zone" border="forged">
+          <Card
+            id={id + "-danger"}
+            class="ax-settings__section"
+            title="Danger zone"
+            border="forged"
+          >
             <Alert tone="warning" title="Destructive operations stay separate">Archive and deletion require a separate authorized, confirmed action.</Alert>
             <Button disabled="true" variant="ghost">Archive unavailable in demo</Button>
           </Card>

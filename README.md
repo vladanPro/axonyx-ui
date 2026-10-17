@@ -450,6 +450,36 @@ import { FeatureSection } from "@axonyx/ui/foundry/FeatureSection.asx"
 </FeatureSection>
 ```
 
+## Source Formatting
+
+The package's native sources live in `src/foundry`, `src/blocks`, and `examples`,
+not an application `app` directory. Use the shared compiler-owned formatter:
+
+```bash
+bash scripts/format-sources.sh
+bash scripts/format-sources.sh --check
+```
+
+The wrapper invokes `cargo ax fmt --file` for source files only; it never scans
+`dist`, `node_modules`, generated Rust, or dependencies. VS Code format-on-save
+is configured for Axonyx files. The required formatter behavior is currently
+pinned to a source commit in CI until its registry release; an older installed
+CLI is not sufficient. Set `AXONYX_FORMATTER` to a development `cargo-ax` binary
+when testing an unreleased formatter.
+
+To enable the optional staged-source guard:
+
+```bash
+git config --local core.hooksPath .githooks
+```
+
+The hook only validates staged `.ax`/`.asx` content, never formats files or stages
+unstaged work. It uses `cargo ax` by default; `git config --local
+axonyx.formatterPath /absolute/path/to/cargo-ax` selects a specific executable.
+Disable it with `git config --local --unset core.hooksPath`. Keep baseline
+formatting changes separate from behavior changes. The CI job checks source
+formatting and validates the hook in a disposable Git repository.
+
 ## Links
 
 - npm: https://www.npmjs.com/package/@axonyx/ui
