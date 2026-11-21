@@ -24,7 +24,7 @@ the mode recipes; no extra JavaScript or duplicate components are needed:
 </div>
 ```
 
-Use `light` or `dark` with Bronze/Silver/Gold and Classic/Alloy/Forge.
+Use `light` or `dark` with Bronze/Silver/Gold and Classic/Alloy/Forge/Legura.
 Omitting mode preserves the existing dark appearance. Each nested Foundry
 boundary resets to dark unless it explicitly opts into light; set all three
 attributes on independent previews. Mode belongs on the same element as

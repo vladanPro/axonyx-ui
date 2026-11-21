@@ -4,7 +4,7 @@ Axonyx UI is the design-system layer for the Axonyx ecosystem.
 
 Website: https://axonyx.dev
 
-The opt-in Alloy/Forge/Classic styles and Bronze/Silver/Gold palettes are documented in
+The opt-in Alloy/Forge/Classic/Legura styles and Bronze/Silver/Gold palettes are documented in
 [Foundry finish](docs/foundry-finish.md). Its shared CSS source is
 `src/css/foundry.css`.
 
