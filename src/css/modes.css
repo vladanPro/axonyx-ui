@@ -60,6 +60,27 @@
     --ax-cyan: #76611e;
   }
 
+  :scope[data-foundry-mode='light'][data-foundry-style='legura'] {
+    --ax-bg: #f5f2eb;
+    --ax-surface: #fffcf7;
+    --ax-surface-2: #eee9df;
+    --ax-text: #20211e;
+    --ax-text-soft: #43443e;
+    --ax-text-muted: #63635c;
+    --ax-border: #dcd7cd;
+    --ax-border-strong: #8c8073;
+    --ax-card-shadow: none;
+    --ax-button-finish: none;
+    --ax-button-shadow: none;
+    --ax-input-finish: none;
+    --ax-input-shadow: none;
+  }
+
+  :scope[data-foundry-mode='light'][data-foundry-style='legura'][data-foundry='bronze'] {
+    --ax-primary: #925535;
+    --ax-link: #8e5032;
+  }
+
   /* Keep forged geometry and raised surfaces without black plate shadows. */
   :scope[data-foundry-mode='light'][data-foundry-style='forge'] {
     --ax-card-surface: linear-gradient(145deg, #ffffff90, transparent 55%), var(--ax-surface);

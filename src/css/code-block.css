@@ -112,12 +112,31 @@ pre.docs-code {
   white-space: pre;
 }
 
+.ax-code-block__pre,
+.ax-code-shell__pre,
+.ax-code-shell > pre.docs-code {
+  background: color-mix(in srgb, var(--ax-surface-2, #151f2e) 80%, transparent);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
 .ax-code-block__code,
 .ax-code-shell__code,
 .ax-docs-code-block__code,
 pre.docs-code code {
   color: inherit;
   font: inherit;
+}
+
+.ax-code-block__pre > code,
+.ax-code-shell__pre > code,
+.ax-code-shell > pre.docs-code > code {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .ax-code-token[data-token='comment'] {
@@ -170,13 +189,12 @@ pre.docs-code::selection {
   display: block;
   max-width: 100%;
   padding: 1rem;
-  background: transparent;
   border: 0;
   border-radius: 0;
   box-shadow: none;
 }
 
-pre.docs-code:not(.ax-code-shell__pre) {
+pre.docs-code:not(.ax-code-shell__pre, .ax-code-shell > pre) {
   border: 1px solid color-mix(in srgb, var(--ax-border) 84%, var(--ax-accent));
   border-radius: var(--ax-radius-lg);
   background:

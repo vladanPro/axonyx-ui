@@ -17,6 +17,7 @@
     .pilot-header h2 { margin: 0 0 8px; }
     .pilot-controls { display: flex; flex-wrap: wrap; gap: 12px; }
     .pilot-controls label { display: grid; gap: 6px; font-size: 13px; }
+    .pilot-controls .ax-select { min-inline-size: 6rem; }
     .pilot-content { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 24px; }
     .pilot-form { display: grid; gap: 18px; }
     .pilot-note { color: var(--ax-text-muted); line-height: 1.6; }
@@ -24,7 +25,7 @@
   </style>
 </head>
 <body>
-  <div class="pilot" data-foundry="silver" data-foundry-style="classic" data-foundry-mode="light">
+  <div class="pilot" data-foundry="bronze" data-foundry-style="legura" data-foundry-mode="light">
     <aside class="pilot-nav">
       <h1>Legura</h1>
       <nav aria-label="Administration">
@@ -37,8 +38,8 @@
       <header class="pilot-header">
         <div><h2>Your content</h2><span class="pilot-note">A focused workspace for publishing.</span></div>
         <div class="pilot-controls">
-          <label>Palette<select class="ax-select" id="palette"><option>silver</option><option>bronze</option><option>gold</option></select></label>
-          <label>Style<select class="ax-select" id="style"><option>classic</option><option>alloy</option><option>forge</option></select></label>
+          <label>Palette<select class="ax-select" id="palette"><option>silver</option><option selected>bronze</option><option>gold</option></select></label>
+          <label>Style<select class="ax-select" id="style"><option>classic</option><option>alloy</option><option>forge</option><option selected>legura</option></select></label>
           <label>Mode<select class="ax-select" id="mode"><option>light</option><option>dark</option></select></label>
         </div>
       </header>
