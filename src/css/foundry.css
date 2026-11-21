@@ -2,7 +2,7 @@
 @scope ([data-foundry]) to (:scope [data-foundry]) {
 /* Foundry finish foundation. Load after Axonyx UI, then your token overrides.
    Apply data-foundry="bronze|silver|gold" to a container. No markup changes.
-   Optional data-foundry-style="alloy|forge|classic" on the same container. Alloy is default.
+   Optional data-foundry-style="alloy|forge|classic|legura" on the same container. Alloy is default.
    Nested containers form independent palette and style boundaries. */
 :scope {
   color-scheme: dark;
@@ -37,6 +37,25 @@
 :scope[data-foundry='bronze'] { --ax-primary: #cf9974; --ax-bg: #141413; --ax-surface: #1d1d1b; }
 :scope[data-foundry='silver'] { --ax-primary: #bfc4cd; --ax-bg: #121416; --ax-surface: #1b1e21; }
 :scope[data-foundry='gold'] { --ax-primary: #d8b464; --ax-bg: #161511; --ax-surface: #201e18; }
+:scope[data-foundry-style='legura'] {
+  --ax-bg: #1c1b18;
+  --ax-surface: #26231f;
+  --ax-surface-2: #312d26;
+  --ax-text: #f5f2eb;
+  --ax-text-soft: #e0d8cb;
+  --ax-text-muted: #bdb2a2;
+  --ax-border: #483f35;
+  --ax-border-strong: #827363;
+  --ax-font-sans: 'Avenir Next', 'Gill Sans', 'Trebuchet MS', sans-serif;
+  --ax-radius-md: 6px;
+  --ax-radius-lg: 8px;
+  --ax-control-weight: 600;
+  --ax-card-shadow: none;
+  --ax-button-finish: none;
+  --ax-button-shadow: none;
+  --ax-input-finish: none;
+  --ax-input-shadow: none;
+}
 /* Style changes geometry and surface treatment, independently of palette.
    Set both attributes on each nested boundary; omission resets to Alloy. */
 :scope[data-foundry-style='forge'] {
@@ -98,6 +117,10 @@
 :scope .ax-switch:not(:has(input:checked)) .ax-switch__thumb { transform: none; background: #f6f4ef; }
 :scope .ax-card { padding: var(--ax-card-padding, 24px); gap: var(--ax-card-gap, 16px); border: 1px solid var(--ax-border); border-radius: var(--ax-card-radius, var(--ax-radius-lg)); background: var(--ax-card-surface); box-shadow: var(--ax-card-shadow); }
 :scope .ax-card__title { margin: 0; font-size: 20px; line-height: 1.35; font-weight: 600; letter-spacing: -.3px; }
+:scope[data-foundry-style='legura'] :is(.ax-card__title, .ax-page-header__title) {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 400;
+}
 :scope :is(.ax-field-label,.ax-field__label) { font-size: var(--ax-field-label-font-size, 13px); font-weight: 500; }
 :scope :is(.ax-field__hint,.ax-field-hint) { color: var(--ax-text-muted); font-size: 12px; }
 :scope .ax-checkbox { font-size: 14px; font-weight: 400; }
@@ -370,7 +393,7 @@
 /* Documentation and catalog recipes share the same finish as form primitives. */
 :scope :is(.ax-code-block,.ax-component-preview,.ax-surface) { border: 1px solid var(--ax-border); border-radius: var(--ax-radius-lg); background: var(--ax-surface); box-shadow: var(--ax-card-shadow); }
 :scope .ax-code-block__header { background: var(--ax-surface); border-bottom: 1px solid var(--ax-border); padding: 8px 14px; }
-:scope .ax-code-block__pre { background: var(--ax-bg); padding: 16px; font: 13px/1.7 var(--ax-font-mono); }
+:scope .ax-code-block__pre { padding: 16px; font: 13px/1.7 var(--ax-font-mono); }
 :scope .ax-code-block__title { font-weight: 500; letter-spacing: normal; text-transform: none; }
 :scope .ax-card:is([data-recipe='page-header'],[data-recipe='hero-card']) { padding: 0 0 24px; background: none; border: 0; border-bottom: 1px solid var(--ax-border); border-radius: 0; box-shadow: none; }
 :scope .ax-card:is([data-recipe='page-header'],[data-recipe='hero-card']) > .ax-card__title,

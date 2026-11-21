@@ -27,7 +27,8 @@ jobs:
         run: ./scripts/test-format-hook.ps1 -FormatterPath (Get-Command cargo-ax).Source
   package:
     name: Package and Color Modes
-    runs-on: ubuntu-latest
+    # Playwright 1.60.0 does not install Chromium dependencies on Ubuntu 26.04.
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4

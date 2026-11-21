@@ -36,7 +36,7 @@ try {
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(`http://127.0.0.1:${server.address().port}/showroom/light-dashboard.html`);
-    for (const style of ['classic', 'alloy', 'forge']) {
+    for (const style of ['classic', 'alloy', 'forge', 'legura']) {
       for (const palette of ['silver', 'bronze', 'gold']) {
         await page.selectOption('#style', style);
         await page.selectOption('#palette', palette);
@@ -51,11 +51,20 @@ try {
             };
             return { root: read('.pilot'), card: read('.ax-card'), input: read('#title'),
               select: read('#status'), primary: read('[data-variant="primary"]'), danger: read('[data-variant="danger"]'),
-              muted: read('.pilot-note'), overflow: document.documentElement.scrollWidth > innerWidth };
+              muted: read('.pilot-note'), titleFont: getComputedStyle(document.querySelector('.ax-card__title')).fontFamily,
+              overflow: document.documentElement.scrollWidth > innerWidth };
           });
           assert.equal(values.root.scheme, mode);
           assert.equal(values.select.scheme, mode);
           assert.equal(values.overflow, false, `${width}/${style}/${palette}/${mode} overflow`);
+          if (style === 'legura') {
+            assert.match(values.titleFont, /^Georgia/);
+            assert.equal(values.root.background, mode === 'light' ? 'rgb(245, 242, 235)' : 'rgb(28, 27, 24)');
+            assert.equal(values.primary.background, (mode === 'light'
+              ? { silver: 'rgb(70, 88, 111)', bronze: 'rgb(146, 85, 53)', gold: 'rgb(121, 96, 25)' }
+              : { silver: 'rgb(191, 196, 205)', bronze: 'rgb(207, 153, 116)', gold: 'rgb(216, 180, 100)' })[palette]);
+            assert.ok(contrast(values.primary.color, values.primary.background) >= 4.5);
+          }
           if (mode === 'light') {
             for (const [name, foreground, background] of [
               ['body', values.root.color, values.root.background],
@@ -66,8 +75,9 @@ try {
             ]) {
               assert.ok(contrast(foreground, background) >= 4.5, `${style}/${palette} ${name} contrast`);
             }
-            assert.equal(values.input.background, 'rgb(255, 255, 255)');
-            assert.equal(values.card.background, 'rgb(255, 255, 255)');
+            const surface = style === 'legura' ? 'rgb(255, 252, 247)' : 'rgb(255, 255, 255)';
+            assert.equal(values.input.background, surface);
+            assert.equal(values.card.background, surface);
           } else {
             // An explicit dark mode must match the pre-existing package recipes.
             const baseline = await page.evaluate(() => {
@@ -97,8 +107,8 @@ try {
         }
       }
     }
-    await page.selectOption('#style', 'classic');
-    await page.selectOption('#palette', 'silver');
+    await page.selectOption('#style', 'legura');
+    await page.selectOption('#palette', 'bronze');
     await page.selectOption('#mode', 'light');
     await page.evaluate(() => {
       const nested = document.createElement('div');
@@ -122,7 +132,7 @@ try {
     const page = await browser.newPage({ viewport: { width, height: 1000 }, reducedMotion: 'reduce' });
     const errors = [];
     page.on('pageerror', error => errors.push(error.message));
-    for (const style of ['classic', 'alloy', 'forge']) {
+    for (const style of ['classic', 'alloy', 'forge', 'legura']) {
       for (const palette of ['silver', 'bronze', 'gold']) {
         for (const mode of ['light', 'dark']) {
           await page.goto(`http://127.0.0.1:${server.address().port}/showroom/mode-controls.html`);
@@ -131,6 +141,30 @@ try {
             node.dataset.foundryStyle = values.style;
             node.dataset.foundryMode = values.mode;
           }, { palette, style, mode });
+          await page.waitForSelector('#docs-code-fixture.ax-code-shell__pre');
+          const codeStyles = await page.evaluate(() => {
+            const sample = document.createElement('span');
+            sample.style.background = 'color-mix(in srgb, var(--ax-surface-2, #151f2e) 80%, transparent)';
+            document.querySelector('main').append(sample);
+            const expected = getComputedStyle(sample).backgroundColor;
+            sample.remove();
+            const read = selector => {
+              const node = document.querySelector(selector);
+              const pre = getComputedStyle(node);
+              const code = getComputedStyle(node.firstElementChild);
+              return [pre.backgroundColor, pre.borderWidth, code.backgroundColor, code.borderWidth, code.padding];
+            };
+            return {
+              expected,
+              block: read('#code-fixture pre'),
+              shell: read('#docs-code-fixture'),
+              inline: getComputedStyle(document.querySelector('#inline-code')).borderWidth,
+            };
+          });
+          const borderless = [codeStyles.expected, '0px', 'rgba(0, 0, 0, 0)', '0px', '0px'];
+          assert.deepEqual(codeStyles.block, borderless);
+          assert.deepEqual(codeStyles.shell, borderless);
+          assert.equal(codeStyles.inline, '1px');
           const assertSurface = async (selector) => {
             assert.equal(await page.locator(selector).isVisible(), true, selector);
             const values = await page.locator(selector).evaluate(node => {
@@ -140,7 +174,7 @@ try {
             });
             assert.ok(values.left >= 0 && values.right <= width, `${selector} exceeds viewport`);
             if (mode === 'light') {
-              assert.equal(values.background, 'rgb(255, 255, 255)', `${selector} light surface`);
+              assert.equal(values.background, style === 'legura' ? 'rgb(255, 252, 247)' : 'rgb(255, 255, 255)', `${selector} light surface`);
               assert.ok(contrast(values.color, values.background) >= 4.5, `${selector} contrast`);
             }
           };
@@ -184,10 +218,8 @@ try {
           await page.keyboard.press('Space');
           assert.equal(await page.locator('#switch').isChecked(), true);
           if (mode === 'light') {
-            await page.locator('.ax-alert').evaluate(node => {
-              const css = getComputedStyle(node);
-              if (css.backgroundColor !== 'rgb(255, 255, 255)') throw new Error('Alert surface must be light');
-            });
+            assert.equal(await page.locator('.ax-alert').evaluate(node => getComputedStyle(node).backgroundColor),
+              style === 'legura' ? 'rgb(255, 252, 247)' : 'rgb(255, 255, 255)', 'Alert light surface');
             await page.locator('main').evaluate(node => {
               const nested = document.createElement('div');
               nested.dataset.foundry = 'silver';

@@ -78,10 +78,19 @@ keep the Alloy appearance by default. Choose both on the same container:
 - **Alloy**: restrained borders, rounded corners, subtle surface depth (default).
 - **Forge**: angular corners, stronger material borders, beveled buttons and inset fields.
 - **Classic**: original Axonyx UI palette values, large corners and rich card surfaces, using the original base component recipes. Site layout stays the same.
+- **Legura**: warm paper and ink surfaces, serif card/page titles, quieter borders and flat controls. Select Bronze in light mode for the copper-accented look of the Legura site. Silver and Gold remain independent accent choices.
 - **Palette**: `bronze`, `silver`, or `gold`, independently of style.
 
 Each nested `data-foundry` container resets to Alloy unless it explicitly selects
-Forge or Classic. Styles never change component markup, events, slots, or behavior.
+another style. Styles never change component markup, events, slots, or behavior.
+
+```html
+<div data-foundry="bronze" data-foundry-style="legura" data-foundry-mode="light">
+  <!-- Existing Foundry components -->
+</div>
+```
+
+Legura does not copy the marketing site's page layout or change the default mode.
 Load brand overrides after the foundation, using `[data-foundry].my-brand` as before.
 Style tokens include `--ax-radius-md`, `--ax-radius-lg`, `--ax-card-shadow`,
 `--ax-button-shadow`, `--ax-button-finish`, `--ax-input-shadow`,
@@ -95,3 +104,6 @@ No catalog stylesheet or JavaScript is needed to render a selected style.
 
 The foundation also styles PageHeader/HeroCard, code blocks, component previews,
 and `.ax-appearance` controls, so documentation sites share the same finish.
+Code blocks keep their header separate and use `--ax-surface-2` for the
+snippet background. The nested `code` element stays transparent and borderless;
+inline code outside these blocks is unaffected.
