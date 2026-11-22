@@ -31,6 +31,39 @@ attributes on independent previews. Mode belongs on the same element as
 `data-foundry`, not on an arbitrary ancestor. This does not yet add a persistent
 mode picker or OS preference detection to the Theme component.
 
+## ThemeScope
+
+`ThemeScope` sets the palette, finish and mode on one wrapper. Use it around
+an app layout or nest it around a preview. It does not read storage, ship a
+client script or alter the global theme. Each wrapper has its own defaults:
+Classic, Bronze and dark.
+
+```asx
+import { ThemeScope } from "@axonyx/ui/foundry/ThemeScope"
+
+<ThemeScope finish="legura" palette="bronze" mode="light" className="my-theme">
+  <Slot />
+</ThemeScope>
+```
+
+Load your CSS after the package. Target the wrapper with enough specificity
+to override a built-in style, mode and palette combination:
+
+```css
+.ax-theme-scope.my-theme[data-foundry][data-foundry-style][data-foundry-mode] {
+  --ax-primary: #245c48;
+  --ax-on-primary: #fff;
+}
+```
+
+`finish` is named separately from the ordinary `style` attribute. The React
+adapter uses the same attributes and CSS.
+
+A future typed `ThemeOptions` object can compile to this same boundary and CSS
+token contract. This wrapper does not add compiler support for `theme.ax`.
+Legura CMS themes are a separate contract: they may own public templates and
+layout as well as use Foundry tokens for appearance.
+
 The standalone `src/showroom/light-dashboard.html` previews a Legura workspace
 with ordinary cards, a table, fields and buttons. It is a visual pilot, not a
 live CMS or a completed all-component light-mode accessibility audit.
