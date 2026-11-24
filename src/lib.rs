@@ -139,6 +139,16 @@ mod tests {
     }
 
     #[test]
+    fn exposes_theme_scope_without_a_client_runtime() {
+        let scope = asset("foundry/ThemeScope.asx").expect("theme scope should be embedded");
+        assert!(scope.contents.contains("data-foundry={palette}"));
+        assert!(scope.contents.contains("data-foundry-style={finish}"));
+        assert!(scope.contents.contains("data-foundry-mode={mode}"));
+        assert!(scope.contents.contains("<Slot />"));
+        assert!(!scope.contents.contains("<Script"));
+    }
+
+    #[test]
     fn exposes_form_composition_assets() {
         let spinner = asset("foundry/Spinner.asx").expect("spinner should be embedded");
         let toggle = asset("foundry/Toggle.asx").expect("toggle should be embedded");

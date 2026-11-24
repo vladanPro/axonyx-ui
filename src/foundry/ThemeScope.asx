@@ -1,0 +1,12 @@
+component ThemeScope(finish = "classic", palette = "bronze", mode = "dark") {
+  return ASX {
+    <div
+      class="ax-theme-scope"
+      data-foundry={palette}
+      data-foundry-style={finish}
+      data-foundry-mode={mode}
+    >
+      <Slot />
+    </div>
+  }
+}
